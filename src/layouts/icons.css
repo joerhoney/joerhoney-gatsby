@@ -1,0 +1,41 @@
+.icons {
+  color: var(--color3);
+}
+.icons a {
+  color: currentColor;
+}
+.icons:focus,
+.icons:hover {
+  color: var(--color4);
+}
+.icons .stack:focus,
+.icons .stack:hover {
+  color: var(--color5);
+}
+.cta_b .icons {
+  color: var(--color5);
+}
+.cta_b .icons .stack:focus,
+.cta_b .icons .stack:hover {
+  color: var(--color6);
+}
+.icons .stack {
+  padding: 10px;
+}
+.icons .stack svg {
+  transition: all 0.75s ease;
+}
+.icons .stack b {
+  transition: all 0.75s ease, scale 0.2s;
+}
+.icons .stack:hover b {
+  scale: 1.25;
+}
+@media (hover: hover) {
+  .reveal .icons .stack b {
+    opacity: 0;
+  }
+  .reveal:hover .icons .stack b {
+    opacity: 1;
+  }
+}

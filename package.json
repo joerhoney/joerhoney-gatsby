@@ -1,0 +1,42 @@
+{
+  "name": "joerhoney.com-2.0",
+  "version": "1.0.0",
+  "private": true,
+  "description": "joerhoney.com-2.0",
+  "author": "joerhoney",
+  "keywords": [
+    "gatsby"
+  ],
+  "scripts": {
+    "preload-fonts": "gatsby-preload-fonts",
+    "develop": "gatsby develop",
+    "start": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean"
+  },
+  "dependencies": {
+    "@mdx-js/react": "^2.3.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "gatsby": "^5.12.4",
+    "gatsby-background-image": "^1.6.0",
+    "gatsby-plugin-anchor-links": "^1.2.1",
+    "gatsby-plugin-image": "^3.12.2",
+    "gatsby-plugin-mdx": "^5.12.1",
+    "gatsby-plugin-preload-fonts": "^4.12.0",
+    "gatsby-plugin-scroll-reveal": "^0.0.7",
+    "gatsby-plugin-sharp": "^5.12.3",
+    "gatsby-plugin-styled-components": "^6.12.0",
+    "gatsby-source-filesystem": "^5.12.1",
+    "gatsby-transformer-sharp": "^5.12.3",
+    "gbimage-bridge": "^0.2.2",
+    "normalize.css": "^8.0.1",
+    "parallax-controller": "^1.7.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-icons": "^4.11.0",
+    "react-scroll-parallax": "^3.4.2",
+    "styled-components": "^6.1.0",
+    "yarn": "^1.22.19"
+  }
+}
