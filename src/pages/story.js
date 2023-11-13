@@ -102,6 +102,5 @@ export default storyPage;
 export const Head = () => (
   <>
     <title>My Story | :joe rhoney</title>
-    <body className="colors-default" />
   </>
 );

@@ -69,6 +69,5 @@ export default artistPage;
 export const Head = () => (
   <>
     <title>Artist | :joe rhoney</title>
-    <body className="colors-default" />
   </>
 );

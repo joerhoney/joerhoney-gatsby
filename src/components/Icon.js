@@ -416,7 +416,7 @@ const Icon = (props) => {
         <ConditionalWrap
           condition={props.href}
           wrapper={(children) => (
-            <a href={props.href} target="_blank">
+            <a href={props.href} rel="noreferrer" target="_blank">
               {children}
             </a>
           )}

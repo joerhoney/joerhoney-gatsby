@@ -32,13 +32,19 @@
   /* --gradButton: linear-gradient(70deg, #b13b6eaa, #563760aa); */
 }
 .half1,
-.half1_b {
+.half1_b::before {
   --gradBg: linear-gradient(50deg, #feeaa8, #ffa082);
+}
+.half1,
+.half1_b {
   --text: #5a3a67;
 }
 .half2,
-.half2_b {
+.half2_b::before {
   --gradBg: linear-gradient(50deg, #5a3a67, #121f26);
+}
+.half2,
+.half2_b {
   --text: #ffd8b7;
 }
 .hero,
@@ -80,11 +86,17 @@
   .half1,
   .half1_b::before {
     --gradBg: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
+  }
+  .half1,
+  .half1_b {
     --text: #ffd8b7;
   }
   .half2,
   .half2_b::before {
     --gradBg: linear-gradient(50deg, #fa7d65, #ffefb8);
+  }
+  .half2,
+  .half2_b {
     --text: #5a3a67;
   }
   .hero,

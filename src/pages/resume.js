@@ -318,6 +318,5 @@ export default resume;
 export const Head = () => (
   <>
     <title>Developer Résumé | :joe rhoney</title>
-    <body className="colors-default" />
   </>
 );

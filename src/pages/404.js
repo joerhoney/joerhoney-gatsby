@@ -32,6 +32,5 @@ export default NotFoundPage;
 export const Head = () => (
   <>
     <title>Page Not Found | :joe rhoney</title>
-    <body className="colors-default" />
   </>
 );

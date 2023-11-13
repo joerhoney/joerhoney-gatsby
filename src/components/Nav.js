@@ -83,6 +83,7 @@ const Wrapper = styled.nav`
   ul li a {
     color: var(--color3);
     display: block;
+    font-weight: 700;
     position: relative;
     text-decoration: none;
     text-transform: lowercase;
@@ -136,6 +137,6 @@ const Wrapper = styled.nav`
     font-size: 100px;
     left: 0;
     position: absolute;
-    top: 30px;
+    top: 32px;
   }
 `;

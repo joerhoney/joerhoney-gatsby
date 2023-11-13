@@ -8,8 +8,6 @@ import { Link } from "gatsby";
 import Form from "../components/Form";
 import Profiles from "../fragments/Profiles";
 import { Split, Half } from "../components/Split";
-import dragonBack from "../images/dragon-back.webp";
-import dragonFront from "../images/dragon-front.webp";
 
 const homePage = () => {
   return (
@@ -46,7 +44,7 @@ const homePage = () => {
             className="half1_b"
             heading="Developer"
             position="top right"
-            src={dragonFront}
+            src="../images/dragon_front.webp"
             speed={9}
             to="/code"
           >
@@ -61,7 +59,7 @@ const homePage = () => {
             className="half2_b"
             heading="Illustrator"
             position="top left"
-            src={dragonBack}
+            src="../images/dragonBack.webp"
             speed={-9}
             to="/art"
           >
@@ -117,6 +115,5 @@ export default homePage;
 export const Head = () => (
   <>
     <title>Developer/Artist | :joe rhoney</title>
-    <body className="colors-default" />
   </>
 );

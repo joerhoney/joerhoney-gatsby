@@ -394,6 +394,5 @@ export default codePage;
 export const Head = () => (
   <>
     <title>Developer | :joe rhoney</title>
-    <body className="colors-default" />
   </>
 );
