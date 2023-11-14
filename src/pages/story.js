@@ -1,7 +1,6 @@
 import * as React from "react";
 import Page from "../layouts/Page";
 import blossom from "../images/cherry-blossom-half.webp";
-import { Parallax } from "react-scroll-parallax";
 import Form from "../components/Form";
 import Profiles from "../fragments/Profiles";
 
@@ -17,18 +16,16 @@ const storyPage = () => {
         />
         <h1>Story</h1>
       </div>
-      <Parallax speed={10}>
-        <section className="alignable bottomL topS">
-          <article className="self-center">
-            <p>
-              <strong>TLDR;</strong> Lifetime artist, found a career in design
-              in 1999, which quickly lead to a web development opportunity, and
-              I've been designing and coding ever since... and my family and I
-              lived happily ever after. 😁
-            </p>
-          </article>
-        </section>
-      </Parallax>
+      <section className="alignable bottomL topS">
+        <article className="self-center">
+          <p>
+            <strong>TLDR;</strong> Lifetime artist, found a career in design in
+            1999, which quickly lead to a web development opportunity, and I've
+            been designing and coding ever since... and my family and I lived
+            happily ever after. 😁
+          </p>
+        </article>
+      </section>
       <section className="alignable skewC tint3_b bottomS">
         <article className="self-center">
           <h2>Journey of an Artist</h2>

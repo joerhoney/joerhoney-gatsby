@@ -397,10 +397,10 @@ input:-webkit-autofill {
 .hero h1 {
   align-self: end;
   bottom: 0;
-  font-size: calc(7vh + 5vw);
+  font-size: calc(6vh + 4vw);
   max-width: calc(38vh + 24vw);
   position: absolute;
-  right: var(--unit12);
+  right: var(--unit10);
   rotate: 22deg;
   text-align: right;
   text-shadow: 0 0 20em var(--glow), 0 0 40em var(--glow), 0 0 60em var(--glow),

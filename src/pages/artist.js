@@ -1,7 +1,6 @@
 import * as React from "react";
 import Page from "../layouts/Page";
 import team from "../images/team.webp";
-import { Parallax } from "react-scroll-parallax";
 import Form from "../components/Form";
 import Profiles from "../fragments/Profiles";
 import { Link } from "gatsby";
@@ -19,14 +18,12 @@ const artistPage = () => {
       </div>
       <section className="alignable bottomL" id="skills">
         <article className="self-center">
-          <Parallax speed={-5}>
-            <h2>I ❤️ to Draw!</h2>
-            <p>
-              This collection of art will include work I've done professionally
-              and on my own time... Patients, my friend. I'm afraid coding is a
-              higher priority right now. 🤪
-            </p>
-          </Parallax>
+          <h2>I ❤️ to Draw!</h2>
+          <p>
+            This collection of art will include work I've done professionally
+            and on my own time... Patients, my friend. I'm afraid coding is a
+            higher priority right now. 🤪
+          </p>
         </article>
       </section>
       <section className="alignable skewC cta_b" id="contact">

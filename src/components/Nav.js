@@ -14,23 +14,18 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link to="/code" activeClassName="current-page">
-            Coder
+          <Link to="/developer" activeClassName="current-page">
+            Developer
           </Link>
         </li>
         <li>
-          <Link to="/art" activeClassName="current-page">
+          <Link to="/artist" activeClassName="current-page">
             Artist
           </Link>
         </li>
         <li>
           <Link to="/resume" activeClassName="current-page">
             Résumé
-          </Link>
-        </li>
-        <li>
-          <Link to="/story" activeClassName="current-page">
-            Story
           </Link>
         </li>
         <li>
@@ -72,9 +67,10 @@ const Wrapper = styled.nav`
   ul {
     display: block;
     font-family: "Rubik", sans-serif;
-    margin-left: 30px;
+    padding: 16px 8px 16px 64px;
     position: absolute;
     rotate: 22deg;
+    top: -17px;
     transition: all 0.3s ease;
   }
   ul li {
@@ -112,31 +108,31 @@ const Wrapper = styled.nav`
       /* opacity: 1; */
     }
   }
-  ul li a:before {
+  /* ul li a:before {
     content: "-\\0000a0";
     left: 0px;
-  }
+  } */
   ul li.logo a {
     background: unset;
-    background-clip: unset;
+    /* background-clip: unset; */
     -webkit-background-clip: unset;
     display: block;
-    height: 0;
-    left: -22px;
-    letter-spacing: 0.3em;
+    /* height: 0; */
+    /* left: -22px;
     overflow: hidden;
-    padding: 94px 0 0 60px;
-    position: absolute;
-    top: 5px;
-    width: 0;
+    padding: 94px 0 0 60px; */
+    position: relative;
+    /* top: 5px; */
+    /* width: 0; */
     -webkit-text-fill-color: unset;
   }
   ul li.logo a:before {
     content: ":j";
     display: block;
-    font-size: 100px;
-    left: 0;
+    font-size: 90px;
+    left: -58px;
+    letter-spacing: 0.3rem;
     position: absolute;
-    top: 32px;
+    top: 30px;
   }
 `;

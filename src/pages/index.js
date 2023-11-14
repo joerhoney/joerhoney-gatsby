@@ -8,6 +8,8 @@ import { Link } from "gatsby";
 import Form from "../components/Form";
 import Profiles from "../fragments/Profiles";
 import { Split, Half } from "../components/Split";
+import dragonBack from "../images/dragon_back.webp";
+import dragonFront from "../images/dragon_front.webp";
 
 const homePage = () => {
   return (
@@ -18,9 +20,11 @@ const homePage = () => {
           <img
             alt="Portrait of Joe Rhoney."
             className="self-right transluscent"
+            height="208"
             loading="lazy"
             src={portrait}
-            style={{ maxWidth: "208px", marginBottom: "-100px" }}
+            style={{ maxWidth: "153px", marginBottom: "-100px" }}
+            width="153"
           />
           <h2 className="tilt">Hello, World!</h2>
           <p>
@@ -44,7 +48,7 @@ const homePage = () => {
             className="half1_b"
             heading="Developer"
             position="top right"
-            src="../images/dragon_front.webp"
+            src={dragonFront}
             speed={9}
             to="/code"
           >
@@ -59,7 +63,7 @@ const homePage = () => {
             className="half2_b"
             heading="Illustrator"
             position="top left"
-            src="../images/dragonBack.webp"
+            src={dragonBack}
             speed={-9}
             to="/art"
           >

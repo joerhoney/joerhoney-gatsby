@@ -31,11 +31,9 @@
     "gatsby-transformer-sharp": "^5.12.3",
     "gbimage-bridge": "^0.2.2",
     "normalize.css": "^8.0.1",
-    "parallax-controller": "^1.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.11.0",
-    "react-scroll-parallax": "^3.4.2",
     "styled-components": "^6.1.0",
     "yarn": "^1.22.19"
   }

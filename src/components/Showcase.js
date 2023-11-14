@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 // import { Link } from "gatsby";
-// import { useParallax } from "react-scroll-parallax";
 import getDomainName from "../utils/getDomainName";
 
 const Showcase = (props) => {
@@ -51,42 +50,12 @@ const Showcase = (props) => {
 
 export default Showcase;
 
-// const Parapper = ({ children }) => {
-//   const { ref } = useParallax({
-//     translateX: 20,
-//   });
-//   return (
-//     <div
-//       ref={ref}
-//       style={{
-//         alignSelf: "center",
-//         paddingLeft: "var(--unit8)",
-//         paddingRight: "var(--unit8)",
-//       }}
-//     >
-//       {children}
-//     </div>
-//   );
-// };
-
 const Parapper = styled.div`
   align-items: center;
   display: flex;
   flex-direction: column;
-  /* box-sizing: border-box;
-  display: grid;
-  margin-top: var(--unit12);
-  max-width: calc(var(--max_text) + var(--unit24));
-  padding: 0 var(--unit6); */
   position: relative;
   width: 100%;
-  /* @media (max-width: 1000px) and (min-width: 601px) {
-    margin-right: calc(300px - 30vw);
-    width: auto;
-  } */
-  /* @media (max-width: 810px) {
-    margin-right: 40px;
-  } */
 `;
 
 const Wrapper = styled.div`
@@ -136,7 +105,6 @@ const Wrapper = styled.div`
     padding-top: 50px;
   }
   ul.skills {
-    /* align-items: flex-end; */
     list-style: none;
     margin: 0 0 var(--unit-30);
     padding: 0;
@@ -159,7 +127,6 @@ const Wrapper = styled.div`
   }
   a.button.at-bottom {
     rotate: 22deg;
-    /* top: 100%; */
     transform-origin: left;
   }
   @media (min-width: 600px) {

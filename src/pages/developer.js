@@ -3,7 +3,6 @@ import Page from "../layouts/Page";
 import since from "../utils/since";
 import Showcase from "../components/Showcase";
 import dragon from "../images/dragon.webp";
-import { Parallax } from "react-scroll-parallax";
 import Profiles from "../fragments/Profiles";
 import Form from "../components/Form";
 import {
@@ -104,21 +103,19 @@ const codePage = () => {
           placeholder="blurred"
           src={dragon}
         />
-        <h1>Coder</h1>
+        <h1>Developer</h1>
       </div>
       <section className="alignable bottomL" id="skills">
         <article className="self-center">
-          <Parallax speed={-5}>
-            <h2>Skills &amp; Tools</h2>
-            <p>
-              These are the technical skills I've picked up and tools I've
-              worked with in my career. I'm always eager to learn more. That's
-              what I love most about coding.
-            </p>
-          </Parallax>
+          <h2>Skills &amp; Tools</h2>
+          <p>
+            These are the technical skills I've picked up and tools I've worked
+            with in my career. I'm always eager to learn more. That's what I
+            love most about coding.
+          </p>
         </article>
         <div className="content-center self-center wide topL">
-          <Parallax className="reveal" speed={-15}>
+          <div className="reveal">
             <Languages />
             <Cms />
             <Compilers />
@@ -128,7 +125,7 @@ const codePage = () => {
             <Browsers />
             <Software />
             <Os />
-          </Parallax>
+          </div>
         </div>
       </section>
       <section className="alignable skewC tint1_b" id="work">

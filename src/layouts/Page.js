@@ -6,15 +6,14 @@ import "./global.css";
 import "./colors-default.css";
 import "./icons.css";
 import "./units.css";
-import { ParallaxProvider } from "react-scroll-parallax";
 
 const Page = ({ children, className }) => {
   return (
-    <ParallaxProvider>
+    <>
       <Nav />
       <main className={`${className} bottomL`}>{children}</main>
       <Footer />
-    </ParallaxProvider>
+    </>
   );
 };
 

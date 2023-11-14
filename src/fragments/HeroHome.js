@@ -1,12 +1,10 @@
 import React from "react";
-// import { Link } from "gatsby";
 import styled from "styled-components";
-import { useParallax } from "react-scroll-parallax";
-// Parallax plugin docs: https://react-scroll-parallax.damnthat.tv/docs/intro
+
 const Hero_Home = ({ children }) => {
   return (
     <Hero>
-      <Parapper>
+      <div className="hero-home">
         <h1 className="joerhoney">
           <b>Joe</b> <b>Rhoney</b>
         </h1>
@@ -71,24 +69,24 @@ const Hero_Home = ({ children }) => {
             shape-in&shy;side still isn't sup&shy;por&shy;ted yet).
           </p>
         </div>
-      </Parapper>
+      </div>
     </Hero>
   );
 };
 
 export default Hero_Home;
 
-const Parapper = ({ children }) => {
-  const { ref } = useParallax({
-    speed: -100,
-    opacity: [29, 0, "easeOutQuint"],
-  });
-  return (
-    <div ref={ref} className="hero-home">
-      {children}
-    </div>
-  );
-};
+// const Parapper = ({ children }) => {
+//   const { ref } = useParallax({
+//     speed: -100,
+//     opacity: [29, 0, "easeOutQuint"],
+//   });
+//   return (
+//     <div ref={ref} className="hero-home">
+//       {children}
+//     </div>
+//   );
+// };
 
 const Hero = styled.div`
   width: 50vh;
@@ -161,8 +159,9 @@ const Hero = styled.div`
       var(--color2),
       var(--color1)
     );
+    background-clip: text;
     -webkit-background-clip: text;
-    font-family: Courier, monospace; /* Rokkitt, */
+    font-family: Courier, monospace;
     font-size: 1.3vh;
     font-weight: 400;
     height: 100vh;

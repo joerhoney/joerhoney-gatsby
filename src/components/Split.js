@@ -1,9 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-// import { useParallax } from "react-scroll-parallax";
-import { Parallax } from "react-scroll-parallax";
-import { StaticImage } from "gatsby-plugin-image";
 
 const Split = (props) => {
   return <SplitWrap className={props.className}>{props.children}</SplitWrap>;
@@ -86,7 +83,7 @@ const SplitWrap = styled.div`
     grid-row: space;
     margin: 0;
     padding: 0;
-    /* width: calc(50vw - (5.5vh + 4.4vw)); */
+    z-index: 1;
   }
   .split-half:nth-child(1) .cell .content {
     text-align: right;
@@ -107,21 +104,17 @@ const SplitWrap = styled.div`
 
 const Half = (props) => {
   const alt = props.alt ?? "";
-  const src = props.src;
-  console.log(props.src);
-  console.log(src);
+  // TODO: Use <GatsbyImage />
   return (
     <Halfwrap className={`${props.className} split-half`}>
       {props.src && (
-        <StaticImage
+        <img
           alt={alt}
-          layout="fullWidth"
-          placeholder="blurred"
-          src={src}
+          src={props.src}
           style={{ objectPosition: props.position }}
         />
       )}
-      <Parallax className="cell" speed={props.speed}>
+      <div className="cell">
         <div className="title">
           <h2>{props.heading}</h2>
         </div>
@@ -133,7 +126,7 @@ const Half = (props) => {
             </Link>
           )}
         </div>
-      </Parallax>
+      </div>
     </Halfwrap>
   );
 };
