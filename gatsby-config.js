@@ -7,8 +7,6 @@ module.exports = {
     siteUrl: `https://joerhoney.com`,
   },
   plugins: [
-    "gatsby-plugin-preload-fonts",
-    "gatsby-plugin-scroll-reveal",
     "gatsby-plugin-mdx",
     {
       resolve: "gatsby-source-filesystem",
@@ -19,7 +17,6 @@ module.exports = {
       __key: "pages",
     },
     `gatsby-plugin-image`,
-    `gatsby-plugin-anchor-links`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, // Needed for dynamic images
   ],
