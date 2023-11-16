@@ -1,0 +1,108 @@
+.split {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: 50vw 50vw;
+  grid-template-rows: 100vh;
+  position: relative;
+  rotate: 22deg;
+  width: 100vw;
+}
+.half {
+  box-sizing: border-box;
+  display: flex;
+  font-size: calc(1.5vh + 1.2vw);
+  position: relative;
+}
+.half .cell {
+  align-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  color: currentColor;
+  justify-content: center;
+  justify-items: center;
+  text-decoration: none;
+}
+.half:nth-child(1) {
+  justify-content: flex-end;
+}
+.half:nth-child(2) {
+  justify-content: flex-start;
+}
+.half:nth-child(1)::before {
+  left: -60vh;
+}
+.half:nth-child(2)::before {
+  right: -60vh;
+}
+.half:nth-child(1) .cell .content {
+  padding-left: var(--unit12);
+}
+.half:nth-child(2) .cell .content {
+  padding-right: var(--unit12);
+}
+.half:nth-child(1) .cell {
+  display: grid;
+  grid-template-columns: [content] calc(50vw - (5.5vh + 4.4vw)) [title] calc(
+      5.5vh + 4.4vw
+    );
+  grid-template-rows: [space] 100vh;
+}
+.half:nth-child(2) .cell {
+  display: grid;
+  grid-template-columns: [title] calc(5.5vh + 4.4vw) [content] calc(
+      50vw - (5.5vh + 4.4vw)
+    );
+  grid-template-rows: [space] 100vh;
+}
+.half img {
+  bottom: 0;
+  mix-blend-mode: overlay;
+  object-fit: contain;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.half:nth-child(1) img {
+  right: 0;
+}
+.half:nth-child(2) img {
+  left: 0;
+}
+@media (orientation: portrait) {
+  .half:nth-child(1) img {
+    left: -50%;
+    width: 150%;
+  }
+  .half:nth-child(2) img {
+    right: -50%;
+    width: 150%;
+  }
+}
+.half .cell .title {
+  grid-column: title;
+  grid-row: space;
+  margin: 0;
+  padding: 0;
+}
+.half .cell .content {
+  box-sizing: border-box;
+  grid-column: content;
+  grid-row: space;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+.half:nth-child(1) .cell .content {
+  text-align: right;
+}
+.half h2 {
+  font-size: calc(5vh + 4vw);
+  margin: 0;
+  padding: 0;
+  rotate: -90deg;
+  text-align: center;
+}
+.half p {
+  line-height: 1.2em;
+}
