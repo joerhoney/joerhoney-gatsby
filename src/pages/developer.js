@@ -108,7 +108,7 @@ const codePage = () => {
         />
         <h1>Developer</h1>
       </heading>
-      <section className="alignable bottomL" id="skills">
+      <section className="alignable bottomM" id="skills">
         <article className="self-center">
           <h2>Skills &amp; Tools</h2>
           <p>
@@ -117,7 +117,7 @@ const codePage = () => {
             love most about coding.
           </p>
         </article>
-        <div className="content-center self-center wide topL">
+        <div className="content-center self-center wide topM">
           <div className="reveal">
             <Languages />
             <Cms />
