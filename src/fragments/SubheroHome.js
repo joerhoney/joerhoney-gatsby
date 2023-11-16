@@ -1,19 +1,8 @@
 import React from "react";
-import styled from "styled-components";
+import * as clss from "./subheroHome.module.css";
 
-const Subhero_Home = ({ children }) => {
-  return <SubheroStyles className="subhero">{children}</SubheroStyles>;
+const SubheroHome = ({ children }) => {
+  return <div className={clss.subhero}>{children}</div>;
 };
 
-export default Subhero_Home;
-
-const SubheroStyles = styled.div`
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  min-height: 100vh;
-  position: relative;
-  @media screen and (orientation: portrait) {
-    min-height: unset;
-  }
-`;
+export default SubheroHome;

@@ -1,0 +1,12 @@
+.subhero {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+@media screen and (orientation: portrait) {
+  .subhero {
+    min-height: unset;
+  }
+}
