@@ -1,14 +1,14 @@
 import React from "react";
-import styled from "styled-components";
+import * as clss from "./heroHome.module.css";
 
-const HeroHome = ({ children }) => {
+const HeroHome = () => {
   return (
-    <Hero>
-      <div className="hero-home">
-        <h1 className="joerhoney">
+    <div className={clss.heroWrapper}>
+      <div className={clss.heroHome}>
+        <h1 className={clss.joerhoney}>
           <b>Joe</b> <b>Rhoney</b>
         </h1>
-        <div className="jBig">
+        <div className={clss.jBig}>
           <p>
             UI/&#8203;UX, re&shy;spon&shy;sive lay&shy;out,
             hard&shy;ware-ac&shy;cel&shy;er&shy;at&shy;ed
@@ -51,7 +51,7 @@ const HeroHome = ({ children }) => {
             </a>
           </p>
         </div>
-        <div className="jDots">
+        <div className={clss.jDots}>
           <p>
             Il&shy;lus&shy;tra&shy;tion, an&shy;i&shy;ma&shy;tion, video
             ed&shy;i&shy;ting, pho&shy;tog&shy;ra&shy;phy, lay&shy;out,
@@ -70,7 +70,7 @@ const HeroHome = ({ children }) => {
           </p>
         </div>
       </div>
-    </Hero>
+    </div>
   );
 };
 
@@ -82,229 +82,8 @@ export default HeroHome;
 //     opacity: [29, 0, "easeOutQuint"],
 //   });
 //   return (
-//     <div ref={ref} className="hero-home">
+//     <div ref={ref} className={clss.hero}home">
 //       {children}
 //     </div>
 //   );
 // };
-
-const Hero = styled.div`
-  width: 50vh;
-  .hero-home {
-    float: left;
-    height: 100vh;
-    margin-right: -3vw;
-    top: 2vh;
-    position: relative;
-    rotate: 22deg;
-    translate: 1vh 1vh;
-    width: 50vh;
-    z-index: 0;
-  }
-  @media screen and (orientation: portrait) {
-    .hero-home {
-      float: none;
-      margin-bottom: 0;
-    }
-  }
-  a {
-    border-color: transparent;
-    border-radius: 0.4vh;
-    border-style: solid;
-    border-width: 2px;
-    display: inline-block;
-    font-weight: 900;
-    margin: -2px;
-    text-decoration: none;
-  }
-  a:focus,
-  a:hover {
-    background: none;
-    background-clip: unset;
-    -webkit-background-clip: unset;
-    border-color: currentColor;
-    color: var(--color5);
-    -webkit-text-fill-color: var(--color5);
-  }
-  h1 {
-    display: inline-block;
-    font-size: 13vh;
-    font-weight: 400;
-    line-height: 1.2em;
-    position: absolute;
-    text-transform: lowercase;
-  }
-  h1 b:nth-child(1) {
-    left: 3.6vh;
-    position: relative;
-    top: -9.5vh;
-  }
-  h1 b:nth-child(1)::before {
-    font: inherit;
-    content: ": ";
-    display: inline-block;
-    letter-spacing: 0.2vh;
-  }
-  h1 b:nth-child(2) {
-    left: 6.3vh;
-    position: absolute;
-    top: 51.2vh;
-  }
-  .hero-home p {
-    background: -webkit-linear-gradient(
-      var(--color6),
-      var(--color5),
-      var(--color4),
-      var(--color3),
-      var(--color2),
-      var(--color1)
-    );
-    background-clip: text;
-    -webkit-background-clip: text;
-    font-family: Courier, monospace;
-    font-size: 1.3vh;
-    font-weight: 400;
-    height: 100vh;
-    hyphens: auto;
-    margin: 0;
-    letter-spacing: -0.09vh;
-    line-height: 0.85em;
-    padding: 0;
-    position: relative;
-    text-align: justify;
-    -webkit-text-fill-color: transparent;
-  }
-  .jDots {
-    position: absolute;
-    top: 0;
-    width: 20vh;
-  }
-  .jDots::before {
-    content: "";
-    display: block;
-    float: left;
-    height: 100vh;
-    shape-outside: polygon(
-      0% 0%,
-      100% 0%,
-      100% 18.3%,
-      52.57% 18.33%,
-      45.43% 19.41%,
-      45.81% 28.88%,
-      51.89% 29.84%,
-      100% 29.81%,
-      100% 40.58%,
-      54.08% 40.5%,
-      45.86% 41.7%,
-      46.31% 51%,
-      53.6% 52.13%,
-      100% 52.07%,
-      100% 73.5%,
-      36.32% 73.5%,
-      95.61% 100%,
-      0% 100%
-    );
-    width: 18vh;
-  }
-  .jDots p {
-    max-width: unset;
-    width: 20vh;
-  }
-  .jDots p::before {
-    content: "";
-    display: block;
-    float: right;
-    height: 100vh;
-    shape-outside: polygon(
-      100% 0%,
-      58.34% 0%,
-      71.78% 0%,
-      0% 0%,
-      0% 18.45%,
-      71.26% 19.66%,
-      73.12% 28.06%,
-      0% 29.14%,
-      0% 40.55%,
-      77.42% 41.64%,
-      81.37% 50.19%,
-      0% 51.89%,
-      2.45% 73.5%,
-      100% 73.5%
-    );
-    width: 1.75vh;
-  }
-  .jBig {
-    position: absolute;
-    top: 0;
-  }
-  .jBig::before {
-    content: "";
-    display: block;
-    float: left;
-    height: 100vh;
-    shape-outside: polygon(
-      0% 0%,
-      100% 0.08%,
-      100% 4.32%,
-      95.05% 5.32%,
-      95.16% 13.53%,
-      100% 14.53%,
-      100% 18.42%,
-      95.42% 19.23%,
-      95.68% 50.22%,
-      95.21% 51.67%,
-      93.52% 53.22%,
-      90.05% 54.29%,
-      84.94% 54.72%,
-      72.21% 54.77%,
-      68.26% 55.88%,
-      68.26% 62.73%,
-      72.12% 63.71%,
-      100% 63.62%,
-      99.78% 73.5%,
-      73.5% 73.5%,
-      74.39% 99.66%,
-      0% 100%
-    );
-    width: 29vh;
-  }
-  .jBig p {
-    max-width: unset;
-    width: 50vh;
-  }
-  .jBig p::before {
-    content: "";
-    display: block;
-    float: right;
-    height: 100vh;
-    shape-outside: polygon(
-      100% 0%,
-      0% 0%,
-      0% 4.33%,
-      38.9% 4.33%,
-      44.95% 5%,
-      46.24% 6.38%,
-      46.24% 12.29%,
-      45.78% 13.51%,
-      41.52% 14.35%,
-      0.11% 14.34%,
-      0% 18.45%,
-      39.28% 18.4%,
-      44.38% 18.96%,
-      46.24% 20.07%,
-      46.21% 51.11%,
-      44.03% 55.24%,
-      37.11% 58.33%,
-      27.62% 60.53%,
-      16.31% 62.1%,
-      0% 63.2%,
-      0.01% 73.5%,
-      74.76% 73.5%,
-      75.78% 75.02%,
-      90.75% 75.09%,
-      40.38% 99.91%,
-      100% 100%
-    );
-    width: 20.75vh;
-  }
-`;

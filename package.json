@@ -37,7 +37,10 @@
     "yarn": "^1.22.19"
   },
   "main": "index.js",
-  "repository": "git+https://github.com/joerhoney/joerhoney-2.0.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joerhoney/joerhoney-2.0.git"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/joerhoney/joerhoney-2.0/issues"

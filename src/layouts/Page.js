@@ -13,7 +13,7 @@ const Page = ({ children, className }) => {
   return (
     <>
       <Nav />
-      <main className={`${className} bottomL`}>{children}</main>
+      <main className={className}>{children}</main>
       <Footer />
     </>
   );
