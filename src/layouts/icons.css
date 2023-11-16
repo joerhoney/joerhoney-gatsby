@@ -1,3 +1,18 @@
+.icon {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+.icon svg {
+  display: block;
+  font-size: 52px;
+}
+.icon b {
+  display: block;
+  font-size: 0.8em;
+  font-weight: normal;
+}
 .icons {
   color: var(--color3);
 }

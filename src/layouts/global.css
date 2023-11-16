@@ -1,7 +1,7 @@
 /*  R E S E T  */
 :root {
-  /* overflow-x: hidden;
-  width: 100vw; */
+  overflow-x: hidden;
+  width: 100vw;
   font-size: 16px;
 }
 p {
@@ -36,6 +36,9 @@ body > div {
   background-repeat: no-repeat;
   position: relative;
   z-index: -10;
+}
+section:last-of-type {
+  padding-bottom: 100px;
 }
 section p a {
   border-bottom: 2px solid var(--color5);
@@ -220,9 +223,6 @@ article,
   padding: 0 var(--unit12);
   position: relative;
   width: 100%;
-  /* perspective: 60px; */
-  /* transform-style: preserve-3d; */
-  /* z-index: 1;  These cancels out mix-blend-mode on children. */
 }
 .in-the-corner {
   align-items: flex-end;
@@ -444,4 +444,46 @@ input:-webkit-autofill {
   display: inline-block;
   margin: 4px 8px 4px 0;
   padding: 2px 6px;
+}
+footer {
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  z-index: 10;
+  width: 300px;
+}
+footer > div::before {
+  background-color: var(--color2);
+  background-image: var(--gradFooter);
+  bottom: 0;
+  content: "";
+  left: -46px;
+  position: absolute;
+  rotate: 22deg;
+  transform-origin: bottom left;
+  z-index: -1;
+  width: 304px;
+  height: 122px;
+}
+footer > div {
+  box-sizing: border-box;
+  color: var(--color5);
+  opacity: 0.66;
+  padding: var(--unit2);
+  /* max-width: var(--max_text); */
+  transition: all ease 0.5s;
+}
+footer > div:hover {
+  color: var(--color6);
+  opacity: 1;
+}
+/* .sitemap {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  } */
+footer .copyright {
+  font-size: 0.8rem;
+  margin-bottom: 0;
+  margin-top: var(--unit2);
 }

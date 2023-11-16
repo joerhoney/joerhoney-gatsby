@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import ConditionalWrap from "../components/ConditionalWrap";
 // Devicons from the react-icons collection: https://react-icons.github.io/react-icons/icons?name=di
 import {
@@ -421,30 +420,14 @@ const Icon = (props) => {
             </a>
           )}
         >
-          <Wrapper className="devicon stack">
+          <div className="icon stack">
             {iconMap[props.name]}
             {label !== "false" ? <b>{label}</b> : ""}
-          </Wrapper>
+          </div>
         </ConditionalWrap>
       )}
     </>
   );
 };
-
-const Wrapper = styled.div`
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  svg {
-    display: block;
-    font-size: 52px;
-  }
-  b {
-    display: block;
-    font-size: 0.8em;
-    font-weight: normal;
-  }
-`;
 
 export default Icon;

@@ -1,3 +1,6 @@
+.splitWrap {
+  width: 100vw;
+}
 .split {
   display: grid;
   box-sizing: border-box;

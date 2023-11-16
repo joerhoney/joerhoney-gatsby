@@ -4,12 +4,14 @@ import * as clss from "./split.module.css";
 
 const Split = (props) => {
   return (
-    <div
-      className={`${clss.split} ${
-        typeof props.className !== "undefined" ? props.className : ""
-      }`}
-    >
-      {props.children}
+    <div className={clss.splitWrap}>
+      <div
+        className={`${clss.split} ${
+          typeof props.className !== "undefined" ? props.className : ""
+        }`}
+      >
+        {props.children}
+      </div>
     </div>
   );
 };

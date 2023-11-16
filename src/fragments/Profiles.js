@@ -4,7 +4,7 @@ import Icon from "../components/Icon";
 
 const Profiles = (props) => {
   return (
-    <div className={props.className}>
+    <div className={`${props.className} bottomL`}>
       <h3>{props.heading ? props.heading : "Find me on:"}</h3>
       <div className="icons">
         <Icon
