@@ -18,7 +18,7 @@
     margin-bottom: 0;
   }
 }
-a {
+.heroHome a {
   border-color: transparent;
   border-radius: 0.4vh;
   border-style: solid;
@@ -28,8 +28,8 @@ a {
   margin: -2px;
   text-decoration: none;
 }
-a:focus,
-a:hover {
+.heroHome a:focus,
+.heroHome a:hover {
   background: none;
   background-clip: unset;
   -webkit-background-clip: unset;
@@ -37,7 +37,7 @@ a:hover {
   color: var(--color5);
   -webkit-text-fill-color: var(--color5);
 }
-h1 {
+.heroHome h1 {
   display: inline-block;
   font-size: 13vh;
   font-weight: 400;
@@ -45,18 +45,18 @@ h1 {
   position: absolute;
   text-transform: lowercase;
 }
-h1 b:nth-child(1) {
+.heroHome h1 b:nth-child(1) {
   left: 3.6vh;
   position: relative;
   top: -9.5vh;
 }
-h1 b:nth-child(1)::before {
+.heroHome h1 b:nth-child(1)::before {
   font: inherit;
   content: ": ";
   display: inline-block;
   letter-spacing: 0.2vh;
 }
-h1 b:nth-child(2) {
+.heroHome h1 b:nth-child(2) {
   left: 6.3vh;
   position: absolute;
   top: 51.2vh;
