@@ -1,21 +1,21 @@
 import * as React from "react";
-import Page from "../layouts/Page";
-import team from "../images/team.webp";
 import Form from "../components/Form";
-import Profiles from "../fragments/Profiles";
 import { Link } from "gatsby";
+import Page from "../layouts/Page";
+import Profiles from "../fragments/Profiles";
+import { StaticImage } from "gatsby-plugin-image";
 
-const artistPage = () => {
+const artistPage = (props) => {
   return (
     <Page>
-      <div className="hero">
-        <img
+      <heading className="hero">
+        <StaticImage
           alt="Illustration of a team of charicters"
           placeholder="blurred"
-          src={team}
+          src="../images/team.webp"
         />
         <h1>Artist</h1>
-      </div>
+      </heading>
       <section className="alignable bottomL" id="skills">
         <article className="self-center">
           <h2>I ❤️ to Draw!</h2>

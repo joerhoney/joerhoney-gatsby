@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "gatsby";
-import { AnchorLink } from "gatsby-plugin-anchor-links";
 import styled from "styled-components";
 import Icon from "../components/Icon";
 
@@ -29,9 +28,9 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <AnchorLink to="#contact" tytle="Contact">
+          <Link to="#contact" title="Contact">
             Contact
-          </AnchorLink>
+          </Link>
         </li>
       </ul>
       <Icon label="false" name="Hamburger" />

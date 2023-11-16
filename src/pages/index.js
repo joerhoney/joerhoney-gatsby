@@ -10,8 +10,9 @@ import Profiles from "../fragments/Profiles";
 import { Split, Half } from "../components/Split";
 import dragonBack from "../images/dragon_back.webp";
 import dragonFront from "../images/dragon_front.webp";
+// import Query from "../examples/Query";
 
-const homePage = () => {
+const Home = () => {
   return (
     <Page className="block">
       <HeroHome />
@@ -105,6 +106,7 @@ const homePage = () => {
             connect... well I want to connect, so drop me an email!
           </p>
         </article>
+        {/* <Query /> */}
         <Form />
       </section>
       <section className="alignable">
@@ -114,7 +116,7 @@ const homePage = () => {
   );
 };
 
-export default homePage;
+export default Home;
 
 export const Head = () => (
   <>

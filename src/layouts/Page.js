@@ -1,6 +1,8 @@
 import React from "react";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
+// import SmoothScroll from "smooth-scroll";
+/* CSS */
 import "normalize.css";
 import "./global.css";
 import "./colors-default.css";

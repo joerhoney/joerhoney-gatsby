@@ -1,21 +1,20 @@
 import * as React from "react";
-import Page from "../layouts/Page";
-import blossom from "../images/cherry-blossom-half.webp";
 import Form from "../components/Form";
+import Page from "../layouts/Page";
 import Profiles from "../fragments/Profiles";
+import { StaticImage } from "gatsby-plugin-image";
 
 const storyPage = () => {
   return (
     <Page>
-      <div className="hero">
-        <img
+      <heading className="hero">
+        <StaticImage
           alt="Watercolor of a woman in a kamono next to a cherry blossom."
-          className="self-center"
           placeholder="blurred"
-          src={blossom}
+          src="../images/cherry-blossom-half.webp"
         />
         <h1>Story</h1>
-      </div>
+      </heading>
       <section className="alignable bottomL topS">
         <article className="self-center">
           <p>

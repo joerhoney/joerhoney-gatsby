@@ -1,10 +1,11 @@
 import * as React from "react";
-import Page from "../layouts/Page";
-import since from "../utils/since";
-import Showcase from "../components/Showcase";
-import dragon from "../images/dragon.webp";
-import Profiles from "../fragments/Profiles";
+/* Components */
 import Form from "../components/Form";
+import Page from "../layouts/Page";
+import Profiles from "../fragments/Profiles";
+import Showcase from "../components/Showcase";
+/* Partial Components */
+import { StaticImage } from "gatsby-plugin-image";
 import {
   Browsers,
   Cms,
@@ -16,6 +17,9 @@ import {
   Software,
   OtherTech,
 } from "../fragments/Skills";
+/* Functions */
+import since from "../utils/since";
+/* Images */
 import codazenimg from "../images/codazen-home.webp";
 import kreizenbeckimg from "../images/kreizenbeck-home.webp";
 import metaimg from "../images/meta-home.webp";
@@ -96,15 +100,14 @@ const codazenskills = [
 const codePage = () => {
   return (
     <Page>
-      <div className="hero">
-        <img
+      <heading className="hero">
+        <StaticImage
           alt="Illustration of a chinese dragon"
-          className="self-center"
           placeholder="blurred"
-          src={dragon}
+          src="../images/dragon.webp"
         />
         <h1>Developer</h1>
-      </div>
+      </heading>
       <section className="alignable bottomL" id="skills">
         <article className="self-center">
           <h2>Skills &amp; Tools</h2>

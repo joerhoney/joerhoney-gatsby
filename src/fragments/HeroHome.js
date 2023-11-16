@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-const Hero_Home = ({ children }) => {
+const HeroHome = ({ children }) => {
   return (
     <Hero>
       <div className="hero-home">
@@ -74,7 +74,7 @@ const Hero_Home = ({ children }) => {
   );
 };
 
-export default Hero_Home;
+export default HeroHome;
 
 // const Parapper = ({ children }) => {
 //   const { ref } = useParallax({
