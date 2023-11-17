@@ -23,6 +23,17 @@ export default Page;
 
 // export const Head = () => (
 //   <>
+//     <noscript>
+//       <style>
+//         {`.nav {
+//   position: static;
+// }
+// .nav ul::before {
+//   content: none;
+// }
+// `}
+//       </style>
+//     </noscript>
 //     <body className="colors-default" />
 //   </>
 // );

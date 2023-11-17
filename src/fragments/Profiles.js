@@ -1,11 +1,12 @@
 import React from "react";
 import "../layouts/icons.css";
+import * as clss from "./profiles.module.css";
 import Icon from "../components/Icon";
 
 const Profiles = (props) => {
   return (
-    <div className={`${props.className} bottomL`}>
-      <h3>{props.heading ? props.heading : "Find me on:"}</h3>
+    <div className={`${clss.profiles} ${props.className}`}>
+      <h4>{props.heading ? props.heading : "Find me on:"}</h4>
       <div className="icons">
         <Icon
           href="https://github.com/joerhoney"

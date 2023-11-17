@@ -43,11 +43,11 @@ const storyPage = () => {
           </p>
           <p>
             The next year (1998), I moved to Southern California where life now
-            seemed to be traveling a million miles per hour. I worked held
-            various jobs until I landed my first design opportunity in 1999, at
-            a web marketing agency called Success Makers. Within the first two
-            weeks they needed me to learn HTML, so I quickly began my career as
-            a web developer at the same time.
+            seemed to be traveling a million miles per hour. I held various jobs
+            until I landed my first design opportunity in 1999, at a web
+            marketing agency called Success Makers. Within the first two weeks
+            they needed me to learn HTML, so I quickly began my career as a web
+            developer at the same time.
           </p>
           <p>
             In a few years' time, I began picking up odd jobs, creating various

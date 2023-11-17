@@ -15,6 +15,7 @@
 }
 .icons {
   color: var(--color3);
+  display: inline;
 }
 .icons a {
   color: currentColor;
