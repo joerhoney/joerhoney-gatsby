@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 /* CSS */
 import "normalize.css";
 import "./global.css";
+import "./nav.css";
 import "./colors-default.css";
 import "./icons.css";
 import "./units.css";

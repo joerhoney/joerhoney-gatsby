@@ -16,7 +16,7 @@
   transition: all 1s cubic-bezier(0, 0, 0.15, 1);
   width: 185px;
 }
-.nav ul:is(:hover, :focus)::before {
+.nav:is(:hover, :focus) ul::before {
   height: 1338px;
   left: -44px;
   top: -157px;
@@ -24,7 +24,6 @@
 }
 .nav ul {
   display: block;
-  font-family: "Rubik", sans-serif;
   padding: 16px 8px 16px 64px;
   position: absolute;
   rotate: 22deg;
@@ -34,62 +33,47 @@
 .nav ul li {
   display: flex;
 }
-.nav ul li a {
+.nav a {
   color: var(--color3);
   display: block;
+  font-family: "Rubik", sans-serif;
   font-weight: 700;
   position: relative;
   text-decoration: none;
   text-transform: lowercase;
   transition: all 0.5s ease;
 }
-.nav .devicon {
+.nav a.logo {
+  content: ":j";
+  display: block;
+  font-size: 90px;
+  left: 10px;
+  letter-spacing: 0.3rem;
+  position: absolute;
+  rotate: 22deg;
+  top: 16px;
+  z-index: 1;
+}
+/* .nav .devicon {
   color: var(--color3);
-  /* display: none; */
   left: 84px;
   position: absolute;
   rotate: 22deg;
   top: 33px;
   width: 40px;
-}
+} */
 @media (hover: hover) {
-  .nav ul li a {
+  .nav a {
     color: var(--color3);
-    /* opacity: 0.6; */
   }
-  .nav ul:hover li a {
+  /* .nav ul:hover li a {
     color: var(--color3);
-    /* opacity: 0.8; */
-  }
-  .nav ul li a:not(.current-page):is(:active, :focus, :hover) {
+  } */
+  .nav a:not(.current-page):is(:active, :focus, :hover) {
     color: var(--accent);
-    /* opacity: 1; */
   }
 }
 /* .nav ul li a:before {
     content: "-\\0000a0";
     left: 0px;
   } */
-.nav ul li.logo a {
-  background: unset;
-  /* background-clip: unset; */
-  -webkit-background-clip: unset;
-  display: block;
-  /* height: 0; */
-  /* left: -22px;
-    overflow: hidden;
-    padding: 94px 0 0 60px; */
-  position: relative;
-  /* top: 5px; */
-  /* width: 0; */
-  -webkit-text-fill-color: unset;
-}
-.nav ul li.logo a:before {
-  content: ":j";
-  display: block;
-  font-size: 90px;
-  left: -58px;
-  letter-spacing: 0.3rem;
-  position: absolute;
-  top: 30px;
-}

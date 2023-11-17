@@ -20,8 +20,11 @@ const Nav = () => {
     <>
       <noscript>{noscriptCSS}</noscript>
       <nav className="nav">
+        <Link to="/" className="logo" activeClassName="current">
+          :j
+        </Link>
         <ul>
-          <li className="logo">
+          <li>
             <Link to="/" activeClassName="current-page">
               Home
             </Link>
