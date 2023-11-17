@@ -29,34 +29,32 @@ const storyPage = () => {
         <article className="self-center">
           <h2>Journey of an Artist</h2>
           <p>
-            I have been an artist since my childhood, in Northern California. I
-            spent most of my free time designing fictional vehicles, characters
-            and creatures to be featured in a comic book series one day. As a
-            teenager I began exploring my ability to produce music, but
-            continued practicing illustration.
+            I have been an artist since my childhood in rural Northern
+            California. I spent most of my free time creating and designing
+            fictional vehicles, characters and creatures to be featured in a
+            comic book series one day. As a teenager I began exploring my
+            ability to produce music but continued practicing illustration.
           </p>
           <p>
             As a top art student I was granted the opportunity to attend the
-            CSSSA program (California State Summer School for the Arts),
-            administored at the CalArts campus. There I gained a world of
-            knowledge and experience in tradition animation.
+            CSSSA program (California State Summer School for the Arts), located
+            at the CalArts campus. There I gained a world of knowledge and
+            experience in traditional animation.
           </p>
           <p>
-            The next year (1998), I moved to Southern California where life was
-            now traveling a million miles per hour. I soon got to work at
-            K-mart, but I knew I had to put my talent to work in order to afford
-            the living costs in the big city. My first design job began in 1999
-            at a web marketing agency called Success Makers. Within the first
-            two weeks needed me to learn HTML, so I quickly began my career as a
-            web developer at the same time.
+            The next year (1998), I moved to Southern California where life now
+            seemed to be traveling a million miles per hour. I worked held
+            various jobs until I landed my first design opportunity in 1999, at
+            a web marketing agency called Success Makers. Within the first two
+            weeks they needed me to learn HTML, so I quickly began my career as
+            a web developer at the same time.
           </p>
           <p>
-            In a few more years time, I began picking up odd jobs, illustrating
-            portraits and various ideas needed for marketing and other purposes.
-            Soon I had to become familier with freelancing and how to report
-            taxes for that. Being able to freelance has saved me between jobs.
-            It has also greatly facilitated the opportunity to self-train and
-            gain a wide range of experiences.
+            In a few years' time, I began picking up odd jobs, creating various
+            illustrations acquaintances needed for marketing and other purposes.
+            Soon I became familiar with the processes of freelancing.
+            Freelancing has also greatly facilitated the opportunity to
+            self-train and gain a wide range of experiences.
           </p>
           <p>
             And the rest is pretty much history. I have been working graphic
@@ -80,8 +78,8 @@ const storyPage = () => {
         <article className="self-center">
           <h2>Contact Me</h2>
           <p>
-            Whether you need help building something or you just want to
-            connect... well I want to connect, so drop me an email!
+            Whether you need help building something or just want to connect...
+            well, I want to connect, too! So drop me an email.
           </p>
         </article>
         <Form />

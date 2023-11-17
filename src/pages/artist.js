@@ -21,7 +21,7 @@ const artistPage = (props) => {
           <h2>I ❤️ to Draw!</h2>
           <p>
             This collection of art will include work I've done professionally
-            and on my own time... Patients, my friend. I'm afraid coding is a
+            and on my own time... Patience, my friend. I'm afraid coding is a
             higher priority right now. 🤪
           </p>
         </article>

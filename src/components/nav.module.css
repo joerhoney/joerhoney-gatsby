@@ -45,7 +45,7 @@
 }
 .nav .devicon {
   color: var(--color3);
-  display: none;
+  /* display: none; */
   left: 84px;
   position: absolute;
   rotate: 22deg;
