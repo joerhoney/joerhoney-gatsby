@@ -69,7 +69,7 @@
   /* .nav ul:hover li a {
     color: var(--color3);
   } */
-  .nav a:not(.current-page):is(:active, :focus, :hover) {
+  .nav a:not(.current):is(:active, :focus, :hover) {
     color: var(--accent);
   }
 }
