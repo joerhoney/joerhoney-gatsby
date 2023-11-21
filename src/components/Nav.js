@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
 import { Link } from "gatsby";
+import Icon from "./Icon";
 
 const Nav = () => {
   const noscriptCSS = `
-  <style>
+  &lt;style&gt;
     .nav {
       position: absolute;
     }
@@ -15,42 +16,23 @@ const Nav = () => {
         top: -162px;
         height: 698px;
     }
-  </style>`;
-  const [active, setActive] = useState(false);
-  // ...
-  function handleClick() {
-    setActive((isActive) => !isActive);
-  }
+  &lt;/style&gt;`;
   return (
     <>
       <noscript>{noscriptCSS}</noscript>
-      <nav
-        onClick={handleClick}
-        className={`nav ${active ? "active" : "inactive"}`}
-      >
-        <Link to="/" className="logo" activeClassName="current">
+      <nav className="nav">
+        <Link to="/" className="logo">
           :j
         </Link>
         <ul>
           <li>
-            <Link to="/" activeClassName="current">
-              Home
-            </Link>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/developer" activeClassName="current">
-              Developer
-            </Link>
+            <Link to="/developer">Developer</Link>
           </li>
           <li>
-            <Link to="/artist" activeClassName="current">
-              Artist
-            </Link>
-          </li>
-          <li>
-            <Link to="/resume" activeClassName="current">
-              Résumé
-            </Link>
+            <Link to="/artist">Artist</Link>
           </li>
           <li>
             <Link to="#contact" title="Contact">

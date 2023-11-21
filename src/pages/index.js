@@ -47,7 +47,7 @@ const Home = () => {
         <Split>
           <Half
             alt="Illustration of the front end of a dragon."
-            button="View my Work"
+            button="View Work"
             className="half1_b"
             heading="Developer"
             position="top right"
@@ -56,7 +56,7 @@ const Home = () => {
             to="/code"
           >
             <p>
-              See my arsenal of skills, my work experience and other projects I
+              See my list of skills, my work expe&shy;ri&shy;ence and projects I
               have going on right now.
             </p>
           </Half>
@@ -71,34 +71,50 @@ const Home = () => {
             to="/art"
           >
             <p>
-              Peruse graphic illus&shy;tra&shy;tions, marketing layouts,
-              creature/&#8203;character creations and other artwork I've done in
-              my portfolio.
+              See graph&shy;ic illus&shy;tra&shy;tions,
+              creature/&#8203;character creations and other artwork I've done.
             </p>
           </Half>
         </Split>
       </div>
-      <section className="alignable">
-        <article>
-          <h3>Developer Résumé</h3>
-          <p>
-            <Link to="/resume" className="button">
+      <section>
+        <div className="columns-3">
+          <div className="column">
+            <h3>WordPress Plugins</h3>
+            <p>
+              I create custom plugins. In fact, I have published 10 in the
+              WordPress repository, under the name AddFunc. They all have
+              greatings, too. Check them out:
+            </p>
+            <a
+              className="button"
+              href="https://profiles.wordpress.org/addfunc/#content-plugins"
+              target="_blank"
+            >
+              AddFunc Plugins
+            </a>
+          </div>
+          <div className="column">
+            <h3>Developer Résumé</h3>
+            <p>
+              You may already have it, but for convenience and to ensure a clear
+              correlation, you can find my résumé here:
+            </p>
+            <Link className="button" to="/resume">
               View Résumé
             </Link>
-          </p>
-          <h3>Work &amp; Projects</h3>
-          <p>
-            <Link to="/resume" className="button">
-              View my Work
+          </div>
+          <div className="column">
+            <h3>Journey of an&nbsp;Artist</h3>
+            <p>
+              Want to know more about me personally? Well, I wrote a bit about
+              my life here:
+            </p>
+            <Link className="button" to="/story">
+              My Story
             </Link>
-          </p>
-          <h3>Art Portfolio</h3>
-          <p>
-            <Link to="/art" className="button">
-              View Artwork
-            </Link>
-          </p>
-        </article>
+          </div>
+        </div>
       </section>
       <section className="alignable skewC cta_b" id="contact">
         <article className="self-center">

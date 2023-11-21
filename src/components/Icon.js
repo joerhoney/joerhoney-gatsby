@@ -201,6 +201,7 @@ import {
   SvgBabel,
   SvgHamburger,
   SvgLinkedin,
+  SvgClose,
   SvgVSCode,
 } from "./SVGs.js";
 
@@ -406,6 +407,7 @@ const Icon = (props) => {
     Babel: <SvgBabel />,
     Hamburger: <SvgHamburger />,
     Linkedin: <SvgLinkedin />,
+    Close: <SvgClose />,
     VSCode: <SvgVSCode />,
   };
   const label = props.label ? props.label : props.name;
@@ -420,7 +422,7 @@ const Icon = (props) => {
             </a>
           )}
         >
-          <div className="icon stack">
+          <div className={`icon stack ${props.className}`}>
             {iconMap[props.name]}
             {label !== "false" ? <b>{label}</b> : ""}
           </div>

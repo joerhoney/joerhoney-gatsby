@@ -10,7 +10,7 @@ const resume = () => {
       <heading className="hero">
         <h1>Résumé</h1>
       </heading>
-      <section className="alignable">
+      <section className="alignable bottomM">
         <article className="self-center">
           <h2>Web Developer</h2>
           <p>

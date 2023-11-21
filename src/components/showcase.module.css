@@ -16,7 +16,7 @@
   position: relative;
   width: 100%;
 }
-h3 {
+.showcase h3 {
   align-items: flex-end;
   bottom: calc(100% - 60px);
   display: flex;
@@ -32,7 +32,7 @@ h3 {
   transform-origin: bottom right;
   width: 360px;
 }
-h3 + p.desc::before {
+.showcase h3 + p.desc::before {
   clear: right;
   content: "";
   display: block;
@@ -41,10 +41,10 @@ h3 + p.desc::before {
   shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
   width: 130px;
 }
-p.desc {
+.showcase p.desc {
   font-weight: bold;
 }
-img {
+.showcase img {
   box-sizing: border-box;
   margin-bottom: 1.5em;
   width: 100%;
@@ -52,19 +52,19 @@ img {
 h3 + img {
   padding-top: 50px;
 }
-ul.skills {
+.showcase ul.skills {
   list-style: none;
   margin: 0 0 var(--unit4);
   padding: 0;
 }
-ul.skills li {
+.showcase ul.skills li {
   color: var(--color3);
   font-weight: bold;
   margin: var(--unit2) var(--unit6) var(--unit2) 0;
   position: relative;
   white-space: nowrap;
 }
-a.button {
+.showcase a.button {
   align-self: center;
   display: inline-block;
   font-weight: bold;
@@ -73,7 +73,7 @@ a.button {
   width: 80%;
 }
 @media (max-width: 599px) {
-  ul.skills li {
+  .showcase ul.skills li {
     display: inline-block;
   }
 }
@@ -86,7 +86,7 @@ a.button {
   h3 {
     bottom: calc(100% - 114px);
   }
-  ul.skills {
+  .showcase ul.skills {
     display: flex;
     flex-direction: column;
     top: 75px;
@@ -94,18 +94,18 @@ a.button {
     margin: 0;
     position: absolute;
   }
-  ul.skills li {
+  .showcase ul.skills li {
     margin-bottom: var(--unit2);
     transform: rotate(22deg);
     transform-origin: left;
   }
-  a.button {
+  .showcase a.button {
     align-self: center;
     margin-top: var(--unit2);
     position: relative;
     width: 50%;
   }
-  a.button.at-bottom {
+  .showcase a.button.at-bottom {
     rotate: unset;
   }
 }
@@ -113,16 +113,16 @@ a.button {
   .showcase {
     padding: 0 var(--unit12);
   }
-  h3 {
+  .showcase h3 {
     bottom: calc(100% - 106px);
     right: var(--unit-6);
   }
-  ul.skills {
+  .showcase ul.skills {
     left: calc(100% - 70px);
   }
 }
 @media (prefers-color-scheme: dark) {
-  ul.skills li {
+  .showcase ul.skills li {
     color: var(--color3);
   }
 }

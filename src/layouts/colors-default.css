@@ -10,6 +10,7 @@
   --color6: #121f26;
   --glow: #ffd8b7;
   --text: #121f26;
+  --textButton: #ffffff;
   --tint1: #ffffff66;
   --tint2: #ffcc9366;
   --tint3: #ff653a66;
@@ -26,6 +27,7 @@
   --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
   --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
   --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
+  /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
 }
 .cta,
 .cta_b {
@@ -38,7 +40,10 @@
 }
 .half1,
 .half1_b {
-  --text: #5a3a67;
+  --glow: #ffd8b7;
+  --heading: #4a3459;
+  --text: #121f26;
+  /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
 }
 .half2,
 .half2_b::before {
@@ -46,7 +51,10 @@
 }
 .half2,
 .half2_b {
+  --glow: #48293f;
+  --heading: #ffb58d;
   --text: #ffd8b7;
+  /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
 }
 .hero,
 .hero_b {
@@ -62,6 +70,8 @@
     --color5: #ffd8b7;
     --color6: #ffffff;
     --glow: #ea303c; /* alpha was: .72 */
+    --text: #ffffff;
+    --textButton: #ffffff;
     --gradBg: linear-gradient(70deg, #121f26 30%, #302a3f 80%, #692938 100%);
     --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
     --gradFooter: linear-gradient(48deg, #121f26, #312536);
@@ -91,7 +101,10 @@
   }
   .half1,
   .half1_b {
-    --text: #ffd8b7;
+    --glow: #5a3a67;
+    --heading: #fc9f7d;
+    --text: #ffffff;
+    /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
   }
   .half2,
   .half2_b::before {
@@ -99,7 +112,10 @@
   }
   .half2,
   .half2_b {
-    --text: #5a3a67;
+    --glow: #fea385;
+    --heading: #522a41;
+    --text: #121f26;
+    /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
   }
   .hero,
   .hero_b::before {

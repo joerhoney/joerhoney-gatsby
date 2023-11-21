@@ -45,16 +45,12 @@
 }
 .half:nth-child(1) .cell {
   display: grid;
-  grid-template-columns: [content] calc(50vw - (5.5vh + 4.4vw)) [title] calc(
-      5.5vh + 4.4vw
-    );
+  grid-template-columns: [content] auto [title] calc(5vh + 4vw);
   grid-template-rows: [space] 100vh;
 }
 .half:nth-child(2) .cell {
   display: grid;
-  grid-template-columns: [title] calc(5.5vh + 4.4vw) [content] calc(
-      50vw - (5.5vh + 4.4vw)
-    );
+  grid-template-columns: [title] calc(5vh + 4vw) [content] auto;
   grid-template-rows: [space] 100vh;
 }
 .half img {
@@ -108,4 +104,13 @@
 }
 .half p {
   line-height: 1.2em;
+}
+.half:nth-child(2) p::before {
+  clear: right;
+  content: "";
+  display: block;
+  float: right;
+  height: 12em;
+  shape-outside: polygon(63.88% 0%, 100% 0%, 100% 100%);
+  width: 4em;
 }
