@@ -53,7 +53,7 @@ const Home = () => {
             position="top right"
             src={dragonFront}
             speed={9}
-            to="/code"
+            to="/developer"
           >
             <p>
               See my list of skills, my work expe&shy;ri&shy;ence and projects I
@@ -68,7 +68,7 @@ const Home = () => {
             position="top left"
             src={dragonBack}
             speed={-9}
-            to="/art"
+            to="/artist"
           >
             <p>
               See graph&shy;ic illus&shy;tra&shy;tions,
