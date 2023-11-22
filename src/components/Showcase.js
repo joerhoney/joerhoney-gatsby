@@ -1,5 +1,5 @@
 import React from "react";
-import * as clss from "./showcase.module.css";
+import * as clss from "../css/showcase.module.css";
 // import { Link } from "gatsby";
 import getDomainName from "../utils/getDomainName";
 
@@ -35,12 +35,13 @@ const Showcase = (props) => {
         )}
         {props.href && (
           <a
-            className="button at-bottom"
+            className="button"
             href={props.href}
             rel="noreferrer"
             target="_blank"
           >
-            See Project: {getDomainName(props.href)}
+            <span className="text">See Project</span>{" "}
+            <span className="url">{getDomainName(props.href)}</span>
           </a>
         )}
       </div>

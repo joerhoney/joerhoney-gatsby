@@ -2,11 +2,11 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-width: calc(var(--max_text) + var(--unit24));
-  padding: 0 var(--unit12);
-  width: 100%;
-
+  max-width: calc(var(--max_text) + var(--unit16));
   margin: auto;
+  overflow: hidden;
+  padding: 0 var(--unit8);
+  width: 100%;
 }
 .contact form {
   display: grid;

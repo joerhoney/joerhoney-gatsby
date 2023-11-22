@@ -99,7 +99,7 @@ const codazenskills = [
 
 const codePage = () => {
   return (
-    <Page>
+    <>
       <heading className="hero">
         <StaticImage
           alt="Illustration of a chinese dragon"
@@ -108,284 +108,296 @@ const codePage = () => {
         />
         <h1>Developer</h1>
       </heading>
-      <section className="alignable bottomM" id="skills">
-        <article className="self-center">
-          <h2>Skills &amp; Tools</h2>
-          <p>
-            These are the technical skills I've picked up and tools I've worked
-            with in my career. I'm always eager to learn more. That's what I
-            love most about coding.
-          </p>
-        </article>
-        <div className="content-center self-center wide topM">
-          <div className="reveal">
-            <Languages />
-            <Cms />
-            <Compilers />
-            <OtherTech />
-            <Communities />
-            <Services />
-            <Browsers />
-            <Software />
-            <Os />
-          </div>
-        </div>
-      </section>
-      <section className="alignable skewC tint1_b" id="work">
-        <article className="self-center">
-          <h2>Work Portfolio</h2>
-          <p>
-            Here are some of the projects I built or helped build and maintain.
-          </p>
-        </article>
-        <Showcase
-          className="skewL tint1_b"
-          desc="Analytics and website maintenance on Meta's custom CMS stack."
-          to="meta"
-          href="https://meta.com"
-          skills={metaskills}
-          src={metaimg}
-          title="Meta"
-        >
-          <p>
-            Built sections on several of the Quest product, Quest Accessories,
-            Horizon, Meta for Work, VR for Good and Meta Experiences pages,
-            using Meta's custom XML component sets and reviewed sections built
-            by team mates for design adherence, copy accuracy and code quality.
-            Deprecated old components (built with XHP), as well as old pages and
-            files. Updated added and removed 301 redirects. Executed similar
-            work on oculus.com and portal.facebook.com, prior to migration to
-            meta.com. Audited page event logging on several meta.com pages,
-            compared to best practices, recommended specific updates, and helped
-            to established more precise standards for analytics. Implemented
-            these findings upon approval.
-          </p>
-        </Showcase>
-        <Showcase
-          className="skewL tint1_b"
-          desc="Website and blog maintenance, modifications and improvements."
-          to="codazen"
-          href="https://codazen.com"
-          skills={codazenskills}
-          src={codazenimg}
-          title="Codazen"
-        >
-          <p>
-            Updated pages with React, powered by Gatsby on Node and deployed via
-            GitHub through Netlify (prior to migration). Created new React
-            components. Participated in peer-reviews as required for all work.
-            Added blog posts powered by HubSpot. Became the go-to for Codazen's
-            blog as to it's maintenance and structure and necessary steps for
-            improvement. Provided insight and direction on migration to newer
-            frameworks and platforms, for an improved company website.
-          </p>
-        </Showcase>
-        <Showcase
-          className="backing1b_ skewL tint1_b"
-          desc="New modern website for the counties many parks, built with WordPress."
-          href="https://parks.lacounty.gov"
-          skills={laparksskills}
-          src={laparksimg}
-          title="Los Angeles County Parks &amp; Recreation"
-        >
-          <p>
-            Working at RD Technology Solutions, I contributed to the development
-            of many websites for the County of Los Angeles such as these. Some
-            of my responsibilties included:
-          </p>
-          <ul>
-            <li>Responsive web layout</li>
-            <li>Content formatting and styling</li>
-            <li>Accessibility compliance</li>
-            <li>Page element selection and creation</li>
-          </ul>
-          <p>
-            On LA County's Parks website, we needed an entire set of icons to
-            represent the various features available at all of their parks,
-            adhering to a consistent look. I was provided icons a few park
-            features, and was tasked to find or create matching icons for the
-            remaining features. Using Adobe Illustrator, I fabricated or drew
-            (from scratch) the remaining icons needed for the project,
-            maintaining a consistent color palette, stroke weight and size. The
-            client was very happy with the results, as it was exactly what they
-            wanted.
-          </p>
-        </Showcase>
-        <Showcase
-          className="backing1b_ skewL tint1_b"
-          desc="New modern website for a county probation department, built with WordPress."
-          href="https://probation.lacounty.gov"
-          skills={laprobationskills}
-          src={laprobationimg}
-          title="Los Angeles County Probation Department"
-        >
-          <p>
-            The LA County Probation Dept. needed a new website with modern
-            features.
-          </p>
-          <p>
-            Problem: They had several categories to feature, but within those
-            categories they a large amount of subcategories. They wanted to
-            feature all of this on the home page, in a way that is user-friendly
-            and relatively simple, despite the massive quantity of options. They
-            also wanted a large slideshow on the Home page, to follow the modern
-            trend, and friendly colors matching their logo.
-          </p>
-          <p>
-            Solution: I came up with a feature tile set representing the main
-            categories, placed over a fullscreen slideshow. Clicking on the
-            tiles displays their many subcategories, which take you to the
-            pertinent page. With animated queues, this layout was clear and
-            intuitive.
-          </p>
-          <p>
-            The client at the LA County Probation Dept. with very happy with
-            this new home page.
-          </p>
-        </Showcase>
-        <Showcase
-          className="backing1b_ skewL tint1_b"
-          desc="New website for an acting career trainer."
-          href="https://losangelesactingcoach.com"
-          skills={laactingcoachskills}
-          src={laactingcoachimg}
-          title="Los Angeles Acting&nbsp;Coach"
-        >
-          <p>
-            April needed a modern website to market her acting coaching service.
-            After Riafox put this new WordPress website together with a modern
-            theme the accomplished most of requirements they needed to fulfill,
-            they asked me to modify a few of the theme features that fell short,
-            including the hero layout, the slideshow (for the testimonials) and
-            the blog posts tiles.
-          </p>
-        </Showcase>
-        <Showcase
-          className="backing1b_ skewL tint1_b"
-          desc="Website makeover, built on WordPress with a modified theme."
-          to="kreizenbeck"
-          href="https://www.kreizenbeckplanroom.com"
-          skills={kreizenbeckskills}
-          src={kreizenbeckimg}
-          title="Kreizenbeck Constructors"
-        >
-          <p>
-            The client needed their WordPress website's design coded into the
-            theme. The main objective was to showcase their construction work,
-            so there were many galleries. There was a plugin used for the
-            galleries, but it had limited features which didn't cover the design
-            or informational needs. After I configured and coded the adjustments
-            to theme the website just as the design portrayed, I added an
-            informational hover effect to the gallery which did not come
-            included with the plugin. The client was happy with the results and
-            happy with the website overall.
-          </p>
-        </Showcase>
-        <Showcase
-          className="backing1b_ skewL tint1_b"
-          desc="New WordPress websites, built with a custom theme and plugins."
-          skills={dentistryskills}
-          title="Dental Websites"
-        >
-          <p>
-            While working at Gilleard Marketing, I launched many websites for
-            dental practitioners in states all across the US. Since WordPress
-            was the platform of choice at GM, I built a custom theme and several
-            custom plugins to expedite our workflow and support better control
-            over desired end results.
-          </p>
-          <p>
-            As the web developer, I built these websites according to the
-            designers specifications, which was provided to me as a Photoshop
-            file.
-          </p>
-          <p>These are some of websites I built at Gilleard Marketing:</p>
-          <h4>Thomas G. Rubino, DDS,&nbsp;MS&nbsp;PA</h4>
-          <img alt="Screenshot of bradentonperio.com" src={bradentonperioimg} />
-          <a
-            className="button"
-            href="https://bradentonperio.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            See project: bradentonperio.com
-          </a>
-          <h4>Ark Dental Care"</h4>
-          <img
-            alt="Screenshot of dentistinsantaclara.com"
-            src={dentistinsantaclaraimg}
-          />
-          <a
-            className="button"
-            href="https://dentistinsantaclara.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            See project: dentistinsantaclara.com
-          </a>
-          <h4>Warren Dentistry"</h4>
-          <img
-            alt="Screenshot of southfortworthdentist.com"
-            src={southfortworthdentistimg}
-          />
-          <a
-            className="button"
-            href="https://southfortworthdentist.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            See project: southfortworthdentist.com
-          </a>
-          <h4>Gentle Dentistry</h4>
-          <img
-            alt="Screenshot of westchestergentledentistry.com"
-            src={westchestergentledentistryimg}
-          />
-          <a
-            className="button"
-            href="https://westchestergentledentistry.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            See project: westchestergentledentistry.com
-          </a>
-          <p></p>
-        </Showcase>
-      </section>
-      <section className="alignable skewC cta_b" id="contact">
-        <article className="self-center">
-          <h2>Let's Build Something!</h2>
-          <p>
-            Nothing excites me more than starting a new project or making
-            something better. For {since("Sept, 13, 1999")} years I have worked
-            as a freelancer, serving clients in many industries, and have also
-            worked as a full-time employee at various retail manufacturing and
-            marketing agencies.
-          </p>
-          <div className="columns-2 topXS bottomXS">
-            <div className="pull tint2">
-              <h4>Hire me! 😄</h4>
-              <p>
-                I am currently available for hire! Not for long though, so act
-                fast if you want me on your team! 🙌
-              </p>
-            </div>
-            <div className="pull tint3">
-              <h4>Contract me! 👍</h4>
-              <p>
-                I am also open for service as a freelance web developer. Send me
-                your project ideas and I'll help you hash out the web solutions
-                you need. 💡
-              </p>
+      <Page>
+        <section className="alignable bottomM" id="skills">
+          <article className="self-center">
+            <h2>Skills &amp; Tools</h2>
+            <p>
+              These are the technical skills I've picked up and tools I've
+              worked with in my career. I'm always eager to learn more. That's
+              what I love most about coding.
+            </p>
+          </article>
+          <div className="content-center self-center wide topM">
+            <div className="reveal">
+              <Languages />
+              <Cms />
+              <Compilers />
+              <OtherTech />
+              <Communities />
+              <Services />
+              <Browsers />
+              <Software />
+              <Os />
             </div>
           </div>
-        </article>
-        <Form className="topXS" />
-      </section>
-      <section className="alignable">
-        <Profiles className="article reveal self-center" />
-      </section>
-    </Page>
+        </section>
+        <section className="alignable skewC tint1_b" id="work">
+          <article className="self-center">
+            <h2>Work Portfolio</h2>
+            <p>
+              Here are some of the projects I built or helped build and
+              maintain.
+            </p>
+          </article>
+          <Showcase
+            className="skewL tint1_b"
+            desc="Analytics and website maintenance on Meta's custom CMS stack."
+            to="meta"
+            href="https://meta.com"
+            skills={metaskills}
+            src={metaimg}
+            title="Meta"
+          >
+            <p>
+              Built sections on several of the Quest product, Quest Accessories,
+              Horizon, Meta for Work, VR for Good and Meta Experiences pages,
+              using Meta's custom XML component sets and reviewed sections built
+              by team mates for design adherence, copy accuracy and code
+              quality. Deprecated old components (built with XHP), as well as
+              old pages and files. Updated added and removed 301 redirects.
+              Executed similar work on oculus.com and portal.facebook.com, prior
+              to migration to meta.com. Audited page event logging on several
+              meta.com pages, compared to best practices, recommended specific
+              updates, and helped to established more precise standards for
+              analytics. Implemented these findings upon approval.
+            </p>
+          </Showcase>
+          <Showcase
+            className="skewL tint1_b"
+            desc="Website and blog maintenance, modifications and improvements."
+            to="codazen"
+            href="https://codazen.com"
+            skills={codazenskills}
+            src={codazenimg}
+            title="Codazen"
+          >
+            <p>
+              Updated pages with React, powered by Gatsby on Node and deployed
+              via GitHub through Netlify (prior to migration). Created new React
+              components. Participated in peer-reviews as required for all work.
+              Added blog posts powered by HubSpot. Became the go-to for
+              Codazen's blog as to it's maintenance and structure and necessary
+              steps for improvement. Provided insight and direction on migration
+              to newer frameworks and platforms, for an improved company
+              website.
+            </p>
+          </Showcase>
+          <Showcase
+            className="backing1b_ skewL tint1_b"
+            desc="New modern website for the counties many parks, built with WordPress."
+            href="https://parks.lacounty.gov"
+            skills={laparksskills}
+            src={laparksimg}
+            title="Los Angeles County Parks &amp; Recreation"
+          >
+            <p>
+              Working at RD Technology Solutions, I contributed to the
+              development of many websites for the County of Los Angeles such as
+              these. Some of my responsibilties included:
+            </p>
+            <ul>
+              <li>Responsive web layout</li>
+              <li>Content formatting and styling</li>
+              <li>Accessibility compliance</li>
+              <li>Page element selection and creation</li>
+            </ul>
+            <p>
+              On LA County's Parks website, we needed an entire set of icons to
+              represent the various features available at all of their parks,
+              adhering to a consistent look. I was provided icons a few park
+              features, and was tasked to find or create matching icons for the
+              remaining features. Using Adobe Illustrator, I fabricated or drew
+              (from scratch) the remaining icons needed for the project,
+              maintaining a consistent color palette, stroke weight and size.
+              The client was very happy with the results, as it was exactly what
+              they wanted.
+            </p>
+          </Showcase>
+          <Showcase
+            className="backing1b_ skewL tint1_b"
+            desc="New modern website for a county probation department, built with WordPress."
+            href="https://probation.lacounty.gov"
+            skills={laprobationskills}
+            src={laprobationimg}
+            title="Los Angeles County Probation Department"
+          >
+            <p>
+              The LA County Probation Dept. needed a new website with modern
+              features.
+            </p>
+            <p>
+              Problem: They had several categories to feature, but within those
+              categories they a large amount of subcategories. They wanted to
+              feature all of this on the home page, in a way that is
+              user-friendly and relatively simple, despite the massive quantity
+              of options. They also wanted a large slideshow on the Home page,
+              to follow the modern trend, and friendly colors matching their
+              logo.
+            </p>
+            <p>
+              Solution: I came up with a feature tile set representing the main
+              categories, placed over a fullscreen slideshow. Clicking on the
+              tiles displays their many subcategories, which take you to the
+              pertinent page. With animated queues, this layout was clear and
+              intuitive.
+            </p>
+            <p>
+              The client at the LA County Probation Dept. with very happy with
+              this new home page.
+            </p>
+          </Showcase>
+          <Showcase
+            className="backing1b_ skewL tint1_b"
+            desc="New website for an acting career trainer."
+            href="https://losangelesactingcoach.com"
+            skills={laactingcoachskills}
+            src={laactingcoachimg}
+            title="Los Angeles Acting&nbsp;Coach"
+          >
+            <p>
+              April needed a modern website to market her acting coaching
+              service. After Riafox put this new WordPress website together with
+              a modern theme the accomplished most of requirements they needed
+              to fulfill, they asked me to modify a few of the theme features
+              that fell short, including the hero layout, the slideshow (for the
+              testimonials) and the blog posts tiles.
+            </p>
+          </Showcase>
+          <Showcase
+            className="backing1b_ skewL tint1_b"
+            desc="Website makeover, built on WordPress with a modified theme."
+            to="kreizenbeck"
+            href="https://www.kreizenbeckplanroom.com"
+            skills={kreizenbeckskills}
+            src={kreizenbeckimg}
+            title="Kreizenbeck Constructors"
+          >
+            <p>
+              The client needed their WordPress website's design coded into the
+              theme. The main objective was to showcase their construction work,
+              so there were many galleries. There was a plugin used for the
+              galleries, but it had limited features which didn't cover the
+              design or informational needs. After I configured and coded the
+              adjustments to theme the website just as the design portrayed, I
+              added an informational hover effect to the gallery which did not
+              come included with the plugin. The client was happy with the
+              results and happy with the website overall.
+            </p>
+          </Showcase>
+          <Showcase
+            className="backing1b_ skewL tint1_b"
+            desc="New WordPress websites, built with a custom theme and plugins."
+            skills={dentistryskills}
+            title="Dental Websites"
+          >
+            <p>
+              While working at Gilleard Marketing, I launched many websites for
+              dental practitioners in states all across the US. Since WordPress
+              was the platform of choice at GM, I built a custom theme and
+              several custom plugins to expedite our workflow and support better
+              control over desired end results.
+            </p>
+            <p>
+              As the web developer, I built these websites according to the
+              designers specifications, which was provided to me as a Photoshop
+              file.
+            </p>
+            <p>These are some of websites I built at Gilleard Marketing:</p>
+            <h4>Thomas G. Rubino, DDS,&nbsp;MS&nbsp;PA</h4>
+            <img
+              alt="Screenshot of bradentonperio.com"
+              src={bradentonperioimg}
+            />
+            <a
+              className="button"
+              href="https://bradentonperio.com"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span className="text">See Project</span>{" "}
+              <span className="url">bradentonperio.com</span>
+            </a>
+            <h4>Ark Dental Care"</h4>
+            <img
+              alt="Screenshot of dentistinsantaclara.com"
+              src={dentistinsantaclaraimg}
+            />
+            <a
+              className="button"
+              href="https://dentistinsantaclara.com"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span className="text">See Project</span>{" "}
+              <span className="url">dentistinsantaclara.com</span>
+            </a>
+            <h4>Warren Dentistry"</h4>
+            <img
+              alt="Screenshot of southfortworthdentist.com"
+              src={southfortworthdentistimg}
+            />
+            <a
+              className="button"
+              href="https://southfortworthdentist.com"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span className="text">See Project</span>{" "}
+              <span className="url">southfortworthdentist.com</span>
+            </a>
+            <h4>Gentle Dentistry</h4>
+            <img
+              alt="Screenshot of westchestergentledentistry.com"
+              src={westchestergentledentistryimg}
+            />
+            <a
+              className="button"
+              href="https://westchestergentledentistry.com"
+              rel="noreferrer"
+              target="_blank"
+            >
+              <span className="text">See Project</span>{" "}
+              <span className="url">westchestergentledentistry.com</span>
+            </a>
+            <p></p>
+          </Showcase>
+        </section>
+        <section className="alignable skewC cta_b" id="contact">
+          <article className="self-center">
+            <h2>Let's Build Something!</h2>
+            <p>
+              Nothing excites me more than starting a new project or making
+              something better. For {since("Sept, 13, 1999")} years I have
+              worked as a freelancer, serving clients in many industries, and
+              have also worked as a full-time employee at various retail
+              manufacturing and marketing agencies.
+            </p>
+            <div className="columns-2 topXS bottomXS">
+              <div className="pull tint2">
+                <h4>Hire me! 😄</h4>
+                <p>
+                  I am currently available for hire! Not for long though, so act
+                  fast if you want me on your team! 🙌
+                </p>
+              </div>
+              <div className="pull tint3">
+                <h4>Contract me! 👍</h4>
+                <p>
+                  I am also open for service as a freelance web developer. Send
+                  me your project ideas and I'll help you hash out the web
+                  solutions you need. 💡
+                </p>
+              </div>
+            </div>
+          </article>
+          <Form className="topXS" />
+        </section>
+        <section className="alignable">
+          <Profiles className="article reveal self-center" />
+        </section>
+      </Page>
+    </>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import * as clss from "./split.module.css";
+import * as clss from "../css/split.module.css";
 
 const Split = (props) => {
   return (

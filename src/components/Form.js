@@ -1,5 +1,5 @@
 import React from "react";
-import * as clss from "./form.module.css";
+import * as clss from "../css/form.module.css";
 
 const Form = (props) => {
   return (

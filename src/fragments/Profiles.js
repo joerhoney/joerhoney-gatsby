@@ -1,6 +1,6 @@
 import React from "react";
-import "../layouts/icons.css";
-import * as clss from "./profiles.module.css";
+import "../css/icons.css";
+import * as clss from "../css/profiles.module.css";
 import Icon from "../components/Icon";
 
 const Profiles = (props) => {

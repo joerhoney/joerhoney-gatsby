@@ -46,9 +46,10 @@
   text-transform: lowercase;
 }
 .heroHome h1 b:nth-child(1) {
+  display: inline-block;
   left: 3.6vh;
   position: relative;
-  top: -9.5vh;
+  top: -14vh;
 }
 .heroHome h1 b:nth-child(1)::before {
   font: inherit;
@@ -57,9 +58,10 @@
   letter-spacing: 0.2vh;
 }
 .heroHome h1 b:nth-child(2) {
+  display: inline-block;
   left: 6.3vh;
   position: absolute;
-  top: 51.2vh;
+  top: 60.1vh;
 }
 .heroHome p {
   background: -webkit-linear-gradient(

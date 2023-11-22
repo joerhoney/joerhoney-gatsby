@@ -16,7 +16,7 @@ import dragonFront from "../images/dragon_front.webp";
 
 const Home = () => {
   return (
-    <Page className="block">
+    <>
       <HeroHome />
       <SubheroHome>
         <article>
@@ -43,94 +43,96 @@ const Home = () => {
           </p>
         </article>
       </SubheroHome>
-      <div className="topL">
-        <Split>
-          <Half
-            alt="Illustration of the front end of a dragon."
-            button="View Work"
-            className="half1_b"
-            heading="Developer"
-            position="top right"
-            src={dragonFront}
-            speed={9}
-            to="/developer"
-          >
-            <p>
-              See my list of skills, my work expe&shy;ri&shy;ence and projects I
-              have going on right now.
-            </p>
-          </Half>
-          <Half
-            alt="Illustration of the back end of a dragon."
-            button="View Portfolio"
-            className="half2_b"
-            heading="Illustrator"
-            position="top left"
-            src={dragonBack}
-            speed={-9}
-            to="/artist"
-          >
-            <p>
-              See graph&shy;ic illus&shy;tra&shy;tions,
-              creature/&#8203;character creations and other artwork I've done.
-            </p>
-          </Half>
-        </Split>
-      </div>
-      <section>
-        <div className="columns-3">
-          <div className="column">
-            <h3>WordPress Plugins</h3>
-            <p>
-              I create custom plugins. In fact, I have published 10 in the
-              WordPress repository, under the name AddFunc. They all have
-              greatings, too. Check them out:
-            </p>
-            <a
-              className="button"
-              href="https://profiles.wordpress.org/addfunc/#content-plugins"
-              target="_blank"
+      <Page className="block">
+        <div className="topL">
+          <Split>
+            <Half
+              alt="Illustration of the front end of a dragon."
+              button="View Work"
+              className="half1_b"
+              heading="Developer"
+              position="top right"
+              src={dragonFront}
+              speed={9}
+              to="/developer"
             >
-              AddFunc Plugins
-            </a>
-          </div>
-          <div className="column">
-            <h3>Developer Résumé</h3>
-            <p>
-              You may already have it, but for convenience and to ensure a clear
-              correlation, you can find my résumé here:
-            </p>
-            <Link className="button" to="/resume">
-              View Résumé
-            </Link>
-          </div>
-          <div className="column">
-            <h3>Journey of an&nbsp;Artist</h3>
-            <p>
-              Want to know more about me personally? Well, I wrote a bit about
-              my life here:
-            </p>
-            <Link className="button" to="/story">
-              My Story
-            </Link>
-          </div>
+              <p>
+                See my list of skills, my work expe&shy;ri&shy;ence and projects
+                I have going on right now.
+              </p>
+            </Half>
+            <Half
+              alt="Illustration of the back end of a dragon."
+              button="View Portfolio"
+              className="half2_b"
+              heading="Illustrator"
+              position="top left"
+              src={dragonBack}
+              speed={-9}
+              to="/artist"
+            >
+              <p>
+                See graph&shy;ic illus&shy;tra&shy;tions,
+                creature/&#8203;character creations and other artwork I've done.
+              </p>
+            </Half>
+          </Split>
         </div>
-      </section>
-      <section className="alignable skewC cta_b" id="contact">
-        <article className="self-center">
-          <h2>Contact Me</h2>
-          <p>
-            Whether you need help building something or you just want to
-            connect... well I want to connect, so drop me an email!
-          </p>
-        </article>
-        {/* <Query /> */}
-        <Form />
-      </section>
-      <section className="alignable">
-        <Profiles className="article reveal self-center" />
-      </section>
-    </Page>
+        <section>
+          <div className="columns-3">
+            <div className="column">
+              <h3>WordPress Plugins</h3>
+              <p>
+                I create custom plugins. In fact, I have published 10 in the
+                WordPress repository, under the name AddFunc. They all have
+                greatings, too. Check them out:
+              </p>
+              <a
+                className="button"
+                href="https://profiles.wordpress.org/addfunc/#content-plugins"
+                target="_blank"
+              >
+                AddFunc Plugins
+              </a>
+            </div>
+            <div className="column">
+              <h3>Developer Résumé</h3>
+              <p>
+                You may already have it, but for convenience and to ensure a
+                clear correlation, you can find my résumé here:
+              </p>
+              <Link className="button" to="/resume">
+                View Résumé
+              </Link>
+            </div>
+            <div className="column">
+              <h3>Journey of an&nbsp;Artist</h3>
+              <p>
+                Want to know more about me personally? Well, I wrote a bit about
+                my life here:
+              </p>
+              <Link className="button" to="/story">
+                My Story
+              </Link>
+            </div>
+          </div>
+        </section>
+        <section className="alignable skewC cta_b" id="contact">
+          <article className="self-center">
+            <h2>Contact Me</h2>
+            <p>
+              Whether you need help building something or you just want to
+              connect... well I want to connect, so drop me an email!
+            </p>
+          </article>
+          {/* <Query /> */}
+          <Form />
+        </section>
+        <section className="alignable">
+          <Profiles className="article reveal self-center" />
+        </section>
+      </Page>
+    </>
   );
 };
 

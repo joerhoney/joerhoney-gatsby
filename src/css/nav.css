@@ -1,29 +1,41 @@
 .nav {
-  left: 11px;
-  position: fixed;
+  left: 18px;
+  position: sticky;
   rotate: 22deg;
-  top: -5px;
+  top: -18px;
   transform-origin: top left;
   z-index: 999;
+  width: 160px;
+  /* border: 1px solid red; */
+  height: 90px;
 }
 .nav::before {
   background-image: var(--gradNav);
+  bottom: -400px;
   content: "";
-  display: block;
-  height: 545px;
-  left: -46px;
+  left: -340px;
   overflow: hidden;
   pointer-events: none;
   position: absolute;
-  top: -54px;
+  right: -150px;
+  rotate: -22deg;
+  top: -300px;
   transition: all 1s cubic-bezier(0, 0, 0.15, 1);
-  width: 185px;
+  z-index: -1;
 }
-.nav:is(:hover, :focus)::before {
-  height: 1338px;
-  left: -44px;
-  top: -157px;
-  width: 440px;
+.nav::after {
+  background-image: var(--gradNav);
+  bottom: -140px;
+  content: "";
+  left: -190px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  right: -120px;
+  rotate: -22deg;
+  top: -140px;
+  transition: all 1s cubic-bezier(0, 0, 0.15, 1);
+  z-index: -1;
 }
 .nav .group {
 }
@@ -33,7 +45,7 @@
   margin: 0;
   padding: 0;
   position: absolute;
-  top: -14px;
+  top: 0;
   transform-origin: top left;
 }
 .nav ul li {
@@ -58,7 +70,7 @@
   left: 10px;
   letter-spacing: 0.3rem;
   position: absolute;
-  top: 16px;
+  top: 31px;
   z-index: 1;
 }
 .nav .toggle {
@@ -113,6 +125,9 @@
   /* .nav ul:hover li a {
     color: var(--color3);
   } */
+  .nav:is(:hover, :focus)::before {
+    transform: scale(2);
+  }
   .nav a:not(.current):is(:active, :focus, :hover) {
     color: var(--accent);
   }

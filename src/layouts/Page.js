@@ -4,17 +4,19 @@ import Footer from "../components/Footer";
 // import SmoothScroll from "smooth-scroll";
 /* CSS */
 import "normalize.css";
-import "./global.css";
-import "./nav.css";
-import "./colors-default.css";
-import "./icons.css";
-import "./units.css";
+import "../css/global.css";
+import "../css/nav.css";
+import "../css/colors-default.css";
+import "../css/icons.css";
+import "../css/units.css";
 
 const Page = ({ children, className }) => {
   return (
     <>
-      <Nav />
-      <main className={className}>{children}</main>
+      <main className={className}>
+        <Nav />
+        {children}
+      </main>
       <Footer />
     </>
   );

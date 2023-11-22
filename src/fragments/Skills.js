@@ -1,5 +1,5 @@
 import * as React from "react";
-import "../layouts/icons.css";
+import "../css/icons.css";
 import Icon from "../components/Icon";
 
 const Browsers = () => {

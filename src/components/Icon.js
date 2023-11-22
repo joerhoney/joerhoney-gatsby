@@ -195,13 +195,13 @@ import {
   DiYii,
   DiZend,
 } from "react-icons/di";
+import { HiExternalLink, HiMenu } from "react-icons/hi";
+import { IoClose } from "react-icons/io5";
 import {
   SvgAfterEffects,
   SvgApache,
   SvgBabel,
-  SvgHamburger,
   SvgLinkedin,
-  SvgClose,
   SvgVSCode,
 } from "./SVGs.js";
 
@@ -209,6 +209,7 @@ import {
 
 const Icon = (props) => {
   const iconMap = {
+    // DevIcons
     Android: <DiAndroid />,
     Angular: <DiAngularSimple />,
     Appcelerator: <DiAppcelerator />,
@@ -401,13 +402,16 @@ const Icon = (props) => {
     Yeoman: <DiYeoman />,
     Yii: <DiYii />,
     Zend: <DiZend />,
+    // Heroicons
+    ExternalLink: <HiExternalLink />,
+    Menu: <HiMenu />,
+    // Ionicons 5
+    Close: <IoClose />,
     // Custom icons
     AfterEffects: <SvgAfterEffects />,
     Apache: <SvgApache />,
     Babel: <SvgBabel />,
-    Hamburger: <SvgHamburger />,
     Linkedin: <SvgLinkedin />,
-    Close: <SvgClose />,
     VSCode: <SvgVSCode />,
   };
   const label = props.label ? props.label : props.name;

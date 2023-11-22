@@ -4,6 +4,9 @@
   width: 100vw;
   font-size: 16px;
 }
+html {
+  scroll-behavior: smooth;
+}
 p {
   margin-block-start: unset;
   margin-block-end: unset;
@@ -23,7 +26,6 @@ body {
   color: var(--color6);
   font: 400 15px/1.3em Courier, monospace;
   margin: 0;
-  overflow-x: hidden; /* Fixes iOS scroll */
   padding: 0;
   position: relative;
   width: 100vw;
@@ -36,6 +38,37 @@ body > div {
   background-repeat: no-repeat;
   position: relative;
   z-index: -10;
+}
+p a[href*="http"]::before,
+a[href*="http"].button::before {
+  content: ".";
+  display: block;
+  float: right;
+  height: 1em;
+  margin-left: 0.25em;
+  text-shadow: 0.05em 0 0 currentColor, 0.1em 0 0 currentColor,
+    0.15em 0 0 currentColor, 0.2em 0 0 currentColor, 0.25em 0 0 currentColor,
+    0.3em 0 0 currentColor, 0.35em 0 0 currentColor, 0.4em 0 0 currentColor,
+    0.45em 0 0 currentColor, 0.5em 0 0 currentColor, 0.55em 0 0 currentColor,
+    0.6em 0 0 currentColor, 0.65em 0 0 currentColor, 0 -0.05em 0 currentColor,
+    0 -0.1em 0 currentColor, 0 -0.15em 0 currentColor, 0 -0.2em 0 currentColor,
+    0 -0.25em 0 currentColor, 0 -0.3em 0 currentColor, 0 -0.35em 0 currentColor,
+    0 -0.4em 0 currentColor, 0 -0.45em 0 currentColor, 0 -0.5em 0 currentColor,
+    0 -0.55em 0 currentColor, 0 -0.6em 0 currentColor, 0 -0.65em 0 currentColor,
+    0.05em -0.65em 0 currentColor, 0.1em -0.65em 0 currentColor,
+    0.15em -0.65em 0 currentColor, 0.65em -0.05em 0 currentColor,
+    0.65em -0.1em 0 currentColor, 0.65em -0.15em 0 currentColor,
+    0.65em -0.65em 0 currentColor, 0.6em -0.65em 0 currentColor,
+    0.55em -0.65em 0 currentColor, 0.5em -0.65em 0 currentColor,
+    0.45em -0.65em 0 currentColor, 0.4em -0.65em 0 currentColor,
+    0.65em -0.6em 0 currentColor, 0.65em -0.55em 0 currentColor,
+    0.65em -0.5em 0 currentColor, 0.65em -0.45em 0 currentColor,
+    0.65em -0.4em 0 currentColor, 0.56em -0.56em 0 currentColor,
+    0.53em -0.53em 0 currentColor, 0.5em -0.5em 0 currentColor,
+    0.46em -0.46em 0 currentColor, 0.43em -0.43em 0 currentColor,
+    0.4em -0.4em 0 currentColor, 0.36em -0.36em 0 currentColor,
+    0.33em -0.33em 0 currentColor, 0.3em -0.3em 0 currentColor;
+  width: 1em;
 }
 section:last-of-type {
   padding-bottom: 100px;
@@ -146,7 +179,7 @@ section p :is(a:focus, a:hover) {
 section {
   border-radius: 0;
   clear: both;
-  padding-top: var(--unit8);
+  padding-bottom: var(--unit8);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -221,8 +254,8 @@ article,
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-width: calc(var(--max_text) + var(--unit24));
-  padding: 0 var(--unit12);
+  max-width: calc(var(--max_text) + var(--unit16));
+  padding: 0 var(--unit8);
   position: relative;
   width: 100%;
 }
@@ -255,8 +288,8 @@ button {
   font-weight: bold;
   margin-bottom: 1rem;
   margin-top: 0;
-  min-width: min-content;
-  padding: var(--unit2) var(--unit4);
+  overflow: scroll;
+  padding: var(--unit2) var(--unit3);
   text-decoration: none;
   transition: all ease 0.5s;
 }
@@ -287,7 +320,8 @@ h4 {
   font-family: Rubik, sans-serif;
   font-weight: 700;
   line-height: 1em;
-  margin-bottom: 0;
+  margin: 0;
+  padding-top: 1em;
   text-transform: lowercase;
 }
 h2 {
@@ -334,9 +368,9 @@ form > * {
 input,
 textarea {
   background-color: transparent;
-  outline: 2px solid currentColor;
-  border: none;
-  border-radius: var(--unit1);
+  outline: none;
+  border: 2px solid currentColor;
+  border-radius: var(--unit2);
   box-sizing: border-box;
   color: currentColor;
   margin-bottom: 0;
@@ -391,7 +425,7 @@ input:-webkit-autofill {
   font-size: calc(6vh + 4vw);
   max-width: calc(38vh + 24vw);
   position: absolute;
-  right: var(--unit10);
+  right: 0;
   rotate: 22deg;
   text-align: right;
   text-shadow: 0 0 20em var(--glow), 0 0 40em var(--glow), 0 0 60em var(--glow),
@@ -422,6 +456,7 @@ input:-webkit-autofill {
   gap: var(--unit5);
 }
 .columns-3 {
+  align-self: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

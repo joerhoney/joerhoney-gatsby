@@ -86,7 +86,7 @@ h3 + img {
   h3 {
     bottom: calc(100% - 114px);
   }
-  .showcase ul.skills {
+  ul.skills {
     display: flex;
     flex-direction: column;
     top: 75px;
@@ -94,19 +94,19 @@ h3 + img {
     margin: 0;
     position: absolute;
   }
-  .showcase ul.skills li {
+  ul.skills li {
     margin-bottom: var(--unit2);
     transform: rotate(22deg);
     transform-origin: left;
   }
-  .showcase a.button {
+  a.button {
     align-self: center;
     margin-top: var(--unit2);
     position: relative;
     width: 50%;
   }
-  .showcase a.button.at-bottom {
-    rotate: unset;
+  a.button .text {
+    display: block;
   }
 }
 @media (min-width: 1000px) {
