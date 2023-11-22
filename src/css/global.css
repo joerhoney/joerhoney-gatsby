@@ -39,6 +39,9 @@ body > div {
   position: relative;
   z-index: -10;
 }
+a {
+  text-decoration: none;
+}
 p a[href*="http"]::before,
 a[href*="http"].button::before {
   content: ".";
@@ -69,6 +72,31 @@ a[href*="http"].button::before {
     0.4em -0.4em 0 currentColor, 0.36em -0.36em 0 currentColor,
     0.33em -0.33em 0 currentColor, 0.3em -0.3em 0 currentColor;
   width: 1em;
+}
+a.button,
+.button,
+button {
+  background-color: var(--color3);
+  background-image: var(--gradButton);
+  border: none;
+  border-radius: var(--unit1);
+  color: var(--textButton);
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  overflow: scroll;
+  padding: var(--unit2) var(--unit3);
+  text-decoration: none;
+  transition: all ease 0.5s;
+}
+a.button:focus,
+a.button:hover,
+.button:focus,
+.button:hover,
+button:focus,
+button:hover {
+  background-color: var(--color4);
 }
 section:last-of-type {
   padding-bottom: 100px;
@@ -275,31 +303,6 @@ article,
 .alignable {
   display: flex;
   flex-direction: column;
-}
-a.button,
-.button,
-button {
-  background-color: var(--color3);
-  background-image: var(--gradButton);
-  border: none;
-  border-radius: var(--unit1);
-  color: var(--textButton);
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  margin-top: 0;
-  overflow: scroll;
-  padding: var(--unit2) var(--unit3);
-  text-decoration: none;
-  transition: all ease 0.5s;
-}
-a.button:focus,
-a.button:hover,
-.button:focus,
-.button:hover,
-button:focus,
-button:hover {
-  background-color: var(--color4);
 }
 img.transluscent {
   mix-blend-mode: multiply;
