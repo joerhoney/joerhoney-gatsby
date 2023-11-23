@@ -90,6 +90,7 @@ const Home = () => {
               <a
                 className="button"
                 href="https://profiles.wordpress.org/addfunc/#content-plugins"
+                rel="noopener"
                 target="_blank"
               >
                 AddFunc Plugins

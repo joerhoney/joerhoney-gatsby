@@ -1,7 +1,5 @@
 import React from "react";
-import { useState } from "react";
 import { Link } from "gatsby";
-import Icon from "./Icon";
 
 const Nav = () => {
   const noscriptCSS = `
