@@ -2,8 +2,17 @@ import React from "react";
 import * as clss from "../css/showcase.module.css";
 // import { Link } from "gatsby";
 import getDomainName from "../utils/getDomainName";
+import isExternal from "../utils/isExternal";
+import Button from "./Button.js";
 
 const Showcase = (props) => {
+  const window = props.window
+    ? props.window
+    : props.href
+    ? isExternal(props.href)
+      ? getDomainName(props.href)
+      : false
+    : false;
   return (
     <div className={clss.showcaseWrap}>
       <div className={`${clss.showcase} ${props.className}`}>
@@ -34,15 +43,9 @@ const Showcase = (props) => {
           </ul>
         )}
         {props.href && (
-          <a
-            className="button"
-            href={props.href}
-            rel="noreferrer"
-            target="_blank"
-          >
-            <span className="text">See Project</span>{" "}
-            <span className="url">{getDomainName(props.href)}</span>
-          </a>
+          <Button href={props.href} window={window}>
+            See Project<span className="blinking">:</span>
+          </Button>
         )}
       </div>
     </div>

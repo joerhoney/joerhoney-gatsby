@@ -19,25 +19,27 @@ const Nav = () => {
     <>
       <noscript>{noscriptCSS}</noscript>
       <nav className="nav">
-        <Link to="/" className="logo">
-          :j
-        </Link>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/developer">Developer</Link>
-          </li>
-          <li>
-            <Link to="/artist">Artist</Link>
-          </li>
-          <li>
-            <Link to="#contact" title="Contact">
-              Contact
-            </Link>
-          </li>
-        </ul>
+        <div className="group">
+          <Link to="/" className="logo">
+            :j
+          </Link>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              <Link to="/developer">Developer</Link>
+            </li>
+            <li>
+              <Link to="/artist">Artist</Link>
+            </li>
+            <li>
+              <Link to="#contact" title="Contact">
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </div>
       </nav>
     </>
   );

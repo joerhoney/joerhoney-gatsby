@@ -9,6 +9,8 @@
   --color5: #5a3a67;
   --color6: #121f26;
   --glow: #ffd8b7;
+  --knockout: #ffffff;
+  --multiscreen: multiply;
   --text: #121f26;
   --textButton: #ffffff;
   --tint1: #ffffff66;
@@ -17,10 +19,15 @@
   --tint4: #fe574a66;
   /* Consistent colors */
   --dark: #121f26;
-  --darkish: #5a3a67;
+  --darkish: #29232e;
   --light: #ffffff;
-  --lightish: #ffd8b7;
+  --lightish: #ffb8ad;
   /* Gradients */
+  --gradBg: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
+  --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
+  --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
+  --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
+  --gradKnockout: linear-gradient(70deg, #121f2700, #121f27);
   --gradNav: radial-gradient(
     #ffffffcc,
     #ffffffaa,
@@ -28,10 +35,6 @@
     #ffffff11,
     transparent 70%
   );
-  --gradBg: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
-  --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
-  --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
-  --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
   /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
 }
 .cta,
@@ -75,11 +78,14 @@
     --color5: #ffd8b7;
     --color6: #ffffff;
     --glow: #ea303c; /* alpha was: .72 */
+    --knockout: #000000;
+    --multiscreen: screen;
     --text: #ffffff;
     --textButton: #ffffff;
     --gradBg: linear-gradient(70deg, #121f26 30%, #302a3f 80%, #692938 100%);
     --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
     --gradFooter: linear-gradient(48deg, #121f26, #312536);
+    --gradKnockout: linear-gradient(70deg, #ffffff00, #ffffff);
     --gradNav: radial-gradient(
       #121f26cc,
       #121f26aa,

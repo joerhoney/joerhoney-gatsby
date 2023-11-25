@@ -7,9 +7,9 @@ import Profiles from "../fragments/Profiles";
 const resume = () => {
   return (
     <Page>
-      <heading className="hero">
+      <section className="hero">
         <h1>Résumé</h1>
-      </heading>
+      </section>
       <section className="alignable bottomM">
         <article className="self-center">
           <h2>Web Developer</h2>

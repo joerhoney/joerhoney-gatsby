@@ -1,4 +1,6 @@
 import * as React from "react";
+/* Components */
+import Button from "../components/Button";
 import Page from "../layouts/Page";
 import HeroHome from "../fragments/HeroHome";
 import SubheroHome from "../fragments/SubheroHome";
@@ -78,7 +80,7 @@ const Home = () => {
             </Half>
           </Split>
         </div>
-        <section>
+        <section className="topXS">
           <div className="columns-3">
             <div className="column">
               <h3>WordPress Plugins</h3>
@@ -87,14 +89,9 @@ const Home = () => {
                 WordPress repository, under the name AddFunc. They all have
                 greatings, too. Check them out:
               </p>
-              <a
-                className="button"
-                href="https://profiles.wordpress.org/addfunc/#content-plugins"
-                rel="noopener"
-                target="_blank"
-              >
+              <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">
                 AddFunc Plugins
-              </a>
+              </Button>
             </div>
             <div className="column">
               <h3>Developer Résumé</h3>

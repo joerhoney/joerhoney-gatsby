@@ -7,14 +7,14 @@ import { StaticImage } from "gatsby-plugin-image";
 const storyPage = () => {
   return (
     <Page>
-      <heading className="hero">
+      <section className="hero">
         <StaticImage
           alt="Watercolor of a woman in a kamono next to a cherry blossom."
           placeholder="blurred"
           src="../images/cherry-blossom-half.webp"
         />
         <h1>Story</h1>
-      </heading>
+      </section>
       <section className="alignable bottomL topS">
         <article className="self-center">
           <p>

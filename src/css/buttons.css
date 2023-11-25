@@ -1,0 +1,57 @@
+.button,
+button {
+  background-color: var(--color3);
+  background-image: var(--gradButton);
+  border: none;
+  border-radius: var(--border-radius);
+  color: var(--textButton);
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  overflow: scroll;
+  padding: var(--unit2) var(--unit3);
+  position: relative;
+  text-decoration: none;
+  transition: all ease 0.5s;
+}
+.button:focus,
+.button:hover,
+button:focus,
+button:hover {
+  background-color: var(--color4);
+}
+.button .window {
+  background-color: var(--darkish);
+  border-radius: var(--border-radius);
+  box-shadow: inset 0 0 0.5em var(--dark);
+  color: var(--light);
+  font-weight: normal;
+  margin: 1em var(--unit-1) 0;
+  overflow: scroll;
+  padding: 4px 8px;
+  text-shadow: 0 0 0.5em var(--lightish);
+}
+.button:has(.icon.external) {
+  padding-right: var(--unit8);
+}
+.button .icon.external {
+  position: absolute;
+  right: var(--unit2);
+  top: var(--unit2);
+}
+.button .icon.external svg {
+  font-size: 20px;
+}
+.cta :is(.button, button),
+.cta_b :is(.button, button) {
+  background-color: var(--color6);
+  background-image: var(--gradKnockout);
+  color: var(--knockout);
+  mix-blend-mode: var(--multiscreen);
+}
+
+.cta :is(.button:focus, .button:focus, button:hover, button:hover),
+.cta_b :is(.button:focus, .button:focus, button:hover, button:hover) {
+  background-color: var(--color5);
+}

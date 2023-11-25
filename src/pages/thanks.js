@@ -5,9 +5,9 @@ import Profiles from "../fragments/Profiles";
 const Thanks = () => {
   return (
     <Page>
-      <heading className="hero">
+      <section className="hero">
         <h1>Thanks!</h1>
-      </heading>
+      </section>
       <section className="alignable">
         <article className="self-center">
           <h2>...for reaching out!</h2>

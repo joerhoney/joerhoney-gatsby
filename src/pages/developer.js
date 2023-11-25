@@ -1,5 +1,6 @@
 import * as React from "react";
 /* Components */
+import Button from "../components/Button";
 import Form from "../components/Form";
 import Page from "../layouts/Page";
 import Profiles from "../fragments/Profiles";
@@ -100,14 +101,14 @@ const codazenskills = [
 const codePage = () => {
   return (
     <>
-      <heading className="hero">
+      <section className="hero">
         <StaticImage
           alt="Illustration of a chinese dragon"
           placeholder="blurred"
           src="../images/dragon.webp"
         />
         <h1>Developer</h1>
-      </heading>
+      </section>
       <Page>
         <section className="alignable bottomM" id="skills">
           <article className="self-center">
@@ -309,57 +310,48 @@ const codePage = () => {
               alt="Screenshot of bradentonperio.com"
               src={bradentonperioimg}
             />
-            <a
-              className="button"
+            <Button
               href="https://bradentonperio.com"
-              rel="noreferrer"
-              target="_blank"
+              window="bradentonperio.com"
             >
-              <span className="text">See Project</span>{" "}
-              <span className="url">bradentonperio.com</span>
-            </a>
+              See Project<span className="blinking">:</span>
+            </Button>
+
             <h4>Ark Dental Care"</h4>
             <img
               alt="Screenshot of dentistinsantaclara.com"
               src={dentistinsantaclaraimg}
             />
-            <a
-              className="button"
+            <Button
               href="https://dentistinsantaclara.com"
-              rel="noreferrer"
-              target="_blank"
+              window="dentistinsantaclara.com"
             >
-              <span className="text">See Project</span>{" "}
-              <span className="url">dentistinsantaclara.com</span>
-            </a>
+              See Project<span className="blinking">:</span>
+            </Button>
+
             <h4>Warren Dentistry"</h4>
             <img
               alt="Screenshot of southfortworthdentist.com"
               src={southfortworthdentistimg}
             />
-            <a
-              className="button"
+            <Button
               href="https://southfortworthdentist.com"
-              rel="noreferrer"
-              target="_blank"
+              window="southfortworthdentist.com"
             >
-              <span className="text">See Project</span>{" "}
-              <span className="url">southfortworthdentist.com</span>
-            </a>
+              See Project<span className="blinking">:</span>
+            </Button>
+
             <h4>Gentle Dentistry</h4>
             <img
               alt="Screenshot of westchestergentledentistry.com"
               src={westchestergentledentistryimg}
             />
-            <a
-              className="button"
+            <Button
               href="https://westchestergentledentistry.com"
-              rel="noreferrer"
-              target="_blank"
+              window="westchestergentledentistry.com"
             >
-              <span className="text">See Project</span>{" "}
-              <span className="url">westchestergentledentistry.com</span>
-            </a>
+              See Project<span className="blinking">:</span>
+            </Button>
             <p></p>
           </Showcase>
         </section>

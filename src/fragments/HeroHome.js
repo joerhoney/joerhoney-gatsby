@@ -6,7 +6,7 @@ const HeroHome = () => {
     <div className={clss.heroClip}>
       <div className={clss.heroWrapper}>
         <div className={clss.heroHome}>
-          <h1 className={clss.joerhoney}>
+          <h1 className="joerhoney">
             <b>Joe</b> <b>Rhoney</b>
           </h1>
           <div className={clss.jBig}>

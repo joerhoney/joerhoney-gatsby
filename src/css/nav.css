@@ -1,15 +1,12 @@
 .nav {
   left: 18px;
+  height: 110px;
   position: sticky;
-  rotate: 22deg;
   top: -18px;
-  transform-origin: top left;
   z-index: 999;
-  width: 160px;
-  /* border: 1px solid red; */
-  height: 90px;
+  width: 150px;
 }
-.nav::before {
+/* .nav::before {
   background-image: var(--gradNav);
   bottom: -400px;
   content: "";
@@ -22,8 +19,26 @@
   top: -300px;
   transition: all 1s cubic-bezier(0, 0, 0.15, 1);
   z-index: -1;
+} */
+.nav::before {
+  color: var(--color1);
+  content: "\25b6";
+  font-size: 540px;
+  left: -100px;
+  pointer-events: none;
+  position: absolute;
+  filter: blur(35px);
+  top: -40px;
+  transition: all 1s cubic-bezier(0, 0, 0.15, 1);
+  z-index: -1;
+  width: calc(100vw + 100px);
+  overflow: hidden;
+  padding: 80px 0 180px;
+  box-sizing: border-box;
+  height: 0;
+  transform: scale(1, 2);
 }
-.nav::after {
+/* .nav::after {
   background-image: var(--gradNav);
   bottom: -140px;
   content: "";
@@ -36,8 +51,11 @@
   top: -140px;
   transition: all 1s cubic-bezier(0, 0, 0.15, 1);
   z-index: -1;
-}
+} */
 .nav .group {
+  transform-origin: top left;
+  width: 170px;
+  height: 90px;
 }
 .nav ul {
   display: block;
@@ -78,7 +96,7 @@
 }
 @media (max-width: 600px) {
   .nav .group {
-    transition: all 0.2s ease;
+    rotate: 22deg;
   }
   .nav .toggle {
     display: block;
@@ -95,18 +113,21 @@
     z-index: 1;
     padding: 6px 2px 2px 1px;
   }
-  .nav.active::before {
+  /* .nav.active::before {
     height: 1578px;
     left: -44px;
     top: -217px;
     width: 580px;
+  } */
+  .nav.active::before {
+    width: 580px;
   }
-  .nav.active .group {
+  /* .nav.active .group {
     left: 70px;
     top: 4px;
     transform: scale(3);
     translate: 40px -13px;
-  }
+  } */
   .nav.active .open {
     opacity: 0;
     z-index: 0;
@@ -125,9 +146,9 @@
   /* .nav ul:hover li a {
     color: var(--color3);
   } */
-  .nav:is(:hover, :focus)::before {
-    transform: scale(2);
-  }
+  /* .nav:is(:hover, :focus)::before {
+    transform: scale(1, 3);
+  } */
   .nav a:not(.current):is(:active, :focus, :hover) {
     color: var(--accent);
   }

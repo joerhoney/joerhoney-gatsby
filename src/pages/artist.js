@@ -9,14 +9,14 @@ const artistPage = (props) => {
   return (
     <>
       {" "}
-      <heading className="hero">
+      <section className="hero">
         <StaticImage
           alt="Illustration of a team of charicters"
           placeholder="blurred"
           src="../images/team.webp"
         />
         <h1>Artist</h1>
-      </heading>
+      </section>
       <Page>
         <section className="alignable bottomL" id="skills">
           <article className="self-center">

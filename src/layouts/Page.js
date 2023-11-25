@@ -9,6 +9,7 @@ import "../css/nav.css";
 import "../css/colors-default.css";
 import "../css/icons.css";
 import "../css/units.css";
+import "../css/buttons.css";
 
 const Page = ({ children, className }) => {
   return (

@@ -42,11 +42,11 @@ body > div {
 a {
   text-decoration: none;
 }
-section p a[href*="http"]::before,
-a[href*="http"].button::before {
+section:not(.hero) p a[href*="http"]::before {
   content: ".";
   display: block;
   float: right;
+  font-weight: normal;
   height: 1em;
   margin-left: 0.25em;
   text-shadow: 0.05em 0 0 currentColor, 0.1em 0 0 currentColor,
@@ -73,42 +73,17 @@ a[href*="http"].button::before {
     0.33em -0.33em 0 currentColor, 0.3em -0.3em 0 currentColor;
   width: 1em;
 }
-a.button,
-.button,
-button {
-  background-color: var(--color3);
-  background-image: var(--gradButton);
-  border: none;
-  border-radius: var(--border-radius);
-  color: var(--textButton);
-  display: inline-block;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  margin-top: 0;
-  overflow: scroll;
-  padding: var(--unit2) var(--unit3);
-  text-decoration: none;
-  transition: all ease 0.5s;
-}
-a.button:focus,
-a.button:hover,
-.button:focus,
-.button:hover,
-button:focus,
-button:hover {
-  background-color: var(--color4);
-}
-section:last-of-type {
+section:not(.hero):last-of-type {
   padding-bottom: 100px;
 }
-section p a {
+section:not(.hero) p a {
   border-bottom: 2px solid var(--color5);
   box-sizing: border-box;
   color: currentColor;
   text-decoration: none;
   transition: all ease 0.2s;
 }
-section p :is(a:focus, a:hover) {
+section:not(.hero) p :is(a:focus, a:hover) {
   border-bottom: 4px solid var(--color6);
 }
 .hero,
@@ -204,8 +179,8 @@ section p :is(a:focus, a:hover) {
   font-weight: bold;
   text-shadow: 0 0 2em var(--glow);
 }
-section {
-  border-radius: var(--border-radius);
+section:not(.hero) {
+  /* border-radius: var(--border-radius); */
   clear: both;
   padding-bottom: var(--unit8);
   position: relative;
@@ -345,7 +320,7 @@ h2 + p::before {
   shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
   width: 250px;
 }
-section h2,
+section:not(.hero) h2,
 h2.tilt {
   rotate: 22deg;
   text-align: right;
@@ -381,8 +356,10 @@ textarea {
   transition: all ease 0.2s;
 }
 :is(input, textarea):focus {
-  background-color: var(--dark);
+  background-color: var(--darkish);
   color: var(--light);
+  box-shadow: inset 0 0 1em var(--dark);
+  text-shadow: 0 0 0.5em var(--lightish);
 }
 :is(input, textarea)::placeholder {
   color: currentColor;
@@ -563,4 +540,21 @@ footer .copyright {
   font-size: 0.8rem;
   margin-bottom: 0;
   margin-top: var(--unit2);
+}
+.blinking {
+  animation: blinking 2s ease infinite;
+}
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
 }
