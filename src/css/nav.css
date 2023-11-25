@@ -28,12 +28,12 @@
   pointer-events: none;
   position: absolute;
   filter: blur(35px);
-  top: -40px;
+  top: -160px;
   transition: all 1s cubic-bezier(0, 0, 0.15, 1);
   z-index: -1;
   width: calc(100vw + 100px);
   overflow: hidden;
-  padding: 80px 0 180px;
+  padding: 160px 0 200px;
   box-sizing: border-box;
   height: 0;
   transform: scale(1, 2);
