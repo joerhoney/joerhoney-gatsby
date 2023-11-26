@@ -22,20 +22,20 @@
   bottom: -400px;
 } */
 .nav::before {
+  box-sizing: border-box;
   color: var(--color1);
   content: "\25b6";
+  /* filter: blur(50px); */
   font-size: 540px;
-  pointer-events: none;
-  filter: blur(50px);
-  transition: all 1s cubic-bezier(0, 0, 0.15, 1);
-  z-index: -1;
-  width: calc(100vw + 100px);
+  height: 0;
   overflow: hidden;
   padding: 200px 0 200px;
-  box-sizing: border-box;
-  height: 0;
+  pointer-events: none;
   transform: skewY(12deg);
   transform-origin: top left;
+  transition: all 1s cubic-bezier(0, 0, 0.15, 1);
+  width: calc(100vw + 100px);
+  z-index: -1;
 
   position: absolute;
   left: -100px;
@@ -107,10 +107,6 @@
   }
   .nav .toggle {
     display: block;
-  }
-  .nav .icon {
-    color: var(--color3);
-    width: 42px;
   }
   .nav.active::before {
     width: 580px;
