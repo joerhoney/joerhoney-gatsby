@@ -6,6 +6,7 @@
 }
 html {
   scroll-behavior: smooth;
+  scroll-snap-type: y proximity;
 }
 p {
   margin-block-start: unset;
@@ -42,7 +43,7 @@ body > div {
 a {
   text-decoration: none;
 }
-section:not(.hero) p a[href*="http"]::before {
+section:not(.gallery, .hero) p a[href*="http"]::before {
   content: ".";
   display: block;
   float: right;
@@ -73,17 +74,17 @@ section:not(.hero) p a[href*="http"]::before {
     0.33em -0.33em 0 currentColor, 0.3em -0.3em 0 currentColor;
   width: 1em;
 }
-section:not(.hero):last-of-type {
+section:not(.gallery, .hero):last-of-type {
   padding-bottom: 100px;
 }
-section:not(.hero) p a {
+section:not(.gallery, .hero) p a {
   border-bottom: 2px solid var(--color5);
   box-sizing: border-box;
   color: currentColor;
   text-decoration: none;
   transition: all ease 0.2s;
 }
-section:not(.hero) p :is(a:focus, a:hover) {
+section:not(.gallery, .hero) p :is(a:focus, a:hover) {
   border-bottom: 4px solid var(--color6);
 }
 .hero,
@@ -120,8 +121,9 @@ section:not(.hero) p :is(a:focus, a:hover) {
   bottom: 0;
   content: "";
   display: block;
-  left: 0;
+
   position: absolute;
+  left: 0;
   right: 0;
   top: 0;
 }
@@ -179,7 +181,7 @@ section:not(.hero) p :is(a:focus, a:hover) {
   font-weight: bold;
   text-shadow: 0 0 2em var(--glow);
 }
-section:not(.hero) {
+section:not(.gallery, .hero) {
   /* border-radius: var(--border-radius); */
   clear: both;
   padding-bottom: var(--unit8);
@@ -222,14 +224,15 @@ section:not(.hero) {
 .skewR::before {
   content: "";
   display: block;
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
   transform: skewY(22deg);
   transform-origin: center;
-  top: 0;
   z-index: -1;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 /* .tiltC::before,
 .tiltL::before,
@@ -237,14 +240,15 @@ section:not(.hero) {
   content: "";
   display: block;
   border-radius: var(--border-radius);
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
   rotate: 22deg;
   transform-origin: center;
-  top: 0;
   z-index: -1;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 } */
 .skewL::before {
   transform-origin: left;
@@ -320,7 +324,7 @@ h2 + p::before {
   shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
   width: 250px;
 }
-section:not(.hero) h2,
+section:not(.gallery, .hero) h2,
 h2.tilt {
   rotate: 22deg;
   text-align: right;
@@ -401,16 +405,32 @@ input:-webkit-autofill {
 }
 .hero h1 {
   align-self: end;
-  bottom: 0;
   font-size: calc(6vh + 4vw);
   max-width: calc(38vh + 24vw);
-  position: absolute;
-  right: 0;
+  padding: 0;
   rotate: 22deg;
   text-align: right;
-  text-shadow: 0 0 20em var(--glow), 0 0 40em var(--glow), 0 0 60em var(--glow),
-    0 0 80em var(--glow);
+  /* text-shadow: 0 0 20em var(--glow), 0 0 40em var(--glow), 0 0 60em var(--glow), 0 0 80em var(--glow); */
   transform-origin: top right;
+
+  position: absolute;
+  right: 10px;
+  bottom: 0;
+}
+.hero h1::before {
+  background: var(--glow);
+  border-radius: 1em;
+  content: "";
+  display: block;
+  filter: blur(0.5em);
+  mix-blend-mode: overlay;
+  z-index: -1;
+
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: 10px;
+  bottom: -10px;
 }
 .self-center {
   align-self: center;
@@ -500,24 +520,26 @@ input:-webkit-autofill {
   padding: 2px 6px;
 }
 footer {
-  bottom: 0;
-  left: 0;
-  position: fixed;
-  z-index: 10;
   width: 300px;
+  z-index: 10;
+
+  position: fixed;
+  left: 0;
+  bottom: 0;
 }
 footer > div::before {
   background-color: var(--color2);
   background-image: var(--gradFooter);
-  bottom: 0;
   content: "";
-  left: -46px;
-  position: absolute;
   rotate: 22deg;
   transform-origin: bottom left;
   z-index: -1;
   width: 304px;
   height: 122px;
+
+  position: absolute;
+  left: -46px;
+  bottom: 0;
 }
 footer > div {
   box-sizing: border-box;

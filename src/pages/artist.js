@@ -2,8 +2,11 @@ import * as React from "react";
 import Form from "../components/Form";
 import { Link } from "gatsby";
 import Page from "../layouts/Page";
+import Gallery from "../components/Gallery";
 import Profiles from "../fragments/Profiles";
 import { StaticImage } from "gatsby-plugin-image";
+import skippingGirl from "../images/skipping-girl-sprite.webp";
+import "../css/reel.css";
 
 const artistPage = (props) => {
   return (
@@ -28,6 +31,26 @@ const artistPage = (props) => {
             </p>
           </article>
         </section>
+        <Gallery>
+          <div className="exhibit">
+            <p>
+              This was originally a flipbook I made. I scanned all of the pages
+              into Photoshop, where I added color and fabricated the background,
+              a combination of digital montage, brush strokes, glow effects and
+              transforms.
+            </p>
+            <div
+              className="reel f26"
+              style={{ height: "205px", width: "100%" }}
+            >
+              <img
+                alt="Animated loop of a girl skipping through a big city."
+                placeholder="lazy"
+                src={skippingGirl}
+              />
+            </div>
+          </div>
+        </Gallery>
         <section className="alignable skewC cta_b" id="contact">
           <article className="self-center">
             <h2>Let's Talk Art!</h2>

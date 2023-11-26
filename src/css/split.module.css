@@ -57,13 +57,14 @@
   grid-template-rows: [space] 100vh;
 }
 .half img {
-  bottom: 0;
   mix-blend-mode: overlay;
   object-fit: contain;
   opacity: 0.5;
+  width: 100%;
+
   position: absolute;
   top: 0;
-  width: 100%;
+  bottom: 0;
 }
 .half:nth-child(1) img {
   right: 0;

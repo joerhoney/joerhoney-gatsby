@@ -8,11 +8,12 @@ const Nav = () => {
       position: absolute;
     }
     .nav ul::before {
-          left: -49px;
-        rotate: 13deg;
-        width: 330px;
-        top: -162px;
-        height: 698px;
+      rotate: 13deg;
+      width: 330px;
+      height: 698px;
+
+      top: -162px;
+      left: -49px;
     }
   &lt;/style&gt;`;
   return (

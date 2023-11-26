@@ -10,27 +10,28 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-width: calc(var(--max_text) + var(--unit24));
+  max-width: calc(var(--max_text) + var(--unit16));
   margin-bottom: 360px;
-  padding: 0 var(--unit12);
+  padding: 0 var(--unit8);
   position: relative;
   width: 100%;
 }
 .showcase h3 {
   align-items: flex-end;
-  bottom: calc(100% - 60px);
   display: flex;
   justify-content: flex-end;
   flex-wrap: wrap;
   font-size: 2rem;
   margin-top: 0;
   max-width: 100%;
-  position: absolute;
-  right: var(--unit6);
   rotate: 22deg;
   text-align: right;
   transform-origin: bottom right;
   width: 360px;
+
+  position: absolute;
+  bottom: calc(100% - 60px);
+  right: var(--unit6);
 }
 .showcase h3 + p.desc::before {
   clear: right;
@@ -90,9 +91,10 @@ h3 + img {
     display: flex;
     flex-direction: column;
     top: 75px;
-    left: calc(100% - 170px);
     margin: 0;
+
     position: absolute;
+    left: calc(100% - 170px);
   }
   ul.skills li {
     margin-bottom: var(--unit2);

@@ -1,0 +1,14 @@
+.reel.f26 {
+  overflow: hidden;
+}
+.reel img {
+  animation: vsprite 1.4s steps(25) infinite;
+  overflow: hidden;
+
+  object-position: 50% 0%;
+}
+@keyframes vsprite {
+  100% {
+    object-position: 50% 100%;
+  }
+}

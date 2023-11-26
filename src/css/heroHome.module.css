@@ -5,12 +5,13 @@
   float: left;
   height: 100vh;
   margin-right: -3vw;
-  top: 2vh;
-  position: relative;
   rotate: 22deg;
   translate: 1vh 1vh;
   width: 50vh;
   z-index: 0;
+
+  position: relative;
+  top: 2vh;
 }
 @media screen and (orientation: portrait) {
   .heroClip {
@@ -52,6 +53,7 @@
 .heroHome h1 b:nth-child(1) {
   display: inline-block;
   left: 3.6vh;
+
   position: relative;
   top: -14vh;
 }
@@ -64,6 +66,7 @@
 .heroHome h1 b:nth-child(2) {
   display: inline-block;
   left: 6.3vh;
+
   position: absolute;
   top: 60.1vh;
 }
@@ -92,9 +95,10 @@
   -webkit-text-fill-color: transparent;
 }
 .jDots {
+  width: 20vh;
+
   position: absolute;
   top: 0;
-  width: 20vh;
 }
 .jDots::before {
   content: "";
