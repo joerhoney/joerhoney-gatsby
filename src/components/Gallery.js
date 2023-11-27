@@ -1,12 +1,10 @@
 import React from "react";
 import "../css/gallery.css";
 
-const Timeline = (props) => {
+const Gallery = (props) => {
   return (
-    <section className={`timeline ${props.className}`}>
-      {props.children}
-    </section>
+    <section className={`gallery ${props.className}`}>{props.children}</section>
   );
 };
 
-export default Timeline;
+export default Gallery;

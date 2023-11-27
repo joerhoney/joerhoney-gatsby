@@ -3,12 +3,14 @@
 }
 .reel img {
   animation: vsprite 1.4s steps(25) infinite;
+  height: 100%;
   overflow: hidden;
-
-  object-position: 50% 0%;
+  object-position: center 0%;
+  object-fit: none;
+  width: 100%;
 }
 @keyframes vsprite {
   100% {
-    object-position: 50% 100%;
+    object-position: center 100%;
   }
 }

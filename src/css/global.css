@@ -423,7 +423,6 @@ input:-webkit-autofill {
   content: "";
   display: block;
   filter: blur(0.5em);
-  mix-blend-mode: overlay;
   z-index: -1;
 
   position: absolute;

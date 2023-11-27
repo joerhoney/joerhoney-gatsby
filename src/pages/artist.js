@@ -47,6 +47,7 @@ const artistPage = (props) => {
                 alt="Animated loop of a girl skipping through a big city."
                 placeholder="lazy"
                 src={skippingGirl}
+                style={{ height: "100%", width: "100%" }}
               />
             </div>
           </div>
