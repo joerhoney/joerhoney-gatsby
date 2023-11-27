@@ -5,6 +5,7 @@ import Form from "../components/Form";
 import Page from "../layouts/Page";
 import Profiles from "../fragments/Profiles";
 import Showcase from "../components/Showcase";
+import { Collection, Collectable, CollectDesc } from "../components/Collection";
 /* Partial Components */
 import { StaticImage } from "gatsby-plugin-image";
 import {
@@ -96,6 +97,17 @@ const codazenskills = [
     "HTML5",
     "CSS3",
     "PHP",
+  ],
+  dentistryParagraphs = [
+    `While working at Gilleard Marketing, I launched many websites
+    for dental practitioners in states all across the US. Since
+    WordPress was the platform of choice at GM, I built a custom
+    theme and several custom plugins to expedite our workflow and
+    support better control over desired end results. `,
+    `As the web developer, I built these websites according to the
+    designers specifications, which was provided to me as a
+    Photoshop file. `,
+    `These are some of websites I built at Gilleard Marketing. `,
   ];
 
 const codePage = () => {
@@ -286,74 +298,66 @@ const codePage = () => {
               results and happy with the website overall.
             </p>
           </Showcase>
-          <Showcase
+          <Collection
             className="backing1b_ skewL tint1_b"
             desc="New WordPress websites, built with a custom theme and plugins."
             skills={dentistryskills}
             title="Dental Websites"
+            paragraphs={dentistryParagraphs}
           >
-            <p>
-              While working at Gilleard Marketing, I launched many websites for
-              dental practitioners in states all across the US. Since WordPress
-              was the platform of choice at GM, I built a custom theme and
-              several custom plugins to expedite our workflow and support better
-              control over desired end results.
-            </p>
-            <p>
-              As the web developer, I built these websites according to the
-              designers specifications, which was provided to me as a Photoshop
-              file.
-            </p>
-            <p>These are some of websites I built at Gilleard Marketing:</p>
-            <h4>Thomas G. Rubino, DDS,&nbsp;MS&nbsp;PA</h4>
-            <img
-              alt="Screenshot of bradentonperio.com"
-              src={bradentonperioimg}
-            />
-            <Button
-              href="https://bradentonperio.com"
-              window="bradentonperio.com"
-            >
-              See Project<span className="blinking">:</span>
-            </Button>
-
-            <h4>Ark Dental Care"</h4>
-            <img
-              alt="Screenshot of dentistinsantaclara.com"
-              src={dentistinsantaclaraimg}
-            />
-            <Button
-              href="https://dentistinsantaclara.com"
-              window="dentistinsantaclara.com"
-            >
-              See Project<span className="blinking">:</span>
-            </Button>
-
-            <h4>Warren Dentistry"</h4>
-            <img
-              alt="Screenshot of southfortworthdentist.com"
-              src={southfortworthdentistimg}
-            />
-            <Button
-              href="https://southfortworthdentist.com"
-              window="southfortworthdentist.com"
-            >
-              See Project<span className="blinking">:</span>
-            </Button>
-
-            <h4>Gentle Dentistry</h4>
-            <img
-              alt="Screenshot of westchestergentledentistry.com"
-              src={westchestergentledentistryimg}
-            />
-            <Button
-              href="https://westchestergentledentistry.com"
-              window="westchestergentledentistry.com"
-            >
-              See Project<span className="blinking">:</span>
-            </Button>
-            <p></p>
-          </Showcase>
+            <div className="card tint2">
+              <h4>Thomas G. Rubino, DDS,&nbsp;MS&nbsp;PA</h4>
+              <img
+                alt="Screenshot of bradentonperio.com"
+                src={bradentonperioimg}
+              />
+              <Button
+                href="https://bradentonperio.com"
+                window="bradentonperio.com"
+              >
+                See Project<span className="blinking">:</span>
+              </Button>
+            </div>
+            <div className="card tint2">
+              <h4>Ark Dental Care"</h4>
+              <img
+                alt="Screenshot of dentistinsantaclara.com"
+                src={dentistinsantaclaraimg}
+              />
+              <Button
+                href="https://dentistinsantaclara.com"
+                window="dentistinsantaclara.com"
+              >
+                See Project<span className="blinking">:</span>
+              </Button>
+            </div>
+            <div className="card tint1">
+              <h4>Warren Dentistry"</h4>
+              <img
+                alt="Screenshot of southfortworthdentist.com"
+                src={southfortworthdentistimg}
+              />
+              <Button
+                href="https://southfortworthdentist.com"
+                window="southfortworthdentist.com"
+              >
+                See Project<span className="blinking">:</span>
+              </Button>
+            </div>
+            <div className="card tint1">
+              <h4>Gentle Dentistry</h4>
+              <img
+                alt="Screenshot of westchestergentledentistry.com"
+                src={westchestergentledentistryimg}
+              />
+              <Button
+                href="https://westchestergentledentistry.com"
+                window="westchestergentledentistry.com"
+              >
+                See Project<span className="blinking">:</span>
+              </Button>
+            </div>
+          </Collection>
         </section>
         <section className="alignable skewC cta_b" id="contact">
           <article className="self-center">

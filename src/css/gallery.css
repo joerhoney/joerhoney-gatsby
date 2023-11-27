@@ -3,14 +3,20 @@
   flex-wrap: nowrap;
   height: 100vh;
   overflow-x: auto;
+  overflow-y: hidden;
   scroll-snap-align: start;
 }
 .gallery > * {
-  flex: 0 0 100vw;
 }
 .gallery > .exhibit p:first-of-type {
   margin-top: 140px;
   padding: 0 var(--unit8);
+}
+.exhibit {
+  max-height: 100%;
+}
+.exhibit img {
+  max-height: 100%;
 }
 @supports (perspective: 1px) {
   /* Parallax evnironment */

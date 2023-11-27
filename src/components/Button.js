@@ -5,7 +5,6 @@ import getDomainName from "../utils/getDomainName.js";
 import "../css/buttons.css";
 
 const Button = (props) => {
-  console.log(props.href);
   const rel = isExternal(props.href) ? "noreferrer" : "";
   const target = isExternal(props.href) ? "_blank" : "";
   return (

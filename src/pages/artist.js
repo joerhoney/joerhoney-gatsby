@@ -8,7 +8,6 @@ import "../css/reel.css";
 
 import { StaticImage } from "gatsby-plugin-image";
 import skippingGirl from "../images/skipping-girl-sprite.webp";
-import dragon from "../images/dragon.webp";
 import team from "../images/team.webp";
 import dragonBack from "../images/dragon_back.webp";
 import dragonFront from "../images/dragon_front.webp";
@@ -16,7 +15,6 @@ import dragonFront from "../images/dragon_front.webp";
 const artistPage = (props) => {
   return (
     <>
-      {" "}
       <section className="hero">
         <StaticImage
           alt="Illustration of a team of charicters"
@@ -37,7 +35,7 @@ const artistPage = (props) => {
           </article>
         </section>
         <Gallery>
-          <div className="exhibit">
+          <div className="exhibit" style={{ flex: "0 0 100vw" }}>
             <p>
               This was originally a flipbook I made. I scanned all of the pages
               into Photoshop, where I added color and fabricated the background,
@@ -55,15 +53,21 @@ const artistPage = (props) => {
               />
             </div>
           </div>
-          <img
-            alt="Illustration of the front end of a dragon"
-            src={dragonFront}
-          />
-          <img
-            alt="Illustration of the back end of a dragon"
-            src={dragonBack}
-          />
-          <img alt="Illustration of a team of charicters" src={team} />
+          <div className="exhibit">
+            <img
+              alt="Illustration of the front end of a dragon"
+              src={dragonFront}
+            />
+          </div>
+          <div className="exhibit">
+            <img
+              alt="Illustration of the back end of a dragon"
+              src={dragonBack}
+            />
+          </div>
+          <div className="exhibit">
+            <img alt="Illustration of a team of charicters" src={team} />
+          </div>
         </Gallery>
         <section className="alignable skewC cta_b" id="contact">
           <article className="self-center">

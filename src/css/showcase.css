@@ -1,23 +1,17 @@
-.showcaseWrap {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  width: 100%;
-}
-.showcase {
+.showcase,
+.collection {
   align-self: center;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  max-width: calc(var(--max_text) + var(--unit16));
   margin-bottom: var(--unit16);
   margin-top: var(--unit16);
+  max-width: 1200px;
   padding: 0 var(--unit8);
   position: relative;
   width: 100%;
 }
-.showcase h3 {
+:is(.showcase, .collection) h3 {
   align-items: flex-end;
   display: flex;
   justify-content: flex-end;
@@ -31,10 +25,10 @@
   width: 360px;
 
   position: absolute;
-  bottom: calc(100% - 60px);
+  bottom: calc(100% - 40px);
   right: var(--unit6);
 }
-.showcase h3 + p.desc::before {
+:is(.showcase, .collection) h3 + p.desc::before {
   clear: right;
   content: "";
   display: block;
@@ -43,10 +37,10 @@
   shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
   width: 130px;
 }
-.showcase p.desc {
+:is(.showcase, .collection) p.desc {
   font-weight: bold;
 }
-.showcase img {
+:is(.showcase, .collection) img {
   box-sizing: border-box;
   margin-bottom: 1.5em;
   width: 100%;
@@ -54,32 +48,76 @@
 h3 + img {
   padding-top: 50px;
 }
-.showcase ul.skills {
+h4 {
+  padding-top: 0;
+}
+:is(.showcase, .collection) ul.skills {
   list-style: none;
   margin: 0 0 var(--unit4);
   padding: 0;
 }
-.showcase ul.skills li {
+:is(.showcase, .collection) ul.skills li {
   color: var(--color3);
   font-weight: bold;
-  margin: var(--unit2) var(--unit6) var(--unit2) 0;
-  position: relative;
   white-space: nowrap;
 }
-.showcase a.button {
+:is(.showcase, .collection) a.button {
   align-self: center;
   display: inline-block;
   font-weight: bold;
-  margin-bottom: var(--unit1);
+  margin-bottom: 0;
   margin-top: 0;
   width: 80%;
 }
-@media (max-width: 599px) {
-  .showcase ul.skills li {
-    display: inline-block;
+/* @media (max-width: 599px) { */
+:is(.showcase, .collection) ul.skills li {
+  display: inline-block;
+}
+.collection .card {
+  background-color: var(--color2);
+  border-radius: var(--border-radius);
+  margin-bottom: var(--unit8);
+  padding: var(--unit2);
+}
+/* } */
+@media (min-width: 600px) {
+  .showcase,
+  .collection {
+    display: grid;
+    gap: 0 var(--unit8);
+    grid-template-columns: [sticky] 1fr [scroll] 1fr;
+    grid-template-rows: [top] auto;
+  }
+  :is(.showcase, .collection) * {
+    grid-column: scroll;
+  }
+  .showcase img {
+    grid-column: sticky;
+    grid-row: top / span 4;
+    margin-bottom: 0;
+    position: sticky;
+    top: 140px;
+  }
+  .collection .cards {
+    grid-column: sticky;
+    grid-row: top / span 4;
+  }
+  .collection .card {
+    position: sticky;
+    top: 140px;
+  }
+  .collection .about {
+    position: sticky;
+    top: 140px;
   }
 }
-@media (min-width: 600px) {
+@media (min-width: 1200px) {
+  .showcase,
+  .collection {
+    grid-template-columns: [sticky] 500px [scroll] auto;
+  }
+}
+/* @media (min-width: 600px) {
   .showcase {
     margin-bottom: 160px;
     padding-right: 200px;
@@ -123,9 +161,4 @@ h3 + img {
   .showcase ul.skills {
     left: calc(100% - 70px);
   }
-}
-@media (prefers-color-scheme: dark) {
-  .showcase ul.skills li {
-    color: var(--color3);
-  }
-}
+} */
