@@ -1,4 +1,20 @@
 .gallery {
+  display: flex;
+  flex-wrap: nowrap;
   height: 100vh;
+  overflow-x: auto;
   scroll-snap-align: start;
+}
+.gallery > * {
+  flex: 0 0 100vw;
+}
+.gallery > .exhibit p:first-of-type {
+  margin-top: 140px;
+  padding: 0 var(--unit8);
+}
+@supports (perspective: 1px) {
+  /* Parallax evnironment */
+  .gallery {
+    /* scroll-behavior: smooth; */
+  }
 }

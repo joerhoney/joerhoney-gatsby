@@ -25,7 +25,7 @@
   box-sizing: border-box;
   color: var(--color1);
   content: "\25b6";
-  /* filter: blur(50px); */
+  filter: blur(50px);
   font-size: 540px;
   height: 0;
   overflow: hidden;

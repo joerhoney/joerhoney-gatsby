@@ -11,7 +11,8 @@
   display: flex;
   flex-direction: column;
   max-width: calc(var(--max_text) + var(--unit16));
-  margin-bottom: 360px;
+  margin-bottom: var(--unit16);
+  margin-top: var(--unit16);
   padding: 0 var(--unit8);
   position: relative;
   width: 100%;

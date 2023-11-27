@@ -3,7 +3,9 @@ import "../css/gallery.css";
 
 const Gallery = (props) => {
   return (
-    <section className={`gallery ${props.className}`}>{props.children}</section>
+    <section className={`gallery ${props.className ? props.className : ""}`}>
+      {props.children}
+    </section>
   );
 };
 

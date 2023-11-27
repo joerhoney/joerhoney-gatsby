@@ -21,16 +21,16 @@ import {
 /* Functions */
 import since from "../utils/since";
 /* Images */
-import codazenimg from "../images/codazen-home.webp";
-import kreizenbeckimg from "../images/kreizenbeck-home.webp";
-import metaimg from "../images/meta-home.webp";
-import laactingcoachimg from "../images/laactingcoach-home.webp";
-import laparksimg from "../images/lacounty-parks-home.webp";
-import laprobationimg from "../images/lacounty-probation-home.webp";
-import bradentonperioimg from "../images/bradentonperio-home.webp";
-import dentistinsantaclaraimg from "../images/dentistinsantaclara-home.webp";
-import southfortworthdentistimg from "../images/southfortworthdentist-home.webp";
-import westchestergentledentistryimg from "../images/westchestergentledentistry-home.webp";
+import codazenimg from "../images/screenshots/codazen-home.webp";
+import kreizenbeckimg from "../images/screenshots/kreizenbeck-home.webp";
+import metaimg from "../images/screenshots/meta-home.webp";
+import laactingcoachimg from "../images/screenshots/laactingcoach-home.webp";
+import laparksimg from "../images/screenshots/lacounty-parks-home.webp";
+import laprobationimg from "../images/screenshots/lacounty-probation-home.webp";
+import bradentonperioimg from "../images/screenshots/bradentonperio-home.webp";
+import dentistinsantaclaraimg from "../images/screenshots/dentistinsantaclara-home.webp";
+import southfortworthdentistimg from "../images/screenshots/southfortworthdentist-home.webp";
+import westchestergentledentistryimg from "../images/screenshots/westchestergentledentistry-home.webp";
 
 const codazenskills = [
     "JavaScript",
