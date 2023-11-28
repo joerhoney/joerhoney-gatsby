@@ -19,7 +19,7 @@ const Button = (props) => {
       ) : (
         ""
       )}
-      <div className="text">{props.children}</div>{" "}
+      {props.children && <div className="text">{props.children}</div>}
       {props.window && (
         <div className="window">{getDomainName(props.href)}</div>
       )}

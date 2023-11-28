@@ -25,7 +25,7 @@
 }
 .heroHome a {
   border-color: transparent;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-all);
   border-style: solid;
   border-width: 2px;
   display: inline-block;

@@ -12,8 +12,8 @@ import { Split, Half } from "../components/Split";
 import since from "../utils/since";
 /* Images */
 import portrait from "../images/portrait.webp";
-import dragonBack from "../images/dragon_back.webp";
-import dragonFront from "../images/dragon_front.webp";
+import dragonSplit1 from "../images/dragon-split1.webp";
+import dragonSplit2 from "../images/dragon-split2.webp";
 // import Query from "../examples/Query";
 
 const Home = () => {
@@ -54,7 +54,7 @@ const Home = () => {
               className="half1_b"
               heading="Developer"
               position="top right"
-              src={dragonFront}
+              src={dragonSplit2}
               speed={9}
               to="/developer"
             >
@@ -69,7 +69,7 @@ const Home = () => {
               className="half2_b"
               heading="Illustrator"
               position="top left"
-              src={dragonBack}
+              src={dragonSplit1}
               speed={-9}
               to="/artist"
             >
@@ -80,7 +80,7 @@ const Home = () => {
             </Half>
           </Split>
         </div>
-        <section className="topXS">
+        <section className="alignable topXS">
           <div className="columns-3">
             <div className="column">
               <h3>WordPress Plugins</h3>

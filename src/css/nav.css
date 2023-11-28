@@ -21,7 +21,7 @@
   right: -150px;
   bottom: -400px;
 } */
-.nav::before {
+/* .nav::before {
   box-sizing: border-box;
   color: var(--color1);
   content: "\25b6";
@@ -40,6 +40,21 @@
   position: absolute;
   left: -100px;
   top: -200px;
+} */
+.nav::before {
+  background-color: var(--color1);
+  content: "";
+  filter: blur(60px);
+  height: 300px;
+  left: -240px;
+  overflow: hidden;
+  pointer-events: none;
+  position: absolute;
+  rotate: 45deg;
+  top: -220px;
+  transform-origin: bottom left;
+  width: 300px;
+  z-index: -1;
 }
 /* .nav::after {
   background-image: var(--gradNav);

@@ -5,7 +5,7 @@ import Form from "../components/Form";
 import Page from "../layouts/Page";
 import Profiles from "../fragments/Profiles";
 import Showcase from "../components/Showcase";
-import { Collection, Collectable, CollectDesc } from "../components/Collection";
+import Collection from "../components/Collection";
 /* Partial Components */
 import { StaticImage } from "gatsby-plugin-image";
 import {
@@ -154,7 +154,6 @@ const codePage = () => {
             </p>
           </article>
           <Showcase
-            className="skewL tint1_b"
             desc="Analytics and website maintenance on Meta's custom CMS stack."
             to="meta"
             href="https://meta.com"
@@ -177,7 +176,6 @@ const codePage = () => {
             </p>
           </Showcase>
           <Showcase
-            className="skewL tint1_b"
             desc="Website and blog maintenance, modifications and improvements."
             to="codazen"
             href="https://codazen.com"
@@ -197,7 +195,6 @@ const codePage = () => {
             </p>
           </Showcase>
           <Showcase
-            className="backing1b_ skewL tint1_b"
             desc="New modern website for the counties many parks, built with WordPress."
             href="https://parks.lacounty.gov"
             skills={laparksskills}
@@ -228,7 +225,6 @@ const codePage = () => {
             </p>
           </Showcase>
           <Showcase
-            className="backing1b_ skewL tint1_b"
             desc="New modern website for a county probation department, built with WordPress."
             href="https://probation.lacounty.gov"
             skills={laprobationskills}
@@ -261,7 +257,6 @@ const codePage = () => {
             </p>
           </Showcase>
           <Showcase
-            className="backing1b_ skewL tint1_b"
             desc="New website for an acting career trainer."
             href="https://losangelesactingcoach.com"
             skills={laactingcoachskills}
@@ -278,7 +273,6 @@ const codePage = () => {
             </p>
           </Showcase>
           <Showcase
-            className="backing1b_ skewL tint1_b"
             desc="Website makeover, built on WordPress with a modified theme."
             to="kreizenbeck"
             href="https://www.kreizenbeckplanroom.com"
@@ -299,14 +293,12 @@ const codePage = () => {
             </p>
           </Showcase>
           <Collection
-            className="backing1b_ skewL tint1_b"
             desc="New WordPress websites, built with a custom theme and plugins."
             skills={dentistryskills}
             title="Dental Websites"
             paragraphs={dentistryParagraphs}
           >
-            <div className="card tint2">
-              <h4>Thomas G. Rubino, DDS,&nbsp;MS&nbsp;PA</h4>
+            <div className="card">
               <img
                 alt="Screenshot of bradentonperio.com"
                 src={bradentonperioimg}
@@ -314,12 +306,9 @@ const codePage = () => {
               <Button
                 href="https://bradentonperio.com"
                 window="bradentonperio.com"
-              >
-                See Project<span className="blinking">:</span>
-              </Button>
+              />
             </div>
-            <div className="card tint2">
-              <h4>Ark Dental Care"</h4>
+            <div className="card">
               <img
                 alt="Screenshot of dentistinsantaclara.com"
                 src={dentistinsantaclaraimg}
@@ -327,12 +316,9 @@ const codePage = () => {
               <Button
                 href="https://dentistinsantaclara.com"
                 window="dentistinsantaclara.com"
-              >
-                See Project<span className="blinking">:</span>
-              </Button>
+              />
             </div>
-            <div className="card tint1">
-              <h4>Warren Dentistry"</h4>
+            <div className="card">
               <img
                 alt="Screenshot of southfortworthdentist.com"
                 src={southfortworthdentistimg}
@@ -340,12 +326,9 @@ const codePage = () => {
               <Button
                 href="https://southfortworthdentist.com"
                 window="southfortworthdentist.com"
-              >
-                See Project<span className="blinking">:</span>
-              </Button>
+              />
             </div>
-            <div className="card tint1">
-              <h4>Gentle Dentistry</h4>
+            <div className="card">
               <img
                 alt="Screenshot of westchestergentledentistry.com"
                 src={westchestergentledentistryimg}
@@ -353,9 +336,7 @@ const codePage = () => {
               <Button
                 href="https://westchestergentledentistry.com"
                 window="westchestergentledentistry.com"
-              >
-                See Project<span className="blinking">:</span>
-              </Button>
+              />
             </div>
           </Collection>
         </section>

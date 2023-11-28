@@ -1,6 +1,8 @@
 :root {
-  --border-radius: 4px;
   --max_text: 600px;
+  --radius-all: 4px;
+  --radius-bottom: 0 0 4px 4px;
+  --radius-top: 4px 4px 0 0;
   --scale: 0.5;
   --unit-75: -570px;
   --unit-60: -480px;

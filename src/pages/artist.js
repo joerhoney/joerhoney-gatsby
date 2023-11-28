@@ -1,16 +1,24 @@
 import * as React from "react";
+// Components/Fragments
 import Form from "../components/Form";
+import Gallery from "../components/Gallery";
 import { Link } from "gatsby";
 import Page from "../layouts/Page";
-import Gallery from "../components/Gallery";
 import Profiles from "../fragments/Profiles";
-import "../css/reel.css";
-
 import { StaticImage } from "gatsby-plugin-image";
-import skippingGirl from "../images/skipping-girl-sprite.webp";
-import team from "../images/team.webp";
-import dragonBack from "../images/dragon_back.webp";
-import dragonFront from "../images/dragon_front.webp";
+// CSS
+import "../css/reel.css";
+// Impages
+import dragonback from "../images/dragon-back.webp";
+import dragonfront from "../images/dragon-front.webp";
+import kinggamagama from "../images/king-gama-gama.webp";
+import samuraistanding from "../images/samurai-standing.webp";
+import samuraionhorseback from "../images/samurai-on-horseback.webp";
+import samuraikiller from "../images/samurai-killer.webp";
+import samuraikillertrees from "../images/samurai-killer-trees.webp";
+import samuraikillermoon from "../images/samurai-killer-moon.webp";
+import skippinggirl from "../images/skipping-girl-sprite.webp";
+import warrioroftytoria from "../images/warrior-of-tytoria.webp";
 
 const artistPage = (props) => {
   return (
@@ -26,7 +34,7 @@ const artistPage = (props) => {
       <Page>
         <section className="alignable bottomL" id="skills">
           <article className="self-center">
-            <h2>I ❤️ to Draw!</h2>
+            <h2>I &hearts; to Draw!</h2>
             <p>
               This collection of art will include work I've done professionally
               and on my own time... Patience, my friend. I'm afraid coding is a
@@ -48,7 +56,7 @@ const artistPage = (props) => {
             >
               <img
                 alt="Animated loop of a girl skipping through a big city."
-                src={skippingGirl}
+                src={skippinggirl}
                 style={{ height: "100%", width: "100%" }}
               />
             </div>
@@ -56,17 +64,93 @@ const artistPage = (props) => {
           <div className="exhibit">
             <img
               alt="Illustration of the front end of a dragon"
-              src={dragonFront}
+              src={dragonfront}
             />
           </div>
           <div className="exhibit">
             <img
               alt="Illustration of the back end of a dragon"
-              src={dragonBack}
+              src={dragonback}
             />
           </div>
-          <div className="exhibit">
-            <img alt="Illustration of a team of charicters" src={team} />
+          <div
+            className="exhibit"
+            style={{ alignItems: "end", display: "flex" }}
+          >
+            <img
+              src={kinggamagama}
+              alt="Large Hawaiian fisherman, holding a giant tuna."
+              style={{ height: "90vh" }}
+            />
+          </div>
+          <div
+            className="exhibit"
+            style={{ alignItems: "end", display: "flex" }}
+          >
+            <img
+              src={warrioroftytoria}
+              alt="A warrior holding a book and a sword."
+              style={{ alignSelf: "bottom", height: "85vh" }}
+            />
+          </div>
+          <div className="exhibit" style={{ paddingLeft: "10vh" }}>
+            <img
+              src={samuraistanding}
+              alt="A samurai ready to fight."
+              style={{ height: "90vh" }}
+            />
+          </div>
+          <div
+            className="exhibit"
+            style={{ alignItems: "center", display: "flex" }}
+          >
+            <img
+              src={samuraionhorseback}
+              alt="A samurai on horseback, charging."
+              style={{ height: "75vh" }}
+            />
+          </div>
+          <div
+            className="exhibit"
+            style={{
+              flex: "0 0 86vh",
+              position: "relative",
+              width: "86vh",
+            }}
+          >
+            <img
+              src={samuraikillermoon}
+              alt="The moon and clouds."
+              style={{
+                left: "0",
+                position: "absolute",
+                right: "0",
+                top: "0",
+                width: "100%",
+              }}
+            />
+            <img
+              src={samuraikillertrees}
+              alt="Trees and crows."
+              style={{
+                left: "0",
+                position: "absolute",
+                right: "0",
+                top: "2%",
+                width: "100%",
+              }}
+            />
+            <img
+              src={samuraikiller}
+              alt="A samurai amongst other dead samurai."
+              style={{
+                bottom: "0",
+                left: "0",
+                position: "absolute",
+                right: "0",
+                width: "100%",
+              }}
+            />
           </div>
         </Gallery>
         <section className="alignable skewC cta_b" id="contact">

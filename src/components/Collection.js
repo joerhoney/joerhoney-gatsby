@@ -31,12 +31,4 @@ const Collection = (props) => {
   );
 };
 
-const Collectable = (props) => {
-  return <div className="card">{props.children}</div>;
-};
-
-const CollectDesc = (props) => {
-  return <div className="desc">{props.children}</div>;
-};
-
-export { Collection, Collectable, CollectDesc };
+export default Collection;

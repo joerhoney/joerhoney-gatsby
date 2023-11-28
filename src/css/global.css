@@ -182,7 +182,7 @@ section.alignable p :is(a:focus, a:hover) {
   text-shadow: 0 0 2em var(--glow);
 }
 section.alignable {
-  /* border-radius: var(--border-radius); */
+  /* border-radius: var(--radius-all); */
   clear: both;
   padding-bottom: var(--unit8);
   position: relative;
@@ -243,7 +243,7 @@ section.alignable {
 .tiltR::before {
   content: "";
   display: block;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-all);
   rotate: 22deg;
   transform-origin: center;
   z-index: -1;
@@ -352,7 +352,7 @@ textarea {
   background-color: transparent;
   outline: none;
   border: 2px solid currentColor;
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-all);
   box-sizing: border-box;
   color: currentColor;
   margin-bottom: 0;
@@ -506,14 +506,14 @@ input:-webkit-autofill {
   }
 }
 .pull {
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-all);
   box-sizing: border-box;
   padding: 0 var(--unit4);
 }
 .items li,
 .items span {
   background-color: var(--tint1);
-  border-radius: var(--border-radius);
+  border-radius: var(--radius-all);
   color: var(--color6);
   display: inline-block;
   margin: 4px 8px 4px 0;
