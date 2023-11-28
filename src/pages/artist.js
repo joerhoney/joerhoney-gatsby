@@ -9,8 +9,7 @@ import { StaticImage } from "gatsby-plugin-image";
 // CSS
 import "../css/reel.css";
 // Impages
-import dragonback from "../images/dragon-back.webp";
-import dragonfront from "../images/dragon-front.webp";
+import dragon from "../images/dragon-both-ends.webp";
 import kinggamagama from "../images/king-gama-gama.webp";
 import samuraistanding from "../images/samurai-standing.webp";
 import samuraionhorseback from "../images/samurai-on-horseback.webp";
@@ -40,10 +39,6 @@ const artistPage = (props) => {
               and on my own time... Patience, my friend. I'm afraid coding is a
               higher priority right now. 🤪
             </p>
-          </article>
-        </section>
-        <Gallery>
-          <div className="exhibit" style={{ flex: "0 0 100vw" }}>
             <p>
               This was originally a flipbook I made. I scanned all of the pages
               into Photoshop, where I added color and fabricated the background,
@@ -60,32 +55,41 @@ const artistPage = (props) => {
                 style={{ height: "100%", width: "100%" }}
               />
             </div>
-          </div>
-          <div className="exhibit">
+          </article>
+        </section>
+        <Gallery>
+          <div className="layer" style={{ flex: "0 0 100vw" }}></div>
+          <div
+            className="layer l125"
+            style={{
+              width: "174vh",
+              paddingRight: "30vh",
+              paddingLeft: "40vh",
+            }}
+          >
             <img
-              alt="Illustration of the front end of a dragon"
-              src={dragonfront}
-            />
-          </div>
-          <div className="exhibit">
-            <img
-              alt="Illustration of the back end of a dragon"
-              src={dragonback}
+              alt="Illustration of a dragon passing through a typhoon."
+              src={dragon}
             />
           </div>
           <div
-            className="exhibit"
-            style={{ alignItems: "end", display: "flex" }}
+            className="layer l0"
+            style={{
+              alignItems: "end",
+              display: "flex",
+              marginLeft: "-20vh",
+              width: "53vh",
+            }}
           >
             <img
               src={kinggamagama}
-              alt="Large Hawaiian fisherman, holding a giant tuna."
+              alt="Hawaiian fisherman, holding a giant tuna."
               style={{ height: "90vh" }}
             />
           </div>
           <div
-            className="exhibit"
-            style={{ alignItems: "end", display: "flex" }}
+            className="layer l25"
+            style={{ alignItems: "end", display: "flex", width: "42vh" }}
           >
             <img
               src={warrioroftytoria}
@@ -93,7 +97,10 @@ const artistPage = (props) => {
               style={{ alignSelf: "bottom", height: "85vh" }}
             />
           </div>
-          <div className="exhibit" style={{ paddingLeft: "10vh" }}>
+          <div
+            className="layer l100"
+            style={{ paddingLeft: "10vh", width: "49vh" }}
+          >
             <img
               src={samuraistanding}
               alt="A samurai ready to fight."
@@ -101,8 +108,8 @@ const artistPage = (props) => {
             />
           </div>
           <div
-            className="exhibit"
-            style={{ alignItems: "center", display: "flex" }}
+            className="layer l125"
+            style={{ alignItems: "center", display: "flex", width: "59vh" }}
           >
             <img
               src={samuraionhorseback}
@@ -111,9 +118,9 @@ const artistPage = (props) => {
             />
           </div>
           <div
-            className="exhibit"
+            className="layer l1000"
             style={{
-              flex: "0 0 86vh",
+              marginTop: "-360vh",
               position: "relative",
               width: "86vh",
             }}
@@ -122,33 +129,43 @@ const artistPage = (props) => {
               src={samuraikillermoon}
               alt="The moon and clouds."
               style={{
-                left: "0",
-                position: "absolute",
-                right: "0",
-                top: "0",
-                width: "100%",
+                width: "86vh",
               }}
             />
+          </div>
+          <div
+            className="layer l175"
+            style={{
+              marginRight: "-25vh",
+              marginTop: "-36vh",
+              position: "relative",
+              width: "86vh",
+            }}
+          >
             <img
               src={samuraikillertrees}
               alt="Trees and crows."
               style={{
-                left: "0",
-                position: "absolute",
-                right: "0",
-                top: "2%",
-                width: "100%",
+                width: "86vh",
               }}
             />
+          </div>
+          <div
+            className="layer l150"
+            style={{
+              height: "81vh",
+              marginRight: "50vh",
+              marginLeft: "-75vh",
+              paddingTop: "32vh",
+              position: "relative",
+              width: "86vh",
+            }}
+          >
             <img
               src={samuraikiller}
               alt="A samurai amongst other dead samurai."
               style={{
-                bottom: "0",
-                left: "0",
-                position: "absolute",
-                right: "0",
-                width: "100%",
+                width: "86vh",
               }}
             />
           </div>

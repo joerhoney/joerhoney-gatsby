@@ -54,7 +54,7 @@ const Home = () => {
               className="half1_b"
               heading="Developer"
               position="top right"
-              src={dragonSplit2}
+              src={dragonSplit1}
               speed={9}
               to="/developer"
             >
@@ -69,7 +69,7 @@ const Home = () => {
               className="half2_b"
               heading="Illustrator"
               position="top left"
-              src={dragonSplit1}
+              src={dragonSplit2}
               speed={-9}
               to="/artist"
             >
