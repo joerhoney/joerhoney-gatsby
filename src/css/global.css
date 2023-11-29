@@ -231,9 +231,7 @@ section.alignable {
 .compensateTHalf {
   margin-top: var(--compensate-half);
 }
-.skewC::before,
-.skewL::before,
-.skewR::before {
+.skew_b::before {
   content: "";
   display: block;
   transform: skewY(22deg);
@@ -245,28 +243,6 @@ section.alignable {
   right: 0;
   left: 0;
   bottom: 0;
-}
-/* .tiltC::before,
-.tiltL::before,
-.tiltR::before {
-  content: "";
-  display: block;
-  border-radius: var(--radius-all);
-  rotate: 22deg;
-  transform-origin: center;
-  z-index: -1;
-
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-} */
-.skewL::before {
-  transform-origin: left;
-}
-.skewR::before {
-  transform-origin: right;
 }
 article,
 .article {
@@ -470,6 +446,8 @@ input:-webkit-autofill {
   justify-content: flex-start;
   padding-left: var(--unit8);
   padding-right: var(--unit8);
+  margin-bottom: var(--compensate-full);
+  margin-top: var(--compensate-half);
   text-align: left;
   width: 100%;
 }
@@ -484,8 +462,8 @@ input:-webkit-autofill {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
-  margin-bottom: var(--unit8);
-  margin-top: var(--unit8);
+  margin-bottom: var(--unit4);
+  margin-top: var(--unit4);
   position: relative;
 }
 @media (min-width: 500px) {
@@ -506,6 +484,8 @@ input:-webkit-autofill {
     align-items: center;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: var(--unit8);
+    margin-top: var(--unit6);
     transform: skewY(22deg);
     max-width: 1200px;
   }

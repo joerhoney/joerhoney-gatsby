@@ -15,7 +15,7 @@ const storyPage = () => {
         />
         <h1>Story</h1>
       </section>
-      <section className="alignable bottomL topS">
+      <section className="alignable bottomL">
         <article className="self-center">
           <p>
             <strong>TLDR;</strong> Lifetime artist, found a career in design in
@@ -25,7 +25,7 @@ const storyPage = () => {
           </p>
         </article>
       </section>
-      <section className="alignable skewC tint3_b bottomS">
+      <section className="alignable skew_b tint3_b">
         <article className="self-center">
           <h2>Journey of an Artist</h2>
           <p>
@@ -74,7 +74,7 @@ const storyPage = () => {
           </p>
         </article>
       </section> */}
-      <section className="alignable skewC cta_b" id="contact">
+      <section className="alignable skew_b cta_b" id="contact">
         <article className="self-center">
           <h2>Contact Me</h2>
           <p>

@@ -121,7 +121,7 @@ const Home = () => {
             </div>
           </div>
         </section>
-        <section className="alignable skewC cta_b" id="contact">
+        <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>

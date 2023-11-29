@@ -18,7 +18,7 @@ const NotFoundPage = () => {
           </p>
         </article>
       </section>
-      <section className="alignable skewC cta_b" id="contact">
+      <section className="alignable skew_b cta_b" id="contact">
         <article className="self-center">
           <h2>...Or Contact Me</h2>
           <p>

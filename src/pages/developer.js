@@ -145,7 +145,7 @@ const codePage = () => {
             </div>
           </div>
         </section>
-        <section className="alignable skewC tint1_b" id="work">
+        <section className="alignable skew_b tint1_b" id="work">
           <article className="self-center">
             <h2>Work Portfolio</h2>
             <p>
@@ -340,7 +340,7 @@ const codePage = () => {
             </div>
           </Collection>
         </section>
-        <section className="alignable skewC cta_b" id="contact">
+        <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Let's Build Something!</h2>
             <p>
@@ -350,7 +350,7 @@ const codePage = () => {
               have also worked as a full-time employee at various retail
               manufacturing and marketing agencies.
             </p>
-            <div className="columns-2 topXS bottomXS">
+            <div className="columns-2 bottomXS">
               <div className="pull tint2">
                 <h4>Hire me! 😄</h4>
                 <p>
@@ -368,7 +368,7 @@ const codePage = () => {
               </div>
             </div>
           </article>
-          <Form className="topXS" />
+          <Form className="" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal self-center" />

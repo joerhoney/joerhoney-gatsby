@@ -63,8 +63,6 @@ const artistPage = (props) => {
             className="layer l125"
             style={{
               width: "174vh",
-              paddingRight: "30vh",
-              paddingLeft: "40vh",
             }}
           >
             <img
@@ -170,7 +168,7 @@ const artistPage = (props) => {
             />
           </div>
         </Gallery>
-        <section className="alignable skewC cta_b" id="contact">
+        <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Let's Talk Art!</h2>
             <p>
@@ -178,7 +176,7 @@ const artistPage = (props) => {
               <Link to="/story">a page on that</Link>, but I'm interested in
               connecting. So please send me a message below.
             </p>
-            <div className="columns-2 topXS">
+            <div className="columns-2 bottomXS topXS">
               <div className="pull tint2">
                 <h4>Hire me! 😄</h4>
                 <p>
@@ -196,7 +194,7 @@ const artistPage = (props) => {
               </div>
             </div>
           </article>
-          <Form className="topXS" />
+          <Form />
         </section>
         <section className="alignable">
           <Profiles className="article reveal self-center" />
