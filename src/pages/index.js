@@ -46,7 +46,7 @@ const Home = () => {
         </article>
       </SubheroHome>
       <Page className="block">
-        <div className="topL">
+        <div className="compensateT">
           <Split>
             <Half
               alt="Illustration of the front end of a dragon."

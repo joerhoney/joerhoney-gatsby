@@ -223,16 +223,16 @@ section.alignable {
 .bottomXL {
   padding-bottom: 480px;
 }
-.bottomCF {
+.compensateB {
   margin-bottom: var(--compensate-full);
 }
-.topCF {
+.compensateT {
   margin-top: var(--compensate-full);
 }
-.bottomCH {
+.compensateBHalf {
   margin-bottom: var(--compensate-half);
 }
-.topCH {
+.compensateTHalf {
   margin-top: var(--compensate-half);
 }
 .skewC::before,
