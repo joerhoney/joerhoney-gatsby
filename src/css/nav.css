@@ -28,9 +28,9 @@
   font-size: 540px;
   height: 0;
   overflow: hidden;
-  padding: 200px 0 200px;
+  padding: 200px 0 240px;
   pointer-events: none;
-  text-shadow: 0 0 60px var(--color1);
+  text-shadow: 0 0 140px var(--color1);
   transform: scale(1, 1.5);
   transform-origin: top left;
   transition: all 1s cubic-bezier(0, 0, 0.15, 1);
@@ -39,7 +39,7 @@
 
   position: absolute;
   left: -100px;
-  top: -300px;
+  top: -290px;
 }
 /* .nav::before {
   background: none;
