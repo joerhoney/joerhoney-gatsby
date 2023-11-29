@@ -28,10 +28,16 @@ const Home = () => {
             height="208"
             loading="lazy"
             src={portrait}
-            style={{ maxWidth: "153px", marginBottom: "-100px" }}
+            style={{
+              maxWidth: "153px",
+              marginBottom: "-80px",
+              marginTop: "20px",
+            }}
             width="153"
           />
-          <h2 className="tilt">Hello, World!</h2>
+          <h2 className="tilt" style={{ paddingTop: "0" }}>
+            Hello, World!
+          </h2>
           <p>
             Pardon my code humor, I've been in this industry for
             {since("Sept, 13, 1999")} years. Because that's how old I am...

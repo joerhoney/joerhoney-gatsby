@@ -49,6 +49,7 @@
 }
 .showcase img {
   border-radius: var(--radius-all);
+  margin-bottom: 1em;
 }
 /* h3 + img {
   padding-top: 50px;
@@ -76,6 +77,7 @@
   width: 100%;
 }
 .collection a.button {
+  display: block;
 }
 /* @media (max-width: 599px) { */
 :is(.showcase, .collection) ul.skills li {
@@ -83,6 +85,7 @@
 }
 .collection .card {
   background-color: var(--color1);
+  border-radius: var(--radius-all);
   margin-bottom: var(--unit8);
   /* padding: var(--unit2) 0; */
 }
@@ -113,7 +116,7 @@
     margin-bottom: 0;
     min-width: 0;
     position: sticky;
-    top: 140px;
+    top: calc(50% - ((100vw - 144px) / 2 * 0.625 / 2));
   }
   .collection .cards {
     grid-column: sticky;
@@ -122,7 +125,7 @@
   }
   .collection .card {
     position: sticky;
-    top: 120px;
+    top: 124px;
   }
   .collection .about {
     position: sticky;
@@ -134,10 +137,25 @@
     width: 100%;
   }
 }
+@media (min-width: 1000px) {
+  .showcase img {
+    top: calc(50% - ((100vw - 192px) / 2 * 0.625 / 2));
+  }
+}
 @media (min-width: 1200px) {
   .showcase,
   .collection {
     grid-template-columns: [sticky] 500px [scroll] auto;
+  }
+}
+@media (max-width: 1000px) and (max-height: 480px) {
+  /* .card picture {
+    display: block;
+    height: calc(((100vw - 144px) / 2 * 0.625) + (100vh - 420px));
+    overflow: hidden;
+  } */
+  .collection .card {
+    position: static;
   }
 }
 /* @media (min-width: 600px) {

@@ -1,5 +1,6 @@
 import React from "react";
 import Nav from "../components/Nav";
+import NavIndicator from "../fragments/NavIndicator";
 import Footer from "../components/Footer";
 // import SmoothScroll from "smooth-scroll";
 /* CSS */
@@ -16,6 +17,7 @@ const Page = ({ children, className }) => {
     <>
       <main className={className}>
         <Nav />
+        <NavIndicator />
         {children}
       </main>
       <Footer />

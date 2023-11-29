@@ -74,9 +74,6 @@ section.alignable p a[href*="http"]::before {
     0.33em -0.33em 0 currentColor, 0.3em -0.3em 0 currentColor;
   width: 1em;
 }
-section.alignable:last-of-type {
-  padding-bottom: 100px;
-}
 section.alignable p a {
   border-bottom: 2px solid var(--color5);
   box-sizing: border-box;
@@ -184,7 +181,6 @@ section.alignable p :is(a:focus, a:hover) {
 section.alignable {
   /* border-radius: var(--radius-all); */
   clear: both;
-  padding-bottom: var(--unit8);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -479,6 +475,7 @@ input:-webkit-autofill {
 }
 .columns-3 :is(h2, h3) {
   margin-bottom: 1em;
+  padding-top: 0;
   position: static;
   rotate: unset;
   text-align: left;

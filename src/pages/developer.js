@@ -131,7 +131,7 @@ const codePage = () => {
               what I love most about coding.
             </p>
           </article>
-          <div className="content-center self-center wide topM">
+          <div className="content-center self-center wide">
             <div className="reveal">
               <Languages />
               <Cms />

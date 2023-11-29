@@ -1,6 +1,6 @@
 .nav {
   left: 18px;
-  height: 110px;
+  height: 0;
   position: sticky;
   top: -18px;
   z-index: 999;
@@ -143,5 +143,30 @@
   }
   .nav a:not(.current):is(:active, :focus, :hover) {
     color: var(--accent);
+  }
+}
+.nav-indicator {
+  box-sizing: border-box;
+  color: var(--color3);
+  display: flex;
+  justify-content: center;
+  max-width: 460px;
+  padding-left: 140px;
+  position: relative;
+  white-space: pre-wrap;
+  width: 100%;
+}
+.nav-indicator pre {
+  font-size: 15px;
+  line-height: 19.5px;
+  /* position: absolute;
+  top: 0; */
+}
+@media (max-width: 400px) {
+  .nav-indicator pre {
+    font-size: 3.75vw;
+    font-weight: bold;
+    line-height: 4.875vw;
+    /* text-transform: uppercase; */
   }
 }
