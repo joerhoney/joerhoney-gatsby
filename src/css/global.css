@@ -223,6 +223,18 @@ section.alignable {
 .bottomXL {
   padding-bottom: 480px;
 }
+.bottomCF {
+  margin-bottom: var(--compensate-full);
+}
+.topCF {
+  margin-top: var(--compensate-full);
+}
+.bottomCH {
+  margin-bottom: var(--compensate-half);
+}
+.topCH {
+  margin-top: var(--compensate-half);
+}
 .skewC::before,
 .skewL::before,
 .skewR::before {
@@ -520,34 +532,22 @@ input:-webkit-autofill {
   padding: 2px 6px;
 }
 footer {
-  width: 300px;
-  z-index: 10;
-
-  position: fixed;
-  left: 0;
-  bottom: 0;
-}
-footer > div::before {
-  background-color: var(--color2);
-  background-image: var(--gradFooter);
-  content: "";
-  rotate: 22deg;
+  height: 62px;
+  overflow: hidden;
+  padding-top: 62px;
   transform-origin: bottom left;
-  z-index: -1;
-  width: 304px;
-  height: 122px;
-
-  position: absolute;
-  left: -46px;
-  bottom: 0;
+  width: 300px;
 }
 footer > div {
+  background-color: var(--color2);
+  background-image: var(--gradFooter);
   box-sizing: border-box;
   color: var(--color5);
   opacity: 0.66;
-  padding: var(--unit2);
+  padding: 12px 20px 60px;
   /* max-width: var(--max_text); */
   transition: all ease 0.5s;
+  transform: skewY(22deg);
 }
 footer > div:hover {
   color: var(--color6);
@@ -560,8 +560,7 @@ footer > div:hover {
   } */
 footer .copyright {
   font-size: 0.8rem;
-  margin-bottom: 0;
-  margin-top: var(--unit2);
+  transform: skewY(-22deg);
 }
 .blinking {
   animation: blinking 2s ease infinite;

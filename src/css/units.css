@@ -1,4 +1,6 @@
 :root {
+  --compensate-full: 20.25vw;
+  --compensate-half: 10.175vw;
   --max_text: 600px;
   --radius-all: 4px;
   --radius-bottom: 0 0 4px 4px;

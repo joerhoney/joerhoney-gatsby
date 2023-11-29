@@ -16,6 +16,7 @@ const Cms = () => {
   return (
     <div className="icons">
       <Icon name="Drupal" />
+      <Icon name="Gatsby" />
       <Icon name="Joomla" />
       <Icon name="Wordpress" label="WordPress" />
     </div>
@@ -35,6 +36,7 @@ const Compilers = () => {
       <Icon name="Apache" />
       <Icon name="Babel" />
       <Icon name="Git" />
+      <Icon name="Modernizr" />
       <Icon name="NodejsSmall" label="Node.js" />
       <Icon name="Npm" label="npm" />
       {/* <Icon name="Bootstrap" /> */}
@@ -45,17 +47,16 @@ const Compilers = () => {
 const Languages = () => {
   return (
     <div className="icons">
-      <Icon name="Html5" label="HTML5" />
       <Icon name="Css3Full" label="CSS3" />
+      <Icon name="Html5" label="HTML5" />
       <Icon name="JsBadge" label="JavaScript" />
-      <Icon name="React" />
       <Icon name="JqueryLogo" label="jQuery" />
-      <Icon name="Php" />
-      <Icon name="Python" />
       <Icon name="Markdown" />
-      <Icon name="Modernizr" />
-      <Icon name="Mysql" label="MySQL" />
       {/* <Icon name="Mongodb" /> */}
+      <Icon name="Mysql" label="MySQL" />
+      <Icon name="Php" label="PHP" />
+      {/* <Icon name="Python" /> */}
+      <Icon name="React" />
     </div>
   );
 };

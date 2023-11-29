@@ -201,6 +201,7 @@ import {
   SvgAfterEffects,
   SvgApache,
   SvgBabel,
+  SvgGatsby,
   SvgLinkedin,
   SvgVSCode,
 } from "./SVGs.js";
@@ -411,6 +412,7 @@ const Icon = (props) => {
     AfterEffects: <SvgAfterEffects />,
     Apache: <SvgApache />,
     Babel: <SvgBabel />,
+    Gatsby: <SvgGatsby />,
     Linkedin: <SvgLinkedin />,
     VSCode: <SvgVSCode />,
   };
