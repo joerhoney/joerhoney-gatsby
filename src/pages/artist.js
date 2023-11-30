@@ -59,12 +59,12 @@ const artistPage = (props) => {
         </section>
         <Gallery>
           <div className="layer" style={{ flex: "0 0 100vw" }}></div>
-          <div className="layer l125">
+          <div className="layer l125" style={{ marginRight: "-120vh" }}>
             <img
               alt="Illustration of a dragon passing through a typhoon."
               src={dragon}
               style={{
-                width: "174vh",
+                width: "170vh",
               }}
             />
           </div>
@@ -73,24 +73,32 @@ const artistPage = (props) => {
             style={{
               alignItems: "end",
               display: "flex",
-              marginLeft: "-20vh",
-              width: "53vh",
+              marginRight: "2vh",
+              width: "42vh",
+            }}
+          >
+            <img
+              src={warrioroftytoria}
+              alt="A warrior holding a book and a sword."
+              style={{ alignSelf: "bottom", height: "94vh" }}
+            />
+          </div>
+          <div
+            className="layer l25"
+            style={{
+              alignItems: "center",
+              display: "flex",
+              width: "58vh",
             }}
           >
             <img
               src={kinggamagama}
               alt="Hawaiian fisherman, holding a giant tuna."
-              style={{ height: "90vh" }}
-            />
-          </div>
-          <div
-            className="layer l25"
-            style={{ alignItems: "end", display: "flex", width: "42vh" }}
-          >
-            <img
-              src={warrioroftytoria}
-              alt="A warrior holding a book and a sword."
-              style={{ alignSelf: "bottom", height: "85vh" }}
+              style={{
+                height: "92vh",
+                marginRight: "70vh",
+                paddingBottom: "2vh",
+              }}
             />
           </div>
           <div
