@@ -18,10 +18,10 @@ const storyPage = () => {
       <section className="alignable bottomL">
         <article className="self-center">
           <p>
-            <strong>TLDR;</strong> Lifetime artist, found a career in design in
-            1999, which quickly lead to a web development opportunity, and I've
-            been designing and coding ever since... and my family and I lived
-            happily ever after. 😁
+            <strong>TLDR;</strong> (To Long; Didn't Read) Lifetime artist, found
+            a career in design in 1999, which quickly lead to a web development
+            opportunity, and I've been designing and coding ever since... and my
+            family and I lived happily ever after. 😁
           </p>
         </article>
       </section>

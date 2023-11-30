@@ -100,12 +100,12 @@ const codazenskills = [
   ],
   dentistryParagraphs = [
     `While working at Gilleard Marketing, I launched many websites
-    for dental practitioners in states all across the US. Since
+    for dental practitioners, in states all across the U.S. Since
     WordPress was the platform of choice at GM, I built a custom
     theme and several custom plugins to expedite our workflow and
     support better control over desired end results. `,
     `As the web developer, I built these websites according to the
-    designers specifications, which was provided to me as a
+    designers' specifications, which were provided to me as a
     Photoshop file. `,
     `These are some of websites I built at Gilleard Marketing. `,
   ];
@@ -162,16 +162,26 @@ const codePage = () => {
             title="Meta"
           >
             <p>
-              Built sections on several of the Quest product, Quest Accessories,
-              Horizon, Meta for Work, VR for Good and Meta Experiences pages,
-              using Meta's custom XML component sets and reviewed sections built
-              by team mates for design adherence, copy accuracy and code
-              quality. Deprecated old components (built with XHP), as well as
-              old pages and files. Updated added and removed 301 redirects.
+              Built out sections on several pages using Meta's custom XML
+              component sets. Some of the areas of the website included:
+            </p>
+            <ul>
+              <li>Quest products</li>
+              <li>Quest Accessories</li>
+              <li>Horizon</li>
+              <li>Meta for Work</li>
+              <li>VR for Good</li>
+              <li>Meta Experiences</li>
+            </ul>
+            <p>
+              Reviewed sections built by others (including Meta staff and my
+              team mates) for design adherence, copy accuracy and code quality.
+              Deprecated old components (built in XHP), as well as old pages,
+              files and directories. Updated, added and removed 301 redirects.
               Executed similar work on oculus.com and portal.facebook.com, prior
               to migration to meta.com. Audited page event logging on several
               meta.com pages, compared to best practices, recommended specific
-              updates, and helped to established more precise standards for
+              updates, and helped to establish more precise standards for
               analytics. Implemented these findings upon approval.
             </p>
           </Showcase>
@@ -195,7 +205,7 @@ const codePage = () => {
             </p>
           </Showcase>
           <Showcase
-            desc="New modern website for the counties many parks, built with WordPress."
+            desc="New modern website for the county's many parks, built with WordPress."
             href="https://parks.lacounty.gov"
             skills={laparksskills}
             src={laparksimg}
@@ -204,7 +214,7 @@ const codePage = () => {
             <p>
               Working at RD Technology Solutions, I contributed to the
               development of many websites for the County of Los Angeles such as
-              these. Some of my responsibilties included:
+              these. Some of my responsibilities included:
             </p>
             <ul>
               <li>Responsive web layout</li>
@@ -213,15 +223,15 @@ const codePage = () => {
               <li>Page element selection and creation</li>
             </ul>
             <p>
-              On LA County's Parks website, we needed an entire set of icons to
-              represent the various features available at all of their parks,
-              adhering to a consistent look. I was provided icons a few park
-              features, and was tasked to find or create matching icons for the
-              remaining features. Using Adobe Illustrator, I fabricated or drew
-              (from scratch) the remaining icons needed for the project,
-              maintaining a consistent color palette, stroke weight and size.
-              The client was very happy with the results, as it was exactly what
-              they wanted.
+              On the LA County Parks website, we needed an entire set of icons
+              to represent the various features available at all of their parks,
+              while adhering to a consistent look. I was provided icons for a
+              few park features, and was tasked to find or create matching icons
+              for the remaining features. Using Adobe Illustrator, I fabricated
+              or drew (from scratch) the remaining icons needed for the project,
+              while maintaining a consistent color palette, stroke weight and
+              size. The client was very happy with the results, as it was
+              exactly what they wanted.
             </p>
           </Showcase>
           <Showcase
@@ -237,22 +247,22 @@ const codePage = () => {
             </p>
             <p>
               Problem: They had several categories to feature, but within those
-              categories they a large amount of subcategories. They wanted to
-              feature all of this on the home page, in a way that is
+              categories they had a large amount of subcategories. They wanted
+              to feature all of this on the home page, in a way that is
               user-friendly and relatively simple, despite the massive quantity
               of options. They also wanted a large slideshow on the Home page,
-              to follow the modern trend, and friendly colors matching their
+              to follow the modern trend, with friendly colors matching their
               logo.
             </p>
             <p>
               Solution: I came up with a feature tile set representing the main
-              categories, placed over a fullscreen slideshow. Clicking on the
-              tiles displays their many subcategories, which take you to the
+              categories, placed over a fullscreen slideshow. Clicking on each
+              tile displays its many subcategories, which takes you to the
               pertinent page. With animated queues, this layout was clear and
               intuitive.
             </p>
             <p>
-              The client at the LA County Probation Dept. with very happy with
+              The client at the LA County Probation Dept. was very pleased with
               this new home page.
             </p>
           </Showcase>
@@ -266,11 +276,15 @@ const codePage = () => {
             <p>
               April needed a modern website to market her acting coaching
               service. After Riafox put this new WordPress website together with
-              a modern theme the accomplished most of requirements they needed
-              to fulfill, they asked me to modify a few of the theme features
-              that fell short, including the hero layout, the slideshow (for the
-              testimonials) and the blog posts tiles.
+              a modern theme and fulfilled most of the necessary requirements,
+              they asked me to modify a few of the theme features that fell
+              short. This included:
             </p>
+            <ul>
+              <li>The hero layout</li>
+              <li>The slideshow (for the testimonials)</li>
+              <li>The blog posts tiles</li>
+            </ul>
           </Showcase>
           <Showcase
             desc="Website makeover, built on WordPress with a modified theme."
@@ -283,13 +297,13 @@ const codePage = () => {
             <p>
               The client needed their WordPress website's design coded into the
               theme. The main objective was to showcase their construction work,
-              so there were many galleries. There was a plugin used for the
-              galleries, but it had limited features which didn't cover the
-              design or informational needs. After I configured and coded the
-              adjustments to theme the website just as the design portrayed, I
-              added an informational hover effect to the gallery which did not
-              come included with the plugin. The client was happy with the
-              results and happy with the website overall.
+              so there were many galleries. A plugin waslimited features used
+              for the galleries, but it had limited features that didn't cover
+              the design or informational needs. After I configured and coded
+              adjustments in order to theme the website just as the design
+              portrayed, I added an informational hover effect to the gallery,
+              which did not come included with the plugin. The client was happy
+              with the results and very pleased with the website overall.
             </p>
           </Showcase>
           <Collection
