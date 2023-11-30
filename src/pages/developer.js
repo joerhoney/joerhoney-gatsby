@@ -159,6 +159,7 @@ const codePage = () => {
             href="https://meta.com"
             skills={metaskills}
             src={metaimg}
+            styles={{ marginTop: "var(--unit4)" }}
             title="Meta"
           >
             <p>

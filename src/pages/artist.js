@@ -59,15 +59,13 @@ const artistPage = (props) => {
         </section>
         <Gallery>
           <div className="layer" style={{ flex: "0 0 100vw" }}></div>
-          <div
-            className="layer l125"
-            style={{
-              width: "174vh",
-            }}
-          >
+          <div className="layer l125">
             <img
               alt="Illustration of a dragon passing through a typhoon."
               src={dragon}
+              style={{
+                width: "174vh",
+              }}
             />
           </div>
           <div

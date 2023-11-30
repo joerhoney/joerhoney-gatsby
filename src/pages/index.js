@@ -71,7 +71,7 @@ const Home = () => {
             </Half>
             <Half
               alt="Illustration of the back end of a dragon."
-              button="View Portfolio"
+              button="View Art"
               className="half2_b"
               heading="Illustrator"
               position="top left"

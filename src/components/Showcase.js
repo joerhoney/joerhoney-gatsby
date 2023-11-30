@@ -14,7 +14,7 @@ const Showcase = (props) => {
     : false;
   return (
     // <div className="showcaseWrap">
-    <div className={`showcase ${props.className}`}>
+    <div className={`showcase ${props.className}`} style={props.styles}>
       <div className="heading">
         <h3>{props.title}</h3>
         {props.desc && <p className="desc">{props.desc}</p>}

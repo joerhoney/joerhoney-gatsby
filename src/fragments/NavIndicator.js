@@ -5,11 +5,11 @@ const NavIndicator = (props) => {
     <div  className={`nav-indicator ${props.className && props.className}`}>
       <pre>
 &nbsp;   /⁻⁻/<br />
-&nbsp;  /  /  Main pages<span className="blinking">█</span><br />
+&nbsp;  /  /<br />
 &nbsp; /  /_____________<br />
 &nbsp;⟨   ______________|<br />
 &nbsp; \  \<br />
-&nbsp;  \  \<br />
+&nbsp;  \  \  Main pages<span className="blinking">█</span><br />
 &nbsp;   \__\
       </pre>
     </div>
