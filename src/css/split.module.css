@@ -10,7 +10,7 @@
   grid-template-columns: 50vw 50vw;
   grid-template-rows: 100vh;
   position: relative;
-  rotate: 22deg;
+  transform: rotate(22deg);
   width: 100vw;
 }
 .half {
@@ -103,7 +103,7 @@
   font-size: calc(5vh + 4vw);
   margin: 0;
   padding: 0;
-  rotate: -90deg;
+  transform: rotate(-90deg);
   text-align: center;
 }
 .half p {

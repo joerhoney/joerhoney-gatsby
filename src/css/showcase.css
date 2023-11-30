@@ -19,7 +19,7 @@
   font-size: 2rem;
   margin-top: 0;
   max-width: 100%;
-  rotate: 22deg;
+  transform: rotate(22deg);
   text-align: right;
   transform-origin: bottom right;
   width: 360px;

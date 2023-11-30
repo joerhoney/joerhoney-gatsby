@@ -5,7 +5,7 @@
   float: left;
   height: 100vh;
   margin-right: -3vw;
-  rotate: 22deg;
+  transform: rotate(22deg);
   translate: 1vh 1vh;
   width: 50vh;
   z-index: 0;

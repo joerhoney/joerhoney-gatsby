@@ -6,7 +6,7 @@ import { StaticImage } from "gatsby-plugin-image";
 
 const storyPage = () => {
   return (
-    <Page>
+    <>
       <section className="hero">
         <StaticImage
           alt="Watercolor of a woman in a kamono next to a cherry blossom."
@@ -15,54 +15,58 @@ const storyPage = () => {
         />
         <h1>Story</h1>
       </section>
-      <section className="alignable bottomL">
-        <article className="self-center">
-          <p>
-            <strong>TLDR;</strong> (To Long; Didn't Read) Lifetime artist, found
-            a career in design in 1999, which quickly lead to a web development
-            opportunity, and I've been designing and coding ever since... and my
-            family and I lived happily ever after. 😁
-          </p>
-        </article>
-      </section>
-      <section className="alignable skew_b tint3_b">
-        <article className="self-center">
-          <h2>Journey of an Artist</h2>
-          <p>
-            I have been an artist since my childhood in rural Northern
-            California. I spent most of my free time creating and designing
-            fictional vehicles, characters and creatures to be featured in a
-            comic book series one day. As a teenager I began exploring my
-            ability to produce music but continued practicing illustration.
-          </p>
-          <p>
-            As a top art student I was granted the opportunity to attend the
-            CSSSA program (California State Summer School for the Arts), located
-            at the CalArts campus. There I gained a world of knowledge and
-            experience in traditional animation.
-          </p>
-          <p>
-            The next year (1998), I moved to Southern California where life now
-            seemed to be traveling a million miles per hour. I held various jobs
-            until I landed my first design opportunity in 1999, at a web
-            marketing agency called Success Makers. Within the first two weeks
-            they needed me to learn HTML, so I quickly began my career as a web
-            developer at the same time.
-          </p>
-          <p>
-            In a few years' time, I began picking up odd jobs, creating various
-            illustrations acquaintances needed for marketing and other purposes.
-            Soon I became familiar with the processes of freelancing.
-            Freelancing has also greatly facilitated the opportunity to
-            self-train and gain a wide range of experiences.
-          </p>
-          <p>
-            And the rest is pretty much history. I have been working graphic
-            design and web developer jobs since then. 🙂
-          </p>
-        </article>
-      </section>
-      {/* <section className="alignable bottomS">
+      <Page>
+        <section className="alignable bottomL">
+          <article className="self-center">
+            <h3>TL;DR</h3>
+            <p>(To Long; Didn't Read)</p>
+            <p>
+              As a lifetime artist, I found a career in design in 1999. That
+              quickly lead to a web development opportunity, and I've been
+              designing and coding ever since…
+            </p>
+            <p>…and my family and I lived happily ever after. 😁</p>
+          </article>
+        </section>
+        <section className="alignable skew_b tint3_b">
+          <article className="self-center">
+            <h2>Journey of an Artist</h2>
+            <p>
+              I have been an artist since my childhood in rural Northern
+              California. I spent most of my free time creating and designing
+              fictional vehicles, characters and creatures to be featured in a
+              comic book series one day. As a teenager I began exploring my
+              ability to produce music while continuing to practice
+              illustration.
+            </p>
+            <p>
+              As a top art student I was granted the opportunity to attend the
+              CSSSA program (California State Summer School for the Arts),
+              located at the CalArts campus in Valencia, CA. There, I gained a
+              world of knowledge and experience in traditional animation.
+            </p>
+            <p>
+              The next year (1998), I moved to Southern California, where life
+              now seemed to be traveling a million miles per hour. I held
+              various jobs until I landed my first design opportunity in 1999,
+              at a web marketing agency called Success Makers. Within the first
+              two weeks they asked me to learn HTML, so I quickly began my
+              career as a web developer at the same time.
+            </p>
+            <p>
+              In a few years' time, I began picking up small side jobs, drawing
+              for acquaintances who needed illustrations for marketing campaigns
+              and other purposes. Soon I became familiar with the processes of
+              freelancing. Freelancing has also greatly facilitated the
+              opportunity to self-train and gain a wide range of experiences.
+            </p>
+            <p>
+              And the rest is pretty much history. I have been working graphic
+              design and web developer jobs since then. 🙂
+            </p>
+          </article>
+        </section>
+        {/* <section className="alignable bottomS">
         <article className="self-center">
           <h2>achievements</h2>
           <p>
@@ -74,20 +78,21 @@ const storyPage = () => {
           </p>
         </article>
       </section> */}
-      <section className="alignable skew_b cta_b" id="contact">
-        <article className="self-center">
-          <h2>Contact Me</h2>
-          <p>
-            Whether you need help building something or just want to connect...
-            well, I want to connect, too! So drop me an email.
-          </p>
-        </article>
-        <Form />
-      </section>
-      <section className="alignable">
-        <Profiles className="article reveal self-center" />
-      </section>
-    </Page>
+        <section className="alignable skew_b cta_b" id="contact">
+          <article>
+            <h2>Contact Me</h2>
+            <p>
+              Whether you need help building something or just want to connect…
+              well, I want to connect, too! So drop me an email.
+            </p>
+          </article>
+          <Form className="bottomS" />
+        </section>
+        <section className="alignable">
+          <Profiles className="article reveal" />
+        </section>
+      </Page>
+    </>
   );
 };
 

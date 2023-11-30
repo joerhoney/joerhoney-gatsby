@@ -4,19 +4,20 @@ import { Link } from "gatsby";
 import Icon from "./Icon";
 
 const Nav = () => {
-  const noscriptCSS = `
-  &lt;style&gt;
-    .nav {
+  const noscriptCSS = (
+    <style>
+      {`.nav {
       position: absolute;
     }
     .nav ul::before {
           left: -49px;
-        rotate: 13deg;
+        transform: rotate(13deg);
         width: 330px;
         top: -162px;
         height: 698px;
-    }
-  &lt;/style&gt;`;
+    }`}
+    </style>
+  );
   const [active, setActive] = useState(false);
   // ...
   function handleClick() {
@@ -24,7 +25,20 @@ const Nav = () => {
   }
   return (
     <>
-      <noscript>{noscriptCSS}</noscript>
+      <noscript>
+        <style>
+          {`.nav {
+            position: absolute;
+          }
+          .nav ul::before {
+                left: -49px;
+              transform: rotate(13deg);
+              width: 330px;
+              top: -162px;
+              height: 698px;
+          }`}
+        </style>
+      </noscript>
       <nav
         className={`nav ${active ? "active" : "inactive"}`}
         onClick={handleClick}

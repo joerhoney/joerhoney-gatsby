@@ -310,7 +310,7 @@ h2 + p::before {
 }
 section.alignable h2,
 h2.tilt {
-  rotate: 22deg;
+  transform: rotate(22deg);
   text-align: right;
   transform-origin: top right;
   translate: 0 80px;
@@ -392,7 +392,7 @@ input:-webkit-autofill {
   font-size: calc(6vh + 4vw);
   max-width: calc(38vh + 24vw);
   padding: 0;
-  rotate: 22deg;
+  transform: rotate(22deg);
   text-align: right;
   /* text-shadow: 0 0 20em var(--glow), 0 0 40em var(--glow), 0 0 60em var(--glow), 0 0 80em var(--glow); */
   transform-origin: top right;
@@ -455,7 +455,7 @@ input:-webkit-autofill {
   margin-bottom: 1em;
   padding-top: 0;
   position: static;
-  rotate: unset;
+  translate: unset;
   text-align: left;
 }
 .columns-3 .column {

@@ -8,7 +8,7 @@ const Nav = () => {
       position: absolute;
     }
     .nav ul::before {
-      rotate: 13deg;
+      translate: rotate(13deg);
       width: 330px;
       height: 698px;
 

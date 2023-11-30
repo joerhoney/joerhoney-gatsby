@@ -33,7 +33,7 @@ const artistPage = (props) => {
       <Page>
         <section className="alignable bottomL" id="skills">
           <article className="self-center">
-            <h2>I &hearts; to Draw!</h2>
+            <h2>I &#9829; to Draw!</h2>
             <p>
               This collection of art will include work I've done professionally
               and on my own time... Patience, my friend. I'm afraid coding is a
