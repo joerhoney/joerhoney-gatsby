@@ -5,6 +5,7 @@ import Gallery from "../components/Gallery";
 import { Link } from "gatsby";
 import Page from "../layouts/Page";
 import Profiles from "../fragments/Profiles";
+import ScrollIndicator from "../fragments/ScrollIndicator";
 import { StaticImage } from "gatsby-plugin-image";
 // CSS
 import "../css/reel.css";
@@ -57,14 +58,35 @@ const artistPage = (props) => {
             </div>
           </article>
         </section>
-        <Gallery>
-          <div className="layer" style={{ flex: "0 0 100vw" }}></div>
-          <div className="layer l125" style={{ marginRight: "-120vh" }}>
+        <Gallery className="compensateB">
+          <div
+            className="layer"
+            style={{
+              display: "flex",
+              flex: "0 0 100vw",
+              height: "100vh",
+              placeItems: "center",
+            }}
+          >
+            <ScrollIndicator
+              style={{
+                display: "flex",
+                flex: "0 0 50vw",
+                justifyContent: "center",
+              }}
+            />
+          </div>
+          <div
+            className="layer l175"
+            style={{ marginRight: "-120vh", width: "170vh" }}
+          >
             <img
               alt="Illustration of a dragon passing through a typhoon."
               src={dragon}
               style={{
-                width: "170vh",
+                height: "85vh",
+                paddingBottom: "15vh",
+                paddingLeft: "40vh",
               }}
             />
           </div>
@@ -96,14 +118,17 @@ const artistPage = (props) => {
               alt="Hawaiian fisherman, holding a giant tuna."
               style={{
                 height: "92vh",
-                marginRight: "70vh",
                 paddingBottom: "2vh",
               }}
             />
           </div>
           <div
             className="layer l100"
-            style={{ paddingLeft: "10vh", width: "49vh" }}
+            style={{
+              paddingLeft: "100vh",
+              paddingRight: "50vh",
+              width: "49vh",
+            }}
           >
             <img
               src={samuraistanding}

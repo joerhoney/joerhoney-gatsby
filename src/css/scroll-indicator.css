@@ -1,0 +1,9 @@
+.scroll-indicator {
+  box-sizing: border-box;
+  color: var(--color3);
+  white-space: pre-wrap;
+}
+.scroll-indicator pre {
+  font-size: 15px;
+  line-height: 19.5px;
+}
