@@ -130,7 +130,7 @@ const Home = () => {
             </p>
           </article>
           {/* <Query /> */}
-          <Form />
+          <Form className="bottomS" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal self-center" />

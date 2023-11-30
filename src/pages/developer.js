@@ -368,7 +368,7 @@ const codePage = () => {
               </div>
             </div>
           </article>
-          <Form className="" />
+          <Form className="bottomS" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal self-center" />
