@@ -24,7 +24,6 @@
     perspective: 100px;
     transform-style: preserve-3d;
     transform: translateZ(0);
-    scroll-behavior: smooth;
   }
   .layer {
     position: relative;
