@@ -12,6 +12,7 @@ const storyPage = () => {
           alt="Watercolor of a woman in a kamono next to a cherry blossom."
           placeholder="blurred"
           src="../images/cherry-blossom-half.webp"
+          style={{ placeItems: "flex-end" }}
         />
         <h1>Story</h1>
       </section>

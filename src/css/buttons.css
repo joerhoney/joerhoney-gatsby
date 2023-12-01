@@ -54,8 +54,14 @@ button:hover {
   color: var(--knockout);
   mix-blend-mode: var(--multiscreen);
 }
-
 .cta :is(.button:focus, .button:focus, button:hover, button:hover),
 .cta_b :is(.button:focus, .button:focus, button:hover, button:hover) {
   background-color: var(--color5);
+}
+p .button {
+  border: none;
+  margin-right: 1em;
+}
+p :is(.button:focus, .button:hover) {
+  border: none;
 }
