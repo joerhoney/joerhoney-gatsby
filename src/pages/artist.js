@@ -32,19 +32,24 @@ const artistPage = (props) => {
         <h1>Artist</h1>
       </section>
       <Page>
-        <section className="alignable bottomL" id="skills">
-          <article className="self-center">
+        <section className="alignable bottomXS">
+          <article>
             <h2>I &#9829; to Draw!</h2>
             <p>
-              This collection of art will include work I've done professionally
-              and on my own time... Patience, my friend. I'm afraid coding is a
-              higher priority right now. 🤪
+              Let me show you some of the artwork I've done! The collection on
+              this page includes art I've done professionally as well as some
+              art I created on my own time.
             </p>
+          </article>
+        </section>
+        <section className="alignable bottomXS" id="animation">
+          <article>
+            <h2>Animation</h2>
             <p>
-              This was originally a flipbook I made. I scanned all of the pages
-              into Photoshop, where I added color and fabricated the background,
-              a combination of digital montage, brush strokes, glow effects and
-              transforms.
+              I love bringing my illustrations to life. This was originally a
+              flipbook I made. I scanned all of the pages into Photoshop, where
+              I added color and fabricated the background, a combination of
+              digital montage, brush strokes, glow effects and transforms.
             </p>
             <div
               className="reel f26"
@@ -58,6 +63,21 @@ const artistPage = (props) => {
             </div>
           </article>
         </section>
+        <h2
+          style={{
+            paddingRight: "var(--unit8)",
+            paddingTop: "var(--unit16)",
+            transform: "rotate(22deg)",
+            transformOrigin: "right",
+            textAlign: "right",
+          }}
+        >
+          Character/
+          <br />
+          Creature
+          <br />
+          Creation
+        </h2>
         <Gallery className="compensateB">
           <div
             className="layer"
@@ -65,7 +85,8 @@ const artistPage = (props) => {
               display: "flex",
               flex: "0 0 100vw",
               height: "100vh",
-              placeItems: "center",
+              placeItems: "flex-start center",
+              zIndex: "20",
             }}
           >
             <ScrollIndicator
@@ -73,19 +94,24 @@ const artistPage = (props) => {
                 display: "flex",
                 flex: "0 0 50vw",
                 justifyContent: "center",
+                paddingTop: "15vh",
               }}
             />
           </div>
           <div
-            className="layer l175"
-            style={{ marginRight: "-120vh", width: "170vh" }}
+            className="layer l275"
+            style={{
+              marginLeft: "100vh",
+              marginRight: "-100vh",
+              width: "170vh",
+            }}
           >
             <img
-              alt="Illustration of a dragon passing through a typhoon."
+              alt="Illustration of a dragon passing through a tsunami."
               src={dragon}
               style={{
-                height: "85vh",
-                paddingBottom: "15vh",
+                height: "75vh",
+                paddingBottom: "25vh",
                 paddingLeft: "40vh",
               }}
             />
@@ -117,41 +143,41 @@ const artistPage = (props) => {
               src={kinggamagama}
               alt="Hawaiian fisherman, holding a giant tuna."
               style={{
-                height: "92vh",
-                paddingBottom: "2vh",
+                height: "87vh",
+                paddingBottom: "8vh",
               }}
             />
           </div>
           <div
-            className="layer l100"
+            className="layer l150"
             style={{
-              paddingLeft: "100vh",
-              paddingRight: "50vh",
+              paddingLeft: "80vh",
+              paddingRight: "90vh",
               width: "49vh",
             }}
           >
             <img
               src={samuraistanding}
               alt="A samurai ready to fight."
-              style={{ height: "90vh" }}
+              style={{ height: "90vh", paddingBottom: "35vh" }}
             />
           </div>
           <div
-            className="layer l125"
+            className="layer l200"
             style={{ alignItems: "center", display: "flex", width: "59vh" }}
           >
             <img
               src={samuraionhorseback}
               alt="A samurai on horseback, charging."
-              style={{ height: "75vh" }}
+              style={{ height: "88vh", paddingBottom: "6vh" }}
             />
           </div>
           <div
             className="layer l1000"
             style={{
-              marginTop: "-360vh",
+              marginTop: "-410vh",
               position: "relative",
-              width: "86vh",
+              width: "96vh",
             }}
           >
             <img
@@ -163,10 +189,10 @@ const artistPage = (props) => {
             />
           </div>
           <div
-            className="layer l175"
+            className="layer l250"
             style={{
               marginRight: "-25vh",
-              marginTop: "-36vh",
+              marginTop: "-53vh",
               position: "relative",
               width: "86vh",
             }}
@@ -180,11 +206,11 @@ const artistPage = (props) => {
             />
           </div>
           <div
-            className="layer l150"
+            className="layer l175"
             style={{
               height: "81vh",
               marginRight: "50vh",
-              marginLeft: "-75vh",
+              marginLeft: "-25vh",
               paddingTop: "32vh",
               position: "relative",
               width: "86vh",

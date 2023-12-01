@@ -180,7 +180,7 @@ section.alignable p :is(a:focus, a:hover) {
 }
 section.alignable {
   /* border-radius: var(--radius-all); */
-  clear: both;
+  align-items: center;
   position: relative;
   display: flex;
   flex-direction: column;

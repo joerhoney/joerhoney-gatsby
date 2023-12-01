@@ -8,13 +8,13 @@ const ScrollIndicator = (props) => {
       style={props.style && props.style}
     >
       <pre>
-&nbsp;                 \⁻⁻\<br />
-&nbsp;                  \  \<br />
-&nbsp; __________________\  \<br />
-&nbsp;|___________________   ⟩<br />
-&nbsp;                   /  /<br />
-&nbsp;Scroll that way<span className="blinking">█</span>  /  /<br />
-&nbsp;                 /__/
+&nbsp;              \⁻⁻\<br />
+&nbsp;               \  \<br />
+&nbsp; _______________\  \<br />
+&nbsp;|________________   ⟩<br />
+&nbsp;                /  /<br />
+&nbsp;Scroll right<span className="blinking">█</span>  /  /<br />
+&nbsp;              /__/
       </pre>
     </div>
   )

@@ -80,6 +80,34 @@
   .l175 > * {
     transform: scale(2.75);
   }
+  .l200 {
+    transform: translateZ(-200px);
+    z-index: 33;
+  }
+  .l200 > * {
+    transform: scale(2);
+  }
+  .l225 {
+    transform: translateZ(-225px);
+    z-index: 32;
+  }
+  .l225 > * {
+    transform: scale(3.25);
+  }
+  .l250 {
+    transform: translateZ(-250px);
+    z-index: 31;
+  }
+  .l250 > * {
+    transform: scale(3.5);
+  }
+  .l275 {
+    transform: translateZ(-275px);
+    z-index: 30;
+  }
+  .l275 > * {
+    transform: scale(3.75);
+  }
   .l1000 {
     transform: translateZ(-1000px);
     z-index: 1;
