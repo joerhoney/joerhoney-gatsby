@@ -16,7 +16,7 @@ const storyPage = () => {
         <h1>Story</h1>
       </section>
       <Page>
-        <section className="alignable bottomL">
+        <section className="alignable">
           <article className="self-center">
             <h3>TL;DR</h3>
             <p>(To Long; Didn't Read)</p>
@@ -28,8 +28,8 @@ const storyPage = () => {
             <p>…and my family and I lived happily ever after. 😁</p>
           </article>
         </section>
-        <section className="alignable skew_b tint3_b">
-          <article className="self-center">
+        <section className="alignable skew_b tint3_b compensateT">
+          <article className="self-center compensateB">
             <h2>Journey of an Artist</h2>
             <p>
               I have been an artist since my childhood in rural Northern
