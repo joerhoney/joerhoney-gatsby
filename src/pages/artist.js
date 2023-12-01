@@ -85,6 +85,7 @@ const artistPage = (props) => {
               display: "flex",
               flex: "0 0 100vw",
               height: "100vh",
+              margin: "0 10vw 0 -10vw",
               placeItems: "flex-start center",
               zIndex: "20",
             }}
@@ -101,7 +102,7 @@ const artistPage = (props) => {
           <div
             className="layer l275"
             style={{
-              marginLeft: "100vh",
+              marginLeft: "60vh",
               marginRight: "-100vh",
               width: "170vh",
             }}
