@@ -1,12 +1,11 @@
 import React from "react";
 import * as clss from "../css/form.module.css";
 import "../css/buttons.css";
-// Documentation: https://formsubmit.co/help
 
 const Form = (props) => {
   return (
     <div className={clss.contact}>
-      <form
+      {/* <form
         action="https://%66%6f%72%6d%73%75%62%6d%69%74.co/%6a%6f%65%72%68%6f%6e%65%79%40%67%6d%61%69%6c%2e%63%6f%6d"
         className={props.className}
         method="POST"
@@ -32,6 +31,17 @@ const Form = (props) => {
           name="_url"
           value="https://joerhoney.com/#contact"
         />
+      </form> */}
+      <form action="https://formspree.io/f/xvojjlev" method="POST">
+        <label>
+          Your email:
+          <input type="email" name="email" />
+        </label>
+        <label>
+          Your message:
+          <textarea name="message"></textarea>
+        </label>
+        <button type="submit">Send</button>
       </form>
     </div>
   );

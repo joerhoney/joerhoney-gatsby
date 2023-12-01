@@ -24,6 +24,7 @@ const Half = (props) => {
       className={`${clss.half} ${
         typeof props.className !== "undefined" ? props.className : ""
       }`}
+      id={props.id}
     >
       {props.src && (
         <img

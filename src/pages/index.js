@@ -59,6 +59,7 @@ const Home = () => {
               button="View Work"
               className="half1_b"
               heading="Developer"
+              id="websites"
               position="top right"
               src={dragonSplit1}
               speed={9}
@@ -74,6 +75,7 @@ const Home = () => {
               button="View Art"
               className="half2_b"
               heading="Illustrator"
+              id="illustration"
               position="top left"
               src={dragonSplit2}
               speed={-9}
@@ -88,7 +90,7 @@ const Home = () => {
         </div>
         <section className="alignable topXS">
           <div className="columns-3">
-            <div className="column">
+            <div className="column" id="custom-plugins">
               <h3>WordPress Plugins</h3>
               <p>
                 I create custom plugins. In fact, I have published 10 in the

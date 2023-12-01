@@ -75,6 +75,7 @@ const Services = () => {
       <Icon name="GithubBadge" label="Stack Overflow" />
       <Icon name="Aws" />
       <Icon name="DigitalOcean" label="Digital Ocean" />
+      <Icon name="Figma" />
       <Icon name="GoogleAnalytics" label="Google Analytics" />
       <Icon name="Atlassian" />
       <Icon name="Jira" />
