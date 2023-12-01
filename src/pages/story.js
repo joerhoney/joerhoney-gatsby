@@ -86,7 +86,7 @@ const storyPage = () => {
               well, I want to connect, too! So drop me an email.
             </p>
           </article>
-          <Form className="bottomS" />
+          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal" />
