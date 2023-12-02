@@ -11,7 +11,7 @@ import { Split, Half } from "../components/Split";
 /* Functions */
 import since from "../utils/since";
 /* Images */
-import portrait from "../images/portrait-2.webp";
+import avatar from "../images/avatar.webp";
 import dragonSplit1 from "../images/dragon-split1.webp";
 import dragonSplit2 from "../images/dragon-split2.webp";
 // import Query from "../examples/Query";
@@ -27,7 +27,7 @@ const Home = () => {
             className="self-right transluscent"
             height="208"
             loading="lazy"
-            src={portrait}
+            src={avatar}
             style={{
               maxWidth: "153px",
               marginBottom: "-80px",

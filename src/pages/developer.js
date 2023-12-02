@@ -117,7 +117,7 @@ const codePage = () => {
         <StaticImage
           alt="Illustration of a chinese dragon"
           placeholder="blurred"
-          src="../images/dragon.webp"
+          src="../images/heros/dragon.webp"
         />
         <h1>Developer</h1>
       </section>

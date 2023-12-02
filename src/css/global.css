@@ -249,6 +249,7 @@ article,
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  margin: auto;
   max-width: calc(var(--max_text) + var(--unit16));
   padding: 0 var(--unit8);
   position: relative;
