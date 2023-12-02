@@ -15,9 +15,10 @@ import kinggamagama from "../images/art/king-gama-gama.webp";
 import samuraistanding from "../images/art/samurai-standing.webp";
 import samuraionhorseback from "../images/art/samurai-on-horseback.webp";
 import samuraikiller from "../images/art/samurai-killer.webp";
-import samuraikillertrees from "../images/art/samurai-killer-trees.webp";
-import samuraikillermoon from "../images/art/samurai-killer-moon.webp";
+import samuraitrees from "../images/art/samurai-trees.webp";
+import samuraimoon from "../images/art/samurai-moon.webp";
 import skippinggirl from "../images/art/skipping-girl-sprite.webp";
+import skippingframes from "../images/art/skipping-girl-flipbook.webp";
 import warrioroftytoria from "../images/art/warrior-of-tytoria.webp";
 
 const artistPage = (props) => {
@@ -54,16 +55,18 @@ const artistPage = (props) => {
               I added color and fabricated the background, a combination of
               digital montage, brush strokes, glow effects and transforms.
             </p>
-            <div
-              className="reel f26"
-              style={{ height: "205px", width: "100%" }}
-            >
+            <div className="expand reel f26" style={{ height: "205px" }}>
               <img
                 alt="Animated loop of a girl skipping through a big city."
                 src={skippinggirl}
                 style={{ height: "100%", width: "100%" }}
               />
             </div>
+            <img
+              alt="Individual frames of the animated character"
+              className="overlay topXS"
+              src={skippingframes}
+            />
           </article>
         </section>
         <section className="compensateB">
@@ -179,7 +182,7 @@ const artistPage = (props) => {
               }}
             >
               <img
-                src={samuraikillermoon}
+                src={samuraimoon}
                 alt="The moon and clouds."
                 style={{
                   width: "86vh",
@@ -196,7 +199,7 @@ const artistPage = (props) => {
               }}
             >
               <img
-                src={samuraikillertrees}
+                src={samuraitrees}
                 alt="Trees and crows."
                 style={{
                   width: "86vh",

@@ -268,11 +268,18 @@ article,
 .wide {
   max-width: 1000px;
 }
-img.transluscent {
+.expand {
+  margin-left: var(--unit-8);
+  margin-right: var(--unit-8);
+}
+.transluscent {
   mix-blend-mode: multiply;
 }
+.overlay {
+  mix-blend-mode: overlay;
+}
 @media (prefers-color-scheme: dark) {
-  img.transluscent {
+  .transluscent {
     mix-blend-mode: screen;
   }
 }
