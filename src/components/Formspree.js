@@ -5,8 +5,8 @@ import "../css/buttons.css";
 const Form = (props) => {
   return (
     <div className={clss.contact}>
-      {/* <form
-        action="https://%66%6f%72%6d%73%75%62%6d%69%74.co/%6a%6f%65%72%68%6f%6e%65%79%40%67%6d%61%69%6c%2e%63%6f%6d"
+      <form
+        action="https://formspree.io/f/xvojjlev"
         className={props.className}
         method="POST"
       >
@@ -24,23 +24,6 @@ const Form = (props) => {
           rows="10"
           required
         ></textarea>
-        <button type="submit">Send</button>
-        <input type="hidden" name="_next" value="/thanks" />
-        <input
-          type="hidden"
-          name="_url"
-          value="https://joerhoney.com/#contact"
-        />
-      </form> */}
-      <form action="https://formspree.io/f/xvojjlev" method="POST">
-        <label>
-          Your email:
-          <input type="email" name="email" />
-        </label>
-        <label>
-          Your message:
-          <textarea name="message"></textarea>
-        </label>
         <button type="submit">Send</button>
       </form>
     </div>

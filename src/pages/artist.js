@@ -1,6 +1,6 @@
 import * as React from "react";
 // Components/Fragments
-import Form from "../components/Form";
+import Form from "../components/Formspree";
 import Gallery from "../components/Gallery";
 import { Link } from "gatsby";
 import Page from "../layouts/Page";

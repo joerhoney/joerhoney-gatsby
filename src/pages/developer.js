@@ -1,7 +1,7 @@
 import * as React from "react";
 /* Components */
 import Button from "../components/Button";
-import Form from "../components/Form";
+import Form from "../components/Formspree";
 import Page from "../layouts/Page";
 import Profiles from "../fragments/Profiles";
 import Showcase from "../components/Showcase";
