@@ -1,0 +1,25 @@
+footer {
+  height: 62px;
+  overflow: hidden;
+  padding-top: 62px;
+  transform-origin: bottom left;
+  width: 300px;
+}
+footer > div {
+  background-color: var(--color2);
+  background-image: var(--gradFooter);
+  box-sizing: border-box;
+  color: var(--color5);
+  opacity: 0.66;
+  padding: 12px 20px 60px;
+  transition: all ease 0.5s;
+  transform: skewY(22deg);
+}
+footer > div:hover {
+  color: var(--color6);
+  opacity: 1;
+}
+footer .copyright {
+  font-size: 0.8rem;
+  transform: skewY(-22deg);
+}
