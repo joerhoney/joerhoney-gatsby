@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <title>Calculators</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link href="ui.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Calculators</h1>
+    <section>
+      <div class="accordion">
+        <div class="open">
+          <h3 class="toggler tab">Pay</h3>
+          <div class="contents">
+            <fieldset>
+              <label for="yearlyRate">Yearly $</label>
+              <input
+                id="yearlyRate"
+                type="number"
+              /><br />
+              <label for="biWeeklyRate">Bi-weekly $</label>
+              <input
+                id="biWeeklyRate"
+                type="number"
+              /><br />
+              <label for="weeklyRate">Weekly $</label>
+              <input
+                id="weeklyRate"
+                type="number"
+              /><br />
+              <label for="dailyRate">Daily $</label>
+              <input
+                id="dailyRate"
+                type="number"
+              /><br />
+              <label for="hourlyRate">Hourly $</label>
+              <input
+                id="hourlyRate"
+                type="number"
+              />
+            </fieldset>
+						<script type="text/javascript">
+              const yearlyRate = document.getElementById("yearlyRate");
+              const biWeeklyRate = document.getElementById('biWeeklyRate');
+              const weeklyRate = document.getElementById('weeklyRate');
+              const dailyRate = document.getElementById('dailyRate');
+              const hourlyRate = document.getElementById('hourlyRate');
+              function calculatePay(y,b,w,d,h){
+                y.addEventListener("keyup" || "paste",function(){
+                  b.value = Math.round((y.value / 26) * 100) / 100;
+                  w.value = Math.round((y.value / 52) * 100) / 100;
+                  d.value = Math.round((y.value / 260) * 100) / 100;
+                  h.value = Math.round((y.value / 2080) * 100) / 100;
+                });
+                b.addEventListener("keyup" || "paste",function(){
+                  y.value = Math.round((b.value * 26) * 100) / 100;
+                  w.value = Math.round((b.value / 2) * 100) / 100;
+                  d.value = Math.round((b.value / 10) * 100) / 100;
+                  h.value = Math.round((b.value / 80) * 100) / 100;
+                });
+                w.addEventListener("keyup" || "paste",function(){
+                  y.value = Math.round((w.value * 52) * 100) / 100;
+                  b.value = Math.round((w.value * 2) * 100) / 100;
+                  d.value = Math.round((w.value / 5) * 100) / 100;
+                  h.value = Math.round((w.value / 40) * 100) / 100;
+                });
+                d.addEventListener("keyup" || "paste",function(){
+                  y.value = Math.round((d.value * 260) * 100) / 100;
+                  b.value = Math.round((d.value * 10) * 100) / 100;
+                  w.value = Math.round((d.value * 5) * 100) / 100;
+                  h.value = Math.round((d.value / 8) * 100) / 100;
+                });
+                h.addEventListener("keyup" || "paste",function(){
+                  y.value = Math.round((h.value * 2080) * 100) / 100;
+                  b.value = Math.round((h.value * 80) * 100) / 100;
+                  w.value = Math.round((h.value * 40) * 100) / 100;
+                  d.value = Math.round((h.value * 8) * 100) / 100;
+                });
+              }
+              calculatePay(yearlyRate,biWeeklyRate,weeklyRate,dailyRate,hourlyRate);
+						</script>
+          </div>
+        </div>
+        <div>
+          <h3 class="toggler tab">Leap Year</h3>
+          <div class="contents">
+            <div id="aboutYear" class="height2line">Please enter a year to check if it is a leap year.</div>
+            <fieldset>
+              <label for="checkYear">Check Year</label>
+              <input
+                id="checkYear"
+                type="number"
+              />
+            </fieldset>
+            <p><strong>Note:</strong> Results are based on the common <a href="https://en.wikipedia.org/wiki/Gregorian_calendar" target="_blank">Gregorian calendar</a> which wasn't in use until 1582.</p>
+            <script type="text/javascript">
+              const aboutYear = document.getElementById("aboutYear");
+              const startmsg = "Please enter a year to check if it is a leap year.";
+              // (function() {aboutYear.innerHTML = startmsg;})();
+              const date = new Date();
+              const currentYear = date.getFullYear();
+              function checkLeapYear(check) {
+                // val: accepts a decimal value
+                // state: accepts "not" or "leap"
+                function leapmsg(val,state) {
+                  let tense = "", century = "";
+                  if(val > currentYear) {
+                    if(state === "not") tense = " will not be a ";
+                    else tense = " will be a ";
+                  } 
+                  else if(val < currentYear) {
+                    if(state === "not") tense = " was not a ";
+                    else tense = " was a ";
+                  } 
+                  else if(val === currentYear) {
+                    if(state === "not") tense = " is not a ";
+                    else tense = " is a ";
+                  }
+                  if((val / 100) % 1 == 0 && !(state === "not")){
+                    century = "century ";
+                  }
+                  else {
+                    century = "";
+                  }
+                  return val + tense + century + "leap year.";
+                };
+                check.addEventListener("keyup" || "paste",function(){
+                  if(check.value === "") {
+                    aboutYear.innerHTML = startmsg;
+                  } 
+                  else {
+                    // One of every 4th year?
+                    if((check.value / 4) % 1 != 0) {
+                      aboutYear.innerHTML = leapmsg(check.value,"not");
+                    } 
+                    else {
+                      // Century year?
+                      if((check.value / 100) % 1 != 0) {
+                        aboutYear.innerHTML = leapmsg(check.value,"leap");
+                      } 
+                      else {
+                        // One of every 400 century years?
+                        if((check.value / 400) % 1 != 0) {
+                          aboutYear.innerHTML = leapmsg(check.value,"not");
+                        } 
+                        else {
+                          aboutYear.innerHTML = leapmsg(check.value,"leap");
+                        }
+                      }
+                    }
+                  }
+                });
+              }
+              checkLeapYear(checkYear);
+            </script>
+          </div>
+        </div>
+				<div>
+          <h3 class="toggler tab">Character Count</h3>
+          <div class="contents">
+            <fieldset>
+              <div id="characterCount" class="huge">0</div>
+  						<textarea id="characters" rows="8" cols="80"></textarea>
+            </fieldset>
+						<script type="text/javascript">
+							// alert("You have typed " + typed.length + " characters. You have " + (180 - typed.length) + " characters remaining.");
+              const characters = document.getElementById("characters");
+              const characterCount = document.getElementById('characterCount');
+              function countCharacters(chars,count){
+                chars.addEventListener("keyup",function(){
+                  count.innerHTML = chars.value.length;
+                });
+                chars.addEventListener("paste",function(){
+                  window.setTimeout(function(){count.innerHTML = chars.value.length;},200);
+                },false);
+              }
+              countCharacters(characters,characterCount);
+						</script>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="ui.js?v=0>"></script>
+  </body>
+</html>

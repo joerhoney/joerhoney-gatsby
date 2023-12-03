@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <title>Calculators</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"
+    />
+    <link href="ui.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Calculators</h1>
+    <section>
+      <div class="accordion">
+        <div class="open">
+          <h3 class="toggler tab">BMI</h3>
+          <div class="contents">
+            <div id="bmi" class="huge">0</div>
+            <fieldset>
+              <legend>What is your <span class="u">B</span>ody <span class="u">M</span>ass <span class="u">I</span>ndex?
+              </legend>
+              <label for="bodyWeight">Body Weight</label>
+              <div name="" class="switch-box">
+                <input
+                  class="switch-case"
+                  id="bodyWeight_kg"
+                  type="text"
+                  value=""
+                  placeholder="kelograms"
+                />
+                <input
+                  class="switch-case"
+                  id="bodyWeight_lbs"
+                  type="text"
+                  value=""
+                  placeholder="pounds"
+                  />
+              </div><br />
+              <label for="bodyHeight">Body Height</label>
+              <div class="switch-box">
+                <input
+                  class="switch-case"
+                  id="bodyHeight_in"
+                  type="text"
+                  value=""
+                  placeholder="inches"
+                />
+                <input
+                  class="switch-case"
+                  id="bodyHeight_cm"
+                  type="text"
+                  value=""
+                  placeholder="centimeters"
+                />
+              </div>
+            </fieldset>
+            <script type="text/javascript">
+              function calculateBMI() {
+
+              }
+            </script>
+          </div>
+        </div>
+        <div>
+          <h3 class="toggler tab">Dice Roll</h3>
+          <div class="contents">
+            <fieldset>
+              <label for="numDice">Number of Dice</label>
+              <input
+                id="numDice"
+                type="number"
+                value="2"
+                step="1"
+                min="1"
+                max="6"
+              /><br />
+              <button id="rollDice">Roll Dice</botton>
+            </fieldset>
+						<div class="diceResults"></div>
+          </div>
+        </div>
+        <div>
+          <h3 class="toggler tab">Life Left</h3>
+          <div class="contents">
+            <fieldset>
+              <legend>
+                If you only live to age 90, how much life do you have left?
+              </legend>
+              <label for="lifeLived">How old are you?</label>
+              <input id="lifeLived" type="number" step="1" min="0" />
+            </fieldset>
+            <div id="lifeLeft"></div>
+            <script type="text/javascript">
+              function lifeLeftTo90(age) {
+                let x = (90 * 365) - (age * 365);
+                let y = (90 * 52) - (age * 52);
+                let z = (90 * 12) - (age * 12);
+                return "You have " + x + " days, " + y + " weeks, and " + z + " months left.";
+              }
+            </script>
+          </div>
+        </div>
+        <div>
+          <h3 class="toggler tab">Dog Years</h3>
+          <div class="contents">
+            <fieldset>
+              <legend>
+                How old are you in dog years?
+              </legend>
+              <label for="humanYears">Human Years</label>
+              <input
+                id="humanYears"
+                type="number"
+                step="1"
+                min="0"
+                value=""
+              /><br />
+              <label for="dogYears">Dog Years</label>
+              <input id="dogYears" type="number" step="1" min="0" value="" />
+            </fieldset>
+						<script type="text/javascript">
+							// var dogAge = prompt("How old is your dog?");
+							// var humanAge = ((dogAge - 2) * 4) + 21;
+							// alert("Your dog is " + humanAge + " in human years");
+						</script>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="ui.js?v=0>"></script>
+  </body>
+</html>
