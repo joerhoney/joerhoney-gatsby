@@ -197,6 +197,7 @@ import {
 } from "react-icons/di";
 import { HiExternalLink, HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
+import { SiContentful, SiGravatar } from "react-icons/si";
 import {
   SvgAfterEffects,
   SvgApache,
@@ -411,6 +412,9 @@ const Icon = (props) => {
     Menu: <HiMenu />,
     // Ionicons 5
     Close: <IoClose />,
+    // Simple Icons
+    Contentful: <SiContentful />,
+    Gravatar: <SiGravatar />,
     // Custom icons
     AfterEffects: <SvgAfterEffects />,
     Apache: <SvgApache />,

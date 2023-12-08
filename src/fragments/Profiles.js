@@ -8,6 +8,7 @@ const Profiles = (props) => {
     <div className={`${clss.profiles} ${props.className}`}>
       <h4>{props.heading ? props.heading : "Find me on:"}</h4>
       <div className="icons">
+        <Icon href="https://www.linkedin.com/in/joerhoney/" name="Linkedin" />
         <Icon
           href="https://github.com/joerhoney"
           label="GitHub"
@@ -19,7 +20,7 @@ const Profiles = (props) => {
           name="Stackoverflow"
         />
         <Icon href="https://codepen.io/joerhoney" name="Codepen" />
-        <Icon href="https://www.linkedin.com/in/joerhoney/" name="Linkedin" />
+        <Icon href="https://gravatar.com/joerhoney" name="Gravatar" />
       </div>
     </div>
   );

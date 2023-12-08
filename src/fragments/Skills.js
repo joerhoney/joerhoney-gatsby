@@ -15,6 +15,7 @@ const Browsers = () => {
 const Cms = () => {
   return (
     <div className="icons">
+      <Icon name="Contentful" />
       <Icon name="Drupal" />
       <Icon name="Gatsby" />
       <Icon name="Joomla" />
