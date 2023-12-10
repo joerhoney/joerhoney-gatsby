@@ -34,7 +34,7 @@
   display: block;
   float: right;
   height: 40px;
-  shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
+  shape-outside: polygon(28% 0%, 100% 0%, 100% 80%, 87% 80%);
   width: 130px;
 }
 :is(.showcase, .collection) p.desc {

@@ -235,7 +235,7 @@ const artistPage = (props) => {
               <Link to="/story">a page on that</Link>, but I'm interested in
               connecting. So please send me a message below.
             </p>
-            <div className="columns-2 bottomXS topXS">
+            <div className="columns-2 bottomXS ">
               <div className="pull tint2">
                 <h4>Hire me! 😄</h4>
                 <p>
