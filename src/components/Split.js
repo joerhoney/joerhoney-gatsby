@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "gatsby";
-import * as clss from "../css/split.module.css";
+import "../css/split.css";
 
 const Split = (props) => {
   return (
-    <div className={clss.splitWrap}>
+    <div className="splitWrap">
       <div
-        className={`${clss.split} ${
+        className={`split ${
           typeof props.className !== "undefined" ? props.className : ""
         }`}
       >
@@ -21,7 +21,7 @@ const Half = (props) => {
   // TODO: Use <GatsbyImage />
   return (
     <div
-      className={`${clss.half} ${
+      className={`half ${
         typeof props.className !== "undefined" ? props.className : ""
       }`}
       id={props.id}
@@ -33,11 +33,11 @@ const Half = (props) => {
           style={{ objectPosition: props.position }}
         />
       )}
-      <div className={clss.cell}>
-        <div className={clss.title}>
+      <div className="cell">
+        <div className="title">
           <h2>{props.heading}</h2>
         </div>
-        <div className={clss.content}>
+        <div className="content">
           {props.children}
           {props.button && (
             <Link className="button" to={props.to}>
