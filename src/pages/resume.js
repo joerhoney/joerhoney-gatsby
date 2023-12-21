@@ -20,7 +20,7 @@ const resume = () => {
               security. Prominent skills include CSS, JS/ES6, PHP, React,
               WordPress, Photoshop (and alternatives), Illustrator (and
               alternatives). Successfully delivered web and graphics services
-              since 1999, including 100+ custom WordPress installs, satisfying
+              since 2006, including 100+ custom WordPress installs, satisfying
               front-end UI makeovers and themes, and published WordPress plugins
               providing 10–100+ downloads per day. Seeking a long-term position
               in web development.

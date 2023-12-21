@@ -268,5 +268,11 @@ export default artistPage;
 export const Head = () => (
   <>
     <title>Artist | :joe rhoney</title>
+    <meta
+      name="description"
+      content="Practicing visual arts since childhood and still enjoying it today."
+    />
+    <meta property="og:keywords" content="Artist, Joe Rhoney" />
+    <meta property="og:type" content="website" />
   </>
 );

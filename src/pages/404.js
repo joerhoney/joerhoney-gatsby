@@ -52,5 +52,10 @@ export default NotFoundPage;
 export const Head = () => (
   <>
     <title>Page Not Found | :joe rhoney</title>
+    <meta
+      name="description"
+      content="Learn more about Joe Rhoney on the other pages of this website."
+    />
+    <meta property="og:type" content="website" />
   </>
 );

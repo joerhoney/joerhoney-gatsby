@@ -22,7 +22,7 @@ const storyPage = () => {
             <h3>TL;DR</h3>
             <p>(To Long; Didn't Read)</p>
             <p>
-              As a lifetime artist, I found a career in design in 1999. That
+              As a lifetime artist, I found a career in design in 2006. That
               quickly lead to a web development opportunity, and I've been
               designing and coding ever since…
             </p>

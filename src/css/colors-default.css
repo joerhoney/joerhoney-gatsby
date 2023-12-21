@@ -35,6 +35,7 @@
     #ffffff11,
     transparent 70%
   );
+  --scrolltrack: #121f26;
   /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
 }
 .cta,
@@ -94,6 +95,7 @@
       transparent 70%
     );
     --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
+    --scrolltrack: #121f26;
     --lightish: #ffd8b7;
     --tint1: #121f2666; /* alpha was: .4 */
     --tint2: #5a3a6766; /* alpha was: .4 */

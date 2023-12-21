@@ -40,7 +40,7 @@ const Home = () => {
           </h2>
           <p>
             Pardon my code humor, I've been in this industry for
-            {since("Sept, 13, 1999")} years. Because that's how old I am… Okay,
+            {since("Jan, 1, 2006")} years. Because that's how old I am… Okay,
             maybe I'm a little older than that. &#128513;
             <br />
             <br />I design, build and maintain websites and web apps, using

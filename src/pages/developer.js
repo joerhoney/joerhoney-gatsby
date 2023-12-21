@@ -149,12 +149,13 @@ const codePage = () => {
           <article className="self-center">
             <h2>Work Portfolio</h2>
             <p>
-              Here are some of the projects I built or helped build and
-              maintain.
+              Explore a glimpse of my work history featuring projects I've
+              either spearheaded or significantly contributed to in their
+              development and ongoing maintenance.
             </p>
           </article>
           <Showcase
-            desc="Analytics and website maintenance on Meta's custom CMS stack."
+            desc="Analytics Enhancement and Website Maintenance"
             to="meta"
             href="https://meta.com"
             skills={metaskills}
@@ -360,10 +361,10 @@ const codePage = () => {
             <h2>Let's Build Something!</h2>
             <p>
               Nothing excites me more than starting a new project or making
-              something better. For {since("Sept, 13, 1999")} years I have
-              worked as a freelancer, serving clients in many industries, and
-              have also worked as a full-time employee at various retail
-              manufacturing and marketing agencies.
+              something better. For {since("Jan, 1, 2006")} years I have worked
+              as a freelancer, serving clients in many industries, and have also
+              worked as a full-time employee at various retail manufacturing and
+              marketing agencies.
             </p>
             <div className="columns-2 bottomXS">
               <div className="pull tint2">
@@ -397,6 +398,13 @@ export default codePage;
 
 export const Head = () => (
   <>
-    <title>Developer | :joe rhoney</title>
+    <title>Front-End Developer :joe rhoney</title>
+    <meta
+      name="description"
+      content="Practicing front-end development since 2006, with a strong 
+               background in graphic design and visual arts."
+    />
+    <meta property="og:keywords" content="Developer, Joe Rhoney" />
+    <meta property="og:type" content="website" />
   </>
 );

@@ -5,6 +5,19 @@
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-align: start;
+  scrollbar-color: var(--color3) var(--scrolltrack);
+  scrollbar-width: thin;
+}
+.gallery::-webkit-scrollbar {
+  background-color: var(--scrolltrack);
+  height: 4px;
+}
+.gallery::-webkit-scrollbar-track,
+.gallery::-webkit-scrollbar-track-corner,
+.gallery::-webkit-resizer {
+}
+.gallery::-webkit-scrollbar-thumb {
+  background-color: var(--color3);
 }
 .gallery > * {
 }
