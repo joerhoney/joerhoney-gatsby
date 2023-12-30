@@ -75,7 +75,7 @@ const Services = () => {
     <div className="icons">
       <Icon name="GithubBadge" label="Stack Overflow" />
       <Icon name="Aws" />
-      <Icon name="DigitalOcean" label="Digital Ocean" />
+      <Icon label="Digital Ocean" name="Digitalocean" />
       <Icon name="Figma" />
       <Icon name="GoogleAnalytics" label="Google Analytics" />
       <Icon name="Atlassian" />
@@ -91,8 +91,10 @@ const Software = () => {
       <Icon name="VSCode" />
       <Icon name="Atom" />
       <Icon name="Brackets" />
+      <Icon label="FileZilla" name="Filezilla" />
       <Icon name="Illustrator" />
       <Icon name="Photoshop" />
+      <Icon name="Selenium" />
     </div>
   );
 };

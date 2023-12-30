@@ -1,6 +1,7 @@
 import React from "react";
 import ConditionalWrap from "../components/ConditionalWrap";
 // Devicons from the react-icons collection: https://react-icons.github.io/react-icons/icons?name=di
+// More icons: https://react-icons.github.io/react-icons/
 import {
   DiAndroid,
   DiAngularSimple,
@@ -45,7 +46,7 @@ import {
   DiDart,
   DiDatabase,
   DiDebian,
-  DiDigitalOcean,
+  // DiDigitalOcean,
   DiDjango,
   DiDlang,
   DiDocker,
@@ -197,7 +198,13 @@ import {
 } from "react-icons/di";
 import { HiExternalLink, HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
-import { SiContentful, SiGravatar } from "react-icons/si";
+import {
+  SiContentful,
+  SiDigitalocean,
+  SiFilezilla,
+  SiGravatar,
+  SiSelenium,
+} from "react-icons/si";
 import {
   SvgAfterEffects,
   SvgApache,
@@ -258,7 +265,6 @@ const Icon = (props) => {
     Dart: <DiDart />,
     Database: <DiDatabase />,
     Debian: <DiDebian />,
-    DigitalOcean: <DiDigitalOcean />,
     Django: <DiDjango />,
     Dlang: <DiDlang />,
     Docker: <DiDocker />,
@@ -414,7 +420,10 @@ const Icon = (props) => {
     Close: <IoClose />,
     // Simple Icons
     Contentful: <SiContentful />,
+    Digitalocean: <SiDigitalocean />,
+    Filezilla: <SiFilezilla />,
     Gravatar: <SiGravatar />,
+    Selenium: <SiSelenium />,
     // Custom icons
     AfterEffects: <SvgAfterEffects />,
     Apache: <SvgApache />,

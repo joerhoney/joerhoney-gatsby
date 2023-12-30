@@ -146,6 +146,13 @@ export default Home;
 
 export const Head = () => (
   <>
-    <title>Developer/Artist | :joe rhoney</title>
+    <title>Developer/Illustrator | :joe rhoney</title>
+    <meta
+      name="description"
+      content="Practicing web development since 2006 and visual arts since
+               childhood. The perfect combination for a front-end developer."
+    />
+    <meta property="og:keywords" content="Joe Rhoney, Developer, Illustrator" />
+    <meta property="og:type" content="website" />
   </>
 );
