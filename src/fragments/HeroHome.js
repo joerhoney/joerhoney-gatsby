@@ -1,5 +1,5 @@
 import React from "react";
-import * as clss from "../css/heroHome.module.css";
+import * as clss from "@css/heroHome.module.css";
 
 const HeroHome = () => {
   return (

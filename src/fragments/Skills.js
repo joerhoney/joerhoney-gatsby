@@ -1,6 +1,6 @@
 import * as React from "react";
-import "../css/icons.css";
-import Icon from "../components/Icon";
+import "@css/icons.css";
+import Icon from "@components/Icon";
 
 const Browsers = () => {
   return (
@@ -27,7 +27,11 @@ const Communities = () => {
   return (
     <div className="icons">
       <Icon name="Codepen" />
-      <Icon name="Stackoverflow" label="Stack Overflow" />
+      <Icon
+        name="Stackoverflow"
+        label="Stack Overflow"
+        className="tight-text"
+      />
     </div>
   );
 };
@@ -73,7 +77,7 @@ const Os = () => {
 const Services = () => {
   return (
     <div className="icons">
-      <Icon name="GithubBadge" label="Stack Overflow" />
+      <Icon name="Github" label="GitHub" />
       <Icon name="Aws" />
       <Icon label="Digital Ocean" name="Digitalocean" />
       <Icon name="Figma" />

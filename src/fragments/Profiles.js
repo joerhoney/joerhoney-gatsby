@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/icons.css";
-import * as clss from "../css/profiles.module.css";
-import Icon from "../components/Icon";
+import "@css/icons.css";
+import * as clss from "@css/profiles.module.css";
+import Icon from "@components/Icon";
 
 const Profiles = (props) => {
   return (
@@ -12,7 +12,7 @@ const Profiles = (props) => {
         <Icon
           href="https://github.com/joerhoney"
           label="GitHub"
-          name="GithubBadge"
+          name="Github"
         />
         <Icon
           href="https://stackoverflow.com/users/1383937/joe-rhoney"

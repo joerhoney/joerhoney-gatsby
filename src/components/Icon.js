@@ -1,5 +1,5 @@
 import React from "react";
-import ConditionalWrap from "../components/ConditionalWrap";
+import ConditionalWrap from "@utils/ConditionalWrap";
 // Devicons from the react-icons collection: https://react-icons.github.io/react-icons/icons?name=di
 // More icons: https://react-icons.github.io/react-icons/
 import {
@@ -32,7 +32,7 @@ import {
   DiCode,
   DiCodeBadge,
   DiCodeigniter,
-  DiCodepen,
+  // DiCodepen,
   DiCodrops,
   DiCoffeescript,
   DiCompass,
@@ -72,10 +72,10 @@ import {
   DiGitCompare,
   DiGitMerge,
   DiGitPullRequest,
-  DiGithub,
-  DiGithubAlt,
-  DiGithubBadge,
-  DiGithubFull,
+  // DiGithub,
+  // DiGithubAlt,
+  // DiGithubBadge,
+  // DiGithubFull,
   DiGnu,
   DiGo,
   DiGoogleAnalytics,
@@ -168,7 +168,7 @@ import {
   DiSnapSvg,
   DiSpark,
   DiSqllite,
-  DiStackoverflow,
+  // DiStackoverflow,
   DiStreamline,
   DiStylus,
   DiSublime,
@@ -196,14 +196,17 @@ import {
   DiYii,
   DiZend,
 } from "react-icons/di";
+import { FiCodepen } from "react-icons/fi";
 import { HiExternalLink, HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import {
   SiContentful,
   SiDigitalocean,
   SiFilezilla,
+  SiGithub,
   SiGravatar,
   SiSelenium,
+  SiStackoverflow,
 } from "react-icons/si";
 import {
   SvgAfterEffects,
@@ -251,7 +254,7 @@ const Icon = (props) => {
     Code: <DiCode />,
     CodeBadge: <DiCodeBadge />,
     Codeigniter: <DiCodeigniter />,
-    Codepen: <DiCodepen />,
+    // Codepen: <DiCodepen />,
     Codrops: <DiCodrops />,
     Coffeescript: <DiCoffeescript />,
     Compass: <DiCompass />,
@@ -290,10 +293,10 @@ const Icon = (props) => {
     GitCompare: <DiGitCompare />,
     GitMerge: <DiGitMerge />,
     GitPullRequest: <DiGitPullRequest />,
-    Github: <DiGithub />,
-    GithubAlt: <DiGithubAlt />,
-    GithubBadge: <DiGithubBadge />,
-    GithubFull: <DiGithubFull />,
+    // Github: <DiGithub />,
+    // GithubAlt: <DiGithubAlt />,
+    // GithubBadge: <DiGithubBadge />,
+    // GithubFull: <DiGithubFull />,
     Gnu: <DiGnu />,
     Go: <DiGo />,
     GoogleAnalytics: <DiGoogleAnalytics />,
@@ -386,7 +389,7 @@ const Icon = (props) => {
     SnapSvg: <DiSnapSvg />,
     Spark: <DiSpark />,
     Sqllite: <DiSqllite />,
-    Stackoverflow: <DiStackoverflow />,
+    // Stackoverflow: <DiStackoverflow />,
     Streamline: <DiStreamline />,
     Stylus: <DiStylus />,
     Sublime: <DiSublime />,
@@ -413,6 +416,8 @@ const Icon = (props) => {
     Yeoman: <DiYeoman />,
     Yii: <DiYii />,
     Zend: <DiZend />,
+    // Feather
+    Codepen: <FiCodepen />,
     // Heroicons
     ExternalLink: <HiExternalLink />,
     Menu: <HiMenu />,
@@ -422,8 +427,10 @@ const Icon = (props) => {
     Contentful: <SiContentful />,
     Digitalocean: <SiDigitalocean />,
     Filezilla: <SiFilezilla />,
+    Github: <SiGithub />,
     Gravatar: <SiGravatar />,
     Selenium: <SiSelenium />,
+    Stackoverflow: <SiStackoverflow />,
     // Custom icons
     AfterEffects: <SvgAfterEffects />,
     Apache: <SvgApache />,

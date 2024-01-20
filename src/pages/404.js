@@ -1,8 +1,8 @@
 import * as React from "react";
-import Form from "../components/Formspree";
+import Form from "@components/Formspree";
 import { Link } from "gatsby";
-import Page from "../layouts/Page";
-import Profiles from "../fragments/Profiles";
+import Page from "@layouts/Page";
+import Profiles from "@fragments/Profiles";
 
 const NotFoundPage = () => {
   return (

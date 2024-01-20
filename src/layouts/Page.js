@@ -1,16 +1,17 @@
 import React from "react";
-import Nav from "../components/Nav";
-import NavIndicator from "../fragments/NavIndicator";
-import Footer from "../components/Footer";
+import Nav from "@components/Nav";
+import NavIndicator from "@fragments/NavIndicator";
+import Footer from "@components/Footer";
 // import SmoothScroll from "smooth-scroll";
 /* CSS */
 import "normalize.css";
-import "../css/global.css";
-import "../css/nav.css";
-import "../css/colors-default.css";
-import "../css/icons.css";
-import "../css/units.css";
-import "../css/buttons.css";
+import "@css/global.css";
+import "@css/nav.css";
+import "@css/colors-default.css";
+import "@css/icons.css";
+import "@css/units.css";
+import "@css/hero.css";
+import "@css/buttons.css";
 
 const Page = ({ children, className }) => {
   return (

@@ -1,17 +1,18 @@
 import * as React from "react";
-import Form from "../components/Formspree";
-import Page from "../layouts/Page";
-import Profiles from "../fragments/Profiles";
-import { StaticImage } from "gatsby-plugin-image";
+import Form from "@components/Formspree";
+import Page from "@layouts/Page";
+import Profiles from "@fragments/Profiles";
+/* Images */
+import cherryBlossom from "@images/heros/cherry-blossom-half.webp";
 
 const storyPage = () => {
   return (
     <>
       <section className="hero">
-        <StaticImage
+        <img
           alt="Watercolor of a woman in a kamono next to a cherry blossom."
-          placeholder="blurred"
-          src="../images/heros/cherry-blossom-half.webp"
+          loading="lazy"
+          src={cherryBlossom}
           style={{ placeItems: "flex-end" }}
         />
         <h1>Story</h1>

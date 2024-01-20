@@ -1,7 +1,7 @@
 import React from "react";
-import "../css/showcase.css";
-import getDomainName from "../utils/getDomainName";
-import isExternal from "../utils/isExternal";
+import "@css/showcase.css";
+import getDomainName from "@utils/getDomainName";
+import isExternal from "@utils/isExternal";
 import Button from "./Button.js";
 
 const Showcase = (props) => {

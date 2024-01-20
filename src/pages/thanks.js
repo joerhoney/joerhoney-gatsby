@@ -1,6 +1,6 @@
 import React from "react";
-import Page from "../layouts/Page";
-import Profiles from "../fragments/Profiles";
+import Page from "@layouts/Page";
+import Profiles from "@fragments/Profiles";
 
 const Thanks = () => {
   return (

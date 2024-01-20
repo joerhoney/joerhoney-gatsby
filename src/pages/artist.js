@@ -1,34 +1,34 @@
 import * as React from "react";
 // Components/Fragments
-import Form from "../components/Formspree";
-import Gallery from "../components/Gallery";
+import Form from "@components/Formspree";
+import Gallery from "@components/Gallery";
 import { Link } from "gatsby";
-import Page from "../layouts/Page";
-import Profiles from "../fragments/Profiles";
-import ScrollIndicator from "../fragments/ScrollIndicator";
-import { StaticImage } from "gatsby-plugin-image";
+import Page from "@layouts/Page";
+import Profiles from "@fragments/Profiles";
+import ScrollIndicator from "@fragments/ScrollIndicator";
 // CSS
-import "../css/reel.css";
+import "@css/reel.css";
 // Impages
-import dragon from "../images/art/dragon-both-ends.webp";
-import kinggamagama from "../images/art/king-gama-gama.webp";
-import samuraistanding from "../images/art/samurai-standing.webp";
-import samuraionhorseback from "../images/art/samurai-on-horseback.webp";
-import samuraikiller from "../images/art/samurai-killer.webp";
-import samuraitrees from "../images/art/samurai-trees.webp";
-import samuraimoon from "../images/art/samurai-moon.webp";
-import skippinggirl from "../images/art/skipping-girl-sprite.webp";
-import skippingframes from "../images/art/skipping-girl-flipbook.webp";
-import warrioroftytoria from "../images/art/warrior-of-tytoria.webp";
+import dragon from "@images/art/dragon-both-ends.webp";
+import kinggamagama from "@images/art/king-gama-gama.webp";
+import samuraistanding from "@images/art/samurai-standing.webp";
+import samuraionhorseback from "@images/art/samurai-on-horseback.webp";
+import samuraikiller from "@images/art/samurai-killer.webp";
+import samuraitrees from "@images/art/samurai-trees.webp";
+import samuraimoon from "@images/art/samurai-moon.webp";
+import skippinggirl from "@images/art/skipping-girl-sprite.webp";
+import skippingframes from "@images/art/skipping-girl-flipbook.webp";
+import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
+import team from "@images/heros/team.webp";
 
 const artistPage = (props) => {
   return (
     <>
       <section className="hero">
-        <StaticImage
+        <img
           alt="Illustration of a team of charicters"
-          placeholder="blurred"
-          src="../images/heros/team.webp"
+          loading="lazy"
+          src={team}
         />
         <h1>Artist</h1>
       </section>
@@ -230,7 +230,7 @@ const artistPage = (props) => {
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Let's Talk Art!</h2>
-            <p>
+            <p class="text">
               I have been practicing my whole life. I wrote&nbsp;
               <Link to="/story">a page on that</Link>, but I'm interested in
               connecting. So please send me a message below.

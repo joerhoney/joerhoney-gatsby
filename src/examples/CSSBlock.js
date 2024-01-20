@@ -1,7 +1,7 @@
 import * as React from "react";
-import Page from "../layouts/Page";
-import Form from "../components/Formspree";
-import Profiles from "../fragments/Profiles";
+import Page from "@layouts/Page";
+import Form from "@components/Formspree";
+import Profiles from "@fragments/Profiles";
 
 const headingStyles = {
   marginTop: 0,

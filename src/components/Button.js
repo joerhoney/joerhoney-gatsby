@@ -1,8 +1,10 @@
 import React from "react";
 import Icon from "./Icon.js";
-import isExternal from "../utils/isExternal.js";
-import getDomainName from "../utils/getDomainName.js";
-import "../css/buttons.css";
+/* Utilities */
+import isExternal from "@utils/isExternal.js";
+import getDomainName from "@utils/getDomainName.js";
+/* CSS */
+import "@css/buttons.css";
 
 const Button = (props) => {
   const rel = isExternal(props.href) ? "noreferrer" : "";

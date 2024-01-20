@@ -1,19 +1,19 @@
 import * as React from "react";
 /* Components */
-import Button from "../components/Button";
-import Page from "../layouts/Page";
-import HeroHome from "../fragments/HeroHome";
-import SubheroHome from "../fragments/SubheroHome";
+import Button from "@components/Button";
+import Page from "@layouts/Page";
+import HeroHome from "@fragments/HeroHome";
+import SubheroHome from "@fragments/SubheroHome";
 import { Link } from "gatsby";
-import Form from "../components/Formspree";
-import Profiles from "../fragments/Profiles";
-import { Split, Half } from "../components/Split";
+import Form from "@components/Formspree";
+import Profiles from "@fragments/Profiles";
+import { Split, Half } from "@components/Split";
 /* Functions */
-import since from "../utils/since";
+import since from "@utils/since";
 /* Images */
-import avatar from "../images/avatar.webp";
-import dragonSplit1 from "../images/dragon-split1.webp";
-import dragonSplit2 from "../images/dragon-split2.webp";
+import avatar from "@images/avatar.webp";
+import dragonSplit1 from "@images/dragon-split1.webp";
+import dragonSplit2 from "@images/dragon-split2.webp";
 // import Query from "../examples/Query";
 
 const Home = () => {

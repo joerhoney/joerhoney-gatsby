@@ -31,7 +31,8 @@ button:hover {
   color: var(--light);
   font-weight: normal;
   margin: 0 var(--unit-1);
-  overflow: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
   padding: 4px 8px;
   text-shadow: 0 0 0.5em var(--lightish);
 }

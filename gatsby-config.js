@@ -1,6 +1,9 @@
 /**
  * @type {import('gatsby').GatsbyConfig}
  */
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 module.exports = {
   siteMetadata: {
     title: `Joe Rhoney`,
@@ -40,6 +43,22 @@ module.exports = {
         // If you do not provide a crossOrigin option, it will skip CORS for manifest.
         // Any invalid keyword or empty string defaults to `anonymous`
         crossOrigin: `use-credentials`,
+      },
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        // objects: [
+        //   "Balance",
+        //   "BalanceTransaction",
+        //   "Product",
+        //   "ApplicationFee",
+        //   "Sku",
+        //   "Subscription",
+        // ],
+        publicKey: process.env.STRIPE_PUBLIC_KEY,
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        // downloadFiles: true,
       },
     },
     "gatsby-plugin-mdx",

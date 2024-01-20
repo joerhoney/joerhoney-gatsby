@@ -1,13 +1,12 @@
 import * as React from "react";
 /* Components */
-import Button from "../components/Button";
-import Form from "../components/Formspree";
-import Page from "../layouts/Page";
-import Profiles from "../fragments/Profiles";
-import Showcase from "../components/Showcase";
-import Collection from "../components/Collection";
+import Button from "@components/Button";
+import Form from "@components/Formspree";
+import Page from "@layouts/Page";
+import Profiles from "@fragments/Profiles";
+import Showcase from "@components/Showcase";
+import Collection from "@components/Collection";
 /* Partial Components */
-import { StaticImage } from "gatsby-plugin-image";
 import {
   Browsers,
   Cms,
@@ -18,20 +17,21 @@ import {
   Services,
   Software,
   OtherTech,
-} from "../fragments/Skills";
+} from "@fragments/Skills";
 /* Functions */
-import since from "../utils/since";
+import since from "@utils/since";
 /* Images */
-import codazenimg from "../images/screenshots/codazen-home.webp";
-import kreizenbeckimg from "../images/screenshots/kreizenbeck-home.webp";
-import metaimg from "../images/screenshots/meta-home.webp";
-import laactingcoachimg from "../images/screenshots/laactingcoach-home.webp";
-import laparksimg from "../images/screenshots/lacounty-parks-home.webp";
-import laprobationimg from "../images/screenshots/lacounty-probation-home.webp";
-import bradentonperioimg from "../images/screenshots/bradentonperio-home.webp";
-import dentistinsantaclaraimg from "../images/screenshots/dentistinsantaclara-home.webp";
-import southfortworthdentistimg from "../images/screenshots/southfortworthdentist-home.webp";
-import westchestergentledentistryimg from "../images/screenshots/westchestergentledentistry-home.webp";
+import dragon from "@images/heros/dragon.webp";
+import codazenimg from "@images/screenshots/codazen-home.webp";
+import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
+import metaimg from "@images/screenshots/meta-home.webp";
+import laactingcoachimg from "@images/screenshots/laactingcoach-home.webp";
+import laparksimg from "@images/screenshots/lacounty-parks-home.webp";
+import laprobationimg from "@images/screenshots/lacounty-probation-home.webp";
+import bradentonperioimg from "@images/screenshots/bradentonperio-home.webp";
+import dentistinsantaclaraimg from "@images/screenshots/dentistinsantaclara-home.webp";
+import southfortworthdentistimg from "@images/screenshots/southfortworthdentist-home.webp";
+import westchestergentledentistryimg from "@images/screenshots/westchestergentledentistry-home.webp";
 
 const codazenskills = [
     "JavaScript",
@@ -114,10 +114,10 @@ const codePage = () => {
   return (
     <>
       <section className="hero">
-        <StaticImage
+        <img
           alt="Illustration of a chinese dragon"
-          placeholder="blurred"
-          src="../images/heros/dragon.webp"
+          loading="lazy"
+          src={dragon}
         />
         <h1>Developer</h1>
       </section>
