@@ -47,13 +47,6 @@ const codazenskills = [
     "JSX",
     "Git",
   ],
-  kreizenbeckskills = [
-    "WordPress Plugins",
-    "WordPress Theme",
-    "HTML5",
-    "CSS3",
-    "PHP",
-  ],
   laactingcoachskills = [
     "WordPress Plugins",
     "WordPress Theme",
@@ -292,7 +285,13 @@ const codePage = () => {
             desc="Website makeover, built on WordPress with a modified theme."
             to="kreizenbeck"
             href="https://www.kreizenbeckplanroom.com"
-            skills={kreizenbeckskills}
+            skills={[
+              "WordPress Plugins",
+              "WordPress Theme",
+              "HTML5",
+              "CSS3",
+              "PHP",
+            ]}
             src={kreizenbeckimg}
             title="Kreizenbeck Constructors"
           >

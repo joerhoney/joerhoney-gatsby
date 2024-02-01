@@ -1,5 +1,8 @@
 import React from "react";
+import Form from "@components/Form";
 import Page from "@layouts/Page";
+import QWebsite from "@fragments/QWebsite";
+/* Images */
 import storeFront from "@images/heros/store-front-transparent.webp";
 
 const servicesPage = () => {
@@ -17,7 +20,7 @@ const servicesPage = () => {
         <section className="alignable bottomM" id="skills">
           <article className="self-center">
             <h2>Grow Online</h2>
-            <p>
+            <p className="bottomXS">
               Today, it is rare that a business can succeed without some kind of
               online presence, whether it's a good Yelp!<sup>®</sup> page, a
               business profile on Google<sup>®</sup> Maps, or a website,
@@ -25,42 +28,9 @@ const servicesPage = () => {
               etc. But these things are not hard to obtain. In fact, you've
               found the right place to get answers and real help. :j
             </p>
-            <div className="wizard">
-              <ul>
-                <li>
-                  Do you have a website?
-                  <ul>
-                    <li>
-                      Yes.
-                      <ul>
-                        <li></li>
-                      </ul>
-                    </li>
-                    <li>
-                      No.
-                      <ul>
-                        <li>I need one.</li>
-                        <li>I need help with something else.</li>
-                        <li>I need one, plus help with comthing else.</li>
-                      </ul>
-                    </li>
-                    <li>
-                      I don't know, or I lost control of it.
-                      <ul>
-                        <li>
-                          I need help finding out.
-                          <ul>
-                            <li></li>
-                          </ul>
-                        </li>
-                        <li>I need help regaining control over it.</li>
-                        <li>I just want a new one.</li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+
+            <QWebsite />
+
             <p>
               I love helping small to mid-sized businesses grow! Independent,
               privately-owned shops are the backbone of our economy (and our
@@ -69,6 +39,16 @@ const servicesPage = () => {
               presence can help you with that.
             </p>
           </article>
+        </section>
+        <section className="alignable skew_b cta_b" id="contact">
+          <article className="self-center">
+            <h2>Contact Me</h2>
+            <p class="text">
+              Please let me know the reason you are contacting me. I will
+              respond to your message as soon as possible.
+            </p>
+          </article>
+          <Form className="compensateBHalf" />
         </section>
       </Page>
     </>

@@ -1,14 +1,61 @@
 import React from "react";
+import "@css/wizard.css";
 
-export default function Wizard(props) {
-  const { children, className, name, id } = props;
+const Wizard = (props) => {
+  // const { children, className, id } = props;
+  const renderChildren = (children) => {
+    return React.Children.map(children, (child) => {
+      if (React.isValidElement(child)) {
+        return React.cloneElement(child, {
+          name: props.name,
+          children: renderChildren(child.props.children),
+        });
+      }
+      return child;
+    });
+  };
 
   return (
-    <div className={`wizard ${className}`}>
-      <input type="radio" id={id ? id : name} name={name} checked />
-      {children}
+    <div className={`wizard ${props.className}`}>
+      <input
+        type="radio"
+        id={props.id}
+        name={props.name}
+        defaultChecked={true}
+      />
+      {renderChildren(props.children)}
     </div>
   );
-}
+};
 
-export { Wizard, Q, A };
+const Step = (props) => {
+  const { children } = props;
+  return <ul className="step">{children}</ul>;
+};
+
+const Q = (props) => {
+  return (
+    <li>
+      <div className="question">{props.children}</div>
+    </li>
+  );
+};
+
+const A = (props) => {
+  const { a, goto, id, name } = props;
+  return (
+    <li>
+      <div className="answer">
+        <label htmlFor={goto ? goto : id}>{a}</label>
+      </div>
+      {id && <input type="radio" id={id} name={name} />}
+      {props.children}
+    </li>
+  );
+};
+
+const End = (props) => {
+  return <div className="end">{props.children}</div>;
+};
+
+export { Wizard, Step, Q, A, End };

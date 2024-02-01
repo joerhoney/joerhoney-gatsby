@@ -24,7 +24,7 @@ const websitePage = () => {
         <h1>Websites</h1>
       </section>
       <Page>
-        <section className="alignable compensateB" id="contact">
+        <section className="alignable compensateB" id="packages">
           <div className="article">
             <h2>Packages</h2>
           </div>

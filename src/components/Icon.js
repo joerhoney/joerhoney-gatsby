@@ -441,20 +441,21 @@ const Icon = (props) => {
     Linkedin: <SvgLinkedin />,
     VSCode: <SvgVSCode />,
   };
-  const label = props.label ? props.label : props.name;
+  const { className, href, name } = props;
+  const label = props.label ? props.label : name;
   return (
     <>
-      {props.name && (
+      {name && (
         <ConditionalWrap
-          condition={props.href}
+          condition={href}
           wrapper={(children) => (
-            <a href={props.href} rel="noreferrer" target="_blank">
+            <a href={href} rel="noreferrer" target="_blank">
               {children}
             </a>
           )}
         >
-          <div className={`icon stack ${props.className}`}>
-            {iconMap[props.name]}
+          <div className={`icon stack ${className}`}>
+            {iconMap[name]}
             {label !== "false" ? <b>{label}</b> : ""}
           </div>
         </ConditionalWrap>
