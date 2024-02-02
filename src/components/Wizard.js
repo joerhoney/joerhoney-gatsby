@@ -36,7 +36,9 @@ const Step = (props) => {
 const Q = (props) => {
   return (
     <li>
-      <div className="question">{props.children}</div>
+      <div className="question">
+        <div className="qa_bubble">{props.children}</div>
+      </div>
     </li>
   );
 };
@@ -46,7 +48,9 @@ const A = (props) => {
   return (
     <li>
       <div className="answer">
-        <label htmlFor={goto ? goto : id}>{a}</label>
+        <label className="qa_bubble" htmlFor={goto ? goto : id}>
+          {a}
+        </label>
       </div>
       {id && <input type="radio" id={id} name={name} />}
       {props.children}
@@ -55,7 +59,11 @@ const A = (props) => {
 };
 
 const End = (props) => {
-  return <div className="end">{props.children}</div>;
+  return (
+    <div className="end">
+      <div className="qa_bubble">{props.children}</div>
+    </div>
+  );
 };
 
 export { Wizard, Step, Q, A, End };

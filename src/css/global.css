@@ -360,8 +360,6 @@ sup {
   font-size: 0.8rem;
   line-height: 1.2em;
 }
-.tight-text {
-}
 form {
   display: grid;
   gap: var(--unit4);

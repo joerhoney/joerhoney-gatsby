@@ -20,7 +20,7 @@ const servicesPage = () => {
         <section className="alignable bottomM" id="skills">
           <article className="self-center">
             <h2>Grow Online</h2>
-            <p className="bottomXS">
+            <p className="bottomS">
               Today, it is rare that a business can succeed without some kind of
               online presence, whether it's a good Yelp!<sup>®</sup> page, a
               business profile on Google<sup>®</sup> Maps, or a website,
@@ -31,7 +31,7 @@ const servicesPage = () => {
 
             <QWebsite />
 
-            <p>
+            <p className="topS">
               I love helping small to mid-sized businesses grow! Independent,
               privately-owned shops are the backbone of our economy (and our
               country! 🇺🇸). If your business isn't flourishing and prospering
