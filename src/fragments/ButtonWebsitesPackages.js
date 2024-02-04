@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 function ButtonWebsitesPackages() {
   return (
-    <Link className="button" to="/services/web/#packages">
+    <Link className="button" to="/services/website/#packages">
       Website Packages
     </Link>
   );
