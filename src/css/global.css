@@ -36,6 +36,9 @@ p {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color3);
 }
+[id] {
+  scroll-margin-top: 56px;
+}
 body {
   background: var(--color1);
   color: var(--color6);
@@ -103,6 +106,9 @@ td a {
 th :is(a:focus, a:hover),
 td :is(a:focus, a:hover) {
   border-bottom: 4px solid var(--color6);
+}
+.z10 {
+  z-index: 10;
 }
 .hero,
 .half1,

@@ -180,8 +180,8 @@ const websitePage = () => {
                   </h4>
                 </td>
               </tr>
-              <tr className="association">
-                <td>
+              <tr aria-hidden="true" className="association">
+                <td aria-label="Intended for visual correlation only.">
                   <div className="compare-cta">
                     <div>
                       <h4>Dirt Cheap</h4>
@@ -189,12 +189,24 @@ const websitePage = () => {
                     <div className="indicator-gradient"></div>
                   </div>
                 </td>
-                <td className="indicator-corner"></td>
-                <td className="indicator-line"></td>
-                <td className="indicator-line"></td>
+                <td
+                  aria-label="Intended for visual correlation only."
+                  className="indicator-corner"
+                ></td>
+                <td
+                  aria-label="Intended for visual correlation only."
+                  className="indicator-line"
+                ></td>
+                <td
+                  aria-label="Intended for visual correlation only."
+                  className="indicator-line"
+                ></td>
               </tr>
-              <tr className="association">
-                <td colSpan={2}>
+              <tr aria-hidden="true" className="association">
+                <td
+                  aria-label="Intended for visual correlation only."
+                  colSpan={2}
+                >
                   <div className="compare-cta">
                     <div>
                       <h4>U Drive</h4>
@@ -202,11 +214,20 @@ const websitePage = () => {
                     <div className="indicator-gradient"></div>
                   </div>
                 </td>
-                <td className="indicator-corner"></td>
-                <td className="indicator-line"></td>
+                <td
+                  aria-label="Intended for visual correlation only."
+                  className="indicator-corner"
+                ></td>
+                <td
+                  aria-label="Intended for visual correlation only."
+                  className="indicator-line"
+                ></td>
               </tr>
-              <tr className="association">
-                <td colSpan={3}>
+              <tr aria-hidden="true" className="association">
+                <td
+                  aria-label="Intended for visual correlation only."
+                  colSpan={3}
+                >
                   <div className="compare-cta">
                     <div>
                       <h4>Sell It!</h4>
@@ -214,10 +235,13 @@ const websitePage = () => {
                     <div className="indicator-gradient"></div>
                   </div>
                 </td>
-                <td className="indicator-corner"></td>
+                <td
+                  aria-label="Intended for visual correlation only."
+                  className="indicator-corner"
+                ></td>
               </tr>
             </table>
-            <div className="topXS" style={{ display: "inline-block" }}>
+            <div className="topXS z10" style={{ display: "inline-block" }}>
               <div className="pull tint2" style={{ display: "inline-block" }}>
                 <p className="topXS">To get started:</p>
                 <p>
@@ -250,7 +274,11 @@ const websitePage = () => {
               Actually,
             </p>
             <h4 id="pages-added">Pages/Products Added for You</h4>
-            <p>Plus $60 for each additional page/product added for you.</p>
+            <p>
+              To get you started (put a website there) I will create a number of
+              pages/products for you (as quoted above). Additional pages can be
+              added to your order or purchased later, at the rate of $60 each.
+            </p>
           </article>
         </section>
         <section className="alignable skew_b cta_b" id="contact">
@@ -272,3 +300,15 @@ const websitePage = () => {
 };
 
 export default websitePage;
+
+export const Head = () => (
+  <>
+    <title>Website Services | :joe rhoney</title>
+    <meta
+      name="description"
+      content="Choose one of my versatile website packages to get start your online project."
+    />
+    <meta property="og:keywords" content="Website Services" />
+    <meta property="og:type" content="website" />
+  </>
+);

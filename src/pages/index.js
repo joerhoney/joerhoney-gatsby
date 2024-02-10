@@ -1,13 +1,13 @@
 import * as React from "react";
 /* Components */
 import Button from "@components/Button";
-import Page from "@layouts/Page";
-import HeroHome from "@fragments/HeroHome";
-import SubheroHome from "@fragments/SubheroHome";
-import { Link } from "gatsby";
 import Form from "@components/Formspree";
+import { Half, Split } from "@components/Split";
+import HeroHome from "@fragments/HeroHome";
+import { Link } from "gatsby";
+import Page from "@layouts/Page";
 import Profiles from "@fragments/Profiles";
-import { Split, Half } from "@components/Split";
+import SubheroHome from "@fragments/SubheroHome";
 /* Functions */
 import since from "@utils/since";
 /* Images */

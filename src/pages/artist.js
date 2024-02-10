@@ -95,7 +95,7 @@ const artistPage = (props) => {
                   display: "flex",
                   flex: "0 0 50vw",
                   justifyContent: "center",
-                  paddingTop: "15vh",
+                  paddingTop: "20vh",
                 }}
               />
             </div>

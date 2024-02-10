@@ -1,11 +1,15 @@
 import React from "react";
 import Form from "@components/Form";
+// import { Split, Half } from "@components/Split";
 import Page from "@layouts/Page";
 import Profiles from "@fragments/Profiles";
 /* Fragments */
-import QWebsite from "@fragments/QWebsite";
+// import QWebsite from "@fragments/QWebsite";
 /* Images */
 import storeFront from "@images/heros/store-front-transparent.webp";
+/* tenp */
+// import dragonSplit1 from "@images/dragon-split1.webp";
+// import dragonSplit2 from "@images/dragon-split2.webp";
 
 const servicesPage = () => {
   return (
@@ -19,10 +23,10 @@ const servicesPage = () => {
         <h1>Services</h1>
       </section>
       <Page>
-        <section className="alignable bottomM skew_b tint3_b" id="skills">
+        <section className="alignable bottomM" id="skills">
           <article className="self-center">
             <h2>Grow Online</h2>
-            <p className="">
+            <p>
               Today, it is rare that a business can succeed without some kind of
               online presence, whether it's a good Yelp!<sup>®</sup> page, a
               business profile on Google<sup>®</sup> Maps, or a website,
@@ -32,28 +36,48 @@ const servicesPage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable">
-          <article className="self-center">
+        {/* <section className="alignable">
+          <article className="self-center z10">
             <QWebsite />
           </article>
-        </section>
-        <section className="alignable bottomM topS">
-          <article className="self-center">
-            <p className="">
-              I love helping small to mid-sized businesses grow! Independent,
-              privately-owned shops are the backbone of our economy (and our
-              country! 🇺🇸). If your business isn't flourishing and prospering
-              enough for your liking, keep reading to see how a good online
-              presence can help you with that.
+        </section> */}
+        {/* <Split>
+          <Half
+            alt="Illustration of the front end of a dragon."
+            button="Website Services"
+            className="half1_b"
+            heading="Web"
+            id="websites"
+            position="top right"
+            src={dragonSplit1}
+            speed={9}
+            to="/services/website"
+          >
+            <p>
+              Choose from my versatile website packages and see the additional
+              web services I can provide.
             </p>
-          </article>
-        </section>
+          </Half>
+          <Half
+            alt="Illustration of the back end of a dragon."
+            button="Art Services"
+            className="half2_b"
+            heading="Art"
+            id="art"
+            position="top left"
+            src={dragonSplit2}
+            speed={-9}
+            to="/services/art"
+          >
+            <p>See my illustration, graphic, and branding services.</p>
+          </Half>
+        </Split> */}
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p class="text">
-              Please let me know the reason you are contacting me. I will
-              respond to your message as soon as possible.
+              Please let me know your general online needs. I will respond to
+              your message as soon as possible.
             </p>
           </article>
           <Form className="compensateBHalf" />
@@ -67,3 +91,18 @@ const servicesPage = () => {
 };
 
 export default servicesPage;
+
+export const Head = () => (
+  <>
+    <title>Services | :joe rhoney</title>
+    <meta
+      name="description"
+      content="Get an overview of my website and art services."
+    />
+    <meta
+      property="og:keywords"
+      content="Services, Website Services, Art Services"
+    />
+    <meta property="og:type" content="website" />
+  </>
+);

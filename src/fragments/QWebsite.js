@@ -149,10 +149,13 @@ function QWebsite() {
                             <a className="answer" href="">
                               Website maintenance/updates
                             </a>
-                            <a className="answer" href="">
+                            <a
+                              className="answer"
+                              href="/services/online-presence"
+                            >
                               Website marketing
                             </a>
-                            <a className="answer" href="">
+                            <a className="answer" href="/services/website">
                               A new website
                             </a>
                             <a className="answer" href="">
@@ -161,7 +164,7 @@ function QWebsite() {
                             <a className="answer" href="">
                               Graphic arts / illustration
                             </a>
-                            <a className="answer" href="">
+                            <a className="answer" href="#contact">
                               Something else
                             </a>
                           </End>
