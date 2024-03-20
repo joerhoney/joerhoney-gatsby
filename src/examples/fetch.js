@@ -7,7 +7,7 @@ const Fetch = (props) => {
     query firstQuery {
       site {
         info: siteMetadata {
-          title
+          author
           description
           pets {
             name
@@ -24,14 +24,14 @@ const Fetch = (props) => {
   const data = useStaticQuery(getData);
   const {
     site: {
-      info: { title },
+      info: { author },
     },
   } = useStaticQuery(getData);
   const desc = data.site.info.description;
   return (
     <div>
       {/* <h1>Name: {data.site.info.pets.name}</h1> */}
-      <h2>{title}</h2>
+      <h2>{author}</h2>
       <p>{desc}</p>
     </div>
   );

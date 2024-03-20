@@ -1,5 +1,5 @@
 import * as React from "react";
-import { graphql } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import Fetch from "../examples/fetch";
 
 const Query = ({ data }) => (

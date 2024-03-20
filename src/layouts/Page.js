@@ -1,8 +1,8 @@
 import React from "react";
-import Nav from "@components/Nav";
-import NavIndicator from "@fragments/NavIndicator";
-import Footer from "@components/Footer";
-// import SmoothScroll from "smooth-scroll";
+/* Layout */
+import Footer from "./Footer";
+import Nav from "./Nav";
+import NavIndicator from "./NavIndicator";
 /* CSS */
 import "normalize.css";
 import "@css/global.css";

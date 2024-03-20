@@ -10,13 +10,14 @@ module.exports = {
     description: `Web Developer and Artist.`,
     siteUrl: `https://joerhoney.com`,
     author: `Joe Rhoney`,
+    copyright: `Joe Rhoney.`,
     pets: { name: "Kermit", age: "unknown" },
     simpleData: ["item 1", "item 2"],
     complexData: [
       { name: "Kermit", age: "unknown" },
       { name: "P-wigeon", age: "4?" },
       { name: "Snow", age: "4?" },
-      { name: "Mocki", age: "2?" },
+      { name: "Mochi", age: "2?" },
     ],
   },
   plugins: [
