@@ -62,12 +62,13 @@ module.exports = {
         // downloadFiles: true,
       },
     },
-    "gatsby-plugin-mdx",
+    // "gatsby-plugin-mdx",
+    "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "pages",
-        path: "./src/pages/",
+        name: "pages" /* or "src" */,
+        path: "./src/pages/" /* or `${__dirname}/src/` */,
       },
       __key: "pages",
     },
