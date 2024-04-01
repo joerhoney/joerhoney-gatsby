@@ -20,7 +20,40 @@ module.exports.onCreateNode = ({ node, actions }) => {
 
   if (node.internal.type === "MarkdownRemark") {
     const slug = path.basename(node.fileAbsolutePath, ".md");
-    console.log("@@@@@@@@@@@@@@@@@@@", slug);
+    // console.log("@@@@@@@@@@@@@@@@@@@", slug);
     // console.log(JSON.stringify(node, undefined, 4));
+    createNodeField({
+      node,
+      name: "slug",
+      value: slug,
+    });
   }
+};
+
+module.exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions;
+  console.log(path.resolve("src/templates/blog.js"));
+  const Blog = path.resolve("src/templates/blog.js");
+  const results = await graphql(`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `);
+  results.data.allMarkdownRemark.edges.forEach((edge) => {
+    createPage({
+      component: Blog,
+      path: `/blog/${edge.node.fields.slug}`,
+      context: {
+        slug: edge.node.fields.slug,
+      },
+    });
+  });
 };
