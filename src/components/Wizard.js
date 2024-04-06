@@ -1,4 +1,5 @@
 import React from "react";
+// CSS
 import "@css/wizard.css";
 
 const Wizard = (props) => {

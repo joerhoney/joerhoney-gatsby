@@ -1,8 +1,11 @@
 import * as React from "react";
+// Components
 import Form from "@components/Formspree";
+// Layouts
 import Page from "@layouts/Page";
+// Fragments
 import Profiles from "@fragments/Profiles";
-/* Images */
+// Images
 import cherryBlossom from "@images/heros/cherry-blossom-half.webp";
 
 const storyPage = () => {

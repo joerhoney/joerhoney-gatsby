@@ -1,12 +1,15 @@
 import * as React from "react";
-/* Components */
+// Utilities
+import since from "@utils/since";
+// Components
 import Button from "@components/Button";
-import Form from "@components/Formspree";
-import Page from "@layouts/Page";
-import Profiles from "@fragments/Profiles";
-import Showcase from "@components/Showcase";
 import Collection from "@components/Collection";
-/* Partial Components */
+import Form from "@components/Formspree";
+import Showcase from "@components/Showcase";
+// Layouts
+import Page from "@layouts/Page";
+// Fragments
+import Profiles from "@fragments/Profiles";
 import {
   Browsers,
   Cms,
@@ -18,9 +21,7 @@ import {
   Software,
   OtherTech,
 } from "@fragments/Skills";
-/* Functions */
-import since from "@utils/since";
-/* Images */
+// Images
 import dragon from "@images/heros/dragon.webp";
 import codazenimg from "@images/screenshots/codazen-home.webp";
 import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";

@@ -1,5 +1,7 @@
 import React from "react";
+// Layouts
 import Page from "@layouts/Page";
+// Fragments
 import Profiles from "@fragments/Profiles";
 
 const Thanks = () => {

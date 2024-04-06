@@ -1,4 +1,5 @@
 import React from "react";
+// CSS
 import * as clss from "@css/heroHome.module.css";
 
 const HeroHome = () => {

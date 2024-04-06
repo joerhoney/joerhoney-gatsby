@@ -1,9 +1,11 @@
 import * as React from "react";
-// Components/Fragments
+// Components
 import Form from "@components/Formspree";
 import Gallery from "@components/Gallery";
 import { Link } from "gatsby";
+// Layouts
 import Page from "@layouts/Page";
+// Fragments
 import Profiles from "@fragments/Profiles";
 import ScrollIndicator from "@fragments/ScrollIndicator";
 // CSS

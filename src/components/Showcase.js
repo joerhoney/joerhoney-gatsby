@@ -1,8 +1,11 @@
 import React from "react";
-import "@css/showcase.css";
+// Utilities
 import getDomainName from "@utils/getDomainName";
 import isExternal from "@utils/isExternal";
+// Components
 import Button from "./Button.js";
+// CSS
+import "@css/showcase.css";
 
 const Showcase = (props) => {
   const window = props.window

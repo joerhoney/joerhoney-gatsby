@@ -1,5 +1,7 @@
 import React from "react";
+// Utilities
 import ConditionalWrap from "@utils/ConditionalWrap";
+// Components
 // Devicons from the react-icons collection: https://react-icons.github.io/react-icons/icons?name=di
 // More icons: https://react-icons.github.io/react-icons/
 import {
@@ -441,8 +443,10 @@ const Icon = (props) => {
     Linkedin: <SvgLinkedin />,
     VSCode: <SvgVSCode />,
   };
+
   const { className, href, name } = props;
   const label = props.label ? props.label : name;
+
   return (
     <>
       {name && (

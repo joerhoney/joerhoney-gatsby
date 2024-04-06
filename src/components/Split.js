@@ -1,5 +1,7 @@
 import React from "react";
+// Components
 import { Link } from "gatsby";
+// CSS
 import "@css/split.css";
 
 const Split = (props) => {

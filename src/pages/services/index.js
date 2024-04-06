@@ -1,13 +1,14 @@
 import React from "react";
+// Components
 import Form from "@components/Form";
 // import { Split, Half } from "@components/Split";
+// Layouts
 import Page from "@layouts/Page";
+// Fragments
 import Profiles from "@fragments/Profiles";
-/* Fragments */
 // import QWebsite from "@fragments/QWebsite";
-/* Images */
+// Images
 import storeFront from "@images/heros/store-front-transparent.webp";
-/* tenp */
 // import dragonSplit1 from "@images/dragon-split1.webp";
 // import dragonSplit2 from "@images/dragon-split2.webp";
 

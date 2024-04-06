@@ -1,6 +1,8 @@
 import * as React from "react";
-import "@css/icons.css";
+// Components
 import Icon from "@components/Icon";
+// CSS
+import "@css/icons.css";
 
 const Browsers = () => {
   return (

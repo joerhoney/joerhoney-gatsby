@@ -1,16 +1,18 @@
 import * as React from "react";
-/* Components */
+// Utilities
+import since from "@utils/since";
+// Components
 import Button from "@components/Button";
 import Form from "@components/Formspree";
-import { Half, Split } from "@components/Split";
-import HeroHome from "@fragments/HeroHome";
 import { Link } from "gatsby";
+import { Half, Split } from "@components/Split";
+// Layouts
 import Page from "@layouts/Page";
+// Fragments
+import HeroHome from "@fragments/HeroHome";
 import Profiles from "@fragments/Profiles";
 import SubheroHome from "@fragments/SubheroHome";
-/* Functions */
-import since from "@utils/since";
-/* Images */
+// Images
 import avatar from "@images/avatar.webp";
 import dragonSplit1 from "@images/dragon-split1.webp";
 import dragonSplit2 from "@images/dragon-split2.webp";

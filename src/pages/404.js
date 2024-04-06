@@ -1,7 +1,10 @@
 import * as React from "react";
+// Components
 import Form from "@components/Formspree";
 import { Link } from "gatsby";
+// Layouts
 import Page from "@layouts/Page";
+// Fragments
 import Profiles from "@fragments/Profiles";
 
 const NotFoundPage = () => {

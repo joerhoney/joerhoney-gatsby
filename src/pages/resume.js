@@ -1,6 +1,9 @@
 import * as React from "react";
-import Page from "@layouts/Page";
+// Components
 import Form from "@components/Formspree";
+// Layouts
+import Page from "@layouts/Page";
+// Fragments
 import Profiles from "@fragments/Profiles";
 // import { Link } from "gatsby";
 

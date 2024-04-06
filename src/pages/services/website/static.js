@@ -1,6 +1,9 @@
 import React from "react";
-import Page from "@layouts/Page";
+// Components
 import Form from "@components/Form";
+// Layouts
+import Page from "@layouts/Page";
+// Images
 import storeFront from "@images/heros/store-front-transparent.webp";
 // import { loadStripe } from "@stripe/stripe-js";
 

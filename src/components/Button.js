@@ -1,9 +1,10 @@
 import React from "react";
-import Icon from "./Icon.js";
-/* Utilities */
+// Utilities
 import isExternal from "@utils/isExternal.js";
 import getDomainName from "@utils/getDomainName.js";
-/* CSS */
+// Coponents
+import Icon from "./Icon.js";
+// CSS
 import "@css/buttons.css";
 
 const Button = (props) => {
