@@ -11,11 +11,11 @@ This is my Gatsby version of [joerhoney.com](https://joerhoney.com).
 1. Libraries (React)
 2. Utilities
 3. Components
-4. Fragments
-5. Layouts
+4. Layouts
+5. Fragments
 6. CSS
 7. Images
 
-2nd sort alphabetically by file name.
+2nd sort alphabetically by file name, not by component name ( since there are sometimes multiple components in one import).
 
 Add comments to show the categories (except for React).
