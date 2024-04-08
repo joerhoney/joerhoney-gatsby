@@ -2,9 +2,9 @@
 date: 01-16-2024
 published: true
 title: AI Phishing is a Thing Now
-excerpt: My encounter with a phishing attack using AI.
+description: My encounter with a phishing attack using AI.
 thumbnail: /blog/ai-assisted-phishing.webp
-thumbalt: Screenshot of an AI assisted phishing attack.
+thumbnailAlt: Screenshot of an AI assisted phishing attack.
 ---
 
 ## My Encounter with AI Assisted Phishing

@@ -2,7 +2,7 @@
 date: 01-23-2024
 published: true
 title: CSS On-Click Events
-excerpt: How to use CSS on-click events.
+description: How to use CSS on-click events.
 ---
 
 Make a blog post out of this:

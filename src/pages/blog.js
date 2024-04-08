@@ -1,6 +1,7 @@
 import React from "react";
 // Components
 import { Link, graphql, useStaticQuery } from "gatsby";
+// Layouts
 import Page from "@layouts/Page.js";
 
 const Blog = () => {
@@ -13,8 +14,10 @@ const Blog = () => {
               date
               published
               title
+              description
+              thumbnail
+              thumbnailAlt
             }
-            excerpt
             fields {
               slug
             }
@@ -52,7 +55,7 @@ const Blog = () => {
                       className="post-featured"
                       to={`/blog/${post.node.fields.slug}`}
                     >
-                      {post.node.excerpt}
+                      {post.node.frontmatter.description}
                     </Link>
                   </p>
                   <p>{post.node.frontmatter.date}</p>

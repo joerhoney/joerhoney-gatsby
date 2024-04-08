@@ -13,13 +13,16 @@ export const query = graphql`
         date
         published
         title
+        description
+        thumbnail
+        thumbnailAlt
       }
       html
     }
   }
 `;
 
-const Blog = (props) => {
+const Post = (props) => {
   return (
     <>
       <section className="hero post">
@@ -41,4 +44,4 @@ const Blog = (props) => {
   );
 };
 
-export default Blog;
+export default Post;
