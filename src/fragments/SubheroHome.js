@@ -1,9 +1,9 @@
 import React from "react";
 // CSS
-import * as clss from "@css/subheroHome.module.css";
+import "@css/subheroHome.css";
 
 const SubheroHome = ({ children }) => {
-  return <div className={clss.subhero}>{children}</div>;
+  return <div className="subhero">{children}</div>;
 };
 
 export default SubheroHome;

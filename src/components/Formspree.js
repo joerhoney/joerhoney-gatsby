@@ -1,11 +1,11 @@
 import React from "react";
 // CSS
 import "@css/buttons.css";
-import * as clss from "@css/form.module.css";
+import "@css/form.css";
 
 const Form = (props) => {
   return (
-    <div className={clss.contact}>
+    <div className="contact">
       <form
         action="https://formspree.io/f/xvojjlev"
         className={props.className}

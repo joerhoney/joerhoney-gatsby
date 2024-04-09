@@ -1,16 +1,16 @@
 import React from "react";
 // CSS
-import * as clss from "@css/heroHome.module.css";
+import "@css/heroHome.css";
 
 const HeroHome = () => {
   return (
-    <div className={clss.heroClip}>
-      <div className={clss.heroWrapper}>
-        <div className={clss.heroHome}>
+    <div className="heroClip">
+      <div className="heroWrapper">
+        <div className="heroHome">
           <h1 className="joerhoney">
             <b>Joe</b> <b>Rhoney</b>
           </h1>
-          <div aria-hidden="true" className={clss.jBig}>
+          <div aria-hidden="true" className="jBig">
             <p>
               UI/&#8203;UX, re&shy;spon&shy;sive lay&shy;out,
               hard&shy;ware-ac&shy;cel&shy;er&shy;at&shy;ed
@@ -53,7 +53,7 @@ const HeroHome = () => {
               </a>
             </p>
           </div>
-          <div aria-hidden="true" className={clss.jDots}>
+          <div aria-hidden="true" className="jDots">
             <p>
               Il&shy;lus&shy;tra&shy;tion, an&shy;i&shy;ma&shy;tion, video
               ed&shy;i&shy;ting, pho&shy;tog&shy;ra&shy;phy, lay&shy;out,
@@ -85,7 +85,7 @@ export default HeroHome;
 //     opacity: [29, 0, "easeOutQuint"],
 //   });
 //   return (
-//     <div ref={ref} className={clss.hero}home">
+//     <div ref={ref} className="hero"home">
 //       {children}
 //     </div>
 //   );

@@ -1,12 +1,12 @@
 import React from "react";
 // CSS
 import "@css/buttons.css";
-import * as clss from "@css/form.module.css";
+import "@css/form.css";
 // Documentation: https://formsubmit.co/help
 
 const Form = (props) => {
   return (
-    <div className={clss.contact}>
+    <div className="contact">
       <form
         action="https://%66%6f%72%6d%73%75%62%6d%69%74.co/%6a%6f%65%72%68%6f%6e%65%79%40%67%6d%61%69%6c%2e%63%6f%6d"
         className={props.className}

@@ -3,11 +3,11 @@ import React from "react";
 import Icon from "@components/Icon";
 // CSS
 import "@css/icons.css";
-import * as clss from "@css/profiles.module.css";
+import "@css/profiles.css";
 
 const Profiles = (props) => {
   return (
-    <div className={`${clss.profiles} ${props.className}`}>
+    <div className={`profiles ${props.className}`}>
       <h4>{props.heading ? props.heading : "Find me on:"}</h4>
       <div className="icons">
         <Icon href="https://www.linkedin.com/in/joerhoney/" name="Linkedin" />
