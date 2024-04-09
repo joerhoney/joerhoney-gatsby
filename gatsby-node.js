@@ -36,6 +36,13 @@ module.exports.createPages = async ({ graphql, actions }) => {
   const Post = path.resolve("src/templates/post.js");
   const results = await graphql(`
     query {
+      allContentfulPost {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
       allMarkdownRemark {
         edges {
           node {

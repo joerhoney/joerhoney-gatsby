@@ -15,7 +15,6 @@ const Blog = () => {
               published
               title
               description
-              thumbnail
               thumbnailAlt
             }
             fields {
@@ -61,6 +60,8 @@ const Blog = () => {
                   <p>{post.node.frontmatter.date}</p>
                 </article>
               );
+            } else {
+              return null;
             }
           })}
         </section>

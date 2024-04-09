@@ -2,7 +2,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env`, // OR .env.${process.env
 });
 module.exports = {
   siteMetadata: {
@@ -11,16 +11,16 @@ module.exports = {
     siteUrl: `https://joerhoney.com`,
     author: `Joe Rhoney`,
     copyright: `Joe Rhoney.`,
-    pets: { name: "Kermit", age: "unknown" },
-    simpleData: ["item 1", "item 2"],
-    complexData: [
-      { name: "Kermit", age: "unknown" },
-      { name: "P-wigeon", age: "4?" },
-      { name: "Snow", age: "4?" },
-      { name: "Mochi", age: "2?" },
-    ],
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        // environment: process.env.CONTENTFUL_ENVIRONMENT,
+      },
+    },
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -74,6 +74,24 @@ module.exports = {
     },
     `gatsby-plugin-image`,
     `gatsby-plugin-sharp`,
-    `gatsby-transformer-sharp`, // Needed for dynamic images
+    // `gatsby-transformer-sharp`, // Needed for dynamic images
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          "gatsby-remark-relative-images",
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              // It's important to specify the maxWidth (in pixels) of
+              // the content container as this plugin uses this as the
+              // base for generating different widths of each image.
+              maxWidth: 740,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
   ],
 };
