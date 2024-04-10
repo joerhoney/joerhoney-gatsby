@@ -8,23 +8,17 @@ import Page from "@layouts/Page";
 
 export const query = graphql`
   query ($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      frontmatter {
-        date
-        published
-        title
-        description
-        thumbnail
-        thumbnailAlt
-      }
-      html
+    contentfulPost(slug: { eq: $slug }) {
+      date(formatString: "YYYY.MM.DD")
+      description
+      slug
+      title
     }
   }
 `;
 
 const Post = (props) => {
-  const { title } = props.data.markdownRemark.frontmatter;
-  const { html } = props.data.markdownRemark;
+  const { date, description, slug, title } = props.data.contentfulPost;
   return (
     <>
       <section className="hero post">
@@ -38,7 +32,12 @@ const Post = (props) => {
       </section>
       <Page>
         <section className="alignable skew_b tint1_b">
-          <article dangerouslySetInnerHTML={{ __html: html }} />
+          {/* <article dangerouslySetInnerHTML={{ __html: html }} /> */}
+          {date}
+          <br />
+          {slug}
+          <br />
+          {description} {slug}
         </section>
       </Page>
     </>

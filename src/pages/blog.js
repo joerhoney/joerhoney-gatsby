@@ -7,25 +7,19 @@ import Page from "@layouts/Page.js";
 const Blog = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
+      allContentfulPost(sort: { date: DESC }) {
         edges {
           node {
-            frontmatter {
-              date
-              published
-              title
-              description
-              thumbnailAlt
-            }
-            fields {
-              slug
-            }
+            date(formatString: "YYYY.MM.DD")
+            description
+            slug
+            title
           }
         }
       }
     }
   `);
-  const posts = data.allMarkdownRemark.edges;
+  const posts = data.allContentfulPost.edges;
   return (
     <>
       <section className="hero post">
@@ -38,31 +32,22 @@ const Blog = () => {
             <div>This is my blog page, so far.</div>
           </article>
           {posts.map((post) => {
-            if (post.node.frontmatter.published) {
-              return (
-                <article key={post.node.frontmatter.date}>
-                  <h2>
-                    <Link
-                      className="post-featured"
-                      to={`/blog/${post.node.fields.slug}`}
-                    >
-                      {post.node.frontmatter.title}
-                    </Link>
-                  </h2>
-                  <p>
-                    <Link
-                      className="post-featured"
-                      to={`/blog/${post.node.fields.slug}`}
-                    >
-                      {post.node.frontmatter.description}
-                    </Link>
-                  </p>
-                  <p>{post.node.frontmatter.date}</p>
-                </article>
-              );
-            } else {
-              return null;
-            }
+            const { date, description, title, slug } = post.node;
+            return (
+              <article key={date}>
+                <h2>
+                  <Link className="post-featured" to={`/blog/${slug}`}>
+                    {title}
+                  </Link>
+                </h2>
+                <p>
+                  <Link className="post-featured" to={`/blog/${slug}`}>
+                    {description}
+                  </Link>
+                </p>
+                <p>{date}</p>
+              </article>
+            );
           })}
         </section>
       </Page>
