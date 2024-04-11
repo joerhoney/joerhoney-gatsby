@@ -1,6 +1,7 @@
 import React from "react";
 // Components
 import { graphql } from "gatsby";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 // Layouts
 import Page from "@layouts/Page";
 // Images
@@ -11,6 +12,9 @@ export const query = graphql`
     contentfulPost(slug: { eq: $slug }) {
       date(formatString: "YYYY.MM.DD")
       description
+      body {
+        raw
+      }
       slug
       title
     }
@@ -18,26 +22,17 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
-  const { date, description, slug, title } = props.data.contentfulPost;
+  const { date, body, title } = props.data.contentfulPost;
   return (
     <>
       <section className="hero post">
-        {/* <img
-          // alt="Illustration of a team of charicters"
-          loading="lazy"
-          // src={team}
-          // imgfile={props.data.markdownRemark.frontmatter.thumbnail}
-        /> */}
         <h1>{title}</h1>
       </section>
       <Page>
         <section className="alignable skew_b tint1_b">
-          {/* <article dangerouslySetInnerHTML={{ __html: html }} /> */}
           {date}
-          <br />
-          {slug}
-          <br />
-          {description} {slug}
+          {console.log(body.raw)}
+          {/* {documentToReactComponents(body.raw)} */}
         </section>
       </Page>
     </>
@@ -45,3 +40,18 @@ const Post = (props) => {
 };
 
 export default Post;
+
+export const Head = (props) => {
+  const { description, title } = props.data.contentfulPost;
+  return (
+    <>
+      <title>{title} | :joe rhoney</title>
+      <meta name="description" content={description} />
+      <meta
+        property="og:keywords"
+        content="Joe Rhoney, Developer, Illustrator"
+      />
+      <meta property="og:type" content="website" />
+    </>
+  );
+};
