@@ -22,7 +22,8 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
-  const { date, body, title } = props.data.contentfulPost;
+  const { date, title } = props.data.contentfulPost;
+  const html = JSON.parse(props.data.contentfulPost.body.raw);
   return (
     <>
       <section className="hero post">
@@ -30,9 +31,10 @@ const Post = (props) => {
       </section>
       <Page>
         <section className="alignable skew_b tint1_b">
-          {date}
-          {console.log(body.raw)}
-          {/* {documentToReactComponents(body.raw)} */}
+          <article>
+            <div>Published: {date}</div>
+            {documentToReactComponents(html)}
+          </article>
         </section>
       </Page>
     </>
