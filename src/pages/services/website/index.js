@@ -1,5 +1,6 @@
 import React from "react";
 // Components
+import Checkout from "@components/Checkout";
 import Form from "@components/Form";
 // Layouts
 import Page from "@layouts/Page";
@@ -7,15 +8,6 @@ import Page from "@layouts/Page";
 import Profiles from "@fragments/Profiles";
 // Images
 import storeFront from "@images/heros/store-front-transparent.webp";
-// import { loadStripe } from "@stripe/stripe-js";
-
-// let stripePromise;
-// const getStripe = () => {
-//   if (!stripePromise) {
-//     stripePromise = loadStripe("<YOUR STRIPE PUBLISHABLE KEY>");
-//   }
-//   return stripePromise;
-// };
 
 const websitePage = () => {
   return (
@@ -247,6 +239,7 @@ const websitePage = () => {
             <div className="topXS z10" style={{ display: "inline-block" }}>
               <div className="pull tint2" style={{ display: "inline-block" }}>
                 <p className="topXS">To get started:</p>
+                <Checkout />
                 <p>
                   <a href="#contact" className="button">
                     Contact Me

@@ -57,7 +57,7 @@ module.exports = {
           "Sku",
           "Subscription",
         ],
-        publicKey: process.env.STRIPE_PUBLIC_KEY,
+        publicKey: process.env.GATSBY_STRIPE_PUBLIC_KEY,
         secretKey: process.env.STRIPE_SECRET_KEY,
         // downloadFiles: true,
       },
