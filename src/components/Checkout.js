@@ -25,8 +25,7 @@ const getStripe = () => {
   return stripePromise;
 };
 
-const Checkout = () => {
-  console.log(process.env.GATSBY_STRIPE_PUBLIC_KEY);
+const Checkout = (props) => {
   const [loading, setLoading] = useState(false);
 
   const redirectToCheckout = async (event) => {
@@ -36,7 +35,7 @@ const Checkout = () => {
     const stripe = await getStripe();
     const { error } = await stripe.redirectToCheckout({
       mode: "payment",
-      lineItems: [{ price: "price_1OZQ4SJndiOOi7lkgMlBpoGj", quantity: 1 }],
+      lineItems: props.lineItems,
       successUrl: `http://localhost:8000/thanks/`,
       cancelUrl: `http://localhost:8000/`,
     });
@@ -50,12 +49,10 @@ const Checkout = () => {
   return (
     <button
       disabled={loading}
-      style={
-        loading ? { ...buttonStyles, ...buttonDisabledStyles } : buttonStyles
-      }
+      style={loading ? { ...buttonDisabledStyles } : {}}
       onClick={redirectToCheckout}
     >
-      Buy Package
+      {props.text ?? "Buy Now"}
     </button>
   );
 };

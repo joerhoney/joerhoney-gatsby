@@ -239,7 +239,12 @@ const websitePage = () => {
             <div className="topXS z10" style={{ display: "inline-block" }}>
               <div className="pull tint2" style={{ display: "inline-block" }}>
                 <p className="topXS">To get started:</p>
-                <Checkout />
+                <Checkout
+                  lineItems={[
+                    { price: "price_1OZQ4SJndiOOi7lkgMlBpoGj", quantity: 1 },
+                  ]}
+                  text="Dirt Cheap Package"
+                />
                 <p>
                   <a href="#contact" className="button">
                     Contact Me
