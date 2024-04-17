@@ -15,7 +15,7 @@
   opacity: 0;
 }
 #color-scheme label {
-  color: var(--color5);
+  color: var(--color3);
   cursor: pointer;
   display: inline-block;
   height: 1em;

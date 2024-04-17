@@ -107,6 +107,7 @@
   justify-content: center;
   max-width: 460px;
   padding-left: 140px;
+  padding-top: var(--unit6);
   position: relative;
   white-space: pre-wrap;
   width: 100%;
