@@ -364,6 +364,12 @@ section.alignable .compare h2 {
   transform-origin: top right;
   translate: 0;
 }
+@media (max-width: 480px) {
+  section.alignable .compare h2 {
+    margin-right: -100vw;
+    translate: 0 -3.6rem;
+  }
+}
 section.alignable .compare h2 + p::before {
   content: none;
 }
@@ -447,6 +453,11 @@ table.compare {
   padding: 0 var(--unit8);
   position: relative;
   width: 100%;
+}
+@media (max-width: 480px) {
+  table.compare {
+    margin-top: 3.6rem;
+  }
 }
 tr.checkmarks td {
   color: var(--color3);
@@ -537,13 +548,18 @@ table.compare .indicator-corner ~ .indicator-line::before {
 table.compare .compare-cta {
   display: flex;
   justify-content: space-between;
+  padding: var(--unit2) 0;
   width: 100%;
 }
-table.compare .compare-cta :nth-child(1) {
+table.compare .compare-cta > :nth-child(1) {
   padding-right: var(--unit2);
 }
-table.compare .compare-cta :nth-last-child(1) {
+table.compare .compare-cta > :nth-last-child(1) {
   flex-grow: 1;
+}
+table.compare .compare-cta h4 {
+  margin: 0;
+  padding-top: 0;
 }
 @media (min-width: 481px) and (max-width: 700px) {
   tr.checkmarks td {

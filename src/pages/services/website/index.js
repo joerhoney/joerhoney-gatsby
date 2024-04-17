@@ -8,6 +8,7 @@ import Page from "@layouts/Page";
 import Profiles from "@fragments/Profiles";
 // Images
 import storeFront from "@images/heros/store-front-transparent.webp";
+import { Link } from "gatsby";
 
 const websitePage = () => {
   return (
@@ -70,6 +71,12 @@ const websitePage = () => {
                 <td aria-label="Included">✔</td>
                 <td aria-label="Not included"></td>
                 <td aria-label="Not included"></td>
+              </tr>
+              <tr className="checkmarks">
+                <th scope="row">Email hosting</th>
+                <td aria-label="Not included"></td>
+                <td aria-label="Included">✔</td>
+                <td aria-label="Included">✔</td>
               </tr>
               <tr className="checkmarks">
                 <th scope="row">Basic SEO</th>
@@ -151,9 +158,7 @@ const websitePage = () => {
               </tr>
               <tr className="checkmarks">
                 <th scope="row">Additional hosting costs</th>
-                <td>
-                  <div className="price-plus small-text">Nope. FREE!</div>
-                </td>
+                <td aria-label="Not included"></td>
                 <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
               </tr>
@@ -180,6 +185,17 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Dirt Cheap</h4>
+                      <Checkout
+                        link={true}
+                        lineItems={[
+                          {
+                            price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
+                            quantity: 1,
+                          },
+                        ]}
+                        text="Buy"
+                      />{" "}
+                      <Link to="/services/website/static">Details</Link>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -205,6 +221,17 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>U Drive</h4>
+                      <Checkout
+                        link={true}
+                        lineItems={[
+                          {
+                            price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
+                            quantity: 1,
+                          },
+                        ]}
+                        text="Buy"
+                      />{" "}
+                      <Link to="/services/website/dirt-cheap">Details</Link>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -226,6 +253,17 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Sell It!</h4>
+                      <Checkout
+                        link={true}
+                        lineItems={[
+                          {
+                            price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
+                            quantity: 1,
+                          },
+                        ]}
+                        text="Buy"
+                      />{" "}
+                      <Link to="/services/website/dirt-cheap">Details</Link>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -239,12 +277,6 @@ const websitePage = () => {
             <div className="topXS z10" style={{ display: "inline-block" }}>
               <div className="pull tint2" style={{ display: "inline-block" }}>
                 <p className="topXS">To get started:</p>
-                <Checkout
-                  lineItems={[
-                    { price: "price_1OZQ4SJndiOOi7lkgMlBpoGj", quantity: 1 },
-                  ]}
-                  text="Dirt Cheap Package"
-                />
                 <p>
                   <a href="#contact" className="button">
                     Contact Me

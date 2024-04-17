@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+// Utilities
+import ConditionalWrap from "@utils/ConditionalWrap";
+// Components
 import { loadStripe } from "@stripe/stripe-js";
 
 const buttonStyles = {
@@ -47,13 +50,28 @@ const Checkout = (props) => {
   };
 
   return (
-    <button
-      disabled={loading}
-      style={loading ? { ...buttonDisabledStyles } : {}}
-      onClick={redirectToCheckout}
+    <ConditionalWrap
+      condition={props.link}
+      wrapper={(children) => (
+        <a
+          className="checkout-button"
+          disabled={loading}
+          style={loading ? { ...buttonDisabledStyles } : {}}
+          onClick={redirectToCheckout}
+        >
+          {props.text ?? "Buy Now"}
+        </a>
+      )}
     >
-      {props.text ?? "Buy Now"}
-    </button>
+      <button
+        className="checkout-button"
+        disabled={loading}
+        style={loading ? { ...buttonDisabledStyles } : {}}
+        onClick={redirectToCheckout}
+      >
+        {props.text ?? "Buy Now"}
+      </button>
+    </ConditionalWrap>
   );
 };
 

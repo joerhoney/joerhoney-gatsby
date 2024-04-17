@@ -3,6 +3,7 @@ import React from "react";
 import Footer from "./Footer";
 import Nav from "./Nav";
 import NavIndicator from "./NavIndicator";
+import Scheme from "./Scheme";
 /* CSS */
 import "normalize.css";
 import "@css/global.css";
@@ -17,6 +18,7 @@ const Page = ({ children, className }) => {
   return (
     <>
       <main className={className}>
+        <Scheme />
         <Nav />
         <NavIndicator />
         {children}
