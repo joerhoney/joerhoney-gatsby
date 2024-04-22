@@ -14,6 +14,12 @@ const Blog = () => {
             description
             slug
             title
+            featuredImage {
+              file {
+                url
+              }
+              description
+            }
           }
         }
       }
@@ -33,17 +39,22 @@ const Blog = () => {
           </article>
           {posts.map((post) => {
             const { date, description, title, slug } = post.node;
+            const feat = post.node.featuredImage;
+            console.log(feat);
             return (
               <article key={date}>
-                <h2>
-                  <Link className="post-featured" to={`/blog/${slug}`}>
-                    {title}
-                  </Link>
+                <h2 className="post-featured">
+                  <Link to={`/blog/${slug}`}>{title}</Link>
                 </h2>
-                <p>
-                  <Link className="post-featured" to={`/blog/${slug}`}>
-                    {description}
-                  </Link>
+                {feat === !null ?? (
+                  <img
+                    alt={feat.description}
+                    loading="lazy"
+                    src={feat.file.url}
+                  />
+                )}
+                <p className="post-featured">
+                  <Link to={`/blog/${slug}`}>{description}</Link>
                 </p>
                 <p>{date}</p>
               </article>

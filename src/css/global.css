@@ -62,6 +62,15 @@ body > div {
 a {
   text-decoration: none;
 }
+a:not([class]) {
+  color: var(--color5);
+  text-underline-offset: 0.25em;
+}
+a:not([class]):active,
+a:not([class]):focus,
+a:not([class]):hover {
+  color: var(--color4);
+}
 section.alignable p a[href*="http"]::before {
   content: ".";
   display: block;

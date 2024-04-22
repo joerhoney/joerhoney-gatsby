@@ -19,10 +19,13 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-        type ContentfulPostBody {
-            references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
-        }
-    `;
+    type ContentfulPost implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
+      featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+    }
+    type ContentfulPostBody {
+      references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+    }
+  `;
 
   createTypes(typeDefs);
 };
