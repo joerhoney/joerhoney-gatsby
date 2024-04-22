@@ -1,21 +1,8 @@
 import React, { useState } from "react";
-// Utilities
-import ConditionalWrap from "@utils/ConditionalWrap";
 // Components
 import { loadStripe } from "@stripe/stripe-js";
 
-const buttonStyles = {
-  fontSize: "13px",
-  textAlign: "center",
-  color: "#000",
-  padding: "12px 60px",
-  boxShadow: "2px 5px 10px rgba(0,0,0,.1)",
-  backgroundColor: "rgb(255, 178, 56)",
-  borderRadius: "6px",
-  letterSpacing: "1.5px",
-};
-
-const buttonDisabledStyles = {
+const disabled = {
   opacity: "0.5",
   cursor: "not-allowed",
 };
@@ -50,28 +37,14 @@ const Checkout = (props) => {
   };
 
   return (
-    <ConditionalWrap
-      condition={props.link}
-      wrapper={(children) => (
-        <a
-          className="checkout-button"
-          disabled={loading}
-          style={loading ? { ...buttonDisabledStyles } : {}}
-          onClick={redirectToCheckout}
-        >
-          {props.text ?? "Buy Now"}
-        </a>
-      )}
+    <button
+      className={`checkout-button ${props.link ?? "a"}`}
+      disabled={loading}
+      style={loading ? { ...disabled } : {}}
+      onClick={redirectToCheckout}
     >
-      <button
-        className="checkout-button"
-        disabled={loading}
-        style={loading ? { ...buttonDisabledStyles } : {}}
-        onClick={redirectToCheckout}
-      >
-        {props.text ?? "Buy Now"}
-      </button>
-    </ConditionalWrap>
+      {props.text ?? "Buy now"}
+    </button>
   );
 };
 

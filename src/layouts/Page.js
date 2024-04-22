@@ -1,4 +1,6 @@
 import React from "react";
+/* Components */
+import { SEO } from "@components/seo";
 /* Layout */
 import Footer from "./Footer";
 import Nav from "./Nav";

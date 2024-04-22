@@ -6,11 +6,13 @@ require("dotenv").config({
 });
 module.exports = {
   siteMetadata: {
-    title: `Joe Rhoney`,
-    description: `Web Developer and Artist.`,
-    siteUrl: `https://joerhoney.com`,
     author: `Joe Rhoney`,
     copyright: `Joe Rhoney.`,
+    description: `Web Developer and Artist.`,
+    image: `og.jpg`,
+    siteUrl: `https://joerhoney.com`,
+    title: `Joe Rhoney`,
+    twitterUsername: `@joerhoney`,
   },
   plugins: [
     {
