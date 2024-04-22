@@ -33,7 +33,7 @@ const websitePage = () => {
                   <h4>Features</h4>
                 </th>
                 <th
-                  class="compact"
+                  className="compact"
                   scope="col"
                   aria-label="The Dirt Cheap Package"
                 >
@@ -44,7 +44,7 @@ const websitePage = () => {
                   </div>
                 </th>
                 <th
-                  class="compact"
+                  className="compact"
                   scope="col"
                   aria-label="The U Drive Package"
                 >
@@ -55,7 +55,7 @@ const websitePage = () => {
                   </div>
                 </th>
                 <th
-                  class="compact"
+                  className="compact"
                   scope="col"
                   aria-label="The Sell It! Package"
                 >

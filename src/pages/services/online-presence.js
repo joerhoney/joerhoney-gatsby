@@ -35,7 +35,7 @@ const presencePage = () => {
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
-            <p class="text">
+            <p className="text">
               Please let me know the reason you are contacting me. I will
               respond to your message as soon as possible.
             </p>

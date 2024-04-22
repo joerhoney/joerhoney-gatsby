@@ -232,7 +232,7 @@ const artistPage = (props) => {
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Let's Talk Art!</h2>
-            <p class="text">
+            <p className="text">
               I have been practicing my whole life. I wrote&nbsp;
               <Link to="/story">a page on that</Link>, but I'm interested in
               connecting. So please send me a message below.

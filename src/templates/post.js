@@ -24,6 +24,12 @@ export const query = graphql`
           }
         }
       }
+      featuredImage {
+        file {
+          url
+        }
+        description
+      }
       slug
       title
     }
@@ -32,16 +38,16 @@ export const query = graphql`
 
 const Post = (props) => {
   const { date, title } = props.data.contentfulPost;
+  const featurl = props.data.contentfulPost.featuredImage.file.url;
+  const featdesc = props.data.contentfulPost.featuredImage.description;
   const html = JSON.parse(props.data.contentfulPost.body.raw);
   const refs = props.data.contentfulPost.body.references;
-  console.log(refs);
   const options = {
     renderNode: {
       "embedded-asset-block": (node) => {
         const nodeid = node.data.target.sys.id;
         const asset = refs.filter((ref) => ref.contentful_id === nodeid)[0];
         if (!asset.gatsbyImageData) {
-          // asset is not an image
           return null;
         }
         return (
@@ -53,13 +59,13 @@ const Post = (props) => {
   return (
     <>
       <section className="hero post">
+        <img alt={featdesc} loading="lazy" src={featurl} />
         <h1>{title}</h1>
       </section>
       <Page>
         <section className="alignable skew_b tint1_b">
           <article>
             <div>Published: {date}</div>
-            {/* {html && renderRichText(html, options)} */}
             <div>{html && documentToReactComponents(html, options)}</div>
           </article>
         </section>

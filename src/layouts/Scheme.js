@@ -8,7 +8,7 @@ const Scheme = () => {
     <>
       <fieldset id="color-scheme">
         <label
-          class="light-scheme-icon"
+          className="light-scheme-icon"
           htmlFor="light-scheme"
           title="Light color scheme"
         >
@@ -21,7 +21,7 @@ const Scheme = () => {
           />
         </label>
         <label
-          class="auto-scheme-icon"
+          className="auto-scheme-icon"
           htmlFor="auto-scheme"
           title="Your default color scheme"
         >
@@ -34,7 +34,7 @@ const Scheme = () => {
           />
         </label>
         <label
-          class="dark-scheme-icon"
+          className="dark-scheme-icon"
           htmlFor="dark-scheme"
           title="Dark color scheme"
         >

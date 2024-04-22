@@ -15,6 +15,18 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions;
+
+  const typeDefs = `
+        type ContentfulPostBody {
+            references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+        }
+    `;
+
+  createTypes(typeDefs);
+};
+
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   console.log(path.resolve("src/templates/post.js"));

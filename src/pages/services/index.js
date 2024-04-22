@@ -76,7 +76,7 @@ const servicesPage = () => {
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
-            <p class="text">
+            <p className="text">
               Please let me know your general online needs. I will respond to
               your message as soon as possible.
             </p>
