@@ -1,20 +1,17 @@
 import React from "react";
-/* Components */
+// Components
 import { SEO } from "@components/seo";
-/* Layout */
+// Layouts
 import Footer from "./Footer";
 import Nav from "./Nav";
 import NavIndicator from "./NavIndicator";
 import Scheme from "./Scheme";
-/* CSS */
-import "normalize.css";
-import "@css/global.css";
-import "@css/nav.css";
-import "@css/colors-default.css";
-import "@css/icons.css";
-import "@css/units.css";
-import "@css/hero.css";
+// CSS
 import "@css/buttons.css";
+import "@css/colors-default.css";
+import "@css/global.css";
+import "@css/hero.css";
+import "@css/units.css";
 
 const Page = ({ children, className }) => {
   return (

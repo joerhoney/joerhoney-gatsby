@@ -17,10 +17,12 @@
   justify-content: flex-end;
   flex-wrap: wrap;
   font-size: 2rem;
+  font-style: oblique;
   margin-top: 0;
   max-width: 100%;
-  transform: rotate(22deg);
   text-align: right;
+  /* transform: rotate(14.125deg); */
+  transform: skew(0, 14.125deg);
   transform-origin: bottom right;
   width: 360px;
 
@@ -33,9 +35,9 @@
   content: "";
   display: block;
   float: right;
-  height: 40px;
+  height: 41px;
   shape-outside: polygon(28% 0%, 100% 0%, 100% 80%, 87% 80%);
-  width: 130px;
+  width: 220px;
 }
 :is(.showcase, .collection) p.desc {
   font-weight: bold;
@@ -178,7 +180,7 @@
   }
   ul.skills li {
     margin-bottom: var(--unit2);
-    transform: rotate(22deg);
+    transform: rotate(14.125deg);
     transform-origin: left;
   }
   a.button {

@@ -69,38 +69,26 @@ a:not([class]) {
 a:not([class]):active,
 a:not([class]):focus,
 a:not([class]):hover {
-  color: var(--color4);
+  color: var(--color3);
 }
-section.alignable p a[href*="http"]::before {
-  content: ".";
-  display: block;
-  float: right;
-  font-weight: normal;
-  height: 1em;
-  margin-left: 0.25em;
-  text-shadow: 0.05em 0 0 currentColor, 0.1em 0 0 currentColor,
-    0.15em 0 0 currentColor, 0.2em 0 0 currentColor, 0.25em 0 0 currentColor,
-    0.3em 0 0 currentColor, 0.35em 0 0 currentColor, 0.4em 0 0 currentColor,
-    0.45em 0 0 currentColor, 0.5em 0 0 currentColor, 0.55em 0 0 currentColor,
-    0.6em 0 0 currentColor, 0.65em 0 0 currentColor, 0 -0.05em 0 currentColor,
-    0 -0.1em 0 currentColor, 0 -0.15em 0 currentColor, 0 -0.2em 0 currentColor,
-    0 -0.25em 0 currentColor, 0 -0.3em 0 currentColor, 0 -0.35em 0 currentColor,
-    0 -0.4em 0 currentColor, 0 -0.45em 0 currentColor, 0 -0.5em 0 currentColor,
-    0 -0.55em 0 currentColor, 0 -0.6em 0 currentColor, 0 -0.65em 0 currentColor,
-    0.05em -0.65em 0 currentColor, 0.1em -0.65em 0 currentColor,
-    0.15em -0.65em 0 currentColor, 0.65em -0.05em 0 currentColor,
-    0.65em -0.1em 0 currentColor, 0.65em -0.15em 0 currentColor,
-    0.65em -0.65em 0 currentColor, 0.6em -0.65em 0 currentColor,
-    0.55em -0.65em 0 currentColor, 0.5em -0.65em 0 currentColor,
-    0.45em -0.65em 0 currentColor, 0.4em -0.65em 0 currentColor,
-    0.65em -0.6em 0 currentColor, 0.65em -0.55em 0 currentColor,
-    0.65em -0.5em 0 currentColor, 0.65em -0.45em 0 currentColor,
-    0.65em -0.4em 0 currentColor, 0.56em -0.56em 0 currentColor,
-    0.53em -0.53em 0 currentColor, 0.5em -0.5em 0 currentColor,
-    0.46em -0.46em 0 currentColor, 0.43em -0.43em 0 currentColor,
-    0.4em -0.4em 0 currentColor, 0.36em -0.36em 0 currentColor,
-    0.33em -0.33em 0 currentColor, 0.3em -0.3em 0 currentColor;
-  width: 1em;
+section.alignable p a[href*="http"]::after {
+  border: 0.14em solid currentColor;
+  border-radius: 0.3em;
+  content: "\2197";
+  font-family: monospace;
+  font-size: 0.75em;
+  font-weight: bold;
+  letter-spacing: 0.25em;
+  margin-left: 0.3em;
+  padding-left: 0.18em;
+  text-decoration: none;
+  vertical-align: middle;
+}
+code {
+  background-color: var(--color2);
+  font-size: 0.9em;
+  padding: 0.25em;
+  white-space: pre-wrap;
 }
 .text a,
 th a,
@@ -269,7 +257,7 @@ section.alignable {
 .skew_b::before {
   content: "";
   display: block;
-  transform: skewY(22deg);
+  transform: skewY(14.125deg);
   transform-origin: center;
   z-index: -1;
 
@@ -291,6 +279,9 @@ article,
   overflow: hidden;
   width: 100%;
 }
+.date {
+  color: var(--color3);
+}
 .in-the-corner {
   align-items: flex-end;
   text-align: right;
@@ -309,19 +300,11 @@ article,
   margin-right: var(--unit-8);
 }
 .transluscent {
-  mix-blend-mode: multiply;
+  mix-blend-mode: var(--multiscreen);
 }
 .overlay {
   mix-blend-mode: overlay;
 }
-@media (prefers-color-scheme: dark) {
-  .transluscent {
-    mix-blend-mode: screen;
-  }
-}
-/* img.transluscent + h2 {
-  margin-top: 0.25em;
-} */
 h1,
 h2,
 h3,
@@ -348,20 +331,25 @@ h2 + p::before {
   content: "";
   display: block;
   float: right;
-  height: 100px;
+  height: 64px;
   shape-outside: polygon(16% 0%, 100% 0%, 100% 74%, 90% 74%);
   width: 250px;
 }
-section.alignable h2,
-h2.tilt {
-  align-self: flex-end;
-  width: calc(100%);
-  transform: rotate(22deg);
+h2.tilt,
+h2:has(+ p) {
+  font-style: oblique;
+  transform: skew(0, 14.125deg);
   text-align: right;
   transform-origin: top right;
-  translate: 36px 80px;
+}
+h2:has(+ p) {
+  align-self: flex-end;
+  margin-left: auto;
+  padding-bottom: 0.5em;
+  translate: 0 80px;
   /* margin-right: -36px; */
-  max-width: 400px;
+  max-width: 100%;
+  width: 420px;
 }
 section.alignable h2.standalone {
   translate: 0;
@@ -692,11 +680,11 @@ table.compare .compare-cta h4 {
     justify-content: space-between;
     margin-bottom: var(--unit8);
     margin-top: var(--unit6);
-    transform: skewY(22deg);
+    transform: skewY(14.125deg);
     max-width: 1200px;
   }
   .columns-3 .column {
-    transform: skewY(-22deg);
+    transform: skewY(-14.125deg);
     width: calc(33.33% - var(--unit6));
   }
 }

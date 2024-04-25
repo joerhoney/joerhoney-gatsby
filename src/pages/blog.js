@@ -2,7 +2,17 @@ import React from "react";
 // Components
 import { Link, graphql, useStaticQuery } from "gatsby";
 // Layouts
-import Page from "@layouts/Page.js";
+import Footer from "../layouts/Footer";
+import Nav from "../layouts/Nav";
+import NavIndicator from "../layouts/NavIndicator";
+import Scheme from "../layouts/Scheme";
+// CSS
+import "@css/buttons.css";
+import "@css/colors-default.css";
+import "@css/global.css";
+import "@css/hero.css";
+import "@css/units.css";
+import "@css/blog.css";
 
 const Blog = () => {
   const data = useStaticQuery(graphql`
@@ -28,40 +38,38 @@ const Blog = () => {
   const posts = data.allContentfulPost.edges;
   return (
     <>
-      <section className="hero post">
-        <img alt="Illustration of a team of charicters" loading="lazy" />
-        <h1>Blog</h1>
-      </section>
-      <Page>
-        <section className="alignable skew_b tint1_b">
-          <article>
-            <div>This is my blog page, so far.</div>
-          </article>
-          {posts.map((post) => {
-            const { date, description, title, slug } = post.node;
-            const feat = post.node.featuredImage;
-            console.log(feat);
-            return (
-              <article key={date}>
-                <h2 className="post-featured">
-                  <Link to={`/blog/${slug}`}>{title}</Link>
-                </h2>
-                {feat === !null ?? (
+      <Scheme />
+      <Nav />
+      <main className="blog">
+        {/* <div className="hero square"> */}
+        {/* <NavIndicator className="square" /> */}
+        <h1 className="h1 square">Blog</h1>
+        {/* </div> */}
+        {/* <section className="alignable"> */}
+        {posts.map((post) => {
+          const { date, description, title, slug } = post.node;
+          const feat = post.node.featuredImage;
+          console.log(feat);
+          return (
+            <article key={date}>
+              <Link className="post-link" to={`/blog/${slug}`}>
+                <h2 className="post-title tilt">{title}</h2>
+                <p className="post-date">{date}</p>
+                <p className="post-desc">{description}</p>
+                {feat != null && (
                   <img
                     alt={feat.description}
                     loading="lazy"
                     src={feat.file.url}
                   />
                 )}
-                <p className="post-featured">
-                  <Link to={`/blog/${slug}`}>{description}</Link>
-                </p>
-                <p>{date}</p>
-              </article>
-            );
-          })}
-        </section>
-      </Page>
+              </Link>
+            </article>
+          );
+        })}
+        {/* </section> */}
+      </main>
+      <Footer />
     </>
   );
 };

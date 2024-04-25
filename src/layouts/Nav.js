@@ -1,25 +1,27 @@
 import React from "react";
 // Components
 import { Link } from "gatsby";
+// CSS
+import "@css/nav.css";
 
 const Nav = () => {
-  const noscriptCSS = `
-  &lt;style&gt;
-    .nav {
-      position: absolute;
-    }
-    .nav ul::before {
-      translate: rotate(13deg);
-      width: 330px;
-      height: 698px;
+  // const noscriptCSS = `
+  // &lt;style&gt;
+  //   .nav {
+  //     position: absolute;
+  //   }
+  //   .nav ul::before {
+  //     translate: rotate(13deg);
+  //     width: 330px;
+  //     height: 698px;
 
-      top: -162px;
-      left: -49px;
-    }
-  &lt;/style&gt;`;
+  //     top: -162px;
+  //     left: -49px;
+  //   }
+  // &lt;/style&gt;`;
   return (
     <>
-      <noscript>{noscriptCSS}</noscript>
+      {/* <noscript>{noscriptCSS}</noscript> */}
       <nav className="nav">
         <div className="group">
           <Link to="/" className="logo">
@@ -27,16 +29,22 @@ const Nav = () => {
           </Link>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/developer">Developer</Link>
+              <Link className="nav-link" to="/developer">
+                Developer
+              </Link>
             </li>
             <li>
-              <Link to="/artist">Artist</Link>
+              <Link className="nav-link" to="/artist">
+                Artist
+              </Link>
             </li>
             <li>
-              <Link to="#contact" title="Contact">
+              <Link className="nav-link" to="#contact" title="Contact">
                 Contact
               </Link>
             </li>

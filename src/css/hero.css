@@ -41,20 +41,17 @@
 }
 .hero h1 {
   align-self: end;
+  font-style: oblique;
   font-size: calc(6vh + 4vw);
-  max-width: calc(38vh + 24vw);
+  max-width: calc(78vh + 24vw);
   padding: 0;
-  transform: rotate(22deg);
+  transform: skewY(14.125deg);
   text-align: right;
   transform-origin: top right;
 
   position: absolute;
-  right: 10px;
+  right: 20px;
   bottom: 0;
-}
-.hero.post h1 {
-  font-size: calc(5vh + 3vw);
-  max-width: calc(36vh + 22vw);
 }
 .hero h1::before {
   background: var(--glow);

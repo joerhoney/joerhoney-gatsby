@@ -1,7 +1,9 @@
 import React from "react";
 // Components
+import Form from "@components/Formspree";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import Profiles from "@fragments/Profiles";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 // Layouts
 import Page from "@layouts/Page";
@@ -40,6 +42,7 @@ const Post = (props) => {
   const { date, title } = props.data.contentfulPost;
   const featurl = props.data.contentfulPost.featuredImage.file.url;
   const featdesc = props.data.contentfulPost.featuredImage.description;
+  console.log(featurl);
   const html = JSON.parse(props.data.contentfulPost.body.raw);
   const refs = props.data.contentfulPost.body.references;
   const options = {
@@ -63,11 +66,28 @@ const Post = (props) => {
         <h1>{title}</h1>
       </section>
       <Page>
-        <section className="alignable skew_b tint1_b">
+        <section className="alignable">
           <article>
-            <div>Published: {date}</div>
+            <p className="date">Published: {date}</p>
             <div>{html && documentToReactComponents(html, options)}</div>
           </article>
+        </section>
+        <section
+          className="alignable skew_b cta_b compensateTHalf"
+          id="contact"
+        >
+          <article className="self-center">
+            <h2>Contact Me</h2>
+            <p>
+              Whether you need help building something or you just want to
+              connect... well I want to connect, so drop me an email!
+            </p>
+          </article>
+          {/* <Query /> */}
+          <Form className="compensateBHalf" />
+        </section>
+        <section className="alignable">
+          <Profiles className="article reveal self-center compensateBHalf" />
         </section>
       </Page>
     </>

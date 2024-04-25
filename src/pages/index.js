@@ -13,7 +13,7 @@ import HeroHome from "@fragments/HeroHome";
 import Profiles from "@fragments/Profiles";
 import SubheroHome from "@fragments/SubheroHome";
 // Images
-import avatar from "@images/avatar.webp";
+import avatar from "@images/avatar2.webp";
 import dragonSplit1 from "@images/dragon-split1.webp";
 import dragonSplit2 from "@images/dragon-split2.webp";
 // import Query from "../examples/Query";
@@ -31,11 +31,11 @@ const Home = () => {
             loading="lazy"
             src={avatar}
             style={{
-              maxWidth: "153px",
+              maxWidth: "176px",
               marginBottom: "-80px",
               marginTop: "20px",
             }}
-            width="153"
+            width="176"
           />
           <h2 className="tilt" style={{ paddingTop: "0" }}>
             Hello, World!

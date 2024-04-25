@@ -33,6 +33,5 @@ export default Thanks;
 export const Head = () => (
   <>
     <title>Thank you! | :joe rhoney</title>
-    <body className="colors-default" />
   </>
 );

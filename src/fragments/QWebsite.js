@@ -1,7 +1,7 @@
 import React from "react";
 // Components
 import { Wizard, Q, A, Step, End } from "../components/Wizard";
-/* Fragments */
+// Fragments
 import ButtonContact from "@fragments/ButtonContact";
 import ButtonWebsitesPackages from "@fragments/ButtonWebsitesPackages";
 

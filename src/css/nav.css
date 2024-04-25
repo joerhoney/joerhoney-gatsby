@@ -28,7 +28,7 @@
 }
 .nav .group {
   height: 90px;
-  transform: rotate(22deg);
+  transform: rotate(14.125deg);
   transform-origin: top left;
   width: 170px;
 }
@@ -73,7 +73,7 @@
 }
 @media (max-width: 600px) {
   .nav .group {
-    transform: rotate(22deg);
+    transform: rotate(14.125deg);
   }
   .nav .toggle {
     display: block;

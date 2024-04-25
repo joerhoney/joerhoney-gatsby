@@ -2,6 +2,7 @@ import React from "react";
 // Components
 import { graphql, useStaticQuery } from "gatsby";
 // CSS
+import "@css/icons.css";
 import "@css/footer.css";
 
 const Footer = () => {

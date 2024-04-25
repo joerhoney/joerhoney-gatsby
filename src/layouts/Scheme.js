@@ -1,6 +1,6 @@
 import React from "react";
 import { Script } from "gatsby";
-/* CSS */
+// CSS
 import "@css/scheme.css";
 
 const Scheme = () => {
