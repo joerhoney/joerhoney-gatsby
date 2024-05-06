@@ -107,12 +107,10 @@ const codazenskills = [
 const codePage = () => {
   return (
     <>
-      <section className="hero">
-        <img
-          alt="Illustration of a chinese dragon"
-          loading="lazy"
-          src={dragon}
-        />
+      <section className="hero page">
+        <div className="hero__bg">
+          <img loading="lazy" src={dragon} alt="Illusutration of a Dragon" />
+        </div>
         <h1>Developer</h1>
       </section>
       <Page>

@@ -7,7 +7,7 @@ import Profiles from "@fragments/Profiles";
 const Thanks = () => {
   return (
     <>
-      <section className="hero">
+      <section className="hero page">
         <h1>Thanks!</h1>
       </section>
       <Page>

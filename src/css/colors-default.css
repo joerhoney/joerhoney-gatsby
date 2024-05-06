@@ -25,6 +25,7 @@
   --lightish: #ffb8ad;
   /* Gradients */
   --gradBg: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
+  --gradBgHero: linear-gradient(70deg, #fff2cc, #ef5a64);
   --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
   --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
   --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
@@ -66,10 +67,6 @@
   --text: #ffd8b7;
   /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
 }
-.hero,
-.hero_b {
-  --gradBg: linear-gradient(70deg, #fff2cc, #ef5a64);
-}
 
 /* Dark Mode Selected */
 :root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) {
@@ -102,7 +99,7 @@
   --tint1: #121f2666; /* alpha was: .4 */
   --tint2: #5a3a6766; /* alpha was: .4 */
   --tint3: #ea305266;
-  --tint4: #ea305266; /* alpha was: .4 */
+  --tint4: #ff653a66; /* alpha was: .4 */
 }
 :root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) .cta,
 :root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
@@ -140,10 +137,8 @@
   --text: #121f26;
   /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
 }
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) .hero,
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .hero_b::before {
-  --gradBg: linear-gradient(70deg, #b22741, #dd7452);
+:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) {
+  --gradBgHero: linear-gradient(70deg, #b22741, #dd7452);
 }
 
 /* Dark Mode Preferred */
@@ -178,7 +173,7 @@
     --tint1: #121f2666; /* alpha was: .4 */
     --tint2: #5a3a6766; /* alpha was: .4 */
     --tint3: #ea305266;
-    --tint4: #ea305266; /* alpha was: .4 */
+    --tint4: #ff653a66; /* alpha was: .4 */
   }
   .cta,
   .cta_b::before {
@@ -207,9 +202,8 @@
     --text: #121f26;
     /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
   }
-  .hero,
-  .hero_b::before {
-    --gradBg: linear-gradient(70deg, #b22741, #dd7452);
+  .hero {
+    --gradBgHero: linear-gradient(70deg, #b22741, #dd7452);
   }
 
   /* Light Mode Selected */
@@ -288,10 +282,7 @@
     --text: #ffd8b7;
     /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
   }
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .hero,
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .hero_b {
-    --gradBg: linear-gradient(70deg, #fff2cc, #ef5a64);
+  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked) {
+    --gradBgHero: linear-gradient(70deg, #fff2cc, #ef5a64);
   }
 }

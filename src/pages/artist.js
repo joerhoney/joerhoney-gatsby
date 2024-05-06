@@ -26,12 +26,14 @@ import team from "@images/heros/team.webp";
 const artistPage = (props) => {
   return (
     <>
-      <section className="hero">
-        <img
-          alt="Illustration of a team of charicters"
-          loading="lazy"
-          src={team}
-        />
+      <section className="hero page">
+        <div className="hero__bg">
+          <img
+            alt="Illustration of a team of charicters"
+            loading="lazy"
+            src={team}
+          />
+        </div>
         <h1>Artist</h1>
       </section>
       <Page>

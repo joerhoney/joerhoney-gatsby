@@ -13,12 +13,14 @@ import { Link } from "gatsby";
 const websitePage = () => {
   return (
     <>
-      <section className="hero">
-        <img
-          alt="Mouse clicks swarming into your store."
-          loading="lazy"
-          src={storeFront}
-        />
+      <section className="hero page">
+        <div className="hero__bg">
+          <img
+            alt="Mouse clicks swarming into your store."
+            loading="lazy"
+            src={storeFront}
+          />
+        </div>
         <h1>Websites</h1>
       </section>
       <Page>

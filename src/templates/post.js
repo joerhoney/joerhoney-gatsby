@@ -62,7 +62,9 @@ const Post = (props) => {
   return (
     <>
       <section className="hero post">
-        <img alt={featdesc} loading="lazy" src={featurl} />
+        <div className="hero__bg">
+          <img alt={featdesc} loading="lazy" src={featurl} />
+        </div>
         <h1>{title}</h1>
       </section>
       <Page>

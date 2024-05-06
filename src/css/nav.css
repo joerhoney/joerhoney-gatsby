@@ -2,7 +2,7 @@
   left: 18px;
   height: 0;
   position: sticky;
-  top: -18px;
+  top: 0;
   z-index: 999;
   width: 150px;
 }
@@ -13,7 +13,7 @@
   font-size: 540px;
   height: 0;
   overflow: hidden;
-  padding: 200px 0 300px;
+  padding: 0 0 500px; /* was 200px 0 300px */
   pointer-events: none;
   text-shadow: 0 0 140px var(--color1);
   transform: scale(1, 1.5);
@@ -24,7 +24,7 @@
 
   position: absolute;
   left: -120px;
-  top: -290px;
+  top: 0; /* was -290px */
 }
 .nav .group {
   height: 90px;

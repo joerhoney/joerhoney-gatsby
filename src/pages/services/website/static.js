@@ -18,12 +18,14 @@ import storeFront from "@images/heros/store-front-transparent.webp";
 const staticWebsitesPage = () => {
   return (
     <>
-      <section className="hero">
-        <img
-          alt="Mouse clicks swarming into your store."
-          loading="lazy"
-          src={storeFront}
-        />
+      <section className="hero page">
+        <div className="hero__bg">
+          <img
+            alt="Mouse clicks swarming into your store."
+            loading="lazy"
+            src={storeFront}
+          />
+        </div>
         <h1>Websites</h1>
       </section>
       <Page>

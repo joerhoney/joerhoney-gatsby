@@ -11,13 +11,15 @@ import cherryBlossom from "@images/heros/cherry-blossom-half.webp";
 const storyPage = () => {
   return (
     <>
-      <section className="hero">
-        <img
-          alt="Watercolor of a woman in a kamono next to a cherry blossom."
-          loading="lazy"
-          src={cherryBlossom}
-          style={{ placeItems: "flex-end" }}
-        />
+      <section className="hero page">
+        <div className="hero__bg">
+          <img
+            alt="Watercolor of a woman in a kamono next to a cherry blossom."
+            loading="lazy"
+            src={cherryBlossom}
+            style={{ placeItems: "flex-end" }}
+          />
+        </div>
         <h1>Story</h1>
       </section>
       <Page>

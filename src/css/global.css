@@ -107,7 +107,6 @@ td :is(a:focus, a:hover) {
 .z10 {
   z-index: 10;
 }
-.hero,
 .half1,
 .half2,
 .cta {
@@ -122,7 +121,6 @@ td :is(a:focus, a:hover) {
 .tint3 {
   background-color: var(--tint3);
 }
-.hero_b,
 .half1_b,
 .half2_b,
 .cta_b,
@@ -131,7 +129,6 @@ td :is(a:focus, a:hover) {
 .tint3_b {
   position: relative;
 }
-.hero_b::before,
 .half1_b::before,
 .half2_b::before,
 .cta_b::before,
@@ -146,11 +143,6 @@ td :is(a:focus, a:hover) {
   left: 0;
   right: 0;
   top: 0;
-}
-.hero,
-.hero_b::before {
-  background-image: var(--gradBg);
-  background-repeat: no-repeat;
 }
 .tint1_b::before {
   background-color: var(--color1);
@@ -316,6 +308,9 @@ h4 {
   margin: 0;
   padding-top: 1em;
   text-transform: lowercase;
+}
+h1 {
+  padding-top: 0;
 }
 h2 {
   font-size: 3rem;

@@ -10,7 +10,7 @@ import Profiles from "@fragments/Profiles";
 const resume = () => {
   return (
     <>
-      <section className="hero">
+      <section className="hero page">
         <h1>Résumé</h1>
       </section>
       <Page>

@@ -7,7 +7,7 @@
   padding: 18px var(--unit2) 0;
   position: sticky;
   right: 0;
-  top: -18px;
+  top: 0;
   text-align: right;
   width: 4.5em;
   z-index: 999;
