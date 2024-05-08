@@ -158,7 +158,7 @@ td :is(a:focus, a:hover) {
 }
 .cta,
 .cta_b::before {
-  background-image: var(--gradBg);
+  background-image: var(--gradBgCTA);
   background-repeat: no-repeat;
   box-sizing: border-box;
   color: var(--color6);
