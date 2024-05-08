@@ -74,6 +74,7 @@ module.exports = {
         // downloadFiles: true,
       },
     },
+    // "gatsby-plugin-sass",
     // "gatsby-plugin-mdx",
     "gatsby-transformer-remark",
     {

@@ -41,12 +41,9 @@ const Blog = () => {
       <Scheme />
       <Nav />
       <main className="blog">
-        {/* <div className="hero square"> */}
-        {/* <NavIndicator className="square" /> */}
         <h1 className="h1 square">Blog</h1>
-        {/* </div> */}
-        {/* <section className="alignable"> */}
         {posts.map((post) => {
+          console.log(post.node);
           const { date, description, title, slug } = post.node;
           const feat = post.node.featuredImage;
           console.log(feat);
@@ -67,7 +64,6 @@ const Blog = () => {
             </article>
           );
         })}
-        {/* </section> */}
       </main>
       <Footer />
     </>

@@ -1,19 +1,28 @@
 footer {
-  height: 62px;
   overflow: hidden;
-  padding-top: 62px;
   transform-origin: bottom left;
-  width: 300px;
+  width: 100vw;
 }
-footer > div {
+footer::before {
   background-color: var(--color2);
   background-image: var(--gradFooter);
   box-sizing: border-box;
+  content: "";
   color: var(--color5);
+  display: block;
   opacity: 0.66;
   padding: 12px 20px 60px;
+  padding-top: 62px;
   transition: all ease 0.5s;
   transform: skewY(14.125deg);
+  transform-origin: top left;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
 }
 footer > div:hover {
   color: var(--color6);
@@ -21,5 +30,4 @@ footer > div:hover {
 }
 footer .copyright {
   font-size: 0.8rem;
-  transform: skewY(-14.125deg);
 }

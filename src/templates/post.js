@@ -39,6 +39,7 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
+  console.log(props.data.contentfulPost.body);
   const { date, title } = props.data.contentfulPost;
   const featurl = props.data.contentfulPost.featuredImage.file.url;
   const featdesc = props.data.contentfulPost.featuredImage.description;

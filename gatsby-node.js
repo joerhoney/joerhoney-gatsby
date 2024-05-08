@@ -19,11 +19,27 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions;
 
   const typeDefs = `
-    type ContentfulPost implements ContentfulReference & ContentfulEntry & Node @derivedTypes @dontInfer {
-      featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+    type ContentfulPost implements Node & ContentfulReference & ContentfulEntry {
+      title: String
+      slug: String
+      date: Date @dateformat
+      description: String
+      body: ContentfulPostBody
+      featuredImage: ContentfulAsset
     }
+
     type ContentfulPostBody {
-      references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+      raw: String
+      references: [ContentfulAsset]
+    }
+
+    type ContentfulAsset implements Node {
+      file: ContentfulAssetFile
+      description: String
+    }
+
+    type ContentfulAssetFile {
+      url: String
     }
   `;
 
@@ -32,7 +48,6 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  console.log(path.resolve("src/templates/post.js"));
   const Post = path.resolve("src/templates/post.js");
   const results = await graphql(`
     query {
