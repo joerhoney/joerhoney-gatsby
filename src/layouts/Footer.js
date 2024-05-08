@@ -17,7 +17,7 @@ const Footer = () => {
   `);
   return (
     <footer>
-      <div>
+      <div className="footer__inner">
         <p className="copyright">
           &copy;{new Date().getFullYear()} {data.site.siteMetadata.copyright}
           <br />

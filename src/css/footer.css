@@ -1,5 +1,6 @@
 footer {
   overflow: hidden;
+  position: relative;
   transform-origin: bottom left;
   width: 100vw;
 }
@@ -24,9 +25,12 @@ footer::before {
   bottom: 0;
   z-index: -1;
 }
-footer > div:hover {
+footer::before:hover {
   color: var(--color6);
   opacity: 1;
+}
+footer .footer__inner {
+  padding: 60px 20px 0;
 }
 footer .copyright {
   font-size: 0.8rem;
