@@ -1,0 +1,38 @@
+footer {
+  overflow: hidden;
+  position: relative;
+  transform-origin: bottom left;
+  width: 100vw;
+  .footer__inner {
+    padding: 60px 20px 0;
+    color: var(--color5);
+    transition: all ease 1s;
+    &::before {
+      background-image: var(--gradFooter);
+      content: "";
+      display: block;
+      opacity: 0.66;
+      transition: all ease 1s;
+      transform: skewY(14.125deg);
+      transform-origin: top left;
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+  }
+  .copyright {
+    font-size: 0.8rem;
+  }
+  &:hover {
+    .footer__inner {
+      color: var(--color6);
+    }
+    .footer__inner::before {
+      opacity: 1;
+    }
+  }
+}
