@@ -240,14 +240,14 @@ const artistPage = (props) => {
               connecting. So please send me a message below.
             </p>
             <div className="columns-2 bottomXS ">
-              <div className="pull tint2">
+              <div className="pull tint1">
                 <h4>Hire me! 😄</h4>
                 <p>
                   I am currently available for hire! Not for long though, so act
                   fast if you want me on your team! 🙌
                 </p>
               </div>
-              <div className="pull tint3">
+              <div className="pull tint1">
                 <h4>Contract me! 👍</h4>
                 <p>
                   I am also open for service as a freelance web developer. Send

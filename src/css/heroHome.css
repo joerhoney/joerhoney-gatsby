@@ -56,7 +56,7 @@
   left: 3.6vh;
 
   position: relative;
-  top: -14vh;
+  top: -1vh;
 }
 .heroHome h1 b:nth-child(1)::before {
   font: inherit;
