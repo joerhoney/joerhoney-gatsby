@@ -108,8 +108,7 @@ td :is(a:focus, a:hover) {
   z-index: 10;
 }
 .half1,
-.half2,
-.cta {
+.half2 {
   background-image: var(--gradBg);
 }
 .tint1 {

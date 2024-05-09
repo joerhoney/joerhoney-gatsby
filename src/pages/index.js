@@ -103,7 +103,7 @@ const Home = () => {
                 AddFunc Plugins
               </Button>
             </div>
-            <div className="column">
+            <div className="column tint1">
               <h3>Developer Résumé</h3>
               <p>
                 You may already have it, but for convenience and to ensure a
@@ -113,7 +113,7 @@ const Home = () => {
                 View Résumé
               </Link>
             </div>
-            <div className="column">
+            <div className="column tint2">
               <h3>Journey of an&nbsp;Artist</h3>
               <p>
                 Want to know more about me personally? Well, I wrote a bit about

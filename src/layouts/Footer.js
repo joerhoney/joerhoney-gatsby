@@ -3,7 +3,7 @@ import React from "react";
 import { graphql, useStaticQuery } from "gatsby";
 // CSS
 import "@css/icons.css";
-import "@css/footer.css";
+import "@css/footer.scss";
 
 const Footer = () => {
   const data = useStaticQuery(graphql`

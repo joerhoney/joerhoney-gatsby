@@ -10,7 +10,7 @@ import Scheme from "./Scheme";
 import "@css/buttons.css";
 import "@css/colors-default.css";
 import "@css/global.css";
-import "@css/hero.css";
+import "@css/hero.scss";
 import "@css/units.css";
 
 const Page = ({ children, className }) => {

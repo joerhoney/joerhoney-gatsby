@@ -10,7 +10,6 @@ import Scheme from "../layouts/Scheme";
 import "@css/buttons.css";
 import "@css/colors-default.css";
 import "@css/global.css";
-import "@css/hero.css";
 import "@css/units.css";
 import "@css/blog.css";
 
