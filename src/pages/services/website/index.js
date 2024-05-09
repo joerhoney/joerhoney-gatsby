@@ -188,7 +188,6 @@ const websitePage = () => {
                     <div>
                       <h4>Dirt Cheap</h4>
                       <Checkout
-                        link={true}
                         lineItems={[
                           {
                             price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
@@ -224,7 +223,6 @@ const websitePage = () => {
                     <div>
                       <h4>U Drive</h4>
                       <Checkout
-                        link={true}
                         lineItems={[
                           {
                             price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
@@ -256,7 +254,6 @@ const websitePage = () => {
                     <div>
                       <h4>Sell It!</h4>
                       <Checkout
-                        link={true}
                         lineItems={[
                           {
                             price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
