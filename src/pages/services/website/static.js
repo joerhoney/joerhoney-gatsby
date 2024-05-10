@@ -29,7 +29,7 @@ const staticWebsitesPage = () => {
         <h1>Websites</h1>
       </section>
       <Page>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_b u-jump-link" id="contact">
           <article className="self-center bottomM">
             <h2>Seariously Dirt Cheap! 💵</h2>
             <p>
@@ -40,18 +40,22 @@ const staticWebsitesPage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable compensateB" id="contact">
+        <section className="alignable compensateB u-jump-link" id="contact">
           <div className="article">
-            <h4 id="ssl">SSL Certificates</h4>
+            <h4 className="u-jump-link" id="ssl">
+              SSL Certificates
+            </h4>
             <p>
               SSL Based on hosting service. Note: Cost is baked into the the
               estimated hosting cost where applicable.
             </p>
-            <h4 id="pages-added">Pages/Products Added for You</h4>
+            <h4 className="u-jump-link" id="pages-added">
+              Pages/Products Added for You
+            </h4>
             <p>Plus $60 for each additional page/product added for you.</p>
           </div>
         </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_b u-jump-link" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>

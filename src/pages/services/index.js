@@ -26,7 +26,7 @@ const servicesPage = () => {
         <h1>Services</h1>
       </section>
       <Page>
-        <section className="alignable bottomM" id="skills">
+        <section className="alignable bottomM u-jump-link" id="skills">
           <article className="self-center">
             <h2>Grow Online</h2>
             <p>
@@ -60,7 +60,7 @@ const servicesPage = () => {
           <Half
             alt="Illustration of the front end of a dragon."
             button="Website Services"
-            className="half1_b"
+            className="half1_b u-jump-link"
             heading="Web"
             id="websites"
             position="top right"
@@ -76,7 +76,7 @@ const servicesPage = () => {
           <Half
             alt="Illustration of the back end of a dragon."
             button="Art Services"
-            className="half2_b"
+            className="half2_b u-jump-link"
             heading="Art"
             id="art"
             position="top left"
@@ -87,7 +87,7 @@ const servicesPage = () => {
             <p>See my illustration, graphic, and branding services.</p>
           </Half>
         </Split> */}
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_b u-jump-link" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p className="text">

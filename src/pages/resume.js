@@ -301,7 +301,7 @@ const resume = () => {
             </ul>
           </article>
         </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_b u-jump-link" id="contact">
           <article className="self-center">
             <h2>Let's Talk!</h2>
             <p>

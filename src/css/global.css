@@ -6,7 +6,7 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
+  /* scroll-snap-type: y proximity; */
   scrollbar-color: var(--color3) var(--scrolltrack);
   scrollbar-width: thin;
 }
@@ -36,7 +36,7 @@ p {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color3);
 }
-[id] {
+.u-jump-link {
   scroll-margin-top: 56px;
 }
 body {

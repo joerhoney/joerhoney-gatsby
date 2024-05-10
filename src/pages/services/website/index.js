@@ -29,7 +29,7 @@ const websitePage = () => {
         <h1>Websites</h1>
       </section>
       <Page>
-        <section className="alignable compensateB" id="packages">
+        <section className="alignable compensateB u-jump-link" id="packages">
           <article>
             <table className="compare bottomS ">
               <tr>
@@ -288,7 +288,9 @@ const websitePage = () => {
           </article>
           <article>
             <h2 className="bottomXS">More Details</h2>
-            <h4 id="hosting">Additional Hosting Costs</h4>
+            <h4 className="u-jump-link" id="hosting">
+              Additional Hosting Costs
+            </h4>
             <p>
               Websites have to be hosted, meaning provided to visitors by a
               server (a special kind of computer). That server must remain ON at
@@ -301,13 +303,17 @@ const websitePage = () => {
               $60/year to $600/year (with SSL certificate included), depending
               on the computer resources necessary to run your website.
             </p>
-            <h4 id="ssl">SSL Certificates</h4>
+            <h4 className="u-jump-link" id="ssl">
+              SSL Certificates
+            </h4>
             <p>
               An SSL certificate makes your website trustworthy with a secure
               connection. This is included free with all packages (sort of).
               Actually,
             </p>
-            <h4 id="pages-added">Pages/Products Added for You</h4>
+            <h4 className="u-jump-link" id="pages-added">
+              Pages/Products Added for You
+            </h4>
             <p>
               To get you started (put a website there) I will create a number of
               pages/products for you (as quoted above). Additional pages can be
@@ -315,7 +321,7 @@ const websitePage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_bu-jump-link" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>

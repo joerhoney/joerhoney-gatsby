@@ -22,7 +22,10 @@ const presencePage = () => {
         <h1>Presence</h1>
       </section>
       <Page>
-        <section className="alignable bottomM skew_b tint3_b" id="skills">
+        <section
+          className="alignable bottomM skew_b tint3_b u-jump-link"
+          id="skills"
+        >
           <article className="self-center">
             <h2>Get Found</h2>
             <p>
@@ -34,7 +37,7 @@ const presencePage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_b u-jump-link" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p className="text">

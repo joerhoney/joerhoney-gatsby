@@ -76,7 +76,7 @@ const Post = (props) => {
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b compensateTHalf"
+          className="alignable skew_b cta_b compensateTHalf u-jump-link"
           id="contact"
         >
           <article className="self-center">

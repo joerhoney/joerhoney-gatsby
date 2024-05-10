@@ -59,7 +59,7 @@ const Home = () => {
             <Half
               alt="Illustration of the front end of a dragon."
               button="View Work"
-              className="half1_b"
+              className="half1_b u-jump-link"
               heading="Developer"
               id="websites"
               position="top right"
@@ -75,7 +75,7 @@ const Home = () => {
             <Half
               alt="Illustration of the back end of a dragon."
               button="View Art"
-              className="half2_b"
+              className="half2_b u-jump-link"
               heading="Illustrator"
               id="illustration"
               position="top left"
