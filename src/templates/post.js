@@ -51,7 +51,7 @@ const Post = (props) => {
       "embedded-asset-block": (node) => {
         const nodeid = node.data.target.sys.id;
         const asset = refs.filter((ref) => ref.contentful_id === nodeid)[0];
-        if (!asset.gatsbyImageData) {
+        if (!asset || !asset.gatsbyImageData) {
           return null;
         }
         return (
