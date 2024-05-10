@@ -2,7 +2,6 @@ import React from "react";
 // Components
 import Checkout from "@components/Checkout";
 import Form from "@components/Form";
-// import Price from "@components/Price";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
@@ -173,22 +172,13 @@ const websitePage = () => {
               <tr className="stretch">
                 <th scope="row">Price</th>
                 <td>
-                  <h4 className="price">
-                    {/* <Price productId="prod_PMvxVcLJpR8Nvw" /> */}
-                    $1000
-                  </h4>
+                  <h4 className="price">$1000</h4>
                 </td>
                 <td>
-                  <h4 className="price">
-                    {/* <Price productId="prod_PMwTqBNoqrdW2e" /> */}
-                    $3000
-                  </h4>
+                  <h4 className="price">$3000</h4>
                 </td>
                 <td>
-                  <h4 className="price">
-                    {/* <Price productId="prod_PMxV1qxx9F3Ymo" /> */}
-                    $5000
-                  </h4>
+                  <h4 className="price">$5000</h4>
                 </td>
               </tr>
               <tr aria-hidden="true" className="association">
