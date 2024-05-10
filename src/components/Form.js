@@ -27,7 +27,7 @@ const Form = (props) => {
           required
         ></textarea>
         <button type="submit">Send</button>
-        <input type="hidden" name="_next" value="/thanks" />
+        <input type="hidden" name="_next" value="/thanks-contact" />
         <input
           type="hidden"
           name="_url"

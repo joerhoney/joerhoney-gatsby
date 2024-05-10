@@ -37,6 +37,18 @@ const servicesPage = () => {
               etc. But these things are not hard to obtain. In fact, you've
               found the right place to get answers and real help. :j
             </p>
+            <p>
+              If you need a website, need a better one, or just need a web
+              solution, here are my basic website packages to get your started.
+            </p>
+            <h4>Set it &amp; forget it! 👏</h4>
+            <p>
+              Many web developers want to charge a steady monthly rate,
+              regardless of how much work they do for you. I only charge for
+              what I deliver. Once your website is built you can let it sit
+              there as long as you want at no cost from me. I'm here if you ever
+              need me.
+            </p>
           </article>
         </section>
         {/* <section className="alignable">

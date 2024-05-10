@@ -26,7 +26,7 @@ const Checkout = (props) => {
     const { error } = await stripe.redirectToCheckout({
       mode: "payment",
       lineItems: props.lineItems,
-      successUrl: `http://localhost:8000/thanks/`,
+      successUrl: `http://localhost:8000/thanks-purchase/`,
       cancelUrl: `http://localhost:8000/`,
     });
 

@@ -2,6 +2,7 @@ import React from "react";
 // Components
 import Checkout from "@components/Checkout";
 import Form from "@components/Form";
+// import Price from "@components/Price";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
@@ -9,6 +10,11 @@ import Profiles from "@fragments/Profiles";
 // Images
 import storeFront from "@images/heros/store-front-transparent.webp";
 import { Link } from "gatsby";
+
+// Test Prices
+const priceDrtChp = "price_1PEiCnJndiOOi7lkFhymi7e7";
+const priceUDrive = "price_1PEiF9JndiOOi7lkWy4DCnfH";
+const priceSellIt = "price_1PEiG6JndiOOi7lkcJzhaJqO";
 
 const websitePage = () => {
   return (
@@ -168,17 +174,20 @@ const websitePage = () => {
                 <th scope="row">Price</th>
                 <td>
                   <h4 className="price">
-                    <sup>$</sup>600
+                    {/* <Price productId="prod_PMvxVcLJpR8Nvw" /> */}
+                    $1000
                   </h4>
                 </td>
                 <td>
                   <h4 className="price">
-                    <sup>$</sup>1,800
+                    {/* <Price productId="prod_PMwTqBNoqrdW2e" /> */}
+                    $3000
                   </h4>
                 </td>
                 <td>
                   <h4 className="price">
-                    <sup>$</sup>3,600
+                    {/* <Price productId="prod_PMxV1qxx9F3Ymo" /> */}
+                    $5000
                   </h4>
                 </td>
               </tr>
@@ -188,9 +197,10 @@ const websitePage = () => {
                     <div>
                       <h4>Dirt Cheap</h4>
                       <Checkout
+                        link={true}
                         lineItems={[
                           {
-                            price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
+                            price: `${priceDrtChp}`,
                             quantity: 1,
                           },
                         ]}
@@ -223,15 +233,16 @@ const websitePage = () => {
                     <div>
                       <h4>U Drive</h4>
                       <Checkout
+                        link={true}
                         lineItems={[
                           {
-                            price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
+                            price: `${priceUDrive}`,
                             quantity: 1,
                           },
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/services/website/dirt-cheap">Details</Link>
+                      <Link to="/services/website/u-drive">Details</Link>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -254,15 +265,16 @@ const websitePage = () => {
                     <div>
                       <h4>Sell It!</h4>
                       <Checkout
+                        link={true}
                         lineItems={[
                           {
-                            price: "price_1OZQ4SJndiOOi7lkgMlBpoGj",
+                            price: `${priceSellIt}`,
                             quantity: 1,
                           },
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/services/website/dirt-cheap">Details</Link>
+                      <Link to="/services/website/sell-it">Details</Link>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>

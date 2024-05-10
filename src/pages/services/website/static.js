@@ -31,19 +31,7 @@ const staticWebsitesPage = () => {
       <Page>
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center bottomM">
-            <p>
-              If you need a website, need a better one, or just need a web
-              solution, here are my basic website packages to get your started.
-            </p>
-            <h4>Set it &amp; forget it! 👏</h4>
-            <p>
-              Many web developers want to charge a steady monthly rate,
-              regardless of how much work they do for you. I only charge for
-              what I deliver. Once your website is built you can let it sit
-              there as long as you want at no cost from me. I'm here if you ever
-              need me.
-            </p>
-            <h4>Seariously Dirt Cheap! 💵</h4>
+            <h2>Seariously Dirt Cheap! 💵</h2>
             <p>
               Hosting costs money every year and the price keeps going up... but
               not with the dirt cheap package. Yep. And it doesn't require
