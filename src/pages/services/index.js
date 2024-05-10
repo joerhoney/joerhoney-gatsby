@@ -60,7 +60,7 @@ const servicesPage = () => {
           <Half
             alt="Illustration of the front end of a dragon."
             button="Website Services"
-            className="half1_b u-jump-link"
+            className="half1 u-jump-link"
             heading="Web"
             id="websites"
             position="top right"
@@ -76,7 +76,7 @@ const servicesPage = () => {
           <Half
             alt="Illustration of the back end of a dragon."
             button="Art Services"
-            className="half2_b u-jump-link"
+            className="half2 u-jump-link"
             heading="Art"
             id="art"
             position="top left"

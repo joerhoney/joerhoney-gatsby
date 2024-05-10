@@ -107,10 +107,6 @@ td :is(a:focus, a:hover) {
 .z10 {
   z-index: 10;
 }
-.half1,
-.half2 {
-  background-image: var(--gradBg);
-}
 .tint1 {
   background-color: var(--tint1);
 }
@@ -120,16 +116,16 @@ td :is(a:focus, a:hover) {
 .tint3 {
   background-color: var(--tint3);
 }
-.half1_b,
-.half2_b,
+.half1,
+.half2,
 .cta_b,
 .tint1_b,
 .tint2_b,
 .tint3_b {
   position: relative;
 }
-.half1_b::before,
-.half2_b::before,
+.half1::before,
+.half2::before,
 .cta_b::before,
 .tint1_b::before,
 .tint2_b::before,
@@ -171,26 +167,29 @@ td :is(a:focus, a:hover) {
 .cta_b h4 {
   color: currentColor;
 }
-.half1,
-.half2,
-.half1_b::before,
-.half2_b::before {
-  background-image: var(--gradBg);
+.half1::before {
+  background-image: var(--gradBgHalf1);
   background-repeat: no-repeat;
 }
-.half1 h2,
-.half1_b h2,
-.half2 h2,
-.half2_b h2 {
-  color: var(--heading);
+.half2::before {
+  background-image: var(--gradBgHalf2);
+  background-repeat: no-repeat;
 }
-.half1 p,
-.half1_b p,
-.half2 p,
-.half2_b p {
-  color: var(--text);
+.half1 h2 {
+  color: var(--headingHalf1);
+}
+.half2 h2 {
+  color: var(--headingHalf2);
+}
+.half1 p {
+  color: var(--textHalf1);
   font-weight: bold;
-  text-shadow: 0 0 2em var(--glow);
+  text-shadow: 0 0 2em var(--glowHalf1);
+}
+.half2 p {
+  color: var(--textHalf2);
+  font-weight: bold;
+  text-shadow: 0 0 2em var(--glowHalf2);
 }
 section.alignable {
   /* border-radius: var(--radius-all); */

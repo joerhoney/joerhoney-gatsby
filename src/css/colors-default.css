@@ -10,10 +10,16 @@
   --color5: #5a3a67;
   --color6: #121f26;
   --glow: #ffa698;
+  --glowHalf1: #ffd8b7;
+  --glowHalf2: #48293f;
+  --headingHalf1: #4a3459;
+  --headingHalf2: #ffb58d;
   --knockout: #ffffff;
   --multiscreen: multiply;
   --text: #121f26;
   --textButton: #ffffff;
+  --textHalf1: #121f26;
+  --textHalf2: #ffd8b7;
   --tint1: #ffffff66;
   --tint2: #ffcc9366;
   --tint3: #ff653a66;
@@ -26,6 +32,8 @@
   /* Gradients */
   --gradBg: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
   --gradBgCTA: linear-gradient(70deg, #feeaa8, #fed29b, #ffa082, #ff3f55);
+  --gradBgHalf1: linear-gradient(50deg, #feeaa8, #ffa082);
+  --gradBgHalf2: linear-gradient(50deg, #5a3a67, #121f26);
   --gradBgHero: linear-gradient(70deg, #fff2cc, #ef5a64);
   --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
   --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
@@ -41,28 +49,6 @@
   --scrolltrack: #121f26;
   /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
 }
-.half1,
-.half1_b::before {
-  --gradBg: linear-gradient(50deg, #feeaa8, #ffa082);
-}
-.half1,
-.half1_b {
-  --glow: #ffd8b7;
-  --heading: #4a3459;
-  --text: #121f26;
-  /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
-}
-.half2,
-.half2_b::before {
-  --gradBg: linear-gradient(50deg, #5a3a67, #121f26);
-}
-.half2,
-.half2_b {
-  --glow: #48293f;
-  --heading: #ffb58d;
-  --text: #ffd8b7;
-  /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
-}
 
 /* Dark Mode Selected */
 :root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) {
@@ -74,12 +60,20 @@
   --color5: #ffd8b7;
   --color6: #ffffff;
   --glow: #ff3f4c;
+  --glowHalf1: #5a3a67;
+  --glowHalf2: #fea385;
+  --headingHalf1: #fc9f7d;
+  --headingHalf2: #522a41;
   --knockout: #000000;
   --multiscreen: screen;
   --text: #ffffff;
   --textButton: #ffffff;
+  --textHalf1: #ffffff;
+  --textHalf2: #121f26;
   --gradBg: linear-gradient(70deg, #121f26 30%, #302a3f 80%, #692938 100%);
   --gradBgCTA: linear-gradient(70deg, #ce2c3e, #ff936e);
+  --gradBgHalf1: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
+  --gradBgHalf2: linear-gradient(50deg, #fa7d65, #ffefb8);
   --gradBgHero: linear-gradient(70deg, #b22741, #dd7452);
   --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
   --gradFooter: linear-gradient(48deg, #121f26, #312536);
@@ -99,36 +93,6 @@
   --tint3: #ea305266;
   --tint4: #ff653a66; /* alpha was: .4 */
 }
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half1,
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half1_b::before {
-  --gradBg: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
-}
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half1,
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half1_b {
-  --glow: #5a3a67;
-  --heading: #fc9f7d;
-  --text: #ffffff;
-  /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
-}
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half2,
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half2_b::before {
-  --gradBg: linear-gradient(50deg, #fa7d65, #ffefb8);
-}
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half2,
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked)
-  .half2_b {
-  --glow: #fea385;
-  --heading: #522a41;
-  --text: #121f26;
-  /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
-}
 
 /* Dark Mode Preferred */
 @media (prefers-color-scheme: dark) {
@@ -141,12 +105,20 @@
     --color5: #ffd8b7;
     --color6: #ffffff;
     --glow: #ff3f4c;
+    --glowHalf1: #5a3a67;
+    --glowHalf2: #fea385;
+    --headingHalf1: #fc9f7d;
+    --headingHalf2: #522a41;
     --knockout: #000000;
     --multiscreen: screen;
     --text: #ffffff;
     --textButton: #ffffff;
+    --textHalf1: #ffffff;
+    --textHalf2: #121f26;
     --gradBg: linear-gradient(70deg, #121f26 30%, #302a3f 80%, #692938 100%);
     --gradBgCTA: linear-gradient(70deg, #ce2c3e, #ff936e);
+    --gradBgHalf1: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
+    --gradBgHalf2: linear-gradient(50deg, #fa7d65, #ffefb8);
     --gradBgHero: linear-gradient(70deg, #b22741, #dd7452);
     --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
     --gradFooter: linear-gradient(48deg, #121f26, #312536);
@@ -166,28 +138,6 @@
     --tint3: #ea305266;
     --tint4: #ff653a66; /* alpha was: .4 */
   }
-  .half1,
-  .half1_b::before {
-    --gradBg: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
-  }
-  .half1,
-  .half1_b {
-    --glow: #5a3a67;
-    --heading: #fc9f7d;
-    --text: #ffffff;
-    /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
-  }
-  .half2,
-  .half2_b::before {
-    --gradBg: linear-gradient(50deg, #fa7d65, #ffefb8);
-  }
-  .half2,
-  .half2_b {
-    --glow: #fea385;
-    --heading: #522a41;
-    --text: #121f26;
-    /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
-  }
 
   /* Light Mode Selected */
   :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked) {
@@ -199,10 +149,16 @@
     --color5: #5a3a67;
     --color6: #121f26;
     --glow: #ffa698;
+    --glowHalf1: #ffd8b7;
+    --glowHalf2: #48293f;
+    --headingHalf1: #4a3459;
+    --headingHalf2: #ffb58d;
     --knockout: #ffffff;
     --multiscreen: multiply;
     --text: #121f26;
     --textButton: #ffffff;
+    --textHalf1: #121f26;
+    --textHalf2: #ffd8b7;
     --tint1: #ffffff66;
     --tint2: #ffcc9366;
     --tint3: #ff653a66;
@@ -215,6 +171,8 @@
     /* Gradients */
     --gradBg: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
     --gradBgCTA: linear-gradient(70deg, #feeaa8, #fed29b, #ffa082, #ff3f55);
+    --gradBgHalf1: linear-gradient(50deg, #feeaa8, #ffa082);
+    --gradBgHalf2: linear-gradient(50deg, #5a3a67, #121f26);
     --gradBgHero: linear-gradient(70deg, #fff2cc, #ef5a64);
     --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
     --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
@@ -229,35 +187,5 @@
     );
     --scrolltrack: #121f26;
     /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
-  }
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half1,
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half1_b::before {
-    --gradBg: linear-gradient(50deg, #feeaa8, #ffa082);
-  }
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half1,
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half1_b {
-    --glow: #ffd8b7;
-    --heading: #4a3459;
-    --text: #121f26;
-    /* --gradText: -webkit-linear-gradient(70deg, #5a3a67, #121f26); */
-  }
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half2,
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half2_b::before {
-    --gradBg: linear-gradient(50deg, #5a3a67, #121f26);
-  }
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half2,
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked)
-    .half2_b {
-    --glow: #48293f;
-    --heading: #ffb58d;
-    --text: #ffd8b7;
-    /* --gradText: -webkit-linear-gradient(70deg, #fea385, #ffd8b7); */
   }
 }
