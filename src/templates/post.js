@@ -52,7 +52,7 @@ const Post = (props) => {
         const nodeid = node.data.target.sys.id;
         const asset = {};
         asset.data = refs.filter((ref) => ref.contentful_id === nodeid)[0];
-        console.log("asset.data: ", typeof asset.data, asset.data);
+        // console.log("asset.data: ", typeof asset.data, asset.data);
         if (Object.keys(asset.data).length === 0) {
           return null;
         }
