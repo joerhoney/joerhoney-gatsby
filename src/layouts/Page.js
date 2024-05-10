@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import { SEO } from "@components/seo";
+// import { SEO } from "@components/seo";
 // Layouts
 import Footer from "./Footer";
 import Nav from "./Nav";

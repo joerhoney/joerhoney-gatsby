@@ -50,17 +50,17 @@ const Post = (props) => {
     renderNode: {
       "embedded-asset-block": (node) => {
         const nodeid = node.data.target.sys.id;
-        const asset = refs.filter((ref) => ref.contentful_id === nodeid)[0];
-        if (
-          !asset ||
-          asset === null ||
-          !asset.gatsbyImageData ||
-          asset.gatsbyImageData === null
-        ) {
+        const asset = {};
+        asset.data = refs.filter((ref) => ref.contentful_id === nodeid)[0];
+        console.log("asset.data: ", typeof asset.data, asset.data);
+        if (Object.keys(asset.data).length === 0) {
           return null;
         }
         return (
-          <GatsbyImage image={asset.gatsbyImageData} alt={asset.description} />
+          <GatsbyImage
+            image={asset.data.gatsbyImageData}
+            alt={asset.data.description}
+          />
         );
       },
     },
