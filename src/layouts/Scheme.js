@@ -1,23 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Script } from "gatsby";
 // CSS
 import "@css/scheme.css";
-
-const useColorScheme = () => {
-  const [colorScheme, setColorScheme] = React.useState(
-    localStorage.getItem("colorScheme") || "auto"
-  );
-  React.useEffect(() => {
-    if (colorScheme === "auto") {
-      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        setColorScheme("dark");
-      } else {
-        setColorScheme("light");
-      }
-    }
-  }, [colorScheme]);
-  return colorScheme;
-};
 
 const Scheme = () => {
   return (
@@ -33,7 +17,7 @@ const Scheme = () => {
             id="light-scheme"
             type="radio"
             value="light"
-            onClick={`localStorage.setItem("colorScheme", "light")`}
+            onClick={() => localStorage.setItem("colorScheme", "light")}
           />
         </label>
         <label
@@ -46,7 +30,7 @@ const Scheme = () => {
             id="auto-scheme"
             type="radio"
             value="auto"
-            onClick={`localStorage.removeItem("colorScheme")`}
+            onClick={() => localStorage.setItem("colorScheme", "auto")}
           />
         </label>
         <label
@@ -59,18 +43,18 @@ const Scheme = () => {
             id="dark-scheme"
             type="radio"
             value="dark"
-            onClick={`localStorage.setItem("colorScheme", "dark")`}
+            onClick={() => localStorage.setItem("colorScheme", "dark")}
           />
         </label>
       </fieldset>
-      <Script id="second-unique-id">{`
+      <script id="second-unique-id">{`
 window.onload = () => {
   document
     .getElementById("color-scheme")
     .querySelector(
       \`input[value=\${localStorage.getItem("colorScheme") ?? "auto"}]\`
     ).checked = true;
-};`}</Script>
+};`}</script>
     </>
   );
 };
