@@ -1,11 +1,9 @@
-import React, { useEffect } from "react";
-import { Script } from "gatsby";
+import React from "react";
 // CSS
 import "@css/scheme.css";
 
 class Scheme extends React.Component {
   componentDidMount() {
-    console.log(localStorage.getItem("colorScheme"));
     document
       .getElementById("color-scheme")
       .querySelector(
@@ -26,10 +24,7 @@ class Scheme extends React.Component {
               id="light-scheme"
               type="radio"
               value="light"
-              onClick={() => {
-                localStorage.setItem("colorScheme", "light");
-                console.log(localStorage.getItem("colorScheme"));
-              }}
+              onClick={() => localStorage.setItem("colorScheme", "light")}
             />
           </label>
           <label
@@ -42,10 +37,7 @@ class Scheme extends React.Component {
               id="auto-scheme"
               type="radio"
               value="auto"
-              onClick={() => {
-                localStorage.setItem("colorScheme", "auto");
-                console.log(localStorage.getItem("colorScheme"));
-              }}
+              onClick={() => localStorage.setItem("colorScheme", "auto")}
             />
           </label>
           <label
@@ -58,22 +50,10 @@ class Scheme extends React.Component {
               id="dark-scheme"
               type="radio"
               value="dark"
-              onClick={() => {
-                localStorage.setItem("colorScheme", "dark");
-                console.log(localStorage.getItem("colorScheme"));
-              }}
+              onClick={() => localStorage.setItem("colorScheme", "dark")}
             />
           </label>
         </fieldset>
-        {/* <script>{`
-window.onload = () => {
-  console.log(localStorage.getItem("colorScheme"));
-  document
-    .getElementById("color-scheme")
-    .querySelector(
-      \`input[value=\${localStorage.getItem("colorScheme") ?? "auto"}]\`
-    ).checked = true;
-};`}</script> */}
       </>
     );
   }
