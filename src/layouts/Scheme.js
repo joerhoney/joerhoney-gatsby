@@ -3,6 +3,22 @@ import { Script } from "gatsby";
 // CSS
 import "@css/scheme.css";
 
+const useColorScheme = () => {
+  const [colorScheme, setColorScheme] = React.useState(
+    localStorage.getItem("colorScheme") || "auto"
+  );
+  React.useEffect(() => {
+    if (colorScheme === "auto") {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        setColorScheme("dark");
+      } else {
+        setColorScheme("light");
+      }
+    }
+  }, [colorScheme]);
+  return colorScheme;
+};
+
 const Scheme = () => {
   return (
     <>
@@ -17,7 +33,7 @@ const Scheme = () => {
             id="light-scheme"
             type="radio"
             value="light"
-            onClick={localStorage.setItem("colorScheme", "light")}
+            onClick={`localStorage.setItem("colorScheme", "light")`}
           />
         </label>
         <label
@@ -30,7 +46,7 @@ const Scheme = () => {
             id="auto-scheme"
             type="radio"
             value="auto"
-            onClick={localStorage.removeItem("colorScheme")}
+            onClick={`localStorage.removeItem("colorScheme")`}
           />
         </label>
         <label
@@ -43,7 +59,7 @@ const Scheme = () => {
             id="dark-scheme"
             type="radio"
             value="dark"
-            onClick={localStorage.setItem("colorScheme", "dark")}
+            onClick={`localStorage.setItem("colorScheme", "dark")`}
           />
         </label>
       </fieldset>
