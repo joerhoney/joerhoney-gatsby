@@ -48,7 +48,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const Post = path.resolve("src/templates/Post.js");
+  const Post = path.resolve("src/templates/post.js");
   const results = await graphql(`
     query {
       allContentfulPost {
