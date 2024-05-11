@@ -46,21 +46,23 @@ const Post = (props) => {
   console.log(featurl);
   const html = JSON.parse(props.data.contentfulPost.body.raw);
   const refs = props.data.contentfulPost.body.references;
+  console.log(refs);
   const options = {
     renderNode: {
       "embedded-asset-block": (node) => {
         const nodeid = node.data.target.sys.id;
-        const asset = {};
-        asset.data = refs.filter((ref) => ref.contentful_id === nodeid)[0];
-        // console.log("asset.data: ", typeof asset.data, asset.data);
-        if (Object.keys(asset.data).length === 0) {
+        // const trefs = [];
+        // const tasset =
+        //   trefs.filter((tref) => tref.contentful_id === nodeid)[0] ?? {};
+        // console.log("tasset: ", tasset);
+        const asset =
+          refs.filter((ref) => ref.contentful_id === nodeid)[0] ?? {};
+        // console.log("asset: ", typeof asset, asset);
+        if (Object.keys(asset).length === 0) {
           return null;
         }
         return (
-          <GatsbyImage
-            image={asset.data.gatsbyImageData}
-            alt={asset.data.description}
-          />
+          <GatsbyImage image={asset.gatsbyImageData} alt={asset.description} />
         );
       },
     },
