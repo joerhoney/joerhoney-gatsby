@@ -45,7 +45,7 @@ const Post = (props) => {
   const featdesc = props.data.contentfulPost.featuredImage?.description;
   // console.log(featurl);
   const html = JSON.parse(props.data.contentfulPost.body.raw);
-  const refs = props.data.contentfulPost.body.references;
+  const refs = props.data.contentfulPost.body.references || null;
   // console.log(refs);
   const options = {
     renderNode: {
@@ -56,7 +56,9 @@ const Post = (props) => {
         //   trefs.filter((tref) => tref.contentful_id === nodeid)[0] ?? {};
         // console.log("tasset: ", tasset);
         const asset =
-          refs.filter((ref) => ref && ref.contentful_id === nodeid)[0] ?? {};
+          refs !== null
+            ? refs.filter((ref) => ref && ref.contentful_id === nodeid)[0]
+            : {};
         // console.log("asset: ", typeof asset, asset);
         if (Object.keys(asset).length === 0) {
           return null;
