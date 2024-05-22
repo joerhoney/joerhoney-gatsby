@@ -13,7 +13,7 @@ import HeroHome from "@fragments/HeroHome";
 import Profiles from "@fragments/Profiles";
 import SubheroHome from "@fragments/SubheroHome";
 // Images
-import avatar from "@images/avatar2.webp";
+import avatar from "@images/portrait.webp";
 import dragonSplit1 from "@images/dragon-split1.webp";
 import dragonSplit2 from "@images/dragon-split2.webp";
 // import Query from "../examples/Query";
@@ -27,15 +27,15 @@ const Home = () => {
           <img
             alt="Portrait of Joe Rhoney."
             className="self-right transluscent"
-            height="208"
+            height="290"
             loading="lazy"
             src={avatar}
             style={{
-              maxWidth: "176px",
+              maxWidth: "240px",
               marginBottom: "-80px",
               marginTop: "20px",
             }}
-            width="176"
+            width="240"
           />
           <h2 className="tilt" style={{ paddingTop: "0" }}>
             Hello, World!
