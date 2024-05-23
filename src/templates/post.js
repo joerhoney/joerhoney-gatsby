@@ -43,7 +43,6 @@ const Post = (props) => {
   const { date, title } = props.data.contentfulPost;
   const featurl = `https:${props.data.contentfulPost.featuredImage?.file.url}`;
   const featdesc = props.data.contentfulPost.featuredImage?.description;
-  // console.log(featurl);
   const html = JSON.parse(props.data.contentfulPost.body.raw);
   const refs = props.data.contentfulPost.body.references || null;
   // console.log(refs);
@@ -73,6 +72,7 @@ const Post = (props) => {
     <>
       <section className="hero post">
         <div className="hero__bg">
+          {console.log("Post.js: featurl: ", featurl)}
           <img alt={featdesc} loading="lazy" src={featurl} />
         </div>
         <h1>{title}</h1>
