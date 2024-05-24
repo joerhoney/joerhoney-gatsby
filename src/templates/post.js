@@ -87,9 +87,9 @@ const Post = (props) => {
           return null;
         }
         return (
-          <code className={`lang-${entry.language}`}>
+          <pre className={`language-${entry.language}`}>
             {entry.snippet.snippet}
-          </code>
+          </pre>
         );
       },
     },
