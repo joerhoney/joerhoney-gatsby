@@ -1,6 +1,9 @@
 node_modules/
+netlify.toml
 .env
 .cache/
 public
 schema.gql
 default schema.gql
+# Local Netlify folder
+.netlify

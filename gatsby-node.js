@@ -25,12 +25,12 @@ exports.createSchemaCustomization = ({ actions }) => {
       date: Date @dateformat
       description: String
       body: ContentfulPostBody
-      featuredImage: ContentfulAsset
+      featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
     }
 
     type ContentfulPostBody {
       raw: String
-      references: [ContentfulAsset]
+      references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
     }
 
     type ContentfulAsset implements Node {
