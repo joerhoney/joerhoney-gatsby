@@ -28,14 +28,22 @@ exports.createSchemaCustomization = ({ actions }) => {
       featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
     }
 
+    union BodyReference = ContentfulAsset | ContentfulCode
+
     type ContentfulPostBody {
       raw: String
-      references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+      references: [BodyReference] @link(by: "id", from: "references___NODE")
     }
 
-    type ContentfulAsset implements Node {
+    type ContentfulAsset implements Node & ContentfulReference {
       file: ContentfulAssetFile
       description: String
+    }
+    
+    type ContentfulCode implements Node & ContentfulReference {
+      title: String
+      description: String
+      language: String
     }
 
     type ContentfulAssetFile {

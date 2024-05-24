@@ -16,18 +16,25 @@ export const query = graphql`
       body {
         raw
         references {
-          contentful_id
-          gatsbyImageData
           ... on ContentfulAsset {
             contentful_id
             __typename
             description
             gatsbyImageData
           }
+          ... on ContentfulCode {
+            contentful_id
+            __typename
+            title
+            description
+            language
+            snippet {
+              snippet
+            }
+          }
         }
       }
       featuredImage {
-        contentful_id
         file {
           url
         }
@@ -42,29 +49,47 @@ export const query = graphql`
 const Post = (props) => {
   // console.log(props.data.contentfulPost);
   const { date, title } = props.data.contentfulPost;
-  const featurl = `https:${props.data.contentfulPost.featuredImage?.file.url}`; // ...featuredImage?.file.url
-  const featdesc = props.data.contentfulPost.featuredImage?.description; // ...featuredImage?.description
+  const featurl = `https:${props.data.contentfulPost.featuredImage?.file.url}`;
+  const featdesc = props.data.contentfulPost.featuredImage?.description;
   const html = JSON.parse(props.data.contentfulPost.body.raw);
+  console.log("html: ", html);
   const refs = props.data.contentfulPost.body.references || null;
+  console.log("refs: ", refs);
   // console.log(refs);
   const options = {
     renderNode: {
       "embedded-asset-block": (node) => {
         const nodeid = node.data.target.sys.id;
-        // const trefs = [];
-        // const tasset =
-        //   trefs.filter((tref) => tref.contentful_id === nodeid)[0] ?? {};
-        // console.log("tasset: ", tasset);
         const asset =
           refs !== null
             ? refs.filter((ref) => ref && ref.contentful_id === nodeid)[0]
             : {};
-        // console.log("asset: ", typeof asset, asset);
         if (Object.keys(asset).length === 0) {
           return null;
         }
         return (
           <GatsbyImage image={asset.gatsbyImageData} alt={asset.description} />
+        );
+      },
+      "embedded-entry-block": (node) => {
+        const nodeid = node.data.target.sys.id;
+        console.log("nodeid: ", nodeid);
+        // const trefs = [];
+        // const tasset =
+        //   trefs.filter((tref) => tref.contentful_id === nodeid)[0] ?? {};
+        // console.log("tasset: ", tasset);
+        const entry =
+          refs !== null
+            ? refs.filter((ref) => ref && ref.contentful_id === nodeid)[0]
+            : {};
+        console.log("entry: ", typeof entry, entry);
+        if (Object.keys(entry).length === 0) {
+          return null;
+        }
+        return (
+          <code className={`lang-${entry.language}`}>
+            {entry.snippet.snippet}
+          </code>
         );
       },
     },

@@ -28,6 +28,8 @@
   min-height: 50vh;
   position: relative;
   .hero__bg {
+    overflow: hidden;
+
     position: absolute;
     top: 0;
     left: 0;
