@@ -13,13 +13,13 @@ import "@css/global.css";
 import "@css/hero.scss";
 import "@css/units.css";
 
-const Page = ({ children, className }) => {
+const Page = ({ children, className, nav, indicator, scheme }) => {
   return (
     <>
       <main className={className}>
-        <Scheme />
-        <Nav />
-        <NavIndicator />
+        {scheme !== false && <Scheme />}
+        {nav !== false && <Nav />}
+        {indicator !== false && <NavIndicator />}
         {children}
       </main>
       <Footer />

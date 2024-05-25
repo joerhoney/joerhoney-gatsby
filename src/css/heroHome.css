@@ -1,9 +1,14 @@
+.heroClip {
+  margin-bottom: -10vh;
+}
 .heroWrapper {
   width: 50vh;
 }
 .heroHome {
+  --hero-height: 106vh;
   float: left;
-  height: 100vh;
+  height: var(--hero-height);
+  margin-bottom: -6vh;
   margin-right: -3vw;
   transform: rotate(14.125deg);
   translate: 1vh 1vh;
@@ -11,17 +16,18 @@
   z-index: 0;
 
   position: relative;
-  top: 2vh;
+  top: 1vh;
   left: -2.2vh;
 }
 @media screen and (orientation: portrait) {
   .heroClip {
+    margin-bottom: -6vh;
     max-width: 100vw;
     overflow: hidden;
   }
   .heroHome {
     float: none;
-    margin-bottom: 0;
+    margin-bottom: calc(-11vw + -11vh);
   }
 }
 .heroHome a {
@@ -45,7 +51,7 @@
 }
 .heroHome h1 {
   display: inline-block;
-  font-size: 13vh;
+  font-size: 14vh;
   font-weight: 400;
   line-height: 1.2em;
   position: absolute;
@@ -53,10 +59,10 @@
 }
 .heroHome h1 b:nth-child(1) {
   display: inline-block;
-  left: 3.6vh;
+  left: 3vh;
 
   position: relative;
-  top: -1vh;
+  top: -0.6vh;
 }
 .heroHome h1 b:nth-child(1)::before {
   font: inherit;
@@ -69,7 +75,7 @@
   left: 6.3vh;
 
   position: absolute;
-  top: 60.1vh;
+  top: 63.1vh;
 }
 .heroHome p {
   background: -webkit-linear-gradient(
@@ -83,9 +89,9 @@
   background-clip: text;
   -webkit-background-clip: text;
   font-family: Courier, monospace;
-  font-size: 1.3vh;
+  font-size: 1.34vh;
   font-weight: 400;
-  height: 100vh;
+  height: var(--hero-height);
   hyphens: auto;
   margin: 0;
   letter-spacing: -0.09vh;
@@ -105,12 +111,12 @@
   content: "";
   display: block;
   float: left;
-  height: 100vh;
+  height: var(--hero-height);
   shape-outside: polygon(
     0% 0%,
     100% 0%,
     100% 18.3%,
-    52.57% 18.33%,
+    52.57% 18.3%,
     45.43% 19.41%,
     45.81% 28.88%,
     51.89% 29.84%,
@@ -126,17 +132,17 @@
     73% 100%,
     0% 100%
   );
-  width: 18vh;
+  width: 19vh;
 }
 .jDots p {
   max-width: unset;
-  width: 20vh;
+  width: 21.3vh;
 }
 .jDots p::before {
   content: "";
   display: block;
   float: right;
-  height: 100vh;
+  height: var(--hero-height);
   shape-outside: polygon(
     100% 0%,
     58.34% 0%,
@@ -163,7 +169,7 @@
   content: "";
   display: block;
   float: left;
-  height: 100vh;
+  height: var(--hero-height);
   shape-outside: polygon(
     0% 0%,
     100% 0.08%,
@@ -188,17 +194,17 @@
     74.39% 99.66%,
     0% 100%
   );
-  width: 29vh;
+  width: 30.7vh;
 }
 .jBig p {
   max-width: unset;
-  width: 50vh;
+  width: 51vh;
 }
 .jBig p::before {
   content: "";
   display: block;
   float: right;
-  height: 100vh;
+  height: var(--hero-height);
   shape-outside: polygon(
     100% 0%,
     0% 0%,
@@ -221,11 +227,29 @@
     16.31% 62.1%,
     0% 63.2%,
     0.01% 73.5%,
-    74.76% 73.5%,
-    75.78% 75.02%,
-    90.75% 75.09%,
+    83.1% 73.5%,
+    83.1% 75.02%,
+    100% 74.97%,
     40.38% 99.91%,
     100% 100%
   );
-  width: 20.75vh;
+  width: 18.75vh;
+}
+
+/*
+  # SUBHERO
+*/
+
+.subhero {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+@media screen and (orientation: portrait) {
+  .subhero {
+    margin-bottom: var(--unit16);
+    min-height: unset;
+  }
 }

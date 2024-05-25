@@ -11,7 +11,6 @@ import Page from "@layouts/Page";
 // Fragments
 import HeroHome from "@fragments/HeroHome";
 import Profiles from "@fragments/Profiles";
-import SubheroHome from "@fragments/SubheroHome";
 // Images
 import avatar from "@images/portrait.webp";
 import dragonSplit1 from "@images/dragon-split1.webp";
@@ -21,40 +20,41 @@ import dragonSplit2 from "@images/dragon-split2.webp";
 const Home = () => {
   return (
     <>
-      <HeroHome />
-      <SubheroHome>
-        <article>
-          <img
-            alt="Portrait of Joe Rhoney."
-            className="self-right transluscent"
-            height="290"
-            loading="lazy"
-            src={avatar}
-            style={{
-              maxWidth: "240px",
-              marginBottom: "-80px",
-              marginTop: "20px",
-            }}
-            width="240"
-          />
-          <h2 className="tilt" style={{ paddingTop: "0" }}>
-            Hello, World!
-          </h2>
-          <p>
-            Pardon my code humor, I've been in this industry for
-            {since("Jan, 1, 2006")} years. Because that's how old I am… Okay,
-            maybe I'm a little older than that. &#128513;
-            <br />
-            <br />I design, build and maintain websites and web apps, using
-            efficient and cost-effective modern development technologies.
-            Resolving difficult UI/UX challenges and creating new and exciting
-            experiences makes me tick. Likewise, being the one to zap that bug
-            and ward off the hackers is a thrill worth fighting for.
-          </p>
-        </article>
-      </SubheroHome>
-      <Page className="block">
-        <div className="compensateT">
+      <HeroHome>
+        <div className="subhero">
+          <article>
+            <img
+              alt="Portrait of Joe Rhoney."
+              className="self-right transluscent"
+              height="290"
+              loading="lazy"
+              src={avatar}
+              style={{
+                maxWidth: "240px",
+                marginBottom: "-80px",
+                marginTop: "20px",
+              }}
+              width="240"
+            />
+            <h2 className="tilt" style={{ paddingTop: "0" }}>
+              Hello, World!
+            </h2>
+            <p>
+              Pardon my code humor, I've been in this industry for
+              {/* since("Jan, 1, 2006") */} years. Because that's how old I am…
+              Okay, maybe I'm a little older than that. &#128513;
+              <br />
+              <br />I design, build and maintain websites and web apps, using
+              efficient and cost-effective modern development technologies.
+              Resolving difficult UI/UX challenges and creating new and exciting
+              experiences makes me tick. Likewise, being the one to zap that bug
+              and ward off the hackers is a thrill worth fighting for.
+            </p>
+          </article>
+        </div>
+      </HeroHome>
+      <Page indicator={false} nav={false}>
+        <div>
           <Split>
             <Half
               alt="Illustration of the front end of a dragon."
