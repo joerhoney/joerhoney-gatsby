@@ -52,14 +52,14 @@ const Home = () => {
               <a
                 href="#question"
                 style={{
-                  border: ".05 solid currentColor",
+                  border: "0.075em solid currentColor",
                   borderRadius: "100px",
                   display: "block",
                   fontSize: "400%",
-                  height: ".6em",
-                  width: ".6em",
+                  height: "0.6em",
+                  width: "0.6em",
                   margin: "auto",
-                  padding: ".2em .1em 0",
+                  padding: "0.2em 0.1em 0",
                 }}
               >
                 &#8595;
