@@ -41,16 +41,28 @@ const Home = () => {
             </h2>
             <p>
               Pardon my code humor, I've been in this industry for
-              {/* since("Jan, 1, 2006") */} years. Because that's how old I am…
-              Okay, maybe I'm a little older than that. &#128513;
+              {since("Jan, 1, 2006")} years. Because that's how old I am… Okay,
+              maybe I'm a little older than that. &#128513;
               <br />
               <br />I design, build and maintain websites and web apps, using
               efficient and cost-effective modern development technologies.
               Basically, I provide design and online solutions for your
-              business. But... <br />
+              business. But what are you here for? <br />
               <br />
-              <a className="button" href="#question">
-                What are you here for? &#8595;
+              <a
+                href="#question"
+                style={{
+                  border: ".05 solid currentColor",
+                  borderRadius: "100px",
+                  display: "block",
+                  fontSize: "400%",
+                  height: ".6em",
+                  width: ".6em",
+                  margin: "auto",
+                  padding: ".2em .1em 0",
+                }}
+              >
+                &#8595;
               </a>
             </p>
           </article>
