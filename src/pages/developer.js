@@ -8,6 +8,8 @@ import Form from "@components/Formspree";
 import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";
+// CSS
+import "@css/developer.scss";
 // Fragments
 import Profiles from "@fragments/Profiles";
 import {
@@ -23,6 +25,7 @@ import {
 } from "@fragments/Skills";
 // Images
 import dragon from "@images/heros/dragon.webp";
+import avatar from "@images/portrait.webp";
 import codazenimg from "@images/screenshots/codazen-home.webp";
 import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
 import metaimg from "@images/screenshots/meta-home.webp";
@@ -104,6 +107,16 @@ const codazenskills = [
     `These are some of websites I built at Gilleard Marketing. `,
   ];
 
+const portraitCSS = {
+  position: "absolute",
+  bottom: "-11.1vw",
+  right: "6vw",
+  "@media (min-width: 960px)": {
+    height: "auto",
+    width: "22%",
+  },
+};
+
 const codePage = () => {
   return (
     <>
@@ -114,7 +127,87 @@ const codePage = () => {
         <h1>Developer</h1>
       </section>
       <Page>
-        <section className="alignable bottomM" id="skills">
+        <section className="alignable">
+          <article className="self-center">
+            <h2>Developer?</h2>
+            <p>
+              These days, a web developer is usually expected to be well-rounded
+              and specialize in several aspects of the web. The industry
+              continues to grow exponentially and anyone involved should know
+              that no one can specialize in all of it. So what do I mean when I
+              say I'm a web developer? Here are the more specific web roles I
+              consider myself a good fit for, and why:
+            </p>
+          </article>
+        </section>
+        <section
+          className="skew_b compensateTHalf topS cta_b"
+          style={{ position: "relative" }}
+        >
+          <article className="self-center">
+            <h2 className="tilt">Roles</h2>
+          </article>
+          <div className="columns-few bottomS coluns-few__tilt">
+            <div className="column">
+              <h3>Front-End Developer</h3>
+              <p>
+                All things considered, this is primarily where my skill set and
+                experience places me. Most of what I do is comprised of
+                converting design and content to a functional user interface. In
+                more recent years I've been using a lot of Node, React, GraphQL
+                and Gatsby.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Creative Developer</h3>
+              <p>
+                This lesser-known role is where I see myself heading in my
+                career path. Generally expected to have some HTML canvas and
+                WebGL knowledge, as well as a deep understanding of CSS,
+                Creative Developer specializes in digital experiences. I am
+                excited be learning these skills.
+              </p>
+            </div>
+            <div className="column">
+              <h3>WordPress Developer</h3>
+              <p>
+                The majority of my web industry experience involves the 100+
+                WordPress websites I designed, built and/or managed over the
+                course of about 12 years. Most of these include my own custom
+                theme and some of my own plugins (10 available in the public
+                repository under the name AddFunc).
+              </p>
+            </div>
+            <div className="column">
+              <h3>Web Developer</h3>
+              <p>
+                To me, this blanket term means understanding the fundamental
+                mechanics of the web and knowing the 3 pillars of web
+                linguistics, HTML, CSS and JavaScript. In addition to the daily
+                use of these a web developer sees the relationships,
+                similarities and differences in all web languages and can
+                therefore adapt as needed.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Web/UI Designer</h3>
+              <p>
+                I have designed many websites and have carefully observed the
+                evolution of modern web design trends and its crossover into
+                online and offline apps.
+              </p>
+            </div>
+          </div>
+          <img
+            alt="Portrait of Joe Rhoney."
+            className="portrait self-right transluscent"
+            height="290"
+            loading="lazy"
+            src={avatar}
+            width="240"
+          />
+        </section>
+        <section className="alignable bottomM topS" id="skills">
           <article className="self-center">
             <h2>Skills &amp; Tools</h2>
             <p>

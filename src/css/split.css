@@ -1,7 +1,7 @@
 .splitWrap {
-  overflow: hidden;
-  margin: -20vw 0;
-  padding: 20vw 0;
+  /* overflow: hidden;
+  margin: -26vw 0;
+  padding: 26vw 0; */
   width: 100vw;
 }
 .split {
@@ -10,6 +10,7 @@
   grid-template-columns: 50vw 50vw;
   grid-template-rows: 100vh;
   position: relative;
+  scroll-margin-top: -11.5vw;
   transform: rotate(14.125deg);
   width: 100vw;
 }
@@ -50,12 +51,12 @@
 }
 .half:nth-child(1) .cell {
   display: grid;
-  grid-template-columns: [content] auto [title] calc(5vh + 4vw);
+  grid-template-columns: [content] auto [title] calc(4.5vh + 4.5vw);
   grid-template-rows: [space] 100vh;
 }
 .half:nth-child(2) .cell {
   display: grid;
-  grid-template-columns: [title] calc(5vh + 4vw) [content] auto;
+  grid-template-columns: [title] calc(4.5vh + 4.5vw) [content] auto;
   grid-template-rows: [space] 100vh;
 }
 .half img {
@@ -90,6 +91,9 @@
   margin: 0;
   padding: 0;
 }
+.half .cell .title.lift {
+  margin: 0 calc(0.7vw + 0.7vh) 0 calc(-0.7vw + -0.7vh);
+}
 .half .cell .content {
   box-sizing: border-box;
   grid-column: content;
@@ -102,7 +106,7 @@
   text-align: right;
 }
 .half h2 {
-  font-size: calc(5vh + 4vw);
+  font-size: calc(4.5vh + 4.5vw);
   margin: 0;
   padding: 0;
   transform: rotate(-90deg);

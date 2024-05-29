@@ -11,6 +11,7 @@ const Split = (props) => {
         className={`split ${
           typeof props.className !== "undefined" ? props.className : ""
         }`}
+        id={props.id}
       >
         {props.children}
       </div>
@@ -36,7 +37,7 @@ const Half = (props) => {
         />
       )}
       <div className="cell">
-        <div className="title">
+        <div className={`title${props.lift && " lift"}`}>
           <h2>{props.heading}</h2>
         </div>
         <div className="content">

@@ -46,95 +46,64 @@ const Home = () => {
               <br />
               <br />I design, build and maintain websites and web apps, using
               efficient and cost-effective modern development technologies.
-              Resolving difficult UI/UX challenges and creating new and exciting
-              experiences makes me tick. Likewise, being the one to zap that bug
-              and ward off the hackers is a thrill worth fighting for.
+              Basically, I provide design and online solutions for your
+              business. But... <br />
+              <br />
+              <a className="button" href="#question">
+                What are you here for? &#8595;
+              </a>
             </p>
           </article>
         </div>
       </HeroHome>
       <Page indicator={false} nav={false}>
         <div>
-          <Split>
+          <Split className="compensateTHalf" id="question">
             <Half
               alt="Illustration of the front end of a dragon."
-              button="View Work"
-              className="half1 u-jump-link"
-              heading="Developer"
-              id="websites"
+              button="Get Solution"
+              className="half1"
+              heading="Solutions"
+              id="problem-solver"
               position="top right"
               src={dragonSplit1}
               speed={9}
-              to="/developer"
+              to="/services"
             >
               <p>
-                See my list of skills, my work expe&shy;ri&shy;ence and projects
-                I have going on right now.
+                Do you need online solu&shy;tions for your organiza&shy;tion?
+                Business owners, that's you.
               </p>
             </Half>
             <Half
               alt="Illustration of the back end of a dragon."
-              button="View Art"
-              className="half2 u-jump-link"
-              heading="Illustrator"
-              id="illustration"
+              button="Fill a Role"
+              className="half2"
+              heading="Developer"
+              lift="true"
+              id="Developer"
               position="top left"
               src={dragonSplit2}
               speed={-9}
-              to="/artist"
+              to="/developer"
             >
               <p>
-                See graph&shy;ic illus&shy;tra&shy;tions,
-                creature/&#8203;character creations and other artwork I've done.
+                Or are you looking to hire a developer? Recruiters, Hiring
+                Managers, that's you.
               </p>
             </Half>
           </Split>
         </div>
-        <section className="alignable topXS">
-          <div className="columns-3">
-            <div className="column" id="custom-plugins">
-              <h3>WordPress Plugins</h3>
-              <p>
-                I create custom plugins. In fact, I have published 10 in the
-                WordPress repository under the name AddFunc. They all have
-                ratings, too. Check them out:
-              </p>
-              <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">
-                AddFunc Plugins
-              </Button>
-            </div>
-            <div className="column">
-              <h3>Developer Résumé</h3>
-              <p>
-                You may already have it, but for convenience and to ensure a
-                clear correlation, you can find my résumé here:
-              </p>
-              <Link className="button" to="/resume">
-                View Résumé
-              </Link>
-            </div>
-            <div className="column">
-              <h3>Journey of an&nbsp;Artist</h3>
-              <p>
-                Want to know more about me personally? Well, I wrote a bit about
-                my life here:
-              </p>
-              <Link className="button" to="/story">
-                My Story
-              </Link>
-            </div>
-          </div>
-        </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable compensateTHalf" id="contact">
           <article className="self-center">
-            <h2>Contact Me</h2>
+            <h2>Or Contact Me</h2>
             <p>
-              Whether you need help building something or you just want to
-              connect... well I want to connect, so drop me an email!
+              Whether you need help with something online or you just want to
+              connect, drop me an email!
             </p>
           </article>
           {/* <Query /> */}
-          <Form className="compensateBHalf" />
+          <Form />
         </section>
         <section className="alignable">
           <Profiles className="article reveal self-center compensateBHalf" />

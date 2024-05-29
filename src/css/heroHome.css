@@ -1,8 +1,5 @@
 .heroClip {
-  margin-bottom: -10vh;
-}
-.heroWrapper {
-  width: 50vh;
+  margin-bottom: 0;
 }
 .heroHome {
   --hero-height: 106vh;
@@ -27,7 +24,6 @@
   }
   .heroHome {
     float: none;
-    margin-bottom: calc(-11vw + -11vh);
   }
 }
 .heroHome a {
