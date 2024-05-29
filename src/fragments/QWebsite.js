@@ -152,11 +152,11 @@ function QWebsite() {
                             </a>
                             <a
                               className="answer"
-                              href="/services/online-presence"
+                              href="/solutions/online-presence"
                             >
                               Website marketing
                             </a>
-                            <a className="answer" href="/services/website">
+                            <a className="answer" href="/solutions/website">
                               A new website
                             </a>
                             <a className="answer" href="">

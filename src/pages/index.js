@@ -80,7 +80,7 @@ const Home = () => {
               position="top right"
               src={dragonSplit1}
               speed={9}
-              to="/services"
+              to="/solutions"
             >
               <p>
                 Do you need online solu&shy;tions for your organiza&shy;tion?
