@@ -107,16 +107,6 @@ const codazenskills = [
     `These are some of websites I built at Gilleard Marketing. `,
   ];
 
-const portraitCSS = {
-  position: "absolute",
-  bottom: "-11.1vw",
-  right: "6vw",
-  "@media (min-width: 960px)": {
-    height: "auto",
-    width: "22%",
-  },
-};
-
 const codePage = () => {
   return (
     <>

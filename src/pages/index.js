@@ -2,9 +2,9 @@ import * as React from "react";
 // Utilities
 import since from "@utils/since";
 // Components
-import Button from "@components/Button";
+// import Button from "@components/Button";
 import Form from "@components/Formspree";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import { Half, Split } from "@components/Split";
 // Layouts
 import Page from "@layouts/Page";

@@ -20,6 +20,7 @@ class Scheme extends React.Component {
             title="Light color scheme"
           >
             <input
+              aria-label="Light color scheme"
               name="color-scheme"
               id="light-scheme"
               type="radio"
@@ -33,6 +34,7 @@ class Scheme extends React.Component {
             title="Your default color scheme"
           >
             <input
+              aria-label="Auto color scheme"
               name="color-scheme"
               id="auto-scheme"
               type="radio"
@@ -46,6 +48,7 @@ class Scheme extends React.Component {
             title="Dark color scheme"
           >
             <input
+              aria-label="Dark color scheme"
               name="color-scheme"
               id="dark-scheme"
               type="radio"

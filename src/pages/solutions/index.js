@@ -6,8 +6,9 @@ import Form from "@components/Form";
 import Page from "@layouts/Page";
 // Fragments
 import Profiles from "@fragments/Profiles";
-// import QWebsite from "@fragments/QWebsite";
+import QWebsite from "@fragments/QWebsite";
 // Images
+import avatar from "@images/portrait.webp";
 import storeFront from "@images/heros/store-front-transparent.webp";
 // import dragonSplit1 from "@images/dragon-split1.webp";
 // import dragonSplit2 from "@images/dragon-split2.webp";
@@ -26,7 +27,58 @@ const solutionsPage = () => {
         <h1>Services</h1>
       </section>
       <Page>
-        <section className="alignable bottomM u-jump-link" id="skills">
+        <section className="alignable bottomM">
+          <article className="self-center">
+            <h2>Solutions</h2>
+            <p>
+              Most likely, you've come here because you need solutions. While I
+              can list all of the web and creative solutions I can offer, I
+              think it would prove more efficient to listen to your needs. Let's
+              start with one of these options:
+            </p>
+          </article>
+        </section>
+        <section
+          className="skew_b compensateTHalf topS cta_b"
+          style={{ position: "relative" }}
+        >
+          <article className="self-center">
+            <h2 className="tilt">Roles</h2>
+          </article>
+          <div className="columns-few bottomS coluns-few__tilt">
+            <div className="column">
+              <h3>Questionnaire</h3>
+              <p>
+                Zero in on the solutions that would best address your problems
+                by answering a few questions.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Contact Me</h3>
+              <p>
+                Don't hesitate to reach out. I'm a listener and I'm eager to
+                hear all of your online and creative needs, so I can provide the
+                most suitable solutions to your problems.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Still Not Sure?</h3>
+              <p>
+                Fair enough. You can learn more about me and my services here.
+              </p>
+            </div>
+          </div>
+          <img
+            alt="Portrait of Joe Rhoney."
+            className="portrait self-right transluscent"
+            height="290"
+            loading="lazy"
+            src={avatar}
+            width="240"
+          />
+        </section>
+
+        {/* <section className="alignable bottomM">
           <article className="self-center">
             <h2>Grow Online</h2>
             <p>
@@ -50,7 +102,7 @@ const solutionsPage = () => {
               need me.
             </p>
           </article>
-        </section>
+        </section> */}
         {/* <section className="alignable">
           <article className="self-center z10">
             <QWebsite />
