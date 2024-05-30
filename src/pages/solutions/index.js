@@ -7,6 +7,8 @@ import Page from "@layouts/Page";
 // Fragments
 import Profiles from "@fragments/Profiles";
 import QWebsite from "@fragments/QWebsite";
+// CSS
+import "@css/solutions.scss";
 // Images
 import avatar from "@images/portrait.webp";
 import storeFront from "@images/heros/store-front-transparent.webp";
@@ -27,24 +29,28 @@ const solutionsPage = () => {
         <h1>Services</h1>
       </section>
       <Page>
-        <section className="alignable bottomM">
+        <section className="alignable">
           <article className="self-center">
-            <h2>Solutions</h2>
             <p>
-              Most likely, you've come here because you need solutions. While I
-              can list all of the web and creative solutions I can offer, I
+              Most likely, you've come here because you need web or creative
+              solutions. While I can list all of the solutions I can offer, I
               think it would prove more efficient to listen to your needs. Let's
               start with one of these options:
             </p>
           </article>
+          <img
+            alt="Portrait of Joe Rhoney."
+            className="portrait self-right transluscent"
+            height="290"
+            loading="lazy"
+            src={avatar}
+            width="240"
+          />
         </section>
         <section
           className="skew_b compensateTHalf topS cta_b"
           style={{ position: "relative" }}
         >
-          <article className="self-center">
-            <h2 className="tilt">Roles</h2>
-          </article>
           <div className="columns-few bottomS coluns-few__tilt">
             <div className="column">
               <h3>Questionnaire</h3>
@@ -68,14 +74,12 @@ const solutionsPage = () => {
               </p>
             </div>
           </div>
-          <img
-            alt="Portrait of Joe Rhoney."
-            className="portrait self-right transluscent"
-            height="290"
-            loading="lazy"
-            src={avatar}
-            width="240"
-          />
+        </section>
+        <section>
+          <article className="self-center topS">
+            <h2 className="tilt">Questionnaire</h2>
+            <QWebsite />
+          </article>
         </section>
 
         {/* <section className="alignable bottomM">

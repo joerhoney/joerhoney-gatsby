@@ -1,0 +1,13 @@
+.portrait {
+  height: auto;
+  width: 320px;
+  position: absolute;
+  bottom: -22.9vw;
+  right: 0;
+  @media (min-width: 1000px) {
+    width: 32vw;
+  }
+}
+:has(.portrait) {
+  padding-bottom: calc(400px + -20vw);
+}
