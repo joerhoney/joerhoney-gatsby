@@ -1,4 +1,4 @@
-.portrait {
+.all-ears {
   height: auto;
   width: 320px;
   position: absolute;
@@ -8,6 +8,6 @@
     width: 32vw;
   }
 }
-:has(.portrait) {
+:has(.all-ears) {
   padding-bottom: calc(400px + -20vw);
 }

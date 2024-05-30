@@ -7,7 +7,7 @@ import Nav from "./Nav";
 import NavIndicator from "./NavIndicator";
 import Scheme from "./Scheme";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 import "@css/colors-default.css";
 import "@css/global.scss";
 import "@css/hero.scss";

@@ -10,7 +10,7 @@ import QWebsite from "@fragments/QWebsite";
 // CSS
 import "@css/solutions.scss";
 // Images
-import avatar from "@images/portrait.webp";
+import allears from "@images/portrait.webp";
 import storeFront from "@images/heros/store-front-transparent.webp";
 // import dragonSplit1 from "@images/dragon-split1.webp";
 // import dragonSplit2 from "@images/dragon-split2.webp";
@@ -39,11 +39,11 @@ const solutionsPage = () => {
             </p>
           </article>
           <img
-            alt="Portrait of Joe Rhoney."
-            className="portrait self-right transluscent"
+            alt="Illustration"
+            className="all-ears self-right transluscent"
             height="290"
             loading="lazy"
-            src={avatar}
+            src={allears}
             width="240"
           />
         </section>
@@ -76,7 +76,7 @@ const solutionsPage = () => {
           </div>
         </section>
         <section>
-          <article className="self-center topS">
+          <article className="self-center topS bottomS">
             <h2 className="tilt">Questionnaire</h2>
             <QWebsite />
           </article>

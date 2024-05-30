@@ -5,7 +5,7 @@ import getDomainName from "@utils/getDomainName.js";
 // Coponents
 import Icon from "./Icon.js";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 
 const Button = (props) => {
   const rel = isExternal(props.href) ? "noreferrer" : "";

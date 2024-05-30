@@ -1,6 +1,6 @@
 import React from "react";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 import "@css/form.css";
 
 const Form = (props) => {

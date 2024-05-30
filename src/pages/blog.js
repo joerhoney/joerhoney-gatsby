@@ -7,7 +7,7 @@ import Nav from "../layouts/Nav";
 // import NavIndicator from "../layouts/NavIndicator";
 import Scheme from "../layouts/Scheme";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 import "@css/colors-default.css";
 import "@css/global.scss";
 import "@css/units.css";
