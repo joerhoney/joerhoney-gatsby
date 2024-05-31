@@ -15,7 +15,7 @@ const priceDrtChp = "price_1PEiCnJndiOOi7lkFhymi7e7";
 const priceUDrive = "price_1PEiF9JndiOOi7lkWy4DCnfH";
 const priceSellIt = "price_1PEiG6JndiOOi7lkcJzhaJqO";
 
-const webMaintenancePage = () => {
+const webPresencePage = () => {
   return (
     <>
       <section className="hero page">
@@ -26,7 +26,7 @@ const webMaintenancePage = () => {
             src={storeFront}
           />
         </div>
-        <h1>Web Maintenance</h1>
+        <h1>Web Presence</h1>
       </section>
       <Page>
         <section className="alignable compensateB u-jump-link" id="packages">
@@ -339,13 +339,13 @@ const webMaintenancePage = () => {
   );
 };
 
-export default webMaintenancePage;
+export default webPresencePage;
 
 export const Head = () => (
   <>
-    <title>Web Maintenance | :joe rhoney</title>
+    <title>Web Presence | :joe rhoney</title>
     <meta name="description" content="." />
-    <meta property="og:keywords" content="Web Maintenance" />
+    <meta property="og:keywords" content="Web Presence" />
     <meta property="og:type" content="website" />
   </>
 );

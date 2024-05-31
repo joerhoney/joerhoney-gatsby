@@ -67,7 +67,7 @@ const solutionsPage = () => {
               <h3>Contact Me</h3>
               <p>
                 Don't hesitate to reach out. I'm a listener and I'm eager to
-                hear all of your online and creative needs, so I can provide the
+                hear all of your web and creative needs, so I can provide the
                 most suitable solutions to your problems.
               </p>
               <a href="#contact" className="jump-button">
@@ -100,8 +100,8 @@ const solutionsPage = () => {
             <p>
               Having a new website built doesn't have to be difficult or costly.
               Whether you need to enable your customer to place orders online or
-              you just need a simple place online to stake your presence, one of
-              these diverse web packages should be just what you need.
+              you just need a simple place on the web to stake your presence,
+              one of these diverse web packages should be just what you need.
               <Link to="/solutions/website" className="button">
                 Website Packages
               </Link>
@@ -121,12 +121,12 @@ const solutionsPage = () => {
             </p>
             <h3>Web Design</h3>
             <p>
-              Attraction is the responsibility of design. While any online
-              presence is better than nothing, design is one of the main factors
-              that governs a first impression, which can make or break your
-              contact with a potential customer. A fresh modern look will garner
-              new visitors in greater abundance than one that makes your
-              business look old and rundown. My{" "}
+              Attraction is the responsibility of design. While any web presence
+              is better than nothing, design is one of the main factors that
+              governs a first impression, which can make or break your contact
+              with a potential customer. A fresh modern look will garner new
+              visitors in greater abundance than one that makes your business
+              look old and rundown. My{" "}
               <Link to="/solutions/website">Website Packages</Link> include web
               design, but if you already have a website and it needs a facelift,
               send me your website address for a free quote on a new look.
@@ -135,6 +135,22 @@ const solutionsPage = () => {
               </a>
             </p>
             <h3>Web Presence</h3>
+            <p>
+              Except in rare cases, having a website is crucial to establishing
+              a presence on the web for any organization. People commonly rely
+              on search engines to find you, and if you're not there… 🤷🏻‍♂️ My
+              Website Packages include basic search engine optimization (SEO) to
+              ensure you're not lost in the dust while your neighbor gets all
+              the clicks. But it is also important to recognize that a website
+              isn't the only way your potential customers will look for what
+              they need. Many use Yelp!, Google Maps (and other map apps),
+              Facebook and other such directories. These packages are designed
+              to establish such venues as needed and keep them up-to-date, to
+              ensure your prospects get a chance to see how you shine.
+              <Link to="/solutions/web-presence" className="button">
+                Web Presence Packages
+              </Link>
+            </p>
             <h3>Web Growth</h3>
             <p></p>
           </article>
@@ -205,8 +221,8 @@ const solutionsPage = () => {
           <article className="self-center">
             <h2>Contact Me</h2>
             <p className="text">
-              Please let me know your general online needs. I will respond to
-              your message as soon as possible.
+              Please let me know your general web needs. I will respond to your
+              message as soon as possible.
             </p>
           </article>
           <Form className="compensateBHalf" />
