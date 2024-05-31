@@ -320,7 +320,8 @@ ul {
   /* line-height: 1.1rem; */
   margin-top: 0;
 }
-h2 + p::before {
+h2 + p::before,
+h3.tilt + p::before {
   clear: right;
   content: "";
   display: block;
@@ -330,7 +331,8 @@ h2 + p::before {
   width: 250px;
 }
 h2.tilt,
-h2:has(+ p) {
+h2:has(+ p),
+h3.tilt {
   font-style: oblique;
   transform: skew(0, 14.125deg);
   text-align: right;
@@ -340,6 +342,16 @@ h2:has(+ p) {
   align-self: flex-end;
   margin-left: auto;
   padding-bottom: 0.5em;
+  translate: 0 80px;
+  /* margin-right: -36px; */
+  max-width: 100%;
+  width: 420px;
+}
+h3.tilt:has(+ p) {
+  align-self: flex-end;
+  font-size: 2em;
+  margin-left: auto;
+  padding-bottom: 1em;
   translate: 0 80px;
   /* margin-right: -36px; */
   max-width: 100%;

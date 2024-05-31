@@ -1,5 +1,6 @@
 import React from "react";
 // Components
+import { Link } from "gatsby";
 import { Wizard, Q, A, Step, End } from "../components/Wizard";
 // Fragments
 import ButtonContact from "@fragments/ButtonContact";
@@ -147,27 +148,30 @@ function QWebsite() {
                             <div className="question">
                               Good! What shall I help with next?
                             </div>
-                            <a className="answer" href="">
-                              Website maintenance/updates
-                            </a>
-                            <a
+                            <Link
                               className="answer"
-                              href="/solutions/online-presence"
+                              to="/solutions/web-maintenance"
+                            >
+                              Website maintenance/updates
+                            </Link>
+                            <Link
+                              className="answer"
+                              to="/solutions/web-presence"
                             >
                               Website marketing
-                            </a>
-                            <a className="answer" href="/solutions/website">
+                            </Link>
+                            <Link className="answer" to="/solutions/website">
                               A new website
-                            </a>
-                            <a className="answer" href="">
+                            </Link>
+                            <Link className="answer" to="/solutions/web-design">
                               Design assistance
-                            </a>
-                            <a className="answer" href="">
+                            </Link>
+                            <Link className="answer" to="/artist">
                               Graphic arts / illustration
-                            </a>
-                            <a className="answer" href="#contact">
+                            </Link>
+                            <Link className="answer" to="#contact">
                               Something else
-                            </a>
+                            </Link>
                           </End>
                         </A>
                         <A

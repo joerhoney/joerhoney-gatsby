@@ -18,18 +18,9 @@ const priceSellIt = "price_1PEiG6JndiOOi7lkcJzhaJqO";
 const webPresencePage = () => {
   return (
     <>
-      <section className="hero page">
-        <div className="hero__bg">
-          <img
-            alt="Mouse clicks swarming into your store."
-            loading="lazy"
-            src={storeFront}
-          />
-        </div>
-        <h1>Web Presence</h1>
-      </section>
       <Page>
         <section className="alignable compensateB u-jump-link" id="packages">
+          <h1>Web Presence</h1>
           <article>
             <table className="compare bottomS ">
               <tr>
