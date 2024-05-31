@@ -2,7 +2,7 @@ import React from "react";
 // Components
 import { Link } from "gatsby";
 // CSS
-import "@css/nav.css";
+import "@css/nav.scss";
 
 const Nav = () => {
   // const noscriptCSS = `

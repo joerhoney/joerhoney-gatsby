@@ -1,3 +1,12 @@
+main:has(.nav) section:first-of-type {
+  margin-top: 160px;
+  @media (max-width: 960px) {
+    margin-top: calc(352px + -20vw);
+  }
+  @media (max-width: 696px) {
+    margin-top: 212px;
+  }
+}
 .nav {
   left: 18px;
   height: 0;

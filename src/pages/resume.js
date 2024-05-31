@@ -10,11 +10,9 @@ import Profiles from "@fragments/Profiles";
 const resume = () => {
   return (
     <>
-      <section className="hero page">
-        <h1>Résumé</h1>
-      </section>
       <Page>
         <section className="alignable compensateB">
+          <h1>Résumé</h1>
           <article className="self-center">
             <h2>Web Developer</h2>
             <p>

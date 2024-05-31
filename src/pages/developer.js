@@ -117,9 +117,8 @@ const codePage = () => {
         <h1>Developer</h1>
       </section>
       <Page>
-        <section className="alignable">
+        <section className="alignable bottomS">
           <article className="self-center">
-            <h2>Developer?</h2>
             <p>
               These days, a web developer is usually expected to be well-rounded
               and specialize in several aspects of the web. The industry

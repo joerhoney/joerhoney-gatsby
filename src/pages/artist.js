@@ -39,7 +39,6 @@ const artistPage = (props) => {
       <Page>
         <section className="alignable bottomM">
           <article>
-            <h2>I &#9829; to Draw!</h2>
             <p>
               Let me show you some of the artwork I've done! The collection on
               this page includes art I've done professionally as well as some

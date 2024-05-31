@@ -4,7 +4,7 @@ import React from "react";
 // Layouts
 import Footer from "./Footer";
 import Nav from "./Nav";
-import NavIndicator from "./NavIndicator";
+// import NavIndicator from "./NavIndicator";
 import Scheme from "./Scheme";
 // CSS
 import "@css/buttons.scss";
@@ -13,13 +13,13 @@ import "@css/global.scss";
 import "@css/hero.scss";
 import "@css/units.css";
 
-const Page = ({ children, className, nav, indicator, scheme }) => {
+const Page = ({ children, className, nav, scheme }) => {
   return (
     <>
       <main className={className}>
         {scheme !== false && <Scheme />}
         {nav !== false && <Nav />}
-        {indicator !== false && <NavIndicator />}
+        {/* {indicator !== false && <NavIndicator />} */}
         {children}
       </main>
       <Footer />
