@@ -1,6 +1,6 @@
 import React from "react";
 // CSS
-import "@css/wizard.css";
+import "@css/wizard.scss";
 
 const Wizard = (props) => {
   // const { children, className, id } = props;

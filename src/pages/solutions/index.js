@@ -26,7 +26,7 @@ const solutionsPage = () => {
             src={storeFront}
           />
         </div>
-        <h1>Services</h1>
+        <h1>Solutions</h1>
       </section>
       <Page>
         <section className="alignable">
@@ -58,6 +58,9 @@ const solutionsPage = () => {
                 Zero in on the solutions that would best address your problems
                 by answering a few questions.
               </p>
+              <a href="#questionnaire" className="jump-button">
+                Jump to Questionnaire
+              </a>
             </div>
             <div className="column">
               <h3>Contact Me</h3>
@@ -66,19 +69,36 @@ const solutionsPage = () => {
                 hear all of your online and creative needs, so I can provide the
                 most suitable solutions to your problems.
               </p>
+              <a href="#contact" className="jump-button">
+                Jump to Contact Info
+              </a>
             </div>
             <div className="column">
               <h3>Still Not Sure?</h3>
               <p>
                 Fair enough. You can learn more about me and my services here.
               </p>
+              <a href="#services" className="jump-button">
+                Jump to Services
+              </a>
             </div>
           </div>
         </section>
         <section>
-          <article className="self-center topS bottomS">
-            <h2 className="tilt">Questionnaire</h2>
+          <article className="self-center topL bottomL">
+            <h2 className="tilt" id="questionnaire">
+              Questionnaire
+            </h2>
             <QWebsite />
+          </article>
+        </section>
+        <section className="alignable skew_b tint3_b" id="services">
+          <article className="self-center topS bottomS">
+            <h2 className="tilt">Services</h2>
+            <p>
+              * website creation. * Web maintenance * Web design. * What
+              presents? * Web growth
+            </p>
           </article>
         </section>
 

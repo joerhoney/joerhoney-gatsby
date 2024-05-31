@@ -380,7 +380,7 @@ const codePage = () => {
             <p>
               The client needed their WordPress website's design coded into the
               theme. The main objective was to showcase their construction work,
-              so there were many galleries. A plugin waslimited features used
+              so there were many galleries. A plugin with limited features used
               for the galleries, but it had limited features that didn't cover
               the design or informational needs. After I configured and coded
               adjustments in order to theme the website just as the design

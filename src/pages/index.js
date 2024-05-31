@@ -49,20 +49,8 @@ const Home = () => {
               Basically, I provide design and online solutions for your
               business. But what are you here for? <br />
               <br />
-              <a
-                href="#question"
-                style={{
-                  border: "0.075em solid currentColor",
-                  borderRadius: "100px",
-                  display: "block",
-                  fontSize: "400%",
-                  height: "0.6em",
-                  width: "0.6em",
-                  margin: "auto",
-                  padding: "0.2em 0.1em 0",
-                }}
-              >
-                &#8595;
+              <a href="#question" className="jump-button">
+                Jump to Question
               </a>
             </p>
           </article>

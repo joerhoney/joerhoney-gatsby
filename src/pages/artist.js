@@ -37,7 +37,7 @@ const artistPage = (props) => {
         <h1>Artist</h1>
       </section>
       <Page>
-        <section className="alignable">
+        <section className="alignable bottomM">
           <article>
             <h2>I &#9829; to Draw!</h2>
             <p>
@@ -47,11 +47,8 @@ const artistPage = (props) => {
             </p>
           </article>
         </section>
-        <section
-          className="alignable skew_b tint3_b compensateT"
-          id="animation"
-        >
-          <article className="compensateB">
+        <section className="alignable skew_b tint3_b" id="animation">
+          <article className="bottomM">
             <h2>Animation</h2>
             <p>
               I love bringing my illustrations to life. This was originally a
@@ -83,7 +80,7 @@ const artistPage = (props) => {
               Here is some of the work I completed for various client projects.
             </p>
           </div>
-          <Gallery className="compensateT">
+          <Gallery className="topS">
             <div
               className="layer"
               style={{

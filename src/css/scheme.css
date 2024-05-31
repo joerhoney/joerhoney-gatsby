@@ -23,7 +23,7 @@
   opacity: 0.6;
   padding: 0.25em;
   position: relative;
-  transition: all ease 0.3s;
+  transition: opacity ease 0.3s;
   width: 1em;
 }
 #color-scheme label:focus,
