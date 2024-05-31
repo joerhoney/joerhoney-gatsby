@@ -1,6 +1,7 @@
 import React from "react";
 // Components
 import Form from "@components/Form";
+import { Link } from "gatsby";
 // import { Split, Half } from "@components/Split";
 // Layouts
 import Page from "@layouts/Page";
@@ -95,10 +96,47 @@ const solutionsPage = () => {
         <section className="alignable skew_b tint3_b" id="services">
           <article className="self-center topS bottomS">
             <h2 className="tilt">Services</h2>
+            <h3>Website Creation</h3>
             <p>
-              * website creation. * Web maintenance * Web design. * What
-              presents? * Web growth
+              Having a new website built doesn't have to be difficult or costly.
+              Whether you need to enable your customer to place orders online or
+              you just need a simple place online to stake your presence, one of
+              these diverse web packages should be just what you need.
+              <Link to="/solutions/website" className="button">
+                Website Packages
+              </Link>
             </p>
+            <h3>Web Maintenance</h3>
+            <p>
+              As anyone with a website knows, websites need to be updated
+              occasionally. Domain names, hosting and SSL certificates need to
+              be renewed annually. Your company details can change and you need
+              your website to reflect the update. Maybe you want to add a new
+              feature, product. But every company has different website needs.
+              That's why I put together several packages to cover any level of
+              web maintenance.
+              <Link to="/solutions/web-maintenance" className="button">
+                Web Maintenance Packages
+              </Link>
+            </p>
+            <h3>Web Design</h3>
+            <p>
+              Attraction is the responsibility of design. While any online
+              presence is better than nothing, design is one of the main factors
+              that governs a first impression, which can make or break your
+              contact with a potential customer. A fresh modern look will garner
+              new visitors in greater abundance than one that makes your
+              business look old and rundown. My{" "}
+              <Link to="/solutions/website">Website Packages</Link> include web
+              design, but if you already have a website and it needs a facelift,
+              send me your website address for a free quote on a new look.
+              <a href="#contact" className="button">
+                Get a Free Quote
+              </a>
+            </p>
+            <h3>Web Presence</h3>
+            <h3>Web Growth</h3>
+            <p></p>
           </article>
         </section>
 
@@ -185,10 +223,10 @@ export default solutionsPage;
 
 export const Head = () => (
   <>
-    <title>Services | :joe rhoney</title>
+    <title>Solutions | :joe rhoney</title>
     <meta
       name="description"
-      content="Get an overview of my website and art services."
+      content="Get web solutions for your business, including website creation, web maintenance, web design, what presence, web growth."
     />
     <meta
       property="og:keywords"
