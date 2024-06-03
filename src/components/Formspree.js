@@ -14,6 +14,12 @@ const Form = (props) => {
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email Address" required />
         <input
+          type="url"
+          name="url"
+          placeholder="Web Address (if you have one)"
+          required
+        />
+        <input
           type="text"
           name="_subject"
           placeholder="Subject Line"

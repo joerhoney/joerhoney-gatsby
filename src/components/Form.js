@@ -20,6 +20,12 @@ const Form = (props) => {
           placeholder="Subject Line"
           required
         />
+        <input
+          type="text"
+          name="_webaddress"
+          placeholder="Web Address (if you have one)"
+          required
+        />
         <textarea
           placeholder="Your Message"
           name="message"
