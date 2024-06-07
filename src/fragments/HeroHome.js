@@ -10,67 +10,72 @@ const HeroHome = () => {
           <h1 className="joerhoney">
             <b>Joe</b> <b>Rhoney</b>
           </h1>
-          <div aria-hidden="true" className="jBig">
-            <p>
-              UI/&#8203;UX, re&shy;spon&shy;sive lay&shy;out,
-              hard&shy;ware-ac&shy;cel&shy;er&shy;at&shy;ed
-              graph&shy;ics/&#8203;an&shy;i&shy;ma&shy;tion,
-              ac&shy;ces&shy;si&shy;bili&shy;ty, search en&shy;gine
-              op&shy;ti&shy;miza&shy;tion, de&shy;bug&shy;ging,
-              de&shy;vice/&#8203;brows&shy;er
-              com&shy;pat&shy;i&shy;bil&shy;i&shy;ty, adap&shy;tive out&shy;put,
-              CSS3, HTML5, Ja&shy;va&shy;Script, ES6, React, JSON, jQuery, SVG,
-              PHP, CLIs (Bash, Z shell, Git, Git&shy;Hub), SQL, All ma&shy;jor
-              brows&shy;ers and their in&shy;spec&shy;tion tools, VS&shy;Code
-              (and other IDEs), Git&shy;Hub Desk&shy;top, Cy&shy;ber&shy;Duck,
-              File&shy;Zilla, Adobe Cre&shy;ative Suite (Adobe
-              Pho&shy;to&shy;shop, Adobe Il&shy;lus&shy;tra&shy;tor, Adobe XD,
-              Adobe Pre&shy;miere, Adobe After&shy;Ef&shy;fects),
-              Af&shy;fin&shy;i&shy;ty Suite (Af&shy;fin&shy;i&shy;ty Pho&shy;to
-              2, Af&shy;fin&shy;i&shy;ty De&shy;sign&shy;er 2,
-              Af&shy;fin&shy;i&shy;ty Pub&shy;lish&shy;er), GIMP, Ink&shy;Scape,
-              At&shy;lass&shy;ian, Figma, Teal&shy;ium, Work&shy;Place, Slack,
-              Zoom, Site&shy;Im&shy;prove, Pay&shy;Pal, WC3 Mark&shy;up
-              Val&shy;i&shy;da&shy;tion, Google Search&shy;Con&shy;sole,
-              Page&shy;Speed In&shy;sights, Mo&shy;bile-Friend&shy;ly Test,
-              Reg&shy;Exr, Acu&shy;net&shy;ix, Brows&shy;er&shy;Stack,
-              Se&shy;mant&shy;ics, nam&shy;ing con&shy;ven&shy;tion and code
-              for&shy;mat ad&shy;her&shy;ence,
-              cross-brows&shy;er/&#8203;de&shy;vice
-              com&shy;pat&shy;i&shy;bil&shy;i&shy;ty, W3C com&shy;pli&shy;ance,
-              ac&shy;cess&shy;i&shy;bil&shy;i&shy;ty, SEO page ba&shy;sics,
-              con&shy;tin&shy;ued educa&shy;tion, Custom com&shy;pon&shy;ent
-              librar&shy;ies, Hack/&#8203;XHP, React Na&shy;tive, Python, Perl,
-              .NET, ASP, CSS pro&shy;cess&shy;ors (SCSS, etc.), Boot&shy;strap,
-              scrum pro&shy;cess, us&shy;ing macOS, Windows, Linux OSs. Do you
-              like this typographic layout? Learn more about it on my{" "}
-              <a
-                href="https://codepen.io/joerhoney/pen/bGOypwq"
-                rel="noreferrer"
-                target="_blank"
-              >
-                Codepen
-              </a>
-            </p>
-          </div>
-          <div aria-hidden="true" className="jDots">
-            <p>
-              Il&shy;lus&shy;tra&shy;tion, an&shy;i&shy;ma&shy;tion, video
-              ed&shy;i&shy;ting, pho&shy;tog&shy;ra&shy;phy, lay&shy;out,
-              col&shy;or de&shy;sign, ty&shy;pog&shy;ra&shy;phy,
-              char&shy;ac&shy;ter/&#8203;crea&shy;ture de&shy;sign,
-              con&shy;cep&shy;tu&shy;al art, back&shy;ground art, life
-              draw&shy;ing, car&shy;i&shy;ca&shy;tures Dig&shy;i&shy;tal art
-              tab&shy;let, ink, pen&shy;cil/&#8203;graphite, char&shy;coal,
-              col&shy;ored pen&shy;cil, pas&shy;tel, paint,
-              wa&shy;ter&shy;col&shy;or, Pan&shy;tone Col&shy;or Chart, Adobe
-              Il&shy;lus&shy;tra&shy;tor, Adobe Pho&shy;to&shy;shop,
-              Af&shy;fin&shy;i&shy;ty Pho&shy;to 2, Af&shy;fin&shy;i&shy;ty
-              De&shy;sign&shy;er 2. This lay&shy;out uses shape-out&shy;side to
-              pro&shy;duce a shape-in&shy;side ef&shy;fect (since
-              shape-in&shy;side still isn't sup&shy;por&shy;ted yet).
-            </p>
-          </div>
+    <pre aria-hidden="true" class="jBig" role='presentation'>
+{""}                                 brand solutions{"\n"}
+{""}                                website  creation{"\n"}
+{""}                                web design online{"\n"}
+{""}                                presence creative{"\n"}
+{""}                                developer project{"\n"}
+{""}                                modern  web tools{"\n"}
+{""}                                Stripe e-commerce{"\n"}
+{""}                                 web  creativity{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""} webGL three.js                  code experience{"\n"}
+{""}3D animation SVGs               domain  knowledge{"\n"}
+{""}ES6 PHP hardware-               accessibility CSS{"\n"}
+{""}accelerated opti-               JavaScript jQuery{"\n"}
+{""}mization  SEO W3C               responsive layout{"\n"}
+{""}compliance custom               React Sass Gatsby{"\n"}
+{""}components PayPal               WordPress CodePen{"\n"}
+{""} Strapi graphics                Slack Figma Zoom!{"\n"}
+{""}                                Adobe CC  ( Ps Ai{"\n"}
+{""}                                Id Pr Ae) SVG web{"\n"}
+{""}                                design HTML5 JSON{"\n"}
+{""}                                Stack Overflow UI{"\n"}
+{""}                                UX device/browser{"\n"}
+{""}                                compatibility SQL{"\n"}
+{""}                                XHP search engine{"\n"}
+{""}                                optimization  WC3{"\n"}
+{""} animation video                Markup Validation{"\n"}
+{""}editing Photoshop               animated graphics{"\n"}
+{""}Illustration life               naming convention{"\n"}
+{""}drawing character               & code formatting{"\n"}
+{""}design conceptual               adherence Netlify{"\n"}
+{""}art layout colors               CSS preprocessors{"\n"}
+{""}graphic art Adobe               (Sass, etc.) JSON{"\n"}
+{""} products pencil               Adobe alternatives{"\n"}
+{""}                              (Affinity Designer/{"\n"}
+{""}                    Photo, InkScape, GIMP,  etc.){"\n"}
+{""}                   Pantone Color Chart animation{"\n"}
+{""}                   Adobe Illustrator background{"\n"}
+{""}                   art concept art typography{"\n"}
+{""}                   photography pastel paint{"\n"}
+{""}                   watercolor digital art{"\n"}
+{""}                    web design!!^^```{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""}{"\n"}
+{""}website solutions front-end developer creative developer logo         creation     art{"\n"}
+{""} user experience user interface good communicator listens DIY        help{"\n"}
+{""} providing  feedback  senior web engineer   marketing experience   web apps      web  services{"\n"}
+{""} successful freelancer/contractor    expert advice   start-up solutions{"\n"}
+{""}  senior-level   experience   front-end engineer   web services      creativity                 design{"\n"}
+{""}   web hosting    email hosting     domain name hosting    Google Maps    Yelp!    local{"\n"}
+{""}   local  search  traffic      content management system set-up       scalability{"\n"}
+{""}    CMS implementation    third-party  service          integrations       WordPress{"\n"}
+{""}    ecommerce solutions   start-ups   company  branding     web design{"\n"}
+{""}     corporate image   logos  animation    creative  services     3D animation{"\n"}
+{""}     design   creative services   concept  art     background  art{"\n"}
+{""}      character art   life art   sketch     experimental     small-to-large{"\n"}
+{""}      art   3D art/graphics  stop motion   {"\n"}
+{""}       web engineering  web apps     start-up solutions   {"\n"}
+</pre>
         </div>
       </div>
     </div>
