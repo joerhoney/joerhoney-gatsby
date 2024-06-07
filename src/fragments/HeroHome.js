@@ -1,6 +1,6 @@
 import React from "react";
 // CSS
-import "@css/heroHome.css";
+import "@css/heroHome.scss";
 
 const HeroHome = (props) => {
   return (
@@ -72,9 +72,8 @@ const HeroHome = (props) => {
 {""}    ecommerce solutions   start-ups   company  branding     web design{"\n"}
 {""}     corporate image   logos  animation    creative  services     3D animation{"\n"}
 {""}     design   creative services   concept  art     background  art{"\n"}
-{""}      character art   life art   sketch     experimental     small-to-large{"\n"}
-{""}      art   3D art/graphics  stop motion   {"\n"}
-{""}       web engineering  web apps     start-up solutions   {"\n"}
+{""}      character art   life art   sketch{"\n"}
+{""}      illustration{"\n"}
 </pre>
         </div>
       </div>

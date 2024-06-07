@@ -1,0 +1,99 @@
+body:has(.heroClip) {
+  overflow: hidden;
+  .splitWrap {
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+}
+.heroClip {
+  margin-bottom: 0;
+  @media (orientation: portrait) {
+    & {
+      margin-bottom: -6vh;
+      max-width: 100vw;
+      overflow: hidden;
+    }
+  }
+}
+.heroHome {
+  --hero-height: 106vh;
+  float: left;
+  height: var(--hero-height);
+  margin-bottom: -6vh;
+  margin-right: -3vw;
+  transform: rotate(14.125deg);
+  translate: 1vh 1vh;
+  width: 50vh;
+  z-index: 0;
+
+  position: relative;
+  top: 2vh;
+  left: 0;
+  @media (orientation: portrait) {
+    & {
+      float: none;
+    }
+  }
+  h1 {
+    color: var(--color5);
+    display: inline-block;
+    font: 400 14vh/1.2em Rubik, sans-serif;
+    position: absolute;
+    text-transform: lowercase;
+    b:nth-child(1) {
+      position: relative;
+      top: -0.6vh;
+      left: -1.2vh;
+      &::before {
+        font: inherit;
+        content: ": ";
+        display: inline-block;
+        letter-spacing: 0.2vh;
+      }
+    }
+    b:nth-child(2) {
+      position: absolute;
+      left: 3.2vh;
+      top: 61vh;
+    }
+  }
+  pre.jBig {
+    background: -webkit-linear-gradient(
+      var(--color6),
+      var(--color5),
+      var(--color4),
+      var(--color3),
+      var(--color2),
+      transparent,
+      transparent
+    );
+    -webkit-background-clip: text;
+    font-family: Courier, monospace;
+    font-size: 1.28vh;
+    font-weight: 400;
+    height: var(--hero-height);
+    letter-spacing: -0.08em;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0;
+    -webkit-text-fill-color: transparent;
+
+    position: absolute;
+    top: 5vh;
+    left: 3.8vh;
+  }
+}
+.subhero {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  @media (orientation: portrait) {
+    & {
+      margin-bottom: var(--unit16);
+      min-height: unset;
+    }
+  }
+}
