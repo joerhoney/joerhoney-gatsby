@@ -56,44 +56,42 @@ const Home = () => {
           </article>
         </div>
       </HeroHome>
-      <Page indicator={false} nav={false}>
-        <div>
-          <Split className="compensateTHalf" id="question">
-            <Half
-              alt="Illustration of the front end of a dragon."
-              button="Get Solution"
-              className="half1"
-              heading="Solutions"
-              id="problem-solver"
-              position="top right"
-              src={dragonSplit1}
-              speed={9}
-              to="/solutions"
-            >
-              <p>
-                Do you need online solu&shy;tions for your organiza&shy;tion?
-                Business owners, that's you.
-              </p>
-            </Half>
-            <Half
-              alt="Illustration of the back end of a dragon."
-              button="Fill a Role"
-              className="half2"
-              heading="Developer"
-              lift="true"
-              id="Developer"
-              position="top left"
-              src={dragonSplit2}
-              speed={-9}
-              to="/developer"
-            >
-              <p>
-                Or are you looking to hire a developer? Recruiters, Hiring
-                Managers, that's you.
-              </p>
-            </Half>
-          </Split>
-        </div>
+      <Page indicator={false} nav={false} scheme={false}>
+        <Split className="compensateTHalf" id="question">
+          <Half
+            alt="Illustration of the front end of a dragon."
+            button="Get Solution"
+            className="half1"
+            heading="Solutions"
+            id="problem-solver"
+            position="top right"
+            src={dragonSplit1}
+            speed={9}
+            to="/solutions"
+          >
+            <p>
+              Do you need online solu&shy;tions for your organiza&shy;tion?
+              Business owners, that's you.
+            </p>
+          </Half>
+          <Half
+            alt="Illustration of the back end of a dragon."
+            button="Fill a Role"
+            className="half2"
+            heading="Developer"
+            lift="true"
+            id="Developer"
+            position="top left"
+            src={dragonSplit2}
+            speed={-9}
+            to="/developer"
+          >
+            <p>
+              Or are you looking to hire a developer? Recruiters, Hiring
+              Managers, that's you.
+            </p>
+          </Half>
+        </Split>
         <section className="alignable compensateTHalf" id="contact">
           <article className="self-center">
             <h2>Or Contact Me</h2>
