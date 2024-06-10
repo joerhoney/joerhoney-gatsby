@@ -1,6 +1,5 @@
 import React from "react";
 // Components
-import Checkout from "@components/Checkout";
 import Form from "@components/Form";
 // Layouts
 import Page from "@layouts/Page";
@@ -9,11 +8,6 @@ import Profiles from "@fragments/Profiles";
 // Images
 import storeFront from "@images/heros/store-front-transparent.webp";
 import { Link } from "gatsby";
-
-// Test Prices
-const priceDrtChp = "price_1PEiCnJndiOOi7lkFhymi7e7";
-const priceUDrive = "price_1PEiF9JndiOOi7lkWy4DCnfH";
-const priceSellIt = "price_1PEiG6JndiOOi7lkcJzhaJqO";
 
 const webMaintenancePage = () => {
   return (
@@ -105,19 +99,6 @@ const webMaintenancePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Set & Forget</h4>
-                      {/* <Checkout
-                        link={true}
-                        lineItems={[
-                          {
-                            price: `${priceDrtChp}`,
-                            quantity: 1,
-                          },
-                        ]}
-                        text="Buy"
-                      />{" "}
-                      <Link to="/solutions/web-maintenance/static">
-                        Details
-                      </Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -143,19 +124,6 @@ const webMaintenancePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Auto-Pilot</h4>
-                      {/* <Checkout
-                        link={true}
-                        lineItems={[
-                          {
-                            price: `${priceUDrive}`,
-                            quantity: 1,
-                          },
-                        ]}
-                        text="Buy"
-                      />{" "}
-                      <Link to="/solutions/web-maintenance/u-drive">
-                        Details
-                      </Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -177,19 +145,6 @@ const webMaintenancePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Auto-Pilot + </h4>
-                      {/* <Checkout
-                        link={true}
-                        lineItems={[
-                          {
-                            price: `${priceSellIt}`,
-                            quantity: 1,
-                          },
-                        ]}
-                        text="Buy"
-                      />{" "}
-                      <Link to="/solutions/web-maintenance/sell-it">
-                        Details
-                      </Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
