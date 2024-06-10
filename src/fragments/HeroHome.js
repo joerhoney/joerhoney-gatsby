@@ -1,8 +1,8 @@
 import React from "react";
 // CSS
-import "@css/heroHome.css";
+import "@css/heroHome.scss";
 
-const HeroHome = () => {
+const HeroHome = (props) => {
   return (
     <div className="heroClip">
       <div className="heroWrapper">
@@ -10,7 +10,8 @@ const HeroHome = () => {
           <h1 className="joerhoney">
             <b>Joe</b> <b>Rhoney</b>
           </h1>
-    <pre aria-hidden="true" class="jBig" role='presentation'>
+          <div className="jBig">
+<pre aria-hidden="true" class="jBig-1" role='presentation'>
 {""}                                 brand solutions{"\n"}
 {""}                                website  creation{"\n"}
 {""}                                web design online{"\n"}
@@ -54,13 +55,8 @@ const HeroHome = () => {
 {""}                   photography pastel paint{"\n"}
 {""}                   watercolor digital art{"\n"}
 {""}                    web design!!^^```{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
+</pre>
+<pre aria-hidden="true" class="jBig-2" role='presentation'>
 {""}website solutions front-end developer creative developer logo         creation     art{"\n"}
 {""} user experience user interface good communicator listens DIY        help{"\n"}
 {""} providing  feedback  senior web engineer   marketing experience   web apps      web  services{"\n"}
@@ -72,12 +68,13 @@ const HeroHome = () => {
 {""}    ecommerce solutions   start-ups   company  branding     web design{"\n"}
 {""}     corporate image   logos  animation    creative  services     3D animation{"\n"}
 {""}     design   creative services   concept  art     background  art{"\n"}
-{""}      character art   life art   sketch     experimental     small-to-large{"\n"}
-{""}      art   3D art/graphics  stop motion   {"\n"}
-{""}       web engineering  web apps     start-up solutions   {"\n"}
+{""}      character art   life art   sketch{"\n"}
+{""}      illustration{"\n"}
 </pre>
+          </div>
         </div>
       </div>
+      {props.children}
     </div>
   );
 };
