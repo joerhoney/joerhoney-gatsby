@@ -223,7 +223,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/u-drive">Details</Link>
+                      <Link to="/solutions/website/cms">Details</Link>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -255,7 +255,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/sell-it">Details</Link>
+                      <Link to="/solutions/website/ecommerce">Details</Link>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>

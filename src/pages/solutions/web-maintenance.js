@@ -25,7 +25,7 @@ const webMaintenancePage = () => {
             <table className="compare bottomS ">
               <tr>
                 <th scope="col">
-                  <h2 className="unposition">Packages</h2>
+                  <h2 className="unposition">Plans</h2>
                   {/* <p>Choose the best website packages that fits you.</p> */}
 
                   <h4>Features</h4>
@@ -33,151 +33,79 @@ const webMaintenancePage = () => {
                 <th
                   className="compact"
                   scope="col"
-                  aria-label="The Dirt Cheap Package"
+                  aria-label="The Set and Forget Plan"
                 >
                   <div>
                     <span className="subtle">The </span>
-                    <h4>Dirt Cheap </h4>
-                    <span className="subtle">Package</span>
+                    <h4>Set & Forget</h4>
+                    <span className="subtle">Plan</span>
                   </div>
                 </th>
                 <th
                   className="compact"
                   scope="col"
-                  aria-label="The U Drive Package"
+                  aria-label="The Auto-Pilot Plan"
                 >
                   <div>
                     <span className="subtle">The </span>
-                    <h4>U Drive </h4>
-                    <span className="subtle">Package</span>
+                    <h4>Auto-Pilot</h4>
+                    <span className="subtle">Plan</span>
                   </div>
                 </th>
                 <th
                   className="compact"
                   scope="col"
-                  aria-label="The Sell It! Package"
+                  aria-label="The Auto-Pilot Plus Plan"
                 >
                   <div>
                     <span className="subtle">The </span>
-                    <h4>Sell it! </h4>
-                    <span className="subtle">Package</span>
+                    <h4>Auto-Pilot +</h4>
+                    <span className="subtle">Plan</span>
                   </div>
                 </th>
               </tr>
               <tr className="checkmarks">
-                <th scope="row">No annual hosting cost!</th>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Not included"></td>
-                <td aria-label="Not included"></td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Email hosting</th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Basic SEO</th>
+                <th scope="row">Domain, hosting and email</th>
                 <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
               </tr>
               <tr className="checkmarks">
-                <th scope="row">
-                  <a href="#ssl">SSL Certificate</a>
-                </th>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Contact form</th>
+                <th scope="row">Text changes</th>
                 <td aria-label="Not included"></td>
                 <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
               </tr>
               <tr className="checkmarks">
-                <th scope="row">Add your own info pages</th>
+                <th scope="row">Image swaps</th>
                 <td aria-label="Not included"></td>
                 <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
               </tr>
               <tr className="checkmarks">
-                <th scope="row">Manage your own blog</th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Not included"></td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Manage your own products</th>
+                <th scope="row"> new entry (page, product, etc.)*</th>
                 <td aria-label="Not included"></td>
                 <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">
-                  <a href="#pages-added">Up to 8 info pages</a>
-                </th>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">
-                  <a href="#pages-added">Up to 4 products</a>
-                </th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Free add-ons available</th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Instructions for pages</th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Instructions for products</th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Payment gateway setup</th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
-              </tr>
-              <tr className="checkmarks">
-                <th scope="row">Additional hosting costs</th>
-                <td aria-label="Not included"></td>
-                <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
               </tr>
               <tr className="stretch">
                 <th scope="row">Price</th>
                 <td>
-                  <h4 className="price">$1000</h4>
+                  <h4 className="price">$50/mo</h4>
                 </td>
                 <td>
-                  <h4 className="price">$3000</h4>
+                  <h4 className="price">$300/mo</h4>
                 </td>
                 <td>
-                  <h4 className="price">$5000</h4>
+                  <h4 className="price">$600/mo</h4>
                 </td>
               </tr>
               <tr aria-hidden="true" className="association">
                 <td aria-label="Intended for visual correlation only.">
                   <div className="compare-cta">
                     <div>
-                      <h4>Dirt Cheap</h4>
-                      <Checkout
+                      <h4>Set & Forget</h4>
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -187,7 +115,9 @@ const webMaintenancePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/static">Details</Link>
+                      <Link to="/solutions/web-maintenance/static">
+                        Details
+                      </Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -212,8 +142,8 @@ const webMaintenancePage = () => {
                 >
                   <div className="compare-cta">
                     <div>
-                      <h4>U Drive</h4>
-                      <Checkout
+                      <h4>Auto-Pilot</h4>
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -223,7 +153,9 @@ const webMaintenancePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/u-drive">Details</Link>
+                      <Link to="/solutions/web-maintenance/u-drive">
+                        Details
+                      </Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -244,8 +176,8 @@ const webMaintenancePage = () => {
                 >
                   <div className="compare-cta">
                     <div>
-                      <h4>Sell It!</h4>
-                      <Checkout
+                      <h4>Auto-Pilot + </h4>
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -255,7 +187,9 @@ const webMaintenancePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/sell-it">Details</Link>
+                      <Link to="/solutions/web-maintenance/sell-it">
+                        Details
+                      </Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>

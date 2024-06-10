@@ -357,8 +357,17 @@ h3.tilt:has(+ p) {
   max-width: 100%;
   width: 420px;
 }
-section.alignable h2.standalone {
-  translate: 0;
+section h1 {
+  box-sizing: border-box;
+  font-size: calc(2vh + 4vw);
+  font-style: oblique;
+  padding: 0 var(--unit8);
+  margin: auto;
+  max-width: calc(var(--max_text) + var(--unit16));
+  text-align: right;
+  transform: skewY(14.125deg);
+  transform-origin: bottom right;
+  width: 100%;
 }
 section.alignable .compare h2 {
   margin-bottom: 1em;
