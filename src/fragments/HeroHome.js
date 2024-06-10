@@ -10,7 +10,8 @@ const HeroHome = (props) => {
           <h1 className="joerhoney">
             <b>Joe</b> <b>Rhoney</b>
           </h1>
-    <pre aria-hidden="true" class="jBig" role='presentation'>
+          <div className="jBig">
+<pre aria-hidden="true" class="jBig-1" role='presentation'>
 {""}                                 brand solutions{"\n"}
 {""}                                website  creation{"\n"}
 {""}                                web design online{"\n"}
@@ -54,13 +55,8 @@ const HeroHome = (props) => {
 {""}                   photography pastel paint{"\n"}
 {""}                   watercolor digital art{"\n"}
 {""}                    web design!!^^```{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
-{""}{"\n"}
+</pre>
+<pre aria-hidden="true" class="jBig-2" role='presentation'>
 {""}website solutions front-end developer creative developer logo         creation     art{"\n"}
 {""} user experience user interface good communicator listens DIY        help{"\n"}
 {""} providing  feedback  senior web engineer   marketing experience   web apps      web  services{"\n"}
@@ -75,6 +71,7 @@ const HeroHome = (props) => {
 {""}      character art   life art   sketch{"\n"}
 {""}      illustration{"\n"}
 </pre>
+          </div>
         </div>
       </div>
       {props.children}

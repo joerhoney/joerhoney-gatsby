@@ -58,30 +58,40 @@ body:has(.heroClip) {
       top: 61vh;
     }
   }
-  pre.jBig {
-    background: -webkit-linear-gradient(
-      var(--color6),
-      var(--color5),
-      var(--color4),
-      var(--color3),
-      var(--color2),
-      transparent,
-      transparent
-    );
-    -webkit-background-clip: text;
-    font-family: Courier, monospace;
-    font-size: 1.28vh;
-    font-weight: 400;
+  .jBig {
     height: var(--hero-height);
-    letter-spacing: -0.08em;
-    line-height: 1.1em;
     margin: 0;
     padding: 0;
-    -webkit-text-fill-color: transparent;
 
-    position: absolute;
-    top: 5vh;
-    left: 3.8vh;
+    .jBig-1,
+    .jBig-2 {
+      font-family: Courier, monospace;
+      font-size: 1.28vh;
+      font-weight: 400;
+      letter-spacing: -0.08em;
+      line-height: 1.1em;
+      margin: 0;
+
+      position: absolute;
+      left: 3.8vh;
+    }
+    .jBig-1 {
+      background: -webkit-linear-gradient(
+        var(--color6),
+        var(--color5),
+        var(--color4),
+        var(--color3)
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      top: 5vh;
+    }
+    .jBig-2 {
+      background: -webkit-linear-gradient(var(--color2), transparent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      top: 75vh;
+    }
   }
 }
 .subhero {
