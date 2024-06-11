@@ -77,7 +77,7 @@ const webMaintenancePage = () => {
                 <td aria-label="Included">✔</td>
               </tr>
               <tr className="checkmarks">
-                <th scope="row"> new entry (page, product, etc.)*</th>
+                <th scope="row">1 new entry (page, product, etc.)*</th>
                 <td aria-label="Not included"></td>
                 <td aria-label="Not included"></td>
                 <td aria-label="Included">✔</td>

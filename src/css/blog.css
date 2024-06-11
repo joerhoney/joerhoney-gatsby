@@ -37,7 +37,8 @@ a.post-link {
 }
 @media screen and (min-width: 800px) {
   .blog h1 {
-    margin-right: calc(50% - 320px);
+    font-size: calc(6vh + 4vw);
+    margin-right: 12vw;
   }
 }
 /* .blog .hero {
