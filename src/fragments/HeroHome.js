@@ -7,9 +7,6 @@ const HeroHome = (props) => {
     <div className="heroClip">
       <div className="heroWrapper">
         <div className="heroHome">
-          <h1 className="joerhoney">
-            <b>Joe</b> <b>Rhoney</b>
-          </h1>
           <div className="jBig">
 <pre aria-hidden="true" class="jBig-1" role='presentation'>
 {""}                                 brand solutions{"\n"}
@@ -72,6 +69,9 @@ const HeroHome = (props) => {
 {""}      illustration{"\n"}
 </pre>
           </div>
+          <h1 className="joerhoney">
+            <b>Joe</b> <b>Rhoney</b>
+          </h1>
         </div>
       </div>
       {props.children}

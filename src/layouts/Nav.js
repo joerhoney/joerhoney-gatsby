@@ -4,54 +4,58 @@ import { Link } from "gatsby";
 // CSS
 import "@css/nav.scss";
 
-const Nav = () => {
-  // const noscriptCSS = `
-  // &lt;style&gt;
-  //   .nav {
-  //     position: absolute;
-  //   }
-  //   .nav ul::before {
-  //     translate: rotate(13deg);
-  //     width: 330px;
-  //     height: 698px;
-
-  //     top: -162px;
-  //     left: -49px;
-  //   }
-  // &lt;/style&gt;`;
+const Nav = (props) => {
+  console.log("props: ", props);
+  const items = props.items || {
+    Home: "/",
+    Developer: "/developer",
+    Artist: "/artist",
+    Contact: "#contact",
+  };
   return (
-    <>
-      {/* <noscript>{noscriptCSS}</noscript> */}
-      <nav className="nav">
-        <div className="group">
-          <Link to="/" className="logo">
-            :j
-          </Link>
-          <ul>
-            <li>
-              <Link className="nav-link" to="/">
-                Home
+    <nav className="nav">
+      <div className="group">
+        <Link to="/" className="logo">
+          :j
+        </Link>
+        <ul>
+          {Object.keys(items).map((item) => (
+            <li key={item}>
+              <Link className="nav-link" to={items[item]}>
+                {item}
               </Link>
             </li>
-            <li>
-              <Link className="nav-link" to="/developer">
-                Developer
+          ))}
+          {/* {items.map((item) => (
+            <li key={item}>
+              <Link className="nav-link" to={item}>
+                {item}
               </Link>
             </li>
-            <li>
-              <Link className="nav-link" to="/artist">
-                Artist
-              </Link>
-            </li>
-            <li>
-              <Link className="nav-link" to="#contact" title="Contact">
-                Contact
-              </Link>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </>
+          ))} */}
+          {/* <li>
+            <Link className="nav-link" to="/">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/developer">
+              Developer
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="/artist">
+              Artist
+            </Link>
+          </li>
+          <li>
+            <Link className="nav-link" to="#contact">
+              Contact
+            </Link>
+          </li> */}
+        </ul>
+      </div>
+    </nav>
   );
 };
 

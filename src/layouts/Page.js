@@ -13,12 +13,12 @@ import "@css/global.scss";
 import "@css/hero.scss";
 import "@css/units.css";
 
-const Page = ({ children, className, nav, scheme }) => {
+const Page = ({ children, className, nav, navItems, scheme }) => {
   return (
     <>
       <main className={className}>
         {scheme !== false && <Scheme />}
-        {nav !== false && <Nav />}
+        {nav !== false && <Nav items={navItems} />}
         {/* {indicator !== false && <NavIndicator />} */}
         {children}
       </main>

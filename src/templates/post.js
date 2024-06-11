@@ -103,7 +103,14 @@ const Post = (props) => {
         </div>
         <h1>{title}</h1>
       </section>
-      <Page>
+      <Page
+        navItems={{
+          Blog: "/blog",
+          Development: "/developer",
+          Art: "/artist",
+          Contact: "#contact",
+        }}
+      >
         <section className="alignable">
           <article>
             <p className="date">Published: {date}</p>
