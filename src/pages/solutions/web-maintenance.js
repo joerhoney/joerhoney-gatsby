@@ -12,7 +12,15 @@ import { Link } from "gatsby";
 const webMaintenancePage = () => {
   return (
     <>
-      <Page>
+      <Page
+        navItems={{
+          Solutions: "/solutions",
+          Websites: "/solutions/website",
+          // Presence: "/solutions/web-presence",
+          // Design: "/solutions/web-design",
+          Contact: "#contact",
+        }}
+      >
         <section className="alignable compensateB u-jump-link" id="packages">
           <h1>Web Maintenance</h1>
           <article>

@@ -18,7 +18,15 @@ const priceSellIt = "price_1PEiG6JndiOOi7lkcJzhaJqO";
 const websitePage = () => {
   return (
     <>
-      <Page>
+      <Page
+        navItems={{
+          Solutions: "/solutions",
+          Maintenance: "/solutions/web-maintenance",
+          // Presence: "/solutions/web-presence",
+          // Design: "/solutions/web-design",
+          Contact: "#contact",
+        }}
+      >
         <section className="alignable compensateB u-jump-link" id="packages">
           <h1>Websites</h1>
           <article>

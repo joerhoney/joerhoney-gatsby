@@ -11,14 +11,18 @@ import storeFront from "@images/heros/store-front-transparent.webp";
 import { Link } from "gatsby";
 
 // Test Prices
-const priceDrtChp = "price_1PEiCnJndiOOi7lkFhymi7e7";
-const priceUDrive = "price_1PEiF9JndiOOi7lkWy4DCnfH";
-const priceSellIt = "price_1PEiG6JndiOOi7lkcJzhaJqO";
 
 const webPresencePage = () => {
   return (
     <>
-      <Page>
+      <Page
+        navItems={{
+          Solutions: "/solutions",
+          Websites: "/solutions/website",
+          Maintenance: "/solutions/web-maintenance",
+          Design: "/solutions/web-design",
+        }}
+      >
         <section className="alignable compensateB u-jump-link" id="packages">
           <h1>Web Presence</h1>
           <article>
@@ -177,7 +181,7 @@ const webPresencePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Dirt Cheap</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -187,7 +191,7 @@ const webPresencePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/static">Details</Link>
+                      <Link to="/solutions/website/static">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -213,7 +217,7 @@ const webPresencePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>U Drive</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -223,7 +227,7 @@ const webPresencePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/u-drive">Details</Link>
+                      <Link to="/solutions/website/u-drive">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -245,7 +249,7 @@ const webPresencePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Sell It!</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -255,7 +259,7 @@ const webPresencePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/sell-it">Details</Link>
+                      <Link to="/solutions/website/sell-it">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>

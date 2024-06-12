@@ -29,7 +29,15 @@ const solutionsPage = () => {
         </div>
         <h1>Solutions</h1>
       </section>
-      <Page>
+      <Page
+        navItems={{
+          Websites: "/solutions/website",
+          Maintenance: "/solutions/web-maintenance",
+          // Presence: "/solutions/web-presence",
+          // Design: "/solutions/web-design",
+          Contact: "#contact",
+        }}
+      >
         <section className="alignable">
           <article className="self-center">
             <p>
@@ -140,7 +148,7 @@ const solutionsPage = () => {
                 Get a Free Quote
               </Link>
             </p>
-            <h3 className="tilt">Web Presence</h3>
+            {/* <h3 className="tilt">Web Presence</h3>
             <p>
               Except in rare cases, having a website is crucial to establishing
               a presence on the web for any organization. People commonly rely
@@ -160,7 +168,7 @@ const solutionsPage = () => {
               <Link to="/solutions/web-presence" className="button">
                 Web Presence Packages
               </Link>
-            </p>
+            </p> */}
           </article>
         </section>
 
