@@ -25,6 +25,9 @@ const Wizard = (props) => {
         defaultChecked={true}
       />
       {renderChildren(props.children)}
+      <label className="qa_restart" htmlFor={props.id}>
+        Start over
+      </label>
     </div>
   );
 };
