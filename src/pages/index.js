@@ -96,7 +96,7 @@ const Home = () => {
               <h3>WordPress Plugins</h3>
               <p>
                 I create custom plugins. In fact, I have published 10 in the
-                WordPress repository under the name AddFunc. They all have
+                WordPress repository under the name AddFunc. They all have high
                 ratings, too. Check them out:
               </p>
               <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">
