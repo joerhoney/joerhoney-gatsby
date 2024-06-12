@@ -21,7 +21,7 @@ const webMaintenancePage = () => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable compensateB u-jump-link" id="packages">
+        <section className="alignable compensateB u-jump-link" id="plans">
           <h1>Web Maintenance</h1>
           <article>
             <table className="compare bottomS ">

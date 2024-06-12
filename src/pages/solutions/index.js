@@ -7,7 +7,7 @@ import { Link } from "gatsby";
 import Page from "@layouts/Page";
 // Fragments
 import Profiles from "@fragments/Profiles";
-import QWebsite from "@fragments/QWebsite";
+import QProblems from "@fragments/QProblems";
 // CSS
 import "@css/solutions.scss";
 // Images
@@ -98,7 +98,7 @@ const solutionsPage = () => {
             <h2 className="tilt" id="questionnaire">
               Questionnaire
             </h2>
-            <QWebsite />
+            <QProblems />
           </article>
         </section>
         <section className="alignable skew_b tint3_b" id="services">
@@ -199,7 +199,7 @@ const solutionsPage = () => {
         </section> */}
         {/* <section className="alignable">
           <article className="self-center z10">
-            <QWebsite />
+            <QProblems />
           </article>
         </section> */}
         {/* <Split>
