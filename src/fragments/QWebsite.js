@@ -8,8 +8,8 @@ import ButtonWebsitesPackages from "@fragments/ButtonWebsitesPackages";
 
 function QWebsite() {
   return (
-    <Wizard id="qa_Website" name="website">
-      <Step>
+    <Wizard name="website" start="qa_Website">
+      <Step id="qa_Website">
         <Q>Do you have a website?</Q>
         <A a="Yes" id="qa_WebsiteY">
           <Step>
