@@ -6,8 +6,9 @@ import "@css/icons.css";
 import "@css/profiles.css";
 
 const Profiles = (props) => {
+  const { className, heading } = props;
   return (
-    <div className={`profiles ${props.className}`}>
+    <div className={`profiles ${className ?? ""}`}>
       <h4>{props.heading ? props.heading : "Find me on:"}</h4>
       <div className="icons">
         <Icon href="https://www.linkedin.com/in/joerhoney/" name="Linkedin" />
