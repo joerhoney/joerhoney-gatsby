@@ -141,7 +141,10 @@ const HowFindWebsite = (props) => {
                   It sounds like you have a domain name registered, but no
                   hosting service is connected with it yet.
                 </Q>
-                <A a="I thought I bought a web hosting plan." goto="">
+                <A
+                  a="I thought I bought a web hosting plan."
+                  goto="qa_WebsiteDisconnect"
+                >
                   <Step id="" name={name}>
                     <Q>
                       <p>
@@ -154,15 +157,26 @@ const HowFindWebsite = (props) => {
                       <ButtonContact />
                       <p>I can help.</p>
                     </Q>
-                    <A a="Oh, actually I don't have a website to connect it to."></A>
+                    <A
+                      a="Oh, actually I don't have a website to connect it to. Can you build one for me?"
+                      goto="qa_CanYouBuildNewWebsite"
+                    >
+                      <End id="qa_CanYouBuildNewWebsite">
+                        <p>
+                          Absolutely! Please see my website packages to get
+                          started:
+                        </p>
+                        <ButtonWebsitesPackages />
+                      </End>
+                    </A>
                     <A a="How do I know if I have a website to connect it to or not?">
                       <End>
                         <p>
-                          If you don't recall having a website created, log into
-                          your hosting account and check what products you have
-                          there. If it is still unclear, contact your web
-                          hosting company. Or if you would like someone else to
-                          manage this for you:
+                          If you don't recall having a website created for your
+                          domain name, log into your hosting account and check
+                          what products you have there. If it is still unclear,
+                          contact your web hosting company. Or if you would like
+                          someone else to manage all of this for you:
                         </p>
                         <ButtonContact />
                       </End>
@@ -171,21 +185,17 @@ const HowFindWebsite = (props) => {
                 </A>
                 <A
                   a="Oh, can I connect my website with one of your website packages?"
-                  goto=""
-                >
-                  <End id="" name={name}>
-                    Absolutely! Please choose a website package here:
-                    <br />
-                    <ButtonWebsitesPackages />
-                  </End>
-                </A>
+                  goto="qa_CanYouBuildNewWebsite"
+                />
                 <A
                   a="Do I have to buy a web hosting plan? I thought I just needed a domain name."
-                  goto=""
+                  goto="qa_HostingNecessary"
                 >
-                  <End id="" name={name}>
-                    Yes, a domain name is just a name. Your website has to be
-                    built by someone. I'd be happy to help with that! Please
+                  <End id="qa_HostingNecessary" name={name}>
+                    Yes, a domain name is just a sort of address used to find
+                    your website. Your website has to be built by someone and
+                    placed on a server (a computer that stays ON at a web
+                    hosting company). I'd be happy to help with that! Please
                     choose from one of my website packages:
                     <br />
                     <ButtonWebsitesPackages />
