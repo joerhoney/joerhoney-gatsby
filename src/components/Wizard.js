@@ -31,7 +31,6 @@ const Wizard = (props) => {
 
 const Step = (props) => {
   const { children, id, name, start } = props;
-  console.log("id: ", id, ": start: ", start);
   return (
     <>
       {id && (
@@ -73,12 +72,12 @@ const A = (props) => {
 };
 
 const End = (props) => {
-  const { id, name } = props;
+  const { children, id, name } = props;
   return (
     <>
       {id && <input type="radio" id={id} name={name} />}
       <div className="end">
-        <div className="qa_bubble">{props.children}</div>
+        <div className="qa_bubble">{children}</div>
       </div>
     </>
   );

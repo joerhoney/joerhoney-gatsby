@@ -27,7 +27,7 @@ const HowFindWebsite = (props) => {
                 </Q>
                 <A
                   a="Oops! I was entering it wrong. I see it now."
-                  goto="qa_HelpedY"
+                  goto="qa_HelpedNext"
                 />
                 <A
                   a="Hm, maybe I have the wrong domain name."
@@ -62,7 +62,7 @@ const HowFindWebsite = (props) => {
                       not:
                     </p>
                     <ButtonContact />
-                    <p>Maybe I can help.</p>
+                    <p>I can help.</p>
                   </End>
                 </A>
               </Step>
@@ -77,25 +77,24 @@ const HowFindWebsite = (props) => {
                     Looks like you're trying to go to a specific page on the
                     website, but it isn't there. The domain name should end with
                     an extension (.com, .org, .biz, etc.). Other symbols after
-                    the extension (especially if there is a forward slash '/'),
-                    generally refers to a specific page on the website, which
-                    may no longer be there, or the path (the word(s) after the
-                    slash necessary to arrive at that page) has changed. Try
+                    the extension (especially if there is a forward slash '/')
+                    generally refer to a specific page on the website. That page
+                    may be missing, while your website may still be there. Try
                     removing anything after the '.com', '.org', or other
-                    extension and see if your website loads, then return here
+                    extension and see if your website shows up, then return here
                     for more help.
                   </p>
                   <p>Did that work?</p>
                 </Q>
-                <A a="Yes." goto="qa_HelpedY" />
+                <A a="Yes." goto="qa_HelpedNext" />
                 <A
-                  a="Yes. But I needed that page. Why isn't it working?"
+                  a="Yes. But I needed that page. Why isn't it there?"
                   goto="qa_Page404"
                 >
                   <End id="qa_Page404" name={name}>
                     <p>
-                      There are many possible reasons for this and I'd be happy
-                      to help you solve it. Please reach out to me.
+                      There are a number of possible reasons for this and I'd be
+                      happy to help you solve it. Please reach out to me.
                     </p>
                     <ButtonContact />
                   </End>
@@ -105,53 +104,70 @@ const HowFindWebsite = (props) => {
                   goto="qa_WebsiteDef404"
                 >
                   <End id="qa_WebsiteDef404" name={name}>
+                    <p>
+                      Okay. Looks like you'll need to reach out to your web
+                      hosting company. Or...
+                    </p>
                     <ButtonContact />
-                    <p>Maybe I can help.</p>
+                    <p>I can help.</p>
                   </End>
                 </A>
                 <A
-                  a="I don't have anything after the extension and I still get an error."
-                  goto=""
-                >
-                  <End id="" name={name}>
-                    (same as above)
-                  </End>
-                </A>
+                  a='I don&apos;t have anything after the ".com" and I still get an error.'
+                  goto="qa_WebsiteDef404"
+                />
               </Step>
+            </A>
+            <A a="It says 500 / 'Server Error' (or similar)" goto="qa_500">
+              <End id="qa_500" name={name}>
+                <p>
+                  There is some issue with the server (a special type of
+                  computer, basically) your website is hosted on. Sometimes web
+                  hosting companies will help with this, depending on the level
+                  of support including with the plan you've subscribed to. They
+                  may even jump in and fix the issue for you if you contact them
+                  about it. If not:
+                </p>
+                <ButtonContact />
+                <p>I can help.</p>
+              </End>
             </A>
             <A
-              a="It says 500 / 'Server Error' (or similar)"
-              goto="qa_GoDomain-500"
+              a="It looks like a placeholder page."
+              goto="qa_DomainPlaceholder"
             >
-              <Step id="qa_GoDomain-500" name={name}>
-                <Q>
-                  There is some issue with the server your website is hosted on.
-                  Sometimes web hosting companies will help with this, depending
-                  on the level of support including with the plan you've
-                  subscribed to. They may even jump in and fix the issue for you
-                  if you contact them about it. If not:
-                </Q>
-                <End>
-                  <ButtonContact />
-                  <p>Maybe I can help.</p>
-                </End>
-              </Step>
-            </A>
-            <A a="It looks like a placeholder page." goto="">
-              <Step id="" name={name}>
+              <Step id="qa_DomainPlaceholder" name={name}>
                 <Q>
                   It sounds like you have a domain name registered, but no
                   hosting service is connected with it yet.
                 </Q>
-                <A a="I thought I bought a website/hosting plan." goto="">
-                  <End id="" name={name}>
-                    Maybe you bought a web hosting plan and never set it up. The
-                    web hosting company you purchased it with should be able to
-                    help you with this if you contact them. If not:
-                    <br />
-                    <ButtonContact />
-                    <p>Maybe I can help.</p>
-                  </End>
+                <A a="I thought I bought a web hosting plan." goto="">
+                  <Step id="" name={name}>
+                    <Q>
+                      <p>
+                        Maybe you bought a web hosting plan and never connected
+                        it to a your website. The web hosting company you
+                        purchased it with should be able to help you with this
+                        if you contact them. If not:
+                      </p>
+                      <br />
+                      <ButtonContact />
+                      <p>I can help.</p>
+                    </Q>
+                    <A a="Oh, actually I don't have a website to connect it to."></A>
+                    <A a="How do I know if I have a website to connect it to or not?">
+                      <End>
+                        <p>
+                          If you don't recall having a website created, log into
+                          your hosting account and check what products you have
+                          there. If it is still unclear, contact your web
+                          hosting company. Or if you would like someone else to
+                          manage this for you:
+                        </p>
+                        <ButtonContact />
+                      </End>
+                    </A>
+                  </Step>
                 </A>
                 <A
                   a="Oh, can I connect my website with one of your website packages?"
@@ -164,7 +180,7 @@ const HowFindWebsite = (props) => {
                   </End>
                 </A>
                 <A
-                  a="Do I have to buy a web hosting plan? I thought I just needed a domain name. "
+                  a="Do I have to buy a web hosting plan? I thought I just needed a domain name."
                   goto=""
                 >
                   <End id="" name={name}>
@@ -497,7 +513,7 @@ const HowFindWebsite = (props) => {
                   goto="qa_DomainIDK-BilledN"
                 >
                   <End id="qa_DomainIDK-BilledN" name={name}>
-                    Maybe I can help, if we can have a live talk.
+                    I can help, if we can have a live talk.
                     <br />
                     <ButtonContact />
                   </End>
@@ -540,7 +556,7 @@ const HowFindWebsite = (props) => {
           </Step>
         </A>
       </Step>
-      <End id="qa_HelpedY" name={name}>
+      <End id="qa_HelpedNext" name={name}>
         <div className="question">Good! What shall I help with next?</div>
         <Link className="answer" to="/solutions/web-maintenance">
           Website maintenance/updates
