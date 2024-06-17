@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import ConditionalWrap from "@utils/ConditionalWrap";
+import { Link } from "gatsby";
 // CSS
 import "@css/wizard.scss";
 
@@ -52,14 +52,14 @@ const Q = (props) => {
 };
 
 const A = (props) => {
-  const { a, goto, id } = props;
+  const { a, goto } = props;
   return (
     <li>
       <div className="answer">
-        {goto.match(/#[a-z]+/gi) ? (
-          <a className="qa_bubble" href={goto}>
+        {goto.match(/#[a-z]+/gi) || goto.match(/\/[a-z]+/gi) ? (
+          <Link className="qa_bubble" to={goto}>
             {a}
-          </a>
+          </Link>
         ) : (
           <label className="qa_bubble" htmlFor={goto}>
             {a}
