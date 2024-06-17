@@ -45,6 +45,7 @@
 .nav ul li {
   display: flex;
   height: 24px;
+  letter-spacing: -0.03em;
 }
 .nav a {
   color: var(--color3);
