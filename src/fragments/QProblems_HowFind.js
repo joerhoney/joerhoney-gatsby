@@ -203,7 +203,7 @@ const HowFindWebsite = (props) => {
                 </A>
               </Step>
             </A>
-            <A a="Just a blank white page." goto="qa_GoDomain-White"></A>
+            <A a="Just a blank white page." goto="qa_WhiteScreen" />
             <A
               a="It doesn't look like my website / It looks like someone else's."
               goto="qa_GoDomain-LooksWrong"
@@ -258,11 +258,11 @@ const HowFindWebsite = (props) => {
                         <A
                           a="Turns out I don't own that domain name."
                           goto="qa_HowToFind"
-                        ></A>
+                        />
                         <A
                           a="Oops! False alarm. I had the domain name wrong."
                           goto="qa_HowToFind"
-                        ></A>
+                        />
                       </Step>
                     </A>
                     <A
