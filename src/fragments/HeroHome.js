@@ -54,8 +54,8 @@ const HeroHome = (props) => {
 {""}                    web design!!^^```{"\n"}
 </pre>
 <pre aria-hidden="true" class="jBig-2" role='presentation'>
-{""}website solutions front-end developer creative developer logo         creation     art{"\n"}
-{""} user experience user interface good communicator listens DIY        help{"\n"}
+{""}website solutions front-end developer  creative developer          logo creation     art{"\n"}
+{""} user experience user interface good communicator listens         DIY help{"\n"}
 {""} providing  feedback  senior web engineer   marketing experience   web apps      web  services{"\n"}
 {""} successful freelancer/contractor    expert advice   start-up solutions{"\n"}
 {""}  senior-level   experience   front-end engineer   web services      creativity                 design{"\n"}
