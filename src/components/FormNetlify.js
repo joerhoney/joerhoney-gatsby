@@ -6,7 +6,7 @@ import "@css/form.css";
 const Form = (props) => {
   return (
     <div className="contact">
-      <form name="contact" className={props.className} netlify>
+      <form name="contact" className={props.className} method="POST" netlify>
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email Address" required />
         <input
