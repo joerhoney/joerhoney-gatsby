@@ -9,6 +9,7 @@ const Form = (props) => {
       <form
         name="contact"
         className={props.className}
+        action="/thanks-contact"
         method="POST"
         data-netlify="true"
       >
@@ -32,12 +33,6 @@ const Form = (props) => {
           required
         ></textarea>
         <button type="submit">Send</button>
-        <input type="hidden" name="_next" value="/thanks-contact" />
-        <input
-          type="hidden"
-          name="_url"
-          value="https://joerhoney.com/#contact"
-        />
       </form>
     </div>
   );
