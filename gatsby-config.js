@@ -76,7 +76,7 @@ module.exports = {
     },
     "gatsby-plugin-sass",
     // "gatsby-plugin-mdx",
-    "gatsby-transformer-remark",
+    // "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {

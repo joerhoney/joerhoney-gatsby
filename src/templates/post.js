@@ -106,7 +106,7 @@ const Post = (props) => {
       <Page
         navItems={{
           Blog: "/blog",
-          Development: "/developer",
+          Dev: "/developer",
           Art: "/artist",
           Contact: "#contact",
         }}
