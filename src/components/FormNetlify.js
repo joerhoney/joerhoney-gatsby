@@ -7,20 +7,16 @@ const Form = (props) => {
   return (
     <div className="contact">
       <form
-        name="contact"
+        name="Contact"
         className={props.className}
         action="/thanks-contact"
         method="POST"
         data-netlify="true"
       >
+        <input type="hidden" name="form-name" value="Contact" />
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email Address" required />
-        <input
-          type="text"
-          name="_subject"
-          placeholder="Subject Line"
-          required
-        />
+        <input type="text" name="subject" placeholder="Subject Line" required />
         <input
           type="url"
           name="website"
