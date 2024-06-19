@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import Form from "@components/Form";
+import Form from "@components/FormNetlify";
 // import { Split, Half } from "@components/Split";
 // Layouts
 import Page from "@layouts/Page";

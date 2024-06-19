@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import Form from "@components/Form";
+import Form from "@components/FormNetlify";
 // Layouts
 import Page from "@layouts/Page";
 // Images

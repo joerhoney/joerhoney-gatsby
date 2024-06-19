@@ -4,7 +4,7 @@ import since from "@utils/since";
 // Components
 import Button from "@components/Button";
 import Collection from "@components/Collection";
-import Form from "@components/Formspree";
+import Form from "@components/FormNetlify";
 import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";

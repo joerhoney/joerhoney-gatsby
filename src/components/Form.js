@@ -1,7 +1,7 @@
 import React from "react";
 // CSS
 import "@css/buttons.css";
-import "@css/form.css";
+import "@css/form.scss";
 // Documentation: https://formsubmit.co/help
 
 const Form = (props) => {
