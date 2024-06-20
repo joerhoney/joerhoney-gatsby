@@ -25,6 +25,7 @@ module.exports = {
         update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
       },
     },
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-source-contentful`,
       options: {
@@ -76,7 +77,7 @@ module.exports = {
     },
     "gatsby-plugin-sass",
     // "gatsby-plugin-mdx",
-    "gatsby-transformer-remark",
+    // "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {

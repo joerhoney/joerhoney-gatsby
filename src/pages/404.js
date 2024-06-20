@@ -1,6 +1,6 @@
 import * as React from "react";
 // Components
-import Form from "@components/Formspree";
+import Form from "@components/FormNetlify";
 import { Link } from "gatsby";
 // Layouts
 import Page from "@layouts/Page";

@@ -3,7 +3,7 @@ import * as React from "react";
 import since from "@utils/since";
 // Components
 // import Button from "@components/Button";
-import Form from "@components/Formspree";
+import Form from "@components/FormNetlify";
 // import { Link } from "gatsby";
 import { Half, Split } from "@components/Split";
 // Layouts

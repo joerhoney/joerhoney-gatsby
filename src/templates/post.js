@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import Form from "@components/Formspree";
+import Form from "@components/FormNetlify";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
 import Profiles from "@fragments/Profiles";
@@ -106,7 +106,7 @@ const Post = (props) => {
       <Page
         navItems={{
           Blog: "/blog",
-          Development: "/developer",
+          Dev: "/developer",
           Art: "/artist",
           Contact: "#contact",
         }}
