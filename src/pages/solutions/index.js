@@ -20,7 +20,7 @@ const Solutions = () => {
             style={{ placeItems: "flex-end" }}
           />
         </div>
-        <h1>Story</h1>
+        <h1>Solutions</h1>
       </section>
       <Page>
         <section className="alignable">
