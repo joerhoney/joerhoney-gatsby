@@ -6,7 +6,7 @@ import { Wizard, Q, A, Step, End } from "../components/Wizard";
 import ButtonContact from "@fragments/ButtonContact";
 import ButtonWebsitesPackages from "@fragments/ButtonWebsitesPackages";
 import ButtonWebMaintenancePlans from "@fragments/ButtonWebMaintenancePlans";
-import HowFindWebsite from "@fragments/QHelp_HowFind";
+import WebsiteProblem from "@fragments/QHelp_Problem";
 
 function QHelp() {
   return (
@@ -16,58 +16,12 @@ function QHelp() {
         <A a="A new website." goto="qa_NewWebsite" />
         <A a="An existing website." goto="qa_XWebsite">
           <Step id="qa_XWebsite">
-            <Q>Tell me about your website problem.</Q>
-            <A a="It seems to be missing or broken." goto="qa_WebsiteBroken" />
-            <A a="It's not working right." goto="qa_WebsiteBroken"></A>
-            <A
-              a="It doesn't get enough/any traffic."
-              goto="qa_WebsiteTraffic"
-            />
-            <A a="It doesn't retain visitors." goto="qa_WebsiteRetention" />
-            <A a="It's slow/laggy." goto="qa_WebsiteSlow" />
-            <A a="It's unprofessional/ugly." goto="qa_WebsiteUgly" />
-            <A a="The content is out-dated." goto="qa_WebsiteOutdated" />
-            <A a="I don't know / I lost track of it." goto="qa_WebsiteIDK">
-              <Step id="qa_WebsiteIDK">
-                <Q>What data are you missing?</Q>
-                <A a="How to find it." goto="qa_HowToFind">
-                  <HowFindWebsite name="problems" />
-                </A>
-                <A
-                  a="Which company it is set up with."
-                  goto="qa_WebsiteIDK-DomainIDK"
-                />
-                <A
-                  a="Whether I have ownership of it."
-                  goto="qa_WebsiteIDK-Owner"
-                >
-                  <Step id="qa_WebsiteIDK-Owner">
-                    <Q>Which part of it are you unsure of your ownership of?</Q>
-                    <A a="The domain name." goto="qa_WebsiteIDK-DomainIDK" />
-                    <A
-                      a="The web hosting account the website is on."
-                      goto="qa_WebsiteIDK-DomainIDK"
-                    />
-                    <A a="The company." goto="qa_WebsiteIDK-Owner-Company">
-                      <End id="qa_WebsiteIDK-Owner-Company">
-                        Sounds like you may need a lawyer, which I am not. But
-                        here are a few ways I can help:
-                        <br />
-                        <ButtonWebsitesPackages />
-                        <br />
-                        [All Services section]
-                        <br />
-                        <ButtonContact />
-                        <p>
-                          Maybe I can make some suggestions to help you get to
-                          the bottom of your situation.
-                        </p>
-                      </End>
-                    </A>
-                  </Step>
-                </A>
-                <A a="I just want a new one." goto="qa_WebsiteN-NeedWebY" />
-              </Step>
+            <Q>What help do you need with your website?</Q>
+            <A a="It needs to be updated." goto="qa_WebsiteUpdate"></A>
+            <A a="It needs a new look." goto="qa_WebsiteNewLook"></A>
+            <A a="I need someone to maintain it." goto="qa_WebsiteMaintain"></A>
+            <A a="It has a problem." goto="qa_WebsiteProblem">
+              <WebsiteProblem name="problems" />
             </A>
           </Step>
         </A>
@@ -88,19 +42,19 @@ function QHelp() {
           <Step id="qa_WebNonSite">
             <Q>What kind of "non-website" web services do you need?</Q>
             <A
+              a="Whatever branding/marketing my business could gain more business from. You tell me."
+              goto="qa_Presence"
+            />
+            <A
               a="Local online marketing (Google Maps, Yelp!, Facebook, etc.)."
               goto="qa_Presence"
             />
             <A a="Social media branding." goto="qa_Presence"></A>
             <A a="Social media content." goto="qa_Presence"></A>
-            <A
-              a="Whatever branding/marketing my business could gain more web traffic from."
-              goto="qa_Presence"
-            />
-            <A a="Something else." goto="qa_Presence"></A>
+            <A a="Something else. I'll explain." goto="#contact"></A>
           </Step>
         </A>
-        <A a="What services to you offer?" goto="#services" />
+        <A a="What services do you offer?" goto="#services" />
         <A a="How can I contact you?" goto="#contact" />
       </Step>
       <End id="qa_NewWebsite">
@@ -121,6 +75,10 @@ function QHelp() {
       <End id="qa_Art">
         <p>Nice! Please contact me so we can discuss your creative project:</p>
         <ButtonContact />
+        <p>Or you can learn more about my artistry and see some of my work:</p>
+        <Link className="button" href="/artist">
+          My Art
+        </Link>
       </End>
       <End id="qa_Presence">
         <p>
