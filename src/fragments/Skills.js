@@ -107,6 +107,7 @@ const Software = () => {
 const OtherTech = () => {
   return (
     <div className="icons">
+      <Icon name="BEM" />
       <Icon name="Responsive" />
       <Icon name="W3C" />
       <Icon name="Terminal" />

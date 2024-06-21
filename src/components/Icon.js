@@ -202,6 +202,7 @@ import { FiCodepen } from "react-icons/fi";
 import { HiExternalLink, HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import {
+  SiBem,
   SiContentful,
   SiDigitalocean,
   SiFilezilla,
@@ -238,6 +239,7 @@ const Icon = (props) => {
     Atom: <DiAtom />,
     Aws: <DiAws />,
     Backbone: <DiBackbone />,
+    BEM: <SiBem />,
     BingSmall: <DiBingSmall />,
     Bintray: <DiBintray />,
     Bitbucket: <DiBitbucket />,
