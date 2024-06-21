@@ -185,7 +185,7 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Dirt Cheap</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -195,7 +195,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/static">Details</Link>
+                      <Link to="/solutions/website/static">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -221,7 +221,7 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>U Drive</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -231,7 +231,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/cms">Details</Link>
+                      <Link to="/solutions/website/cms">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -253,7 +253,7 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Sell It!</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -263,7 +263,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/solutions/website/ecommerce">Details</Link>
+                      <Link to="/solutions/website/ecommerce">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -286,7 +286,7 @@ const websitePage = () => {
             </div>
           </article>
           <article>
-            <h2 className="bottomXS">More Details</h2>
+            <h2 className="bottomXS">Details</h2>
             <h4 className="u-jump-link" id="hosting">
               Additional Hosting Costs
             </h4>

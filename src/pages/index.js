@@ -47,7 +47,7 @@ const Home = () => {
               <br />I design, build and maintain websites and web apps, using
               efficient and cost-effective modern development technologies.
               Basically, I provide design and online solutions for your
-              business. But what are you here for? <br />
+              business. Now, what are you here for? <br />
               <br />
               <a href="#question" className="jump-button">
                 Jump to Question
@@ -69,9 +69,8 @@ const Home = () => {
             speed={9}
             to="/solutions"
           >
-            <p>
-              Do you need online solu&shy;tions for your organiza&shy;tion?
-              Business owners, that's you.
+            <p style={{ maxWidth: "16.5em" }}>
+              Do you need online solutions for your Business?
             </p>
           </Half>
           <Half
@@ -86,9 +85,9 @@ const Home = () => {
             speed={-9}
             to="/developer"
           >
-            <p>
-              Or are you looking to hire a developer? Recruiters, Hiring
-              Managers, that's you.
+            <p style={{ maxWidth: "16.5em" }}>
+              Or are you looking to&nbsp;hire a&nbsp;developer? (Recruiters,
+              Hiring Managers, that's you)
             </p>
           </Half>
         </Split>

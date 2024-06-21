@@ -64,8 +64,8 @@ const solutionsPage = () => {
             <div className="column">
               <h3>Questionnaire</h3>
               <p>
-                Zero in on the solutions that would best address your problems
-                by answering a few questions.
+                Zero in on the solutions that would best address your needs by
+                answering a few questions.
               </p>
               <a href="#questionnaire" className="jump-button">
                 Jump to Questionnaire
@@ -83,10 +83,8 @@ const solutionsPage = () => {
               </a>
             </div>
             <div className="column">
-              <h3>Still Not Sure?</h3>
-              <p>
-                Fair enough. You can learn more about me and my services here.
-              </p>
+              <h3>Just Curious?</h3>
+              <p>Fair enough. You can learn more about my services here.</p>
               <a href="#services" className="jump-button">
                 Jump to Services
               </a>

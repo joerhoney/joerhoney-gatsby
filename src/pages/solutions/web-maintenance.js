@@ -50,7 +50,7 @@ const webMaintenancePage = () => {
                 >
                   <div>
                     <span className="subtle">The </span>
-                    <h4>Auto-Pilot</h4>
+                    <h4>4U</h4>
                     <span className="subtle">Plan</span>
                   </div>
                 </th>
@@ -61,7 +61,7 @@ const webMaintenancePage = () => {
                 >
                   <div>
                     <span className="subtle">The </span>
-                    <h4>Auto-Pilot +</h4>
+                    <h4>Auto-Pilot</h4>
                     <span className="subtle">Plan</span>
                   </div>
                 </th>
@@ -73,13 +73,13 @@ const webMaintenancePage = () => {
                 <td aria-label="Included">✔</td>
               </tr>
               <tr className="checkmarks">
-                <th scope="row">Text changes</th>
+                <th scope="row">Text changes*</th>
                 <td aria-label="Not included"></td>
                 <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
               </tr>
               <tr className="checkmarks">
-                <th scope="row">Image swaps</th>
+                <th scope="row">Image swaps*</th>
                 <td aria-label="Not included"></td>
                 <td aria-label="Included">✔</td>
                 <td aria-label="Included">✔</td>
@@ -131,7 +131,7 @@ const webMaintenancePage = () => {
                 >
                   <div className="compare-cta">
                     <div>
-                      <h4>Auto-Pilot</h4>
+                      <h4>4U</h4>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -152,7 +152,7 @@ const webMaintenancePage = () => {
                 >
                   <div className="compare-cta">
                     <div>
-                      <h4>Auto-Pilot + </h4>
+                      <h4>Auto-Pilot</h4>
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -175,38 +175,7 @@ const webMaintenancePage = () => {
             </div>
           </article>
           <article>
-            <h2 className="bottomXS">More Details</h2>
-            <h4 className="u-jump-link" id="hosting">
-              Additional Hosting Costs
-            </h4>
-            <p>
-              Websites have to be hosted, meaning provided to visitors by a
-              server (a special kind of computer). That server must remain ON at
-              all times, so someone has to pay for that. Unless you have your
-              own server to host your website on, you'll probably need a hosting
-              service for that.
-            </p>
-            <p>
-              The average hosting service charges can easily range between
-              $60/year to $600/year (with SSL certificate included), depending
-              on the computer resources necessary to run your website.
-            </p>
-            <h4 className="u-jump-link" id="ssl">
-              SSL Certificates
-            </h4>
-            <p>
-              An SSL certificate makes your website trustworthy with a secure
-              connection. This is included free with all packages (sort of).
-              Actually,
-            </p>
-            <h4 className="u-jump-link" id="pages-added">
-              Pages/Products Added for You
-            </h4>
-            <p>
-              To get you started (put a website there) I will create a number of
-              pages/products for you (as quoted above). Additional pages can be
-              added to your order or purchased later, at the rate of $60 each.
-            </p>
+            <h3 className="bottomXS">Details</h3>
           </article>
         </section>
         <section className="alignable skew_b cta_bu-jump-link" id="contact">
