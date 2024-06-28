@@ -9,7 +9,7 @@ const Browsers = () => {
     <div className="icons">
       <Icon name="Chrome" />
       <Icon name="Firefox" />
-      <Icon name="Ie" label="IE ☠️" />
+      <Icon name="Edge" />
       <Icon name="Safari" />
     </div>
   );
@@ -21,19 +21,15 @@ const Cms = () => {
       <Icon name="Drupal" />
       <Icon name="Gatsby" />
       <Icon name="Joomla" />
-      <Icon name="Wordpress" label="WordPress" />
+      <Icon name="WordPress" label="WordPress" />
     </div>
   );
 };
 const Communities = () => {
   return (
     <div className="icons">
-      <Icon name="Codepen" />
-      <Icon
-        name="Stackoverflow"
-        label="Stack Overflow"
-        className="tight-text"
-      />
+      <Icon name="CodePen" />
+      <Icon name="Stack Overflow" className="tight-text" />
     </div>
   );
 };
@@ -44,8 +40,8 @@ const Compilers = () => {
       <Icon name="Babel" />
       <Icon name="Git" />
       <Icon name="Modernizr" />
-      <Icon name="NodejsSmall" label="Node.js" />
-      <Icon name="Npm" label="npm" />
+      <Icon name="Node.js" />
+      <Icon name="NPM" label="npm" />
       {/* <Icon name="Bootstrap" /> */}
       <Icon name="Sass" />
     </div>
@@ -54,10 +50,10 @@ const Compilers = () => {
 const Languages = () => {
   return (
     <div className="icons">
-      <Icon name="Css3Full" label="CSS3" />
-      <Icon name="Html5" label="HTML5" />
-      <Icon name="JsBadge" label="JavaScript" />
-      <Icon name="JqueryLogo" label="jQuery" />
+      <Icon name="CSS3" />
+      <Icon name="HTML5" />
+      <Icon name="JavaScript" />
+      <Icon name="jQuery" />
       <Icon name="Markdown" />
       {/* <Icon name="Mongodb" /> */}
       <Icon name="Mysql" label="MySQL" />
@@ -79,14 +75,14 @@ const Os = () => {
 const Services = () => {
   return (
     <div className="icons">
-      <Icon name="Github" label="GitHub" />
-      <Icon name="Aws" />
-      <Icon label="Digital Ocean" name="Digitalocean" />
+      <Icon name="GitHub" />
+      <Icon name="AWS" />
+      <Icon name="Digital Ocean" />
       <Icon name="Figma" />
-      <Icon name="GoogleAnalytics" label="Google Analytics" />
       <Icon name="Atlassian" />
       <Icon name="Jira" />
-      <Icon name="GoogleDrive" label="Google Drive" />
+      <Icon name="Google Analytics" className="tight-text" />
+      <Icon name="Google Drive" />
     </div>
   );
 };
@@ -94,12 +90,14 @@ const Software = () => {
   return (
     <div className="icons">
       {/* <Icon name="AfterEffects" /> */}
-      <Icon name="VSCode" />
+      <Icon name="VS Code" />
       <Icon name="Atom" />
       <Icon name="Brackets" />
-      <Icon label="FileZilla" name="Filezilla" />
-      <Icon name="Illustrator" />
-      <Icon name="Photoshop" />
+      <Icon name="FileZilla" />
+      <Icon name="Illustrator" className="tight-text" />
+      <Icon name="Photoshop" className="tight-text" />
+      <Icon name="Designer" className="tight-text" />
+      <Icon name="Photo" />
       <Icon name="Selenium" />
     </div>
   );
