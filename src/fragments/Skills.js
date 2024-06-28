@@ -21,6 +21,7 @@ const Cms = () => {
       <Icon name="Drupal" />
       <Icon name="Gatsby" />
       <Icon name="Joomla" />
+      <Icon name="Strapi" />
       <Icon name="WordPress" label="WordPress" />
     </div>
   );
@@ -44,6 +45,7 @@ const Compilers = () => {
       <Icon name="NPM" label="npm" />
       {/* <Icon name="Bootstrap" /> */}
       <Icon name="Sass" />
+      <Icon name="Tailwind" />
     </div>
   );
 };
@@ -83,6 +85,7 @@ const Services = () => {
       <Icon name="Jira" />
       <Icon name="Google Analytics" className="tight-text" />
       <Icon name="Google Drive" />
+      <Icon name="Stripe" />
     </div>
   );
 };
@@ -105,6 +108,7 @@ const Software = () => {
 const OtherTech = () => {
   return (
     <div className="icons inline">
+      <Icon name="BEM" />
       <Icon name="Responsive" />
       <Icon name="W3C" />
       <Icon name="Terminal" />
