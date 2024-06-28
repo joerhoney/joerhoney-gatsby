@@ -9,7 +9,7 @@ import Scheme from "../layouts/Scheme";
 // CSS
 import "@css/buttons.css";
 import "@css/colors-default.css";
-import "@css/global.css";
+import "@css/global.scss";
 import "@css/units.css";
 import "@css/blog.css";
 
