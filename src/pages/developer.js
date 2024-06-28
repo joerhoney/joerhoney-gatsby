@@ -124,7 +124,7 @@ const codePage = () => {
             </p>
           </article>
           <div className="content-center self-center wide">
-            <div className="reveal">
+            <div className="reveal-child-b">
               <Languages />
               <Cms />
               <Compilers />
@@ -385,7 +385,7 @@ const codePage = () => {
           <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
-          <Profiles className="article reveal self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center compensateBHalf" />
         </section>
       </Page>
     </>

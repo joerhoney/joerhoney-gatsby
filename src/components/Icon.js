@@ -89,9 +89,7 @@ const Icon = (props) => {
     Atom: <DiAtom />,
     Brackets: <DiBrackets />,
     Modernizr: <DiModernizr />,
-    // Responsive: <DiResponsive />,
     Terminal: <DiTerminal />,
-    // W3C: <DiW3C />,
     // Heroicons
     ExternalLink: <HiExternalLink />,
     Menu: <HiMenu />,
@@ -180,7 +178,7 @@ const Icon = (props) => {
             </a>
           )}
         >
-          <div className={`icon stack ${className ?? ""}`}>
+          <div className={`icon ${className ?? ""}`}>
             {iconMap[icon]}
             {label !== "false" ? <b>{label}</b> : ""}
           </div>

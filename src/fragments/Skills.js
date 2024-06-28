@@ -2,11 +2,11 @@ import * as React from "react";
 // Components
 import Icon from "@components/Icon";
 // CSS
-import "@css/icons.css";
+import "@css/icons.scss";
 
 const Browsers = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Chrome" />
       <Icon name="Firefox" />
       <Icon name="Edge" />
@@ -16,7 +16,7 @@ const Browsers = () => {
 };
 const Cms = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Contentful" />
       <Icon name="Drupal" />
       <Icon name="Gatsby" />
@@ -27,7 +27,7 @@ const Cms = () => {
 };
 const Communities = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="CodePen" />
       <Icon name="Stack Overflow" className="tight-text" />
     </div>
@@ -35,7 +35,7 @@ const Communities = () => {
 };
 const Compilers = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Apache" />
       <Icon name="Babel" />
       <Icon name="Git" />
@@ -49,7 +49,7 @@ const Compilers = () => {
 };
 const Languages = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="CSS3" />
       <Icon name="HTML5" />
       <Icon name="JavaScript" />
@@ -65,7 +65,7 @@ const Languages = () => {
 };
 const Os = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Apple" />
       <Icon name="Windows" />
       <Icon name="Linux" />
@@ -74,7 +74,7 @@ const Os = () => {
 };
 const Services = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="GitHub" />
       <Icon name="AWS" />
       <Icon name="Digital Ocean" />
@@ -88,7 +88,7 @@ const Services = () => {
 };
 const Software = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       {/* <Icon name="AfterEffects" /> */}
       <Icon name="VS Code" />
       <Icon name="Atom" />
@@ -104,7 +104,7 @@ const Software = () => {
 };
 const OtherTech = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Responsive" />
       <Icon name="W3C" />
       <Icon name="Terminal" />
