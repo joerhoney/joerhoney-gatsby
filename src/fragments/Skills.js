@@ -22,7 +22,7 @@ const Cms = () => {
       <Icon name="Gatsby" />
       <Icon name="Joomla" />
       <Icon name="Strapi" />
-      <Icon name="WordPress" label="WordPress" />
+      <Icon name="WordPress" />
     </div>
   );
 };
@@ -79,12 +79,12 @@ const Services = () => {
     <div className="icons inline">
       <Icon name="GitHub" />
       <Icon name="AWS" />
-      <Icon name="Digital Ocean" />
+      <Icon name="Digital Ocean" className="tight-text" />
       <Icon name="Figma" />
+      <Icon name="Analytics" />
+      <Icon name="Drive" />
       <Icon name="Atlassian" />
       <Icon name="Jira" />
-      <Icon name="Google Analytics" className="tight-text" />
-      <Icon name="Google Drive" />
       <Icon name="Stripe" />
     </div>
   );
@@ -97,9 +97,9 @@ const Software = () => {
       <Icon name="Atom" />
       <Icon name="Brackets" />
       <Icon name="FileZilla" />
-      <Icon name="Illustrator" className="tight-text" />
-      <Icon name="Photoshop" className="tight-text" />
-      <Icon name="Designer" className="tight-text" />
+      <Icon name="Illustrator" />
+      <Icon name="Photoshop" />
+      <Icon name="Designer" />
       <Icon name="Photo" />
       <Icon name="Selenium" />
     </div>
