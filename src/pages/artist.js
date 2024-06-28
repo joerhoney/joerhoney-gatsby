@@ -256,7 +256,7 @@ const artistPage = (props) => {
           <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
-          <Profiles className="article reveal self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center compensateBHalf" />
         </section>
       </Page>
     </>

@@ -280,6 +280,12 @@ article,
 .in-the-corner > * {
   max-width: 300px;
 }
+.inline {
+  display: inline;
+}
+.tight-text {
+  letter-spacing: -0.08em;
+}
 .full-width {
   max-width: unset;
 }
@@ -295,6 +301,16 @@ article,
 }
 .overlay {
   mix-blend-mode: overlay;
+}
+@media (hover: hover) {
+  .reveal,
+  .reveal-child-b b {
+    opacity: 0;
+  }
+  .reveal:hover,
+  .reveal-child-b:hover b {
+    opacity: 1;
+  }
 }
 h1,
 h2,

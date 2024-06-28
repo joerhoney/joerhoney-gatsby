@@ -1,0 +1,57 @@
+.icons {
+  &:focus,
+  &:hover {
+    .icon {
+      color: var(--color4);
+      &:focus,
+      &:hover {
+        color: var(--color5);
+      }
+    }
+  }
+}
+.icon {
+  color: var(--color3);
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  padding: 12px;
+  a {
+    color: currentColor;
+  }
+  svg {
+    display: block;
+    font-size: 40px;
+    max-width: 40px;
+    transition: all 0.75s ease;
+  }
+  b {
+    display: block;
+    font-size: 0.8em;
+    font-weight: normal;
+    transition: all 0.75s ease, scale 0.2s;
+  }
+  &:focus,
+  &:hover {
+    color: var(--color5);
+    b {
+      scale: 1.25;
+    }
+  }
+}
+// @media (hover: hover) {
+//   .reveal .icons .stack b {
+//     opacity: 0;
+//   }
+//   .reveal:hover .icons .stack b {
+//     opacity: 1;
+//   }
+// }
+// .cta_b .icons {
+//   color: var(--color5);
+// }
+// .cta_b .icons .stack:focus,
+// .cta_b .icons .stack:hover {
+//   color: var(--color6);
+// }
