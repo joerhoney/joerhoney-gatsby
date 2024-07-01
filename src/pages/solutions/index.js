@@ -110,7 +110,7 @@ const solutionsPage = () => {
               one of these diverse web packages should be just what you need.
             </p>
             <p>
-              <Link to="/solutions/website" className="button">
+              <Link to="/solutions/website/#top" className="button">
                 Website Packages
               </Link>
             </p>
@@ -125,7 +125,7 @@ const solutionsPage = () => {
               web maintenance.
             </p>
             <p>
-              <Link to="/solutions/web-maintenance" className="button">
+              <Link to="/solutions/web-maintenance/#top" className="button">
                 Web Maintenance Packages
               </Link>
             </p>
@@ -137,9 +137,10 @@ const solutionsPage = () => {
               with a potential customer. A fresh modern look will garner new
               visitors in greater abundance than one that makes your business
               look old and rundown. My&nbsp;
-              <Link to="/solutions/website">Website Packages</Link> include web
-              design, but if you already have a website and it needs a facelift,
-              send me your website address for a free quote on a new look.
+              <Link to="/solutions/website/#top">Website Packages</Link> include
+              web design, but if you already have a website and it needs a
+              facelift, send me your website address for a free quote on a new
+              look.
             </p>
             <p>
               <Link to="#contact" className="button">

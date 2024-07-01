@@ -19,6 +19,7 @@ const websitePage = () => {
   return (
     <>
       <Page
+        id="top"
         navItems={{
           Solutions: "/solutions",
           Maintenance: "/solutions/web-maintenance",
@@ -294,8 +295,7 @@ const websitePage = () => {
               Websites have to be hosted, meaning provided to visitors by a
               server (a special kind of computer). That server must remain ON at
               all times, so someone has to pay for that. Unless you have your
-              own server to host your website on, you'll probably need a hosting
-              service for that.
+              own server, you'll probably need a hosting service.
             </p>
             <p>
               The average hosting service charges can easily range between
@@ -307,16 +307,15 @@ const websitePage = () => {
             </h4>
             <p>
               An SSL certificate makes your website trustworthy with a secure
-              connection. This is included free with all packages (sort of).
-              Actually,
+              connection. This is included free with all packages.
             </p>
             <h4 className="u-jump-link" id="pages-added">
               Pages/Products Added for You
             </h4>
             <p>
-              To get you started (put a website there) I will create a number of
+              To get you started with your new website I will create a number of
               pages/products for you (as quoted above). Additional pages can be
-              added to your order or purchased later, at the rate of $60 each.
+              added to your order or purchased later, at the rate of $100 each.
             </p>
           </article>
         </section>
@@ -324,8 +323,8 @@ const websitePage = () => {
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>
-              Whether you need help building something or you just want to
-              connect... well I want to connect, so drop me an email!
+              Whether you need help building a website or you just want to
+              connect, drop me an email!
             </p>
           </article>
           <Form className="compensateBHalf" />
