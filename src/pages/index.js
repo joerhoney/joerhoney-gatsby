@@ -93,17 +93,23 @@ const Home = () => {
               <span
                 className="written-note"
                 style={{
+                  fontSize: "1.4em",
                   fontWeight: "bold",
-                  bottom: "-240px",
+                  lineHeight: "1.1",
+                  bottom: "-300px",
                   left: "20%",
-                  width: "85%",
                   rotate: "342deg",
+                  width: "85%",
                 }}
               >
                 <Icon
                   name="ArrowSketch"
                   className="written-note__arrow"
-                  style={{ rotate: "352deg", bottom: "116%", right: "50%" }}
+                  style={{
+                    bottom: "110%",
+                    right: "50%",
+                    rotate: "352deg",
+                  }}
                 />
                 (Recruiters, Hiring Managers, that's you)
               </span>
