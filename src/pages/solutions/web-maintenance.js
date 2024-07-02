@@ -12,16 +12,6 @@ import { Link } from "gatsby";
 const webMaintenancePage = () => {
   return (
     <>
-      <section className="hero page abrupt-scroll">
-        <div className="hero__bg">
-          <img
-            alt="Mouse clicks swarming into your store."
-            loading="lazy"
-            src={storeFront}
-          />
-        </div>
-        <h1>Solutions</h1>
-      </section>
       <Page
         // id="top"
         navItems={{
