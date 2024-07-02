@@ -60,7 +60,7 @@ const solutionsPage = () => {
           className="skew_b compensateTHalf topS cta_b"
           style={{ position: "relative" }}
         >
-          <div className="columns-few bottomS coluns-few__tilt">
+          <div className="columns-few bottomS columns-few__tilt">
             <div className="column">
               <h3>Questionnaire</h3>
               <p>

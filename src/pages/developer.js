@@ -122,10 +122,10 @@ const codePage = () => {
             <p>
               These days, a web developer is usually expected to be well-rounded
               and specialize in several aspects of the web. The industry
-              continues to grow exponentially and anyone involved should know
+              continues to grow exponentially, and anyone involved should know
               that no one can specialize in all of it. So what do I mean when I
-              say I'm a web developer? Here are the more specific web roles I
-              consider myself a good fit for, and why:
+              say I'm a web developer? Let me start by sharing the more specific
+              web roles I consider myself a good fit for, and why:
             </p>
           </article>
         </section>
@@ -136,7 +136,7 @@ const codePage = () => {
           <article className="self-center">
             <h2 className="tilt">Roles</h2>
           </article>
-          <div className="columns-few bottomS coluns-few__tilt">
+          <div className="columns-few bottomS columns-few__tilt">
             <div className="column">
               <h3>Front-End Developer</h3>
               <p>
@@ -152,30 +152,30 @@ const codePage = () => {
               <p>
                 This lesser-known role is where I see myself heading in my
                 career path. Generally expected to have some HTML canvas and
-                WebGL knowledge, as well as a deep understanding of CSS,
+                WebGL knowledge, as well as a deep understanding of CSS, a
                 Creative Developer specializes in digital experiences. I am
-                excited be learning these skills.
+                passionate about learning these skills.
               </p>
             </div>
             <div className="column">
               <h3>WordPress Developer</h3>
               <p>
-                The majority of my web industry experience involves the 100+
+                The majority of my web industry experience involves over 100
                 WordPress websites I designed, built and/or managed over the
                 course of about 12 years. Most of these include my own custom
                 theme and some of my own plugins (10 available in the public
-                repository under the name AddFunc).
+                directory under the name AddFunc).
               </p>
             </div>
             <div className="column">
               <h3>Web Developer</h3>
               <p>
                 To me, this blanket term means understanding the fundamental
-                mechanics of the web and knowing the 3 pillars of web
-                linguistics, HTML, CSS and JavaScript. In addition to the daily
-                use of these a web developer sees the relationships,
-                similarities and differences in all web languages and can
-                therefore adapt as needed.
+                mechanics of the web and having a thorough grasp of the 3
+                pillars of web linguistics (HTML, CSS and JavaScript). In
+                addition to the daily use of these, a web developer sees the
+                relationships, similarities and differences in all web languages
+                and can therefore adapt as needed.
               </p>
             </div>
             <div className="column">
