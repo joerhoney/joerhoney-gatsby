@@ -41,13 +41,34 @@ p {
 .u-jump-link {
   // scroll-margin-top: 56px;
 }
+*:has(> .written-note) {
+  position: relative;
+}
+.written-note {
+  font-family: "Bradley Hand", cursive;
+  position: absolute;
+  text-align: center;
+  text-wrap: balance;
+  .written-note__arrow {
+    width: 24px;
+    height: 60px;
+    position: absolute;
+    transform-origin: 50% 150%;
+    svg {
+      height: 100%;
+    }
+    b {
+      display: none;
+    }
+  }
+}
 body {
   background: var(--color1);
   color: var(--color6);
   font: 400 16px/1.3em Courier, monospace;
   margin: 0;
   padding: 0;
-  position: relative;
+  position: relative; // Needed for smooth scrolling, apparently.
   scrollbar-color: var(--color3) var(--color1);
   scrollbar-width: 6px;
   width: 100vw;

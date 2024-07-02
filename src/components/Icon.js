@@ -78,6 +78,7 @@ import {
   SiZsh,
 } from "react-icons/si";
 import {
+  SvgArrowSketch,
   // SvgClose,
   SvgHamburger,
   SvgResponsive,
@@ -158,15 +159,15 @@ const Icon = (props) => {
     WordPress: <SiWordpress />,
     Zsh: <SiZsh />,
     // Custom icons
+    ArrowSketch: <SvgArrowSketch />,
     Hamburger: <SvgHamburger />,
     Responsive: <SvgResponsive />,
     W3C: <SvgW3c />,
   };
 
-  const { className, href, name } = props;
+  const { className, href, name, style } = props;
   const label = props.label ? props.label : name;
   const icon = name.replace(/\.|\s/g, "");
-  console.log("was: ", name, " now: ", icon);
 
   return (
     <>
@@ -184,7 +185,7 @@ const Icon = (props) => {
             </a>
           )}
         >
-          <div className={`icon ${className ?? ""}`}>
+          <div className={`icon ${className ?? ""}`} style={style}>
             {iconMap[icon]}
             {label !== "false" ? <b>{label}</b> : ""}
           </div>

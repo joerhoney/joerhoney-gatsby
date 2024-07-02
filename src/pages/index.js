@@ -4,10 +4,12 @@ import since from "@utils/since";
 // Components
 // import Button from "@components/Button";
 import Form from "@components/FormNetlify";
+import Icon from "@components/Icon";
 // import { Link } from "gatsby";
 import { Half, Split } from "@components/Split";
 // Layouts
 import Page from "@layouts/Page";
+import Scheme from "../layouts/Scheme";
 // Fragments
 import HeroHome from "@fragments/HeroHome";
 import Profiles from "@fragments/Profiles";
@@ -56,6 +58,7 @@ const Home = () => {
           </article>
         </div>
       </HeroHome>
+      <Scheme style={{ transform: "translate(-10vw, -60px)" }} />
       <Page indicator={false} nav={false} scheme={false}>
         <Split className="compensateTHalf" id="question">
           <Half
@@ -86,8 +89,24 @@ const Home = () => {
             to="/developer"
           >
             <p style={{ maxWidth: "16.5em" }}>
-              Or are you looking to&nbsp;hire a&nbsp;developer? (Recruiters,
-              Hiring Managers, that's you)
+              Or are you looking to hire a developer?{" "}
+              <span
+                className="written-note"
+                style={{
+                  fontWeight: "bold",
+                  bottom: "-240px",
+                  left: "20%",
+                  width: "85%",
+                  rotate: "342deg",
+                }}
+              >
+                <Icon
+                  name="ArrowSketch"
+                  className="written-note__arrow"
+                  style={{ rotate: "352deg", bottom: "116%", right: "50%" }}
+                />
+                (Recruiters, Hiring Managers, that's you)
+              </span>
             </p>
           </Half>
         </Split>

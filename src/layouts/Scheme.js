@@ -10,10 +10,15 @@ class Scheme extends React.Component {
         `input[value=${localStorage.getItem("colorScheme") ?? "auto"}]`
       ).checked = true;
   }
-  render() {
+  render(props) {
+    console.log("props: ", this.props);
     return (
       <>
-        <fieldset id="color-scheme" className="color-scheme">
+        <fieldset
+          id="color-scheme"
+          className="color-scheme"
+          style={this.props.style}
+        >
           <label
             className="light-scheme-icon"
             htmlFor="light-scheme"

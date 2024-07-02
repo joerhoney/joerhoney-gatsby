@@ -104,6 +104,7 @@
 }
 .half:nth-child(1) .cell .content {
   text-align: right;
+  text-wrap: balance;
 }
 .half h2 {
   font-size: calc(4.5vh + 4.5vw);

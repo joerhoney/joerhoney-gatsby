@@ -65,7 +65,7 @@ const HeroHome = (props) => {
 {""}    ecommerce solutions   start-ups   company  branding     web design{"\n"}
 {""}     corporate image   logos  animation    creative  services     3D animation{"\n"}
 {""}     design   creative services   concept  art     background  art{"\n"}
-{""}      character art   life art   sketch{"\n"}
+{""}      character art   life art   written{"\n"}
 {""}      illustration{"\n"}
 </pre>
           </div>

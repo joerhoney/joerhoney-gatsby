@@ -9,34 +9,34 @@
       }
     }
   }
-}
-.icon {
-  color: var(--color3);
-  display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-  padding: 12px;
-  a {
-    color: currentColor;
-  }
-  svg {
-    display: block;
-    font-size: 40px;
-    max-width: 40px;
-    transition: all 0.75s ease;
-  }
-  b {
-    display: block;
-    font-size: 0.8em;
-    font-weight: normal;
-    transition: all 0.75s ease, scale 0.2s;
-  }
-  &:focus,
-  &:hover {
-    color: var(--color5);
+  .icon {
+    color: var(--color3);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    padding: 12px;
+    a {
+      color: currentColor;
+    }
+    svg {
+      display: block;
+      font-size: 40px;
+      max-width: 40px;
+      transition: all 0.75s ease;
+    }
     b {
-      scale: 1.25;
+      display: block;
+      font-size: 0.8em;
+      font-weight: normal;
+      transition: all 0.75s ease, scale 0.2s;
+    }
+    &:focus,
+    &:hover {
+      color: var(--color5);
+      b {
+        scale: 1.25;
+      }
     }
   }
 }
