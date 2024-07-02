@@ -6,9 +6,9 @@
 }
 // html:not(:has(.abrupt-scroll)) {
 //   /* scroll-snap-type: y proximity; */
-//   scroll-behavior: smooth;
 // }
 html {
+  scroll-behavior: smooth;
   scrollbar-color: var(--color3) var(--scrolltrack);
   scrollbar-width: thin;
 }
