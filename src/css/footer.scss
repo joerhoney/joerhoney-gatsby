@@ -3,10 +3,14 @@ footer {
   position: relative;
   transform-origin: bottom left;
   width: 100vw;
+  // position: relative;
+  // z-index: 1;
   .footer__inner {
     padding: 60px 20px 0;
     color: var(--color5);
     transition: color ease 1s;
+    position: relative;
+    z-index: 1;
     &::before {
       background-image: var(--gradFooter);
       content: "";

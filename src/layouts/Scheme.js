@@ -1,6 +1,6 @@
 import React from "react";
 // CSS
-import "@css/scheme.css";
+import "@css/scheme.scss";
 
 class Scheme extends React.Component {
   componentDidMount() {
@@ -13,7 +13,7 @@ class Scheme extends React.Component {
   render() {
     return (
       <>
-        <fieldset id="color-scheme">
+        <fieldset id="color-scheme" className="color-scheme">
           <label
             className="light-scheme-icon"
             htmlFor="light-scheme"

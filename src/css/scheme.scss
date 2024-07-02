@@ -1,4 +1,4 @@
-#color-scheme {
+.color-scheme {
   border: 0;
   box-sizing: content-box;
   /* display: inline-block; */
@@ -11,28 +11,28 @@
   text-align: right;
   width: 4.5em;
   z-index: 999;
-}
-#color-scheme input {
-  opacity: 0;
-}
-#color-scheme label {
-  color: var(--color3);
-  cursor: pointer;
-  display: inline-block;
-  height: 1em;
-  opacity: 0.6;
-  padding: 0.25em;
-  position: relative;
-  transition: opacity ease 0.3s;
-  width: 1em;
-}
-#color-scheme label:focus,
-#color-scheme label:hover {
-  opacity: 1;
-}
-#color-scheme label::before,
-#color-scheme input {
-  cursor: pointer;
+  input {
+    opacity: 0;
+  }
+  label {
+    color: var(--color3);
+    cursor: pointer;
+    display: inline-block;
+    height: 1em;
+    opacity: 0.6;
+    padding: 0.25em;
+    position: relative;
+    transition: opacity ease 0.3s;
+    width: 1em;
+  }
+  label:focus,
+  label:hover {
+    opacity: 1;
+  }
+  label::before,
+  input {
+    cursor: pointer;
+  }
 }
 .light-scheme-icon::before {
   background-color: currentColor;

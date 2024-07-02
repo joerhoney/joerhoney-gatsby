@@ -4,9 +4,11 @@
   width: 100vw;
   font-size: 16px;
 }
+// html:not(:has(.abrupt-scroll)) {
+//   /* scroll-snap-type: y proximity; */
+//   scroll-behavior: smooth;
+// }
 html {
-  scroll-behavior: smooth;
-  /* scroll-snap-type: y proximity; */
   scrollbar-color: var(--color3) var(--scrolltrack);
   scrollbar-width: thin;
 }
@@ -37,7 +39,7 @@ p {
   background-color: var(--color3);
 }
 .u-jump-link {
-  scroll-margin-top: 56px;
+  // scroll-margin-top: 56px;
 }
 body {
   background: var(--color1);
@@ -57,7 +59,7 @@ body > div {
   background-image: var(--gradBg);
   background-repeat: no-repeat;
   // position: relative;
-  z-index: -10;
+  // z-index: -10;
 }
 a {
   text-decoration: none;
@@ -250,13 +252,16 @@ section.alignable {
   display: block;
   transform: skewY(14.125deg);
   transform-origin: center;
-  z-index: -1;
+  // z-index: -1;
 
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+}
+.skew_b > * {
+  position: relative;
 }
 article,
 .article {
@@ -324,6 +329,7 @@ h4 {
   margin: 0;
   padding-top: 1em;
   text-transform: lowercase;
+  text-wrap: balance;
 }
 h1 {
   padding-top: 0;
@@ -362,7 +368,7 @@ h2:has(+ p) {
   translate: 0 80px;
   /* margin-right: -36px; */
   max-width: 100%;
-  width: 420px;
+  // width: 420px;
 }
 h3.tilt:has(+ p) {
   align-self: flex-end;
@@ -372,7 +378,7 @@ h3.tilt:has(+ p) {
   translate: 0 80px;
   /* margin-right: -36px; */
   max-width: 100%;
-  width: 420px;
+  // width: 420px;
 }
 main section h1 {
   box-sizing: border-box;

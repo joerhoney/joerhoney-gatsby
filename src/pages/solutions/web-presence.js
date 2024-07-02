@@ -15,8 +15,18 @@ import { Link } from "gatsby";
 const webPresencePage = () => {
   return (
     <>
+      <section className="hero page abrupt-scroll">
+        <div className="hero__bg">
+          <img
+            alt="Mouse clicks swarming into your store."
+            loading="lazy"
+            src={storeFront}
+          />
+        </div>
+        <h1>Solutions</h1>
+      </section>
       <Page
-        id="top"
+        // id="top"
         navItems={{
           Solutions: "/solutions",
           Websites: "/solutions/website",
@@ -317,7 +327,7 @@ const webPresencePage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b cta_bu-jump-link" id="contact">
+        <section className="alignable skew_b cta_b u-jump-link" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>
