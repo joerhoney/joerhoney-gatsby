@@ -437,8 +437,8 @@ const codePage = () => {
             </div>
           </Collection>
         </section>
-        <section className="alignable skew_b tint3_b">
-          <div className="columns-3">
+        <section className="alignable topS bottomS skew_b tint3_b">
+          <div className="columns-few columns-few__tilt">
             <div className="column" id="custom-plugins">
               <h3>WordPress Plugins</h3>
               <p>
@@ -473,31 +473,11 @@ const codePage = () => {
         </section>
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
-            <h2>Let's Build Something!</h2>
+            <h2>Contact me</h2>
             <p>
-              Nothing excites me more than starting a new project or making
-              something better. For {since("Jan, 1, 2006")} years I have worked
-              as a freelancer, serving clients in many industries, and have also
-              worked as a full-time employee at various retail manufacturing and
-              marketing agencies.
+              Please use this form to send me an email. I'll get back to you
+              within 24 hours. Don't worry, I won't spam you. :)
             </p>
-            <div className="columns-2 bottomXS">
-              <div className="pull tint1">
-                <h4>Hire me! 😄</h4>
-                <p>
-                  I am currently available for hire! Not for long though, so act
-                  fast if you want me on your team! 🙌
-                </p>
-              </div>
-              <div className="pull tint1">
-                <h4>Contract me! 👍</h4>
-                <p>
-                  I am also open for service as a freelance web developer. Send
-                  me your project ideas and I'll help you hash out the web
-                  solutions you need. 💡
-                </p>
-              </div>
-            </div>
           </article>
           <Form className="compensateBHalf" />
         </section>
