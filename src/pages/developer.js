@@ -5,6 +5,7 @@ import since from "@utils/since";
 import Button from "@components/Button";
 import Collection from "@components/Collection";
 import Form from "@components/FormNetlify";
+import { Link } from "gatsby";
 import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";
@@ -435,6 +436,40 @@ const codePage = () => {
               />
             </div>
           </Collection>
+        </section>
+        <section className="alignable skew_b tint3_b">
+          <div className="columns-3">
+            <div className="column" id="custom-plugins">
+              <h3>WordPress Plugins</h3>
+              <p>
+                I have published 10 custom plugins in the WordPress directory
+                under the name AddFunc. You can see them here:
+              </p>
+              <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">
+                AddFunc Plugins
+              </Button>
+            </div>
+            <div className="column">
+              <h3>My Résumé</h3>
+              <p>
+                You may already have it, but for convenience and to serve also
+                as correlation, you can find my résumé here:
+              </p>
+              <a className="button" href="/resume">
+                View Résumé
+              </a>
+            </div>
+            <div className="column">
+              <h3>Journey of an&nbsp;Artist</h3>
+              <p>
+                Want to know more about me personally? Well, I wrote a bit about
+                my life here:
+              </p>
+              <a className="button" href="/story">
+                My Story
+              </a>
+            </div>
+          </div>
         </section>
         <section className="alignable skew_b cta_b" id="contact">
           <article className="self-center">
