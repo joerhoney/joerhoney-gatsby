@@ -42,9 +42,9 @@ const solutionsPage = () => {
           <article className="self-center">
             <p>
               Most likely, you've come here because you need web or creative
-              solutions. While I can list all of the solutions I can offer, I
-              think it would prove more efficient to listen to your needs. Let's
-              start with one of these options:
+              solutions. While I can list all of the solutions I offer, I think
+              it would be more efficient to listen to your needs. Let's start
+              with one of these options:
             </p>
           </article>
           <img
@@ -64,7 +64,7 @@ const solutionsPage = () => {
             <div className="column">
               <h3>Questionnaire</h3>
               <p>
-                Zero in on the solutions that would best address your needs by
+                Zero in on the solution to address your most immediate needs by
                 answering a few questions.
               </p>
               <a href="#questionnaire" className="jump-button">
@@ -74,9 +74,8 @@ const solutionsPage = () => {
             <div className="column">
               <h3>Contact Me</h3>
               <p>
-                Don't hesitate to reach out. I'm a listener and I'm eager to
-                hear all of your web and creative needs, so I can provide the
-                most suitable solutions to your problems.
+                I'm eager to listen to your situation so we can work out the
+                best solutions for you.
               </p>
               <a href="#contact" className="jump-button">
                 Jump to Contact Info
@@ -84,7 +83,7 @@ const solutionsPage = () => {
             </div>
             <div className="column">
               <h3>Just Curious?</h3>
-              <p>Fair enough. You can learn more about my services here.</p>
+              <p>No problem! You can learn more about my services here.</p>
               <a href="#services" className="jump-button">
                 Jump to Services
               </a>
@@ -100,74 +99,84 @@ const solutionsPage = () => {
           </article>
         </section>
         <section className="alignable skew_b tint3_b" id="services">
-          <article className="self-center topS bottomM">
-            <h2 className="tilt">Services</h2>
-            <h3 className="tilt">Website Creation</h3>
-            <p>
-              Having a new website built doesn't have to be difficult or costly.
-              Whether you need to enable your customer to place orders online or
-              you just need a simple place on the web to stake your presence,
-              one of these diverse web packages should be just what you need.
-            </p>
-            <p>
-              <a href="/solutions/website/" className="button">
-                Website Packages
-              </a>
-            </p>
-            <h3 className="tilt">Web Maintenance</h3>
-            <p>
-              As anyone with a website knows, websites need to be updated
-              occasionally. Domain names, hosting and SSL certificates need to
-              be renewed annually. Your company details can change and you need
-              your website to reflect the update. Maybe you want to add a new
-              feature, product. But every company has different website needs.
-              That's why I put together several packages to cover any level of
-              web maintenance.
-            </p>
-            <p>
-              <a href="/solutions/web-maintenance/" className="button">
-                Web Maintenance Packages
-              </a>
-            </p>
-            <h3 className="tilt">Web Design</h3>
-            <p>
-              Attraction is the responsibility of design. While any web presence
-              is better than nothing, design is one of the main factors that
-              governs a first impression, which can make or break your contact
-              with a potential customer. A fresh modern look will garner new
-              visitors in greater abundance than one that makes your business
-              look old and rundown. My&nbsp;
-              <a href="/solutions/website/">Website Packages</a> include web
-              design, but if you already have a website and it needs a facelift,
-              send me your website address for a free quote on a new look.
-            </p>
-            <p>
-              <a href="#contact" className="button">
-                Get a Free Quote
-              </a>
-            </p>
-            {/* <h3 className="tilt">Web Presence</h3>
-            <p>
-              Except in rare cases, having a website is crucial to establishing
-              a presence on the web for any organization. People commonly rely
-              on search engines to find you, and if you're not there… 🤷🏻‍♂️
-              My&nbsp;
-              <Link to="/solutions/website">Website Packages</Link> include
-              basic search engine optimization (SEO) to ensure you're not left
-              in the dust while your neighbor gets all the clicks. But it is
-              also important to recognize that a website isn't the only way your
-              potential customers will look for what they need. Many use Yelp!,
-              Google Maps (and other map apps), Facebook and other such
-              directories. These packages are designed to establish such venues
-              as needed and keep them up-to-date, to ensure your prospects get a
-              chance to see how you shine.
-            </p>
-            <p>
-              <Link to="/solutions/web-presence" className="button">
-                Web Presence Packages
-              </Link>
-            </p> */}
-          </article>
+          <h2 className="tilt">Services</h2>
+          <div className="columns-few columns-few__tilt topS bottomM">
+            <div className="column">
+              <h3 className="tilt">Website Creation</h3>
+              <p>
+                Having a new website built doesn't have to be difficult or
+                costly. Whether you need to enable your customer to place orders
+                online or you just need a simple place on the web to stake your
+                presence, one of these diverse web packages should be just what
+                you need.
+              </p>
+              <p>
+                <a href="/solutions/website/" className="button">
+                  Website Packages
+                </a>
+              </p>
+            </div>
+            <div className="column">
+              <h3 className="tilt">Web Maintenance</h3>
+              <p>
+                As anyone with a website knows, websites need to be updated
+                occasionally. Domain names, hosting and SSL certificates need to
+                be renewed annually. Your company details can change and you
+                need your website to reflect the update. Maybe you want to add a
+                new feature, product. But every company has different website
+                needs. That's why I put together several packages to cover any
+                level of web maintenance.
+              </p>
+              <p>
+                <a href="/solutions/web-maintenance/" className="button">
+                  Web Maintenance Packages
+                </a>
+              </p>
+            </div>
+            <div className="column">
+              <h3 className="tilt">Web Design</h3>
+              <p>
+                Attraction is the responsibility of design. While any web
+                presence is better than nothing, design is one of the main
+                factors that governs a first impression, which can make or break
+                your contact with a potential customer. A fresh modern look will
+                garner new visitors in greater abundance than one that makes
+                your business look old and rundown. My&nbsp;
+                <a href="/solutions/website/">Website Packages</a> include web
+                design, but if you already have a website and it needs a
+                facelift, send me your website address for a free quote on a new
+                look.
+              </p>
+              <p>
+                <a href="#contact" className="button">
+                  Get a Free Quote
+                </a>
+              </p>
+            </div>
+            {/* <div className="column">
+              <h3 className="tilt">Web Presence</h3>
+              <p>
+                Except in rare cases, having a website is crucial to establishing
+                a presence on the web for any organization. People commonly rely
+                on search engines to find you, and if you're not there… 🤷🏻‍♂️
+                My&nbsp;
+                <Link to="/solutions/website">Website Packages</Link> include
+                basic search engine optimization (SEO) to ensure you're not left
+                in the dust while your neighbor gets all the clicks. But it is
+                also important to recognize that a website isn't the only way your
+                potential customers will look for what they need. Many use Yelp!,
+                Google Maps (and other map apps), Facebook and other such
+                directories. These packages are designed to establish such venues
+                as needed and keep them up-to-date, to ensure your prospects get a
+                chance to see how you shine.
+              </p>
+              <p>
+                <Link to="/solutions/web-presence" className="button">
+                  Web Presence Packages
+                </Link>
+              </p>
+            </div> */}
+          </div>
         </section>
 
         {/* <section className="alignable bottomM">
@@ -195,48 +204,13 @@ const solutionsPage = () => {
             </p>
           </article>
         </section> */}
-        {/* <section className="alignable">
-          <article className="self-center z10">
-            <QHelp />
-          </article>
-        </section> */}
-        {/* <Split>
-          <Half
-            alt="Illustration of the front end of a dragon."
-            button="Website Services"
-            className="half1 u-jump-link"
-            heading="Web"
-            id="websites"
-            position="top right"
-            src={dragonSplit1}
-            speed={9}
-            to="/solutions/website"
-          >
-            <p>
-              Choose from my versatile website packages and see the additional
-              web services I can provide.
-            </p>
-          </Half>
-          <Half
-            alt="Illustration of the back end of a dragon."
-            button="Art Services"
-            className="half2 u-jump-link"
-            heading="Art"
-            id="art"
-            position="top left"
-            src={dragonSplit2}
-            speed={-9}
-            to="/solutions/art"
-          >
-            <p>See my illustration, graphic, and branding services.</p>
-          </Half>
-        </Split> */}
-        <section className="alignable skew_b cta_b u-jump-link" id="contact">
+        <section className="alignable skew_b cta_b u-jump-section" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p className="text">
               Please let me know your general web needs. I will respond to your
-              message as soon as possible.
+              message within 24 hours. No spamming, I promise.{" "}
+              <b className="u-heading-font">:j</b>
             </p>
           </article>
           <Form className="compensateBHalf" />

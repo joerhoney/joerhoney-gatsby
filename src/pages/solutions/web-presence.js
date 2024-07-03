@@ -24,7 +24,7 @@ const webPresencePage = () => {
           Design: "/solutions/web-design",
         }}
       >
-        <section className="alignable compensateB u-jump-link" id="packages">
+        <section className="alignable compensateB u-jump-section" id="packages">
           <h1>Web Presence</h1>
           <article>
             <table className="compare bottomS ">
@@ -284,7 +284,7 @@ const webPresencePage = () => {
           </article>
           <article>
             <h2 className="bottomXS">More Details</h2>
-            <h4 className="u-jump-link" id="hosting">
+            <h4 className="u-jump-section" id="hosting">
               Additional Hosting Costs
             </h4>
             <p>
@@ -299,7 +299,7 @@ const webPresencePage = () => {
               $60/year to $600/year (with SSL certificate included), depending
               on the computer resources necessary to run your website.
             </p>
-            <h4 className="u-jump-link" id="ssl">
+            <h4 className="u-jump-section" id="ssl">
               SSL Certificates
             </h4>
             <p>
@@ -307,7 +307,7 @@ const webPresencePage = () => {
               connection. This is included free with all packages (sort of).
               Actually,
             </p>
-            <h4 className="u-jump-link" id="pages-added">
+            <h4 className="u-jump-section" id="pages-added">
               Pages/Products Added for You
             </h4>
             <p>
@@ -317,7 +317,7 @@ const webPresencePage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b cta_b u-jump-link" id="contact">
+        <section className="alignable skew_b cta_b u-jump-section" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>

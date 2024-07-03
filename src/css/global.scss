@@ -38,14 +38,17 @@ p {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color3);
 }
-.u-jump-link {
-  // scroll-margin-top: 56px;
+.u-jump-section {
+  scroll-margin-top: 56px;
+}
+.u-heading-font {
+  font-family: Rubik, sans-serif;
 }
 *:has(> .written-note) {
   position: relative;
 }
 .written-note {
-  font-family: "Bradley Hand", cursive;
+  font-family: "Bradley Hand", "Bradley Hand ITC", "Segoe Print", cursive;
   position: absolute;
   text-align: center;
   text-wrap: balance;

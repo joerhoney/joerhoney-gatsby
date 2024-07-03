@@ -198,12 +198,12 @@ const codePage = () => {
           />
         </section>
         <section className="alignable bottomM topS" id="skills">
-          <article className="self-center">
+          <article className="self-center bottomXS">
             <h2>Skills &amp; Tools</h2>
             <p>
               These are the technical skills I've picked up and tools I've
-              worked with in my career. I'm always eager to learn more. That's
-              what I love most about coding.
+              worked with in my career. I'm always eager to learn and teach what
+              I know!
             </p>
           </article>
           <div className="content-center self-center wide">
@@ -437,9 +437,9 @@ const codePage = () => {
             </div>
           </Collection>
         </section>
-        <section className="alignable topS bottomS skew_b tint3_b">
+        <section className="alignable topS bottomM skew_b tint3_b">
           <div className="columns-few columns-few__tilt">
-            <div className="column" id="custom-plugins">
+            <div className="column u-jump-section" id="plugins">
               <h3>WordPress Plugins</h3>
               <p>
                 I have published 10 custom plugins in the WordPress directory
@@ -449,7 +449,7 @@ const codePage = () => {
                 AddFunc Plugins
               </Button>
             </div>
-            <div className="column">
+            <div className="column u-jump-section" id="resume">
               <h3>My Résumé</h3>
               <p>
                 You may already have it, but for convenience and to serve also
@@ -459,7 +459,7 @@ const codePage = () => {
                 View Résumé
               </a>
             </div>
-            <div className="column">
+            <div className="column u-jump-section" id="story">
               <h3>Journey of an&nbsp;Artist</h3>
               <p>
                 Want to know more about me personally? Well, I wrote a bit about
@@ -476,7 +476,8 @@ const codePage = () => {
             <h2>Contact me</h2>
             <p>
               Please use this form to send me an email. I'll get back to you
-              within 24 hours. Don't worry, I won't spam you. :)
+              within 24 hours. Don't worry, I won't spam you.{" "}
+              <b className="u-heading-font">:j</b>
             </p>
           </article>
           <Form className="compensateBHalf" />

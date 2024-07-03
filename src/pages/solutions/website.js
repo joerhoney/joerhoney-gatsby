@@ -28,7 +28,7 @@ const websitePage = () => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable compensateB u-jump-link" id="packages">
+        <section className="alignable compensateB u-jump-section" id="packages">
           <h1>Websites</h1>
           <article>
             <table className="compare bottomS ">
@@ -288,7 +288,7 @@ const websitePage = () => {
           </article>
           <article>
             <h2 className="bottomXS">Details</h2>
-            <h4 className="u-jump-link" id="hosting">
+            <h4 className="u-jump-section" id="hosting">
               Additional Hosting Costs
             </h4>
             <p>
@@ -302,14 +302,14 @@ const websitePage = () => {
               $60/year to $600/year (with SSL certificate included), depending
               on the computer resources necessary to run your website.
             </p>
-            <h4 className="u-jump-link" id="ssl">
+            <h4 className="u-jump-section" id="ssl">
               SSL Certificates
             </h4>
             <p>
               An SSL certificate makes your website trustworthy with a secure
               connection. This is included free with all packages.
             </p>
-            <h4 className="u-jump-link" id="pages-added">
+            <h4 className="u-jump-section" id="pages-added">
               Pages/Products Added for You
             </h4>
             <p>
@@ -319,7 +319,7 @@ const websitePage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b cta_b u-jump-link" id="contact">
+        <section className="alignable skew_b cta_b u-jump-section" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>

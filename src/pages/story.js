@@ -85,7 +85,7 @@ const storyPage = () => {
           </p>
         </article>
       </section> */}
-        <section className="alignable skew_b cta_b u-jump-link" id="contact">
+        <section className="alignable skew_b cta_b u-jump-section" id="contact">
           <article>
             <h2>Contact Me</h2>
             <p>

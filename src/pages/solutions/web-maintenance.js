@@ -22,7 +22,7 @@ const webMaintenancePage = () => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable compensateB u-jump-link" id="plans">
+        <section className="alignable compensateB u-jump-section" id="plans">
           <h1>Web Maintenance</h1>
           <article>
             <table className="compare bottomS ">
@@ -179,7 +179,7 @@ const webMaintenancePage = () => {
             <h3 className="bottomXS">Details</h3>
           </article>
         </section>
-        <section className="alignable skew_b cta_b u-jump-link" id="contact">
+        <section className="alignable skew_b cta_b u-jump-section" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>

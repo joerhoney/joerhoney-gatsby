@@ -120,8 +120,10 @@ const Home = () => {
           <article className="self-center">
             <h2>Or Contact Me</h2>
             <p>
-              Whether you need help with something online or you just want to
-              connect, drop me an email!
+              Whether you need help with something online, you want to interview
+              me, or you just want to connect, drop me an email with this form!
+              I'll get back to you within 24 hours and I won't spam you.{" "}
+              <b className="u-heading-font">:j</b>
             </p>
           </article>
           {/* <Query /> */}

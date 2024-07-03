@@ -118,7 +118,7 @@ const Post = (props) => {
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b compensateTHalf u-jump-link"
+          className="alignable skew_b cta_b compensateTHalf u-jump-section"
           id="contact"
         >
           <article className="self-center">
