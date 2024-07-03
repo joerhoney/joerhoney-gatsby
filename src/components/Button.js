@@ -12,7 +12,7 @@ const Button = (props) => {
   const target = isExternal(props.href) ? "_blank" : "";
   return (
     <a
-      className={`button ${props.className}`}
+      className={`button ${props.className ?? ""}`}
       href={props.href}
       rel={rel}
       target={target}

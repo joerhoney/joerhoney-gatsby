@@ -40,6 +40,7 @@ button:hover {
   padding-right: var(--unit8);
 }
 .button .icon.external {
+  padding: 0;
   position: absolute;
   top: var(--unit2);
   right: var(--unit2);

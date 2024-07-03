@@ -90,42 +90,7 @@ const Home = () => {
             </Half>
           </Split>
         </div>
-        <section className="alignable topXS">
-          <div className="columns-3">
-            <div className="column" id="custom-plugins">
-              <h3>WordPress Plugins</h3>
-              <p>
-                I create custom plugins. In fact, I have published 10 in the
-                WordPress repository under the name AddFunc. They all have high
-                ratings, too. Check them out:
-              </p>
-              <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">
-                AddFunc Plugins
-              </Button>
-            </div>
-            <div className="column">
-              <h3>Developer Résumé</h3>
-              <p>
-                You may already have it, but for convenience and to ensure a
-                clear correlation, you can find my résumé here:
-              </p>
-              <Link className="button" to="/resume">
-                View Résumé
-              </Link>
-            </div>
-            <div className="column">
-              <h3>Journey of an&nbsp;Artist</h3>
-              <p>
-                Want to know more about me personally? Well, I wrote a bit about
-                my life here:
-              </p>
-              <Link className="button" to="/story">
-                My Story
-              </Link>
-            </div>
-          </div>
-        </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b topM" id="contact">
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>
