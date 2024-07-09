@@ -6,6 +6,7 @@ import { Wizard, Q, A, Step, End } from "../components/Wizard";
 import ButtonContact from "@fragments/ButtonContact";
 import ButtonWebsitesPackages from "@fragments/ButtonWebsitesPackages";
 import ButtonWebMaintenancePlans from "@fragments/ButtonWebMaintenancePlans";
+import Mailto from "@components/Mailto";
 import WebsiteProblem from "@fragments/QHelp_Problem";
 
 function QHelp() {
@@ -70,11 +71,16 @@ function QHelp() {
           Awesome! Let's get in touch so we can work together on your design
           needs:
         </p>
-        <ButtonContact />
+        <Mailto
+          subject="Consultation Request: Website Design"
+          message="I would like a free consultation."
+        >
+          Email me
+        </Mailto>
       </End>
       <End id="qa_Art">
         <p>Nice! Please contact me so we can discuss your creative project:</p>
-        <ButtonContact />
+        <Mailto />
         <p>Or you can learn more about my artistry and see some of my work:</p>
         <Link className="button" href="/artist">
           My Art

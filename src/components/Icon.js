@@ -12,7 +12,12 @@ import {
   DiTerminal,
   DiW3C,
 } from "react-icons/di";
-import { HiExternalLink, HiMenu } from "react-icons/hi";
+import {
+  HiExternalLink,
+  HiMenu,
+  HiOutlineExternalLink,
+  HiOutlineMail,
+} from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import {
   SiAdobeaftereffects,
@@ -81,6 +86,7 @@ import {
   SvgArrowSketch,
   // SvgClose,
   SvgHamburger,
+  SvgMail,
   SvgResponsive,
   SvgW3c,
 } from "./SVGs.js";
@@ -95,7 +101,9 @@ const Icon = (props) => {
     Modernizr: <DiModernizr />,
     Terminal: <DiTerminal />,
     // Heroicons
-    ExternalLink: <HiExternalLink />,
+    ExternalLinkBold: <HiExternalLink />,
+    ExternalLink: <HiOutlineExternalLink />,
+    Mail: <HiOutlineMail />,
     Menu: <HiMenu />,
     // Ionicons 5
     Close: <IoClose />,

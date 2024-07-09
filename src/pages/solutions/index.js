@@ -98,9 +98,11 @@ const solutionsPage = () => {
             <QHelp />
           </article>
         </section>
-        <section className="alignable skew_b tint3_b" id="services">
-          <h2 className="tilt">Services</h2>
-          <div className="columns-few columns-few__tilt topS bottomM">
+        <section className="alignable skew_b topS tint3_b" id="services">
+          <div className="article">
+            <h2 className="tilt">Services</h2>
+          </div>
+          <div className="columns-few columns-few__tilt bottomM">
             <div className="column">
               <h3 className="tilt">Website Creation</h3>
               <p>
@@ -144,12 +146,12 @@ const solutionsPage = () => {
                 your business look old and rundown. My&nbsp;
                 <a href="/solutions/website/">Website Packages</a> include web
                 design, but if you already have a website and it needs a
-                facelift, send me your website address for a free quote on a new
-                look.
+                facelift, send me your website address for a free consultation
+                for a new look.
               </p>
               <p>
                 <a href="#contact" className="button">
-                  Get a Free Quote
+                  Get a Consultation
                 </a>
               </p>
             </div>

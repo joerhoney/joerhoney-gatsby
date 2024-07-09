@@ -58,6 +58,23 @@ const SvgResponsive = () => {
   );
 };
 
+const SvgMail = () => {
+  return (
+    <svg
+      stroke="currentColor"
+      fill="currentColor"
+      stroke-width="0"
+      version="1.1"
+      viewBox="0 0 12 12"
+      height="1em"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M11.975,2.415c0,-0.658 -0.537,-1.195 -1.195,-1.195l-9.56,-0c-0.658,-0 -1.195,0.537 -1.195,1.195l-0,7.17c-0,0.658 0.537,1.195 1.195,1.195l9.56,0c0.658,0 1.195,-0.537 1.195,-1.195l0,-7.17Zm-1.195,-0l-4.78,2.981l-4.78,-2.981l9.56,-0Zm0,7.17l-9.56,0l-0,-5.975l4.78,2.988l4.78,-2.988l0,5.975Z" />
+    </svg>
+  );
+};
+
 const SvgW3c = () => {
   return (
     <svg
@@ -75,4 +92,11 @@ const SvgW3c = () => {
   );
 };
 
-export { SvgArrowSketch, SvgClose, SvgHamburger, SvgResponsive, SvgW3c };
+export {
+  SvgArrowSketch,
+  SvgClose,
+  SvgHamburger,
+  SvgMail,
+  SvgResponsive,
+  SvgW3c,
+};

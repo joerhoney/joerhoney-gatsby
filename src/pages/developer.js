@@ -131,12 +131,12 @@ const codePage = () => {
           </article>
         </section>
         <section
-          className="skew_b compensateTHalf topS cta_b"
+          className="alignable skew_b compensateTHalf topS cta_b"
           style={{ position: "relative" }}
         >
-          <article className="self-center">
+          <div className="article">
             <h2 className="tilt">Roles</h2>
-          </article>
+          </div>
           <div className="columns-few bottomS columns-few__tilt">
             <div className="column">
               <h3>Front-End Developer</h3>
@@ -190,7 +190,7 @@ const codePage = () => {
           </div>
           <img
             alt="Portrait of Joe Rhoney."
-            className="portrait self-right transluscent"
+            className="portrait transluscent"
             height="290"
             loading="lazy"
             src={avatar}

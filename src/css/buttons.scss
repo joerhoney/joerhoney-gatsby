@@ -33,16 +33,16 @@ button {
     padding: 4px 8px;
     text-shadow: 0 0 0.5em var(--lightish);
   }
-  &:has(.icon.external) {
+  &:has(.icon) {
     padding-right: var(--unit8);
   }
-  .icon.external {
+  .icon {
     padding: 0;
     position: absolute;
     top: var(--unit2);
     right: var(--unit2);
   }
-  .icon.external svg {
+  .icon svg {
     font-size: 20px;
   }
 }

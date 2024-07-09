@@ -8,24 +8,23 @@ import Icon from "./Icon.js";
 import "@css/buttons.scss";
 
 const Button = (props) => {
-  const rel = isExternal(props.href) ? "noreferrer" : "";
-  const target = isExternal(props.href) ? "_blank" : "";
+  const { children, className, href, preview } = props;
+  const rel = isExternal(href) ? "noreferrer" : "";
+  const target = isExternal(href) ? "_blank" : "";
   return (
     <a
-      className={`button ${props.className ?? ""}`}
-      href={props.href}
+      className={`button ${className ?? ""}`}
+      href={href}
       rel={rel}
       target={target}
     >
-      {isExternal(props.href) ? (
-        <Icon className="external" label="false" name="ExternalLink" />
+      {isExternal(href) ? (
+        <Icon className="external" label="false" name="ExternalLinkBold" />
       ) : (
         ""
       )}
-      {props.children && <div className="text">{props.children}</div>}
-      {props.window && (
-        <div className="window">{getDomainName(props.href)}</div>
-      )}
+      {children && <div className="text">{children}</div>}
+      {preview && <div className="window">{getDomainName(href)}</div>}
     </a>
   );
 };
