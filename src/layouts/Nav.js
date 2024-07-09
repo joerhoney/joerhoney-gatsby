@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import "@css/nav.scss";
 
 const Nav = (props) => {
-  console.log("props: ", props);
   const items = props.items || {
     Home: "/",
     Developer: "/developer",

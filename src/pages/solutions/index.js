@@ -2,10 +2,12 @@ import React from "react";
 // Components
 import Form from "@components/FormNetlify";
 import { Link } from "gatsby";
+import Icon from "@components/Icon";
 // import { Split, Half } from "@components/Split";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 import QHelp from "@fragments/QHelp";
 // CSS
@@ -13,6 +15,7 @@ import "@css/solutions.scss";
 // Images
 import allears from "@images/portrait.webp";
 import storeFront from "@images/heros/store-front-transparent.webp";
+import Mailto from "../../components/Mailto";
 // import dragonSplit1 from "@images/dragon-split1.webp";
 // import dragonSplit2 from "@images/dragon-split2.webp";
 
@@ -206,19 +209,35 @@ const solutionsPage = () => {
             </p>
           </article>
         </section> */}
-        <section className="alignable skew_b cta_b u-jump-section" id="contact">
+        <section
+          className="alignable skew_b cta_b bottomS u-jump-section"
+          id="contact"
+        >
           <article className="self-center">
             <h2>Contact Me</h2>
             <p className="text">
-              Please let me know your general web needs. I will respond to your
-              message within 24 hours. No spamming, I promise.{" "}
+              Please let me know your web and creative needs in as much detail
+              as you can. I will respond to your message within 24 hours.&nbsp;
               <b className="u-heading-font">:j</b>
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          <Form className="compensateBHalf" />
+          {/* <Form className="compensateBHalf" /> */}
         </section>
         <section className="alignable">
-          <Profiles className="article reveal" />
+          <Profiles className="article reveal-child-b" />
         </section>
       </Page>
     </>

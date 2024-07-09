@@ -91,7 +91,7 @@ const Home = () => {
             <p style={{ maxWidth: "16.5em" }}>
               Or are you looking to hire a developer?{" "}
               <span
-                className="written-note"
+                className="written-note with-arrow"
                 style={{
                   fontSize: "1.4em",
                   fontWeight: "bold",
@@ -104,7 +104,7 @@ const Home = () => {
               >
                 <Icon
                   name="ArrowSketch"
-                  className="written-note__arrow"
+                  className="with-arrow__arrow"
                   style={{
                     bottom: "110%",
                     right: "50%",

@@ -42,10 +42,8 @@ const Blog = () => {
       <main className="blog">
         <h1 className="h1 square">Blog</h1>
         {posts.map((post) => {
-          console.log("blog.js: post.node: ", post.node);
           const { date, description, title, slug } = post.node;
           const feat = post.node.featuredImage;
-          console.log("blog.js: feat/post.node.featuredImage): ", feat);
           return (
             <article key={date}>
               <Link className="post-link" to={`/blog/${slug}`}>

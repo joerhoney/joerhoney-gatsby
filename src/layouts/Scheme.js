@@ -11,7 +11,6 @@ class Scheme extends React.Component {
       ).checked = true;
   }
   render(props) {
-    console.log("props: ", this.props);
     return (
       <>
         <fieldset

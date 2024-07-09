@@ -328,7 +328,7 @@ const webPresencePage = () => {
           <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
-          <Profiles className="article reveal" />
+          <Profiles className="article reveal-child-b" />
         </section>
       </Page>
     </>

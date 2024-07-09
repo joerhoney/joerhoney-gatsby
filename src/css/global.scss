@@ -44,16 +44,18 @@ p {
 .u-heading-font {
   font-family: Rubik, sans-serif;
 }
-*:has(> .written-note) {
-  position: relative;
-}
 .written-note {
   font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Noteworthy",
     "Comic Sans", "Comic Sans MS", "Courier New", "Courier", monospace;
+}
+*:has(> .with-arrow) {
+  position: relative;
+}
+.with-arrow {
   position: absolute;
   text-align: center;
   text-wrap: balance;
-  .written-note__arrow {
+  .with-arrow__arrow {
     width: 24px;
     height: 60px;
     position: absolute;
@@ -63,6 +65,15 @@ p {
     }
     b {
       display: none;
+    }
+    &--flip {
+      scale: -1 1;
+    }
+    &--in {
+      scale: 1 -1;
+    }
+    &--in-flip {
+      scale: -1 -1;
     }
   }
 }
