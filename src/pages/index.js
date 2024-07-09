@@ -64,7 +64,7 @@ const Home = () => {
         <Split className="compensateTHalf" id="question">
           <Half
             alt="Illustration of the front end of a dragon."
-            button="Get Solution"
+            button="Get Solutions"
             className="half1"
             heading="Solutions"
             id="problem-solver"
