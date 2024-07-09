@@ -39,11 +39,8 @@ button {
   .icon {
     padding: 0;
     position: absolute;
-    top: var(--unit2);
+    top: calc(50% - 0.5em);
     right: var(--unit2);
-  }
-  .icon svg {
-    font-size: 20px;
   }
 }
 .cta,
@@ -68,6 +65,7 @@ p .button {
     border: none;
   }
 }
+
 .jump-button {
   border: 0.075em solid currentColor;
   border-radius: 100px;

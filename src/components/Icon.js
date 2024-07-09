@@ -85,8 +85,9 @@ import {
 import {
   SvgArrowSketch,
   // SvgClose,
+  SvgExternalLinkBold,
   SvgHamburger,
-  SvgMail,
+  SvgMailBold,
   SvgResponsive,
   SvgW3c,
 } from "./SVGs.js";
@@ -101,7 +102,7 @@ const Icon = (props) => {
     Modernizr: <DiModernizr />,
     Terminal: <DiTerminal />,
     // Heroicons
-    ExternalLinkBold: <HiExternalLink />,
+    // ExternalLinkBold: <HiExternalLink />,
     ExternalLink: <HiOutlineExternalLink />,
     Mail: <HiOutlineMail />,
     Menu: <HiMenu />,
@@ -168,7 +169,9 @@ const Icon = (props) => {
     Zsh: <SiZsh />,
     // Custom icons
     ArrowSketch: <SvgArrowSketch />,
+    ExternalLinkBold: <SvgExternalLinkBold />,
     Hamburger: <SvgHamburger />,
+    MailBold: <SvgMailBold />,
     Responsive: <SvgResponsive />,
     W3C: <SvgW3c />,
   };
