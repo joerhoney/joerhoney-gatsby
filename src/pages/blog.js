@@ -19,6 +19,7 @@ const Blog = () => {
       allContentfulPost(sort: { date: DESC }) {
         edges {
           node {
+            createdAt(formatString: "YYYY.MM.DD")
             date(formatString: "YYYY.MM.DD")
             description
             slug
@@ -38,17 +39,25 @@ const Blog = () => {
   return (
     <>
       <Scheme />
-      <Nav />
+      <Nav
+        items={{
+          Blog: "/blog",
+          Dev: "/developer",
+          Art: "/artist",
+          Contact: "#contact",
+        }}
+      />
       <main className="blog">
         <h1 className="h1 square">Blog</h1>
         {posts.map((post) => {
-          const { date, description, title, slug } = post.node;
+          const { createdAt, date, description, title, slug } = post.node;
           const feat = post.node.featuredImage;
+          const posted = date !== null ? date : createdAt;
           return (
-            <article key={date}>
+            <article key={posted}>
               <Link className="post-link" to={`/blog/${slug}`}>
                 <h2 className="post-title tilt">{title}</h2>
-                <p className="post-date">{date}</p>
+                <p className="post-date">{posted}</p>
                 <p className="post-desc">{description}</p>
                 {feat != null && (
                   <img

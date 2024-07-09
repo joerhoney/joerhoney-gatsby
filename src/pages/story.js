@@ -1,9 +1,10 @@
 import * as React from "react";
 // Components
-import Form from "@components/FormNetlify";
+import Mailto from "@components/Mailto";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Images
 import cherryBlossom from "@images/heros/cherry-blossom-half.webp";
@@ -85,7 +86,10 @@ const storyPage = () => {
           </p>
         </article>
       </section> */}
-        <section className="alignable skew_b cta_b u-jump-section" id="contact">
+        <section
+          className="alignable skew_b cta_b bottomS u-jump-section"
+          id="contact"
+        >
           <article>
             <h2>Contact Me</h2>
             <p>
@@ -93,7 +97,19 @@ const storyPage = () => {
               well, I want to connect, too! So drop me an email.
             </p>
           </article>
-          <Form className="compensateBHalf" />
+          <Arrow
+            className="self-right"
+            style={{
+              bottom: "150%",
+              left: "-114px",
+              rotate: "280deg",
+            }}
+            inward
+          >
+            <Mailto className="button" subject="General Inquiry">
+              Email Me
+            </Mailto>
+          </Arrow>
         </section>
         <section className="alignable">
           <Profiles className="article reveal-child-b" />

@@ -2,6 +2,7 @@ import React from "react";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 
 const ThanksContact = () => {

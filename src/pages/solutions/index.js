@@ -1,7 +1,7 @@
 import React from "react";
 // Components
-import Form from "@components/FormNetlify";
 import { Link } from "gatsby";
+import Mailto from "@components/Mailto";
 import Icon from "@components/Icon";
 // import { Split, Half } from "@components/Split";
 // Layouts
@@ -15,7 +15,6 @@ import "@css/solutions.scss";
 // Images
 import allears from "@images/portrait.webp";
 import storeFront from "@images/heros/store-front-transparent.webp";
-import Mailto from "../../components/Mailto";
 // import dragonSplit1 from "@images/dragon-split1.webp";
 // import dragonSplit2 from "@images/dragon-split2.webp";
 
@@ -234,7 +233,6 @@ const solutionsPage = () => {
               </Mailto>
             </Arrow>
           </article>
-          {/* <Form className="compensateBHalf" /> */}
         </section>
         <section className="alignable">
           <Profiles className="article reveal-child-b" />

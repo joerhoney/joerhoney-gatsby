@@ -4,7 +4,7 @@ import since from "@utils/since";
 // Components
 import Button from "@components/Button";
 import Collection from "@components/Collection";
-import Form from "@components/FormNetlify";
+import Mailto from "@components/Mailto";
 import { Link } from "gatsby";
 import Showcase from "@components/Showcase";
 // Layouts
@@ -12,6 +12,7 @@ import Page from "@layouts/Page";
 // CSS
 import "@css/developer.scss";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 import {
   Browsers,
@@ -465,22 +466,34 @@ const codePage = () => {
                 Want to know more about me personally? Well, I wrote a bit about
                 my life here:
               </p>
-              <a className="button" href="/story">
+              <a className="button" href="/blog/journey-of-an-artist/">
                 My Story
               </a>
             </div>
           </div>
         </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_b bottomS" id="contact">
           <article className="self-center">
             <h2>Contact me</h2>
             <p>
-              Please use this form to send me an email. I'll get back to you
-              within 24 hours. Don't worry, I won't spam you.{" "}
+              Please don't hesitate to send me an email. I'll get back to you as
+              soon as possible. I look forward to hearing from you!&nbsp;
               <b className="u-heading-font">:j</b>
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal-child-b self-center compensateBHalf" />

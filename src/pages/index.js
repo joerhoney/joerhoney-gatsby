@@ -3,7 +3,7 @@ import * as React from "react";
 import since from "@utils/since";
 // Components
 // import Button from "@components/Button";
-import Form from "@components/FormNetlify";
+import Mailto from "@components/Mailto";
 import Icon from "@components/Icon";
 // import { Link } from "gatsby";
 import { Half, Split } from "@components/Split";
@@ -12,6 +12,7 @@ import Page from "@layouts/Page";
 import Scheme from "../layouts/Scheme";
 // Fragments
 import HeroHome from "@fragments/HeroHome";
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Images
 import avatar from "@images/portrait.webp";
@@ -121,13 +122,24 @@ const Home = () => {
             <h2>Or Contact Me</h2>
             <p>
               Whether you need help with something online, you want to interview
-              me, or you just want to connect, drop me an email with this form!
-              I'll get back to you within 24 hours and I won't spam you.{" "}
+              me, or you just want to connect, drop me an email! I'll get back
+              to you within 24 hours and I won't spam you.&nbsp;
               <b className="u-heading-font">:j</b>
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          {/* <Query /> */}
-          <Form />
         </section>
         <section className="alignable">
           <Profiles className="article reveal-child-b self-center compensateBHalf" />

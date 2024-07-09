@@ -52,6 +52,7 @@ a.post-link {
 .blog article {
   box-sizing: border-box;
   transform: skew(14.125deg);
+  padding-bottom: var(--unit4);
   position: relative;
 }
 .blog article:last-of-type {

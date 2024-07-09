@@ -6,9 +6,9 @@ import "@css/nav.scss";
 
 const Nav = (props) => {
   const items = props.items || {
-    Home: "/",
     Developer: "/developer",
     Artist: "/artist",
+    Résumé: "/resume",
     Contact: "#contact",
   };
   return (
