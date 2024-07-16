@@ -3,11 +3,9 @@ import React from "react";
 import concatQuery from "@utils/concatQuery.js";
 // Coponents
 import Icon from "./Icon.js";
-// CSS
-import "@css/buttons.scss";
 
 const Mailto = (props) => {
-  const { children, className, subject, message } = props;
+  const { children, className, icon = true, message, subject } = props;
   const email = "%6A%6F%65@%6A%6F%65rh%6Fn%65y%2Ec%6Fm";
   const sub = subject ? "subject=" + encodeURIComponent(subject) : null;
   const msg = message
@@ -19,9 +17,9 @@ const Mailto = (props) => {
     : null;
   const mailto = "mailto:" + email + concatQuery([sub, msg]);
   return (
-    <a className={`button ${className ?? ""}`} href={mailto} target="_blank">
-      <Icon className="mailto" label="false" name="MailBold" />
-      {children && <div className="text">{children}</div>}
+    <a className={`mailto ${className ?? ""}`} href={mailto} target="_blank">
+      {icon && <Icon className="mailto" label="false" name="MailBold" />}
+      {children || "Email me"}
     </a>
   );
 };

@@ -72,6 +72,7 @@ function QHelp() {
           needs:
         </p>
         <Mailto
+          className="button"
           subject="Consultation Request: Website Design"
           message="I would like a free consultation."
         >

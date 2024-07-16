@@ -12,12 +12,7 @@ import {
   DiTerminal,
   DiW3C,
 } from "react-icons/di";
-import {
-  HiExternalLink,
-  HiMenu,
-  HiOutlineExternalLink,
-  HiOutlineMail,
-} from "react-icons/hi";
+import { HiMenu, HiOutlineExternalLink, HiOutlineMail } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import {
   SiAdobeaftereffects,
@@ -84,6 +79,7 @@ import {
 } from "react-icons/si";
 import {
   SvgArrowSketch,
+  SvgCalendarBold,
   // SvgClose,
   SvgExternalLinkBold,
   SvgHamburger,
@@ -169,6 +165,7 @@ const Icon = (props) => {
     Zsh: <SiZsh />,
     // Custom icons
     ArrowSketch: <SvgArrowSketch />,
+    CalendarBold: <SvgCalendarBold />,
     ExternalLinkBold: <SvgExternalLinkBold />,
     Hamburger: <SvgHamburger />,
     MailBold: <SvgMailBold />,

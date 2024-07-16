@@ -308,7 +308,7 @@ article,
   max-width: calc(var(--max_text) + var(--unit16));
   padding: 0 var(--unit8);
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   width: 100%;
 }
 .date {
@@ -746,7 +746,7 @@ table.compare .compare-cta h4 {
     translate: unset;
     text-align: left;
   }
-  &.columns-few__tilt {
+  &.columns-few--tilt {
     h2,
     h3 {
       font-style: oblique;
@@ -772,7 +772,7 @@ table.compare .compare-cta h4 {
       grid-template-rows: auto;
       grid-auto-flow: columns;
       grid-template-columns: repeat(2, 1fr);
-      &.columns-few__tilt {
+      &.columns-few--tilt {
         transform: skewY(14.125deg);
         .column {
           transform: skewY(-14.125deg);

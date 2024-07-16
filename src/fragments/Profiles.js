@@ -19,6 +19,7 @@ const Profiles = (props) => {
           className="tight-text"
         />
         <Icon href="https://codepen.io/joerhoney" name="CodePen" />
+        {/* <Icon href="https://calendly.com/joerhoney" name="Calendly" /> */}
         <Icon href="https://gravatar.com/joerhoney" name="Gravatar" />
       </div>
     </div>

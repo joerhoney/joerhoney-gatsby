@@ -138,7 +138,7 @@ const codePage = () => {
           <div className="article">
             <h2 className="tilt">Roles</h2>
           </div>
-          <div className="columns-few bottomS columns-few__tilt">
+          <div className="columns-few bottomS columns-few--tilt">
             <div className="column">
               <h3>Front-End Developer</h3>
               <p>
@@ -439,7 +439,7 @@ const codePage = () => {
           </Collection>
         </section>
         <section className="alignable topS bottomM skew_b tint3_b">
-          <div className="columns-few columns-few__tilt">
+          <div className="columns-few columns-few--tilt">
             <div className="column u-jump-section" id="plugins">
               <h3>WordPress Plugins</h3>
               <p>

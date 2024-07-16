@@ -8,6 +8,7 @@ import Icon from "@components/Icon";
 import Page from "@layouts/Page";
 // Fragments
 import Arrow from "@fragments/Arrow";
+import BookMe from "@fragments/BookMe";
 import Profiles from "@fragments/Profiles";
 import QHelp from "@fragments/QHelp";
 // CSS
@@ -31,38 +32,52 @@ const solutionsPage = () => {
         </div>
         <h1>Solutions</h1>
       </section>
-      <Page
-        navItems={{
-          Websites: "/solutions/website",
-          Maintenance: "/solutions/web-maintenance",
-          // Presence: "/solutions/web-presence",
-          // Design: "/solutions/web-design",
-          Contact: "#contact",
-        }}
-      >
-        <section className="alignable">
+      <Page nav={false}>
+        <section className="alignable topS">
           <article className="self-center">
+            <h2>Turn the web market into walk-in customers</h2>
             <p>
+              Get a website that stands out and attracts the right customers.
+            </p>
+            {/* <p>
               Most likely, you've come here because you need web or creative
               solutions. While I can list all of the solutions I offer, I think
               it would be more efficient to listen to your needs. Let's start
               with one of these options:
-            </p>
+            </p> */}
           </article>
-          <img
-            alt="Illustration"
-            className="all-ears self-right transluscent"
-            height="290"
-            loading="lazy"
-            src={allears}
-            width="240"
-          />
         </section>
         <section
-          className="skew_b compensateTHalf topS cta_b"
+          className="skew_b compensateTHalf topS tint3_b"
           style={{ position: "relative" }}
         >
-          <div className="columns-few bottomS columns-few__tilt">
+          <div className="article">
+            <h2 className="tilt">Why Joe Rhoney?</h2>
+          </div>
+          <div className="columns-few bottomS columns-few--tilt">
+            <div className="column">
+              <h3>Increase Visibility</h3>
+              <p>
+                Tap into the web market of buyers looking for your services or
+                products and get more customers in the door.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Make an Impression</h3>
+              <p>
+                Look more professional than your competition with a design that
+                really stands out.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Have Peace of Mind</h3>
+              <p>
+                Rest assured that your web presence is being taken care of so
+                you can focus on running your business.
+              </p>
+            </div>
+          </div>
+          {/* <div className="columns-few bottomS columns-few--tilt">
             <div className="column">
               <h3>Questionnaire</h3>
               <p>
@@ -90,21 +105,21 @@ const solutionsPage = () => {
                 Jump to Services
               </a>
             </div>
-          </div>
+          </div> */}
         </section>
-        <section>
+        {/* <section>
           <article className="self-center topL bottomL">
             <h2 className="tilt" id="questionnaire">
               Questionnaire
             </h2>
             <QHelp />
           </article>
-        </section>
-        <section className="alignable skew_b topS tint3_b" id="services">
+        </section> */}
+        <section className="alignable topS" id="services">
           <div className="article">
             <h2 className="tilt">Services</h2>
           </div>
-          <div className="columns-few columns-few__tilt bottomM">
+          <div className="columns-few columns-few--tilt bottomM">
             <div className="column">
               <h3 className="tilt">Website Creation</h3>
               <p>
@@ -209,7 +224,7 @@ const solutionsPage = () => {
           </article>
         </section> */}
         <section
-          className="alignable skew_b cta_b bottomS u-jump-section"
+          className="alignable skew_b cta_b bottomXL u-jump-section"
           id="contact"
         >
           <article className="self-center">
@@ -233,10 +248,25 @@ const solutionsPage = () => {
               </Mailto>
             </Arrow>
           </article>
+          <img
+            alt="Illustration"
+            className="self-right transluscent"
+            height="290"
+            loading="lazy"
+            src={allears}
+            style={{
+              height: "auto",
+              maxWidth: "480px",
+              minWidth: "380px",
+              width: "50vw",
+              position: "absolute",
+              bottom: "-12.55vw",
+              right: "0",
+            }}
+            width="240"
+          />
         </section>
-        <section className="alignable">
-          <Profiles className="article reveal-child-b" />
-        </section>
+        <section className="alignable compensateT  tint3_b"></section>
       </Page>
     </>
   );
