@@ -38,6 +38,12 @@ p {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color3);
 }
+.u-text-small {
+  font-size: small;
+}
+h1.u-text-small {
+  font-size: 2em;
+}
 .u-jump-section {
   scroll-margin-top: 56px;
 }
@@ -206,6 +212,9 @@ td :is(a:focus, a:hover) {
 .cta_b h4 {
   color: currentColor;
 }
+.bg-1::before {
+  background-image: var(--gradBg);
+}
 .half1::before {
   background-image: var(--gradBgHalf1);
   background-repeat: no-repeat;
@@ -298,6 +307,15 @@ section.alignable {
 }
 .skew_b > * {
   position: relative;
+}
+.split-slant {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 800px) {
+  .split-slant {
+    flex-direction: row-reverse;
+  }
 }
 article,
 .article {

@@ -5,12 +5,15 @@ import { Link } from "gatsby";
 import "@css/nav.scss";
 
 const Nav = (props) => {
-  const items = props.items || {
-    Developer: "/developer",
-    Artist: "/artist",
-    Résumé: "/resume",
-    Contact: "#contact",
-  };
+  const items =
+    props.items === "none"
+      ? {}
+      : props.items || {
+          Developer: "/developer",
+          Artist: "/artist",
+          Résumé: "/resume",
+          Contact: "#contact",
+        };
   return (
     <nav className="nav">
       <div className="group">

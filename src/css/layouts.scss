@@ -1,0 +1,168 @@
+
+.tilted-row {
+  // Note: because @media doesn't support native CSS variables, we're using Sass for those. Sass however, doesn't scope it's variables to @media (because it's a JS variable and @media isn't a selector, but a condition), it just overwrites their values. So we're using native CSS for the rest of the variables.
+  $spread: 700px; // above breakpoint
+  $stack: 699px; // below breakpoint
+  --cushion: 15vw; // top/bottom padding (to compensate for angle)
+  --gap: 8vw;
+  --gap-half: 4vw; // should be half of --gap
+  // angle. don't go crazy!
+  --lefty: -14.1deg; // same as --righty, but negative
+  --righty: 14.1deg; // same as --lefty, but positive
+  --width-limit: 600px;
+  --bleed-adjust-x2: 1.194;
+  --bleed-adjust-x3: 1.32;
+  --bleed-adjust-y: 0.95;
+  --bleed-left: -4vw;
+  --bleed-right: 4vw;
+  @media(min-width: $spread) {
+    --gap: 56px;
+    --gap-half: 28px;
+    --cushion: 100px;
+    &:has(> :nth-child(2)) {
+      --cushion: 7.5vw;
+    }
+    &:has(> :nth-child(3)) {
+      --cushion: 6vw;
+    }
+  }
+  display: flex;
+  flex-direction: column;
+  // options
+  .z-0 { z-index: 0; }
+  .z-1 { z-index: 1; }
+  .z-2 { z-index: 2; }
+  .z-3 { z-index: 3; }
+  .follow-tilt { rotate: var(--righty); }
+  .unfollow-tilt { rotate: var(--lefty); }
+  @media (max-width: $stack) {
+    > .collapse-stack-top { padding-top: 0; }
+    > .collapse-stack-bottom { padding-bottom: 0; }
+  }
+  // columns
+  > * {
+    box-sizing: border-box;
+    flex-grow: 1;
+    padding: var(--cushion) var(--gap);
+    position: relative;
+    width: 100%;
+    @media (max-width: $stack) {
+      // Make the style attribute responsive (sort of)
+      padding-left: var(--gap) !important;
+      padding-right: var(--gap) !important;
+    }
+    // inner content
+    > * {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: var(--width-limit);
+    }
+    img {
+      max-width: 100%;
+    }
+    // column backgrounds
+    &::before {
+      content: "";
+      transform: skewY(var(--righty));
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+    .column-width {
+      max-width: calc(100% + (56px* 2));
+    }
+  }
+  // # above breakpoint
+  @media(min-width: $spread) {
+    flex-direction: row;
+    justify-content: space-between;
+    transform: skewY(var(--righty));
+    // columns
+    > * {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      transform: skewY(var(--lefty));
+    }
+    &:has(> :nth-child(2)) {
+      // columns
+      > * {
+        padding: var(--cushion) var(--gap-half);
+        &::before {
+          transform: skew(var(--lefty), var(--righty)) scaleY(var(--bleed-adjust-y));
+        }
+        &:first-child { 
+          flex-grow: 1;
+          max-width: unset;
+          padding-left: var(--gap);
+          &::before {
+            transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x2), var(--bleed-adjust-y)) translate(var(--bleed-left), 0);
+          }
+        }
+        &:last-child { 
+          flex-grow: 1;
+          max-width: unset;
+          padding-right: var(--gap);
+          &::before {
+            transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x2), var(--bleed-adjust-y)) translate(var(--bleed-right), 0);
+          }
+        }
+      }
+    }
+    &:has(> :nth-child(3)) {
+      // columns
+      > * { padding: var(--cushion) var(--gap-half); }
+      > *:first-child {
+        padding-left: var(--gap);
+        &::before {
+          transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x3), var(--bleed-adjust-y)) translate(var(--bleed-left), 0);
+        }
+      }
+      > *:last-child {
+        padding-right: var(--gap);
+        &::before {
+          transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x3), var(--bleed-adjust-y)) translate(var(--bleed-right), 0);
+        }
+      }
+    }
+    &--reversed {
+      flex-direction: row-reverse;
+      &:has(> :nth-child(2)) {
+        > :first-child {
+          padding-left: var(--gap-half);
+          padding-right: var(--gap);
+          &::before {
+            transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x3), var(--bleed-adjust-y)) translate(var(--bleed-right), 0);
+          }
+        }
+        > :last-child {
+          padding-left: var(--gap);
+          padding-right: var(--gap-half);
+          &::before {
+            transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x3), var(--bleed-adjust-y)) translate(var(--bleed-left), 0);
+          }
+        }
+      }
+      &:has(> :nth-child(3)) {
+        > *:first-child {
+          padding-left: var(--gap-half);
+          padding-right: var(--gap);
+          &::before {
+            transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x3), var(--bleed-adjust-y)) translate(var(--bleed-right), 0);
+          }
+        }
+        > *:last-child {
+          padding-left: var(--gap);
+          padding-right: var(--gap-half);
+          &::before {
+            transform: skew(var(--lefty), var(--righty)) scale(var(--bleed-adjust-x3), var(--bleed-adjust-y)) translate(var(--bleed-left), 0);
+          }
+        }
+      }
+    }
+  }
+}

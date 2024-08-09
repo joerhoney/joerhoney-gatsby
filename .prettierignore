@@ -1,4 +1,5 @@
 # Ignore artifacts: 
+/src/css/layouts.scss
 /src/fragments/HeroHome.js
 /src/fragments/ScrollIndicator.js
 /src/layouts/NavIndicator.js

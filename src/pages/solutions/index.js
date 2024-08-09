@@ -9,50 +9,47 @@ import Page from "@layouts/Page";
 // Fragments
 import Arrow from "@fragments/Arrow";
 import BookMe from "@fragments/BookMe";
+// import HeroLP from "@fragments/HeroLP";
 import Profiles from "@fragments/Profiles";
 import QHelp from "@fragments/QHelp";
 // CSS
 import "@css/solutions.scss";
 // Images
 import allears from "@images/portrait.webp";
-import storeFront from "@images/heros/store-front-transparent.webp";
+import storeFront from "@images/heros/store-front-transparent.gif";
 // import dragonSplit1 from "@images/dragon-split1.webp";
 // import dragonSplit2 from "@images/dragon-split2.webp";
 
 const solutionsPage = () => {
   return (
     <>
-      <section className="hero page">
-        <div className="hero__bg">
-          <img
-            alt="Mouse clicks swarming into your store."
-            loading="lazy"
-            src={storeFront}
-          />
-        </div>
-        <h1>Solutions</h1>
-      </section>
-      <Page nav={false}>
-        <section className="alignable topS">
-          <article className="self-center">
-            <h2>Turn the web market into walk-in customers</h2>
+      <Page navItems="none">
+        <section
+          className="heroLP tilted-row tilted-row--reversed"
+          style={{ marginTop: "-10vw" }}
+        >
+          <div className="bg-1" style={{ paddingBottom: "0" }}>
+            <h1 className="u-text-small">Solutions!</h1>
+            <h2 className="tilt">Turn the web market into walk-in customers</h2>
+            <img
+              alt="Mouse clicks swarming into your store."
+              className="column-width transluscent"
+              style={{ marginLeft: "auto", marginRight: "0" }}
+              loading="lazy"
+              src={storeFront}
+            />
+          </div>
+          <div className="half1" style={{ paddingBottom: "0" }}>
             <p>
               Get a website that stands out and attracts the right customers.
             </p>
-            {/* <p>
-              Most likely, you've come here because you need web or creative
-              solutions. While I can list all of the solutions I offer, I think
-              it would be more efficient to listen to your needs. Let's start
-              with one of these options:
-            </p> */}
-          </article>
+          </div>
         </section>
-        <section
-          className="skew_b compensateTHalf topS tint3_b"
-          style={{ position: "relative" }}
-        >
+        <section className="skew_b topS half2" style={{ position: "relative" }}>
           <div className="article">
-            <h2 className="tilt">Why Joe Rhoney?</h2>
+            <h2 className="tilt">
+              Highly Recommended by Industry Professionals
+            </h2>
           </div>
           <div className="columns-few bottomS columns-few--tilt">
             <div className="column">
