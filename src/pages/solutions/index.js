@@ -26,7 +26,7 @@ const solutionsPage = () => {
       <Page navItems="none">
         <section
           className="heroLP tilted-row tilted-row--reversed"
-          style={{ marginTop: "-10vw" }}
+          style={{ marginTop: "-10vw", position: "relative" }}
         >
           <div className="bg-1" style={{ paddingBottom: "0" }}>
             <h1 className="u-text-small">Solutions!</h1>
@@ -39,10 +39,10 @@ const solutionsPage = () => {
               src={storeFront}
             />
           </div>
-          <div className="half1" style={{ paddingBottom: "0" }}>
-            <p>
+          <div className="half1">
+            <h3>
               Get a website that stands out and attracts the right customers.
-            </p>
+            </h3>
           </div>
         </section>
         <section className="skew_b topS half2" style={{ position: "relative" }}>
