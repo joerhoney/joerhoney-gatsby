@@ -45,13 +45,21 @@ const solutionsPage = () => {
             </h3>
           </div>
         </section>
-        <section className="skew_b topS half2" style={{ position: "relative" }}>
-          <div className="article">
-            <h2 className="tilt">
-              Highly Recommended by Industry Professionals
-            </h2>
+        <section
+          className="half2 skew_b text-color1"
+          style={{ position: "relative" }}
+        >
+          <div className="tilted-row">
+            <div>
+              <h2 className="follow-tilt">
+                Highly Recommended by Industry Professionals
+              </h2>
+            </div>
+            <div>
+              <h3 className="text-color2">★★★★★</h3>
+            </div>
           </div>
-          <div className="columns-few bottomS columns-few--tilt">
+          <div className="tilted-row">
             <div className="column">
               <h3>Increase Visibility</h3>
               <p>
@@ -74,44 +82,7 @@ const solutionsPage = () => {
               </p>
             </div>
           </div>
-          {/* <div className="columns-few bottomS columns-few--tilt">
-            <div className="column">
-              <h3>Questionnaire</h3>
-              <p>
-                Zero in on the solution to address your most immediate needs by
-                answering a few questions.
-              </p>
-              <a href="#questionnaire" className="jump-button">
-                Jump to Questionnaire
-              </a>
-            </div>
-            <div className="column">
-              <h3>Contact Me</h3>
-              <p>
-                I'm eager to listen to your situation so we can work out the
-                best solutions for you.
-              </p>
-              <a href="#contact" className="jump-button">
-                Jump to Contact Info
-              </a>
-            </div>
-            <div className="column">
-              <h3>Just Curious?</h3>
-              <p>No problem! You can learn more about my services here.</p>
-              <a href="#services" className="jump-button">
-                Jump to Services
-              </a>
-            </div>
-          </div> */}
         </section>
-        {/* <section>
-          <article className="self-center topL bottomL">
-            <h2 className="tilt" id="questionnaire">
-              Questionnaire
-            </h2>
-            <QHelp />
-          </article>
-        </section> */}
         <section className="alignable topS" id="services">
           <div className="article">
             <h2 className="tilt">Services</h2>

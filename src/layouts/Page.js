@@ -12,6 +12,7 @@ import "@css/colors-default.css";
 import "@css/global.scss";
 import "@css/hero.scss";
 import "@css/layouts.scss";
+import "@css/typography.scss";
 import "@css/units.css";
 
 const Page = ({ children, className, id, nav, navItems, scheme }) => {
