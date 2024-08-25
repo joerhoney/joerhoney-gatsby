@@ -15,65 +15,84 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   });
 };
 
-exports.createSchemaCustomization = ({ actions }) => {
-  const { createTypes } = actions;
+// exports.createSchemaCustomization = ({ actions }) => {
+//   const { createTypes } = actions;
 
-  const typeDefs = `
-    type ContentfulPost implements Node & ContentfulReference & ContentfulEntry {
-      title: String
-      slug: String
-      date: Date @dateformat
-      description: String
-      body: ContentfulPostBody
-      featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
-    }
+//   const typeDefs = `
+//     type ContentfulPost implements Node & ContentfulReference & ContentfulEntry {
+//       title: String
+//       slug: String
+//       date: Date @dateformat
+//       description: String
+//       body: ContentfulPostBody
+//       featuredImage: ContentfulAsset @link(by: "id", from: "featuredImage___NODE")
+//     }
 
-    union BodyReference = ContentfulAsset | ContentfulCode
+//     union BodyReference = ContentfulAsset | ContentfulCode
 
-    type ContentfulPostBody {
-      raw: String
-      references: [BodyReference] @link(by: "id", from: "references___NODE")
-    }
+//     type ContentfulPostBody {
+//       raw: String
+//       references: [BodyReference] @link(by: "id", from: "references___NODE")
+//     }
 
-    type ContentfulAsset implements Node & ContentfulReference {
-      file: ContentfulAssetFile
-      description: String
-    }
-    
-    type ContentfulCode implements Node & ContentfulReference {
-      title: String
-      description: String
-      language: String
-    }
+//     type ContentfulAsset implements Node & ContentfulReference {
+//       file: ContentfulAssetFile
+//       description: String
+//     }
 
-    type ContentfulAssetFile {
-      url: String
-    }
-  `;
+//     type ContentfulCode implements Node & ContentfulReference {
+//       title: String
+//       description: String
+//       language: String
+//     }
 
-  createTypes(typeDefs);
+//     type ContentfulAssetFile {
+//       url: String
+//     }
+//   `;
+
+//   createTypes(typeDefs);
+// };
+module.exports.onCreateNode = ({ node, actions }) => {
+  const { createNodeField } = actions;
+  if (node.internal.type === "MarkdownRemark") {
+    console.log("node.fileAbsolutePath: ");
+    console.log(node.fileAbsolutePath);
+    const slug = path.basename(node.fileAbsolutePath, ".md");
+    // console.log("@@@@@@@@@@@@@@@@@@@", slug);
+    // console.log(JSON.stringify(node, undefined, 4));
+    createNodeField({
+      node,
+      name: "slug",
+      value: slug,
+    });
+  }
 };
-
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const Post = path.resolve("src/templates/post.js");
   const results = await graphql(`
     query {
-      allContentfulPost {
+      allMarkdownRemark {
         edges {
           node {
-            slug
+            fields {
+              slug
+            }
           }
         }
       }
     }
   `);
-  results.data.allContentfulPost.edges.forEach((edge) => {
+  results.data.allMarkdownRemark.edges.forEach((edge) => {
+    console.log("edge: ");
+    console.log(edge);
+
     createPage({
       component: Post,
-      path: `/blog/${edge.node.slug}`,
+      path: `/blog/${edge.node.fields.slug}`,
       context: {
-        slug: edge.node.slug,
+        slug: edge.node.fields.slug,
       },
     });
   });
