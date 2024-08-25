@@ -25,7 +25,7 @@ const solutionsPage = () => {
     <>
       <Page navItems="none">
         <section
-          className="heroLP tilted-row tilted-row--reversed"
+          className="heroLP trim tilted-row tilted-row--reversed"
           style={{ marginTop: "-10vw", position: "relative" }}
         >
           <div className="bg-1" style={{ paddingBottom: "0" }}>
@@ -51,31 +51,31 @@ const solutionsPage = () => {
         >
           <div className="tilted-row">
             <div>
-              <h2 className="follow-tilt">
+              <h2 className="tilt" style={{ textAlign: "left" }}>
                 Highly Recommended by Industry Professionals
               </h2>
             </div>
             <div>
-              <h3 className="text-color2">★★★★★</h3>
+              <h2 className="tilt text-color2">★★★★★</h2>
             </div>
           </div>
           <div className="tilted-row">
             <div className="column">
-              <h3>Increase Visibility</h3>
+              <h3 className="text-color1">Increase Visibility</h3>
               <p>
                 Tap into the web market of buyers looking for your services or
                 products and get more customers in the door.
               </p>
             </div>
             <div className="column">
-              <h3>Make an Impression</h3>
+              <h3 className="text-color1">Make an Impression</h3>
               <p>
                 Look more professional than your competition with a design that
                 really stands out.
               </p>
             </div>
             <div className="column">
-              <h3>Have Peace of Mind</h3>
+              <h3 className="text-color1">Have Peace of Mind</h3>
               <p>
                 Rest assured that your web presence is being taken care of so
                 you can focus on running your business.
@@ -83,7 +83,7 @@ const solutionsPage = () => {
             </div>
           </div>
         </section>
-        <section className="alignable topS" id="services">
+        {/* <section className="alignable topS" id="services">
           <div className="article">
             <h2 className="tilt">Services</h2>
           </div>
@@ -140,7 +140,7 @@ const solutionsPage = () => {
                 </a>
               </p>
             </div>
-            {/* <div className="column">
+            <div className="column">
               <h3 className="tilt">Web Presence</h3>
               <p>
                 Except in rare cases, having a website is crucial to establishing
@@ -162,9 +162,9 @@ const solutionsPage = () => {
                   Web Presence Packages
                 </Link>
               </p>
-            </div> */}
+            </div>
           </div>
-        </section>
+        </section> */}
 
         {/* <section className="alignable bottomM">
           <article className="self-center">
