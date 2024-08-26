@@ -50,32 +50,32 @@ const solutionsPage = () => {
           style={{ position: "relative" }}
         >
           <div className="tilted-row">
-            <div>
+            <div style={{ paddingBottom: "0" }}>
               <h2 className="tilt" style={{ textAlign: "left" }}>
                 Highly Recommended by Industry Professionals
               </h2>
             </div>
-            <div>
+            <div style={{ paddingBottom: "0" }}>
               <h2 className="tilt text-color2">★★★★★</h2>
             </div>
           </div>
           <div className="tilted-row">
-            <div className="column">
-              <h3 className="text-color1">Increase Visibility</h3>
+            <div className="column" style={{ paddingTop: "0" }}>
+              <h3 className="text-color1 tilt">Increase Visibility</h3>
               <p>
                 Tap into the web market of buyers looking for your services or
                 products and get more customers in the door.
               </p>
             </div>
-            <div className="column">
-              <h3 className="text-color1">Make an Impression</h3>
+            <div className="column" style={{ paddingTop: "0" }}>
+              <h3 className="text-color1 tilt">Make an Impression</h3>
               <p>
                 Look more professional than your competition with a design that
                 really stands out.
               </p>
             </div>
-            <div className="column">
-              <h3 className="text-color1">Have Peace of Mind</h3>
+            <div className="column" style={{ paddingTop: "0" }}>
+              <h3 className="text-color1 tilt">Have Peace of Mind</h3>
               <p>
                 Rest assured that your web presence is being taken care of so
                 you can focus on running your business.
