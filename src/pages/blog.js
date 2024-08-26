@@ -7,7 +7,7 @@ import Nav from "../layouts/Nav";
 // import NavIndicator from "../layouts/NavIndicator";
 import Scheme from "../layouts/Scheme";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 import "@css/colors-default.css";
 import "@css/global.scss";
 import "@css/units.css";
@@ -50,7 +50,14 @@ const Blog = () => {
   return (
     <>
       <Scheme />
-      <Nav />
+      <Nav
+        items={{
+          Blog: "/blog",
+          Dev: "/developer",
+          Art: "/artist",
+          Contact: "#contact",
+        }}
+      />
       <main className="blog">
         <h1 className="h1 square">Blog</h1>
         {posts.map((post) => {

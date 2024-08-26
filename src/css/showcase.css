@@ -11,6 +11,9 @@
   position: relative;
   width: 100%;
 }
+:is(.showcase, .collection) .heading {
+  position: relative;
+}
 :is(.showcase, .collection) h3 {
   align-items: flex-end;
   display: flex;
@@ -28,7 +31,7 @@
 
   position: absolute;
   bottom: calc(100% - 40px);
-  right: var(--unit6);
+  right: 0;
 }
 :is(.showcase, .collection) h3 + p.desc::before {
   clear: right;
@@ -108,9 +111,6 @@
     gap: 0 var(--unit8);
     grid-template-columns: [sticky] 1fr [scroll] 1fr;
     grid-template-rows: [top] auto;
-  }
-  :is(.showcase, .collection) > * {
-    grid-column: scroll;
   }
   .showcase img {
     grid-column: sticky;

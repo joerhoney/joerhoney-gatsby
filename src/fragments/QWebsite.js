@@ -1,5 +1,6 @@
 import React from "react";
 // Components
+import { Link } from "gatsby";
 import { Wizard, Q, A, Step, End } from "../components/Wizard";
 // Fragments
 import ButtonContact from "@fragments/ButtonContact";
@@ -7,8 +8,8 @@ import ButtonWebsitesPackages from "@fragments/ButtonWebsitesPackages";
 
 function QWebsite() {
   return (
-    <Wizard id="qa_Website" name="website">
-      <Step>
+    <Wizard name="website" start="qa_Website">
+      <Step id="qa_Website">
         <Q>Do you have a website?</Q>
         <A a="Yes" id="qa_WebsiteY">
           <Step>
@@ -147,27 +148,30 @@ function QWebsite() {
                             <div className="question">
                               Good! What shall I help with next?
                             </div>
-                            <a className="answer" href="">
-                              Website maintenance/updates
-                            </a>
-                            <a
+                            <Link
                               className="answer"
-                              href="/services/online-presence"
+                              to="/solutions/web-maintenance"
+                            >
+                              Website maintenance/updates
+                            </Link>
+                            <Link
+                              className="answer"
+                              to="/solutions/web-presence"
                             >
                               Website marketing
-                            </a>
-                            <a className="answer" href="/services/website">
+                            </Link>
+                            <Link className="answer" to="/solutions/website">
                               A new website
-                            </a>
-                            <a className="answer" href="">
+                            </Link>
+                            <Link className="answer" to="/solutions/web-design">
                               Design assistance
-                            </a>
-                            <a className="answer" href="">
+                            </Link>
+                            <Link className="answer" to="/artist">
                               Graphic arts / illustration
-                            </a>
-                            <a className="answer" href="#contact">
+                            </Link>
+                            <Link className="answer" to="#contact">
                               Something else
-                            </a>
+                            </Link>
                           </End>
                         </A>
                         <A

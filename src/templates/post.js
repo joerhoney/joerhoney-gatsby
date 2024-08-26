@@ -1,8 +1,9 @@
 import React from "react";
 // Components
-import Form from "@components/FormNetlify";
+import Mailto from "@components/Mailto";
 import { graphql } from "gatsby";
 import { GatsbyImage } from "gatsby-plugin-image";
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 // Layouts
@@ -89,14 +90,14 @@ const Post = (props) => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable">
+        <section className="alignable bottomS">
           <article>
             {/* <p className="date">Published: {date}</p> */}
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b compensateTHalf u-jump-link"
+          className="alignable skew_b cta_b bottomS compensateTHalf u-jump-section"
           id="contact"
         >
           <article className="self-center">
@@ -105,9 +106,20 @@ const Post = (props) => {
               Whether you need help building something or you just want to
               connect... well I want to connect, so drop me an email!
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          {/* <Query /> */}
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal-child-b self-center compensateBHalf" />

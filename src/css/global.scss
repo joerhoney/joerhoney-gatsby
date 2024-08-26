@@ -4,9 +4,11 @@
   width: 100vw;
   font-size: 16px;
 }
+// html:not(:has(.abrupt-scroll)) {
+// }
 html {
   scroll-behavior: smooth;
-  /* scroll-snap-type: y proximity; */
+  // scroll-snap-type: y proximity;
   scrollbar-color: var(--color3) var(--scrolltrack);
   scrollbar-width: thin;
 }
@@ -36,8 +38,50 @@ p {
 ::-webkit-scrollbar-thumb {
   background-color: var(--color3);
 }
-.u-jump-link {
+.u-text-small {
+  font-size: small;
+}
+h1.u-text-small {
+  font-size: 2em;
+}
+.u-jump-section {
   scroll-margin-top: 56px;
+}
+.u-heading-font {
+  font-family: Rubik, sans-serif;
+}
+.written-note {
+  font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Noteworthy",
+    "Comic Sans", "Comic Sans MS", "Courier New", "Courier", monospace;
+}
+*:has(> .with-arrow) {
+  position: relative;
+}
+.with-arrow {
+  position: absolute;
+  text-align: center;
+  text-wrap: balance;
+  .with-arrow__arrow {
+    width: 24px;
+    height: 60px;
+    position: absolute;
+    transform-origin: 50% 150%;
+    svg {
+      height: 100%;
+    }
+    b {
+      display: none;
+    }
+    &--flip {
+      scale: -1 1;
+    }
+    &--in {
+      scale: 1 -1;
+    }
+    &--in-flip {
+      scale: -1 -1;
+    }
+  }
 }
 body {
   background: var(--color1);
@@ -45,7 +89,7 @@ body {
   font: 400 16px/1.3em Courier, monospace;
   margin: 0;
   padding: 0;
-  position: relative;
+  position: relative; // Needed for smooth scrolling, apparently.
   scrollbar-color: var(--color3) var(--color1);
   scrollbar-width: 6px;
   width: 100vw;
@@ -56,8 +100,8 @@ body > div {
   background-attachment: fixed;
   background-image: var(--gradBg);
   background-repeat: no-repeat;
-  position: relative;
-  z-index: -10;
+  // position: relative;
+  // z-index: -10;
 }
 a {
   text-decoration: none;
@@ -97,7 +141,7 @@ td a {
   box-sizing: border-box;
   color: currentColor;
   text-decoration: none;
-  transition: all ease 0.2s;
+  transition: border-bottom ease 0.2s;
 }
 .text :is(a:focus, a:hover):not(.button),
 th :is(a:focus, a:hover),
@@ -149,6 +193,7 @@ td :is(a:focus, a:hover) {
 }
 .tint3_b::before {
   background-color: var(--color3);
+  background-image: linear-gradient(70deg, var(--color2), transparent);
   opacity: 0.4;
 }
 .cta,
@@ -166,6 +211,9 @@ td :is(a:focus, a:hover) {
 .cta_b h3,
 .cta_b h4 {
   color: currentColor;
+}
+.bg-1::before {
+  background-image: var(--gradBg);
 }
 .half1::before {
   background-image: var(--gradBgHalf1);
@@ -249,13 +297,25 @@ section.alignable {
   display: block;
   transform: skewY(14.125deg);
   transform-origin: center;
-  z-index: -1;
+  // z-index: -1;
 
   position: absolute;
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
+}
+.skew_b > * {
+  position: relative;
+}
+.split-slant {
+  display: flex;
+  flex-direction: column;
+}
+@media (min-width: 800px) {
+  .split-slant {
+    flex-direction: row-reverse;
+  }
 }
 article,
 .article {
@@ -266,7 +326,7 @@ article,
   max-width: calc(var(--max_text) + var(--unit16));
   padding: 0 var(--unit8);
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
   width: 100%;
 }
 .date {
@@ -323,6 +383,7 @@ h4 {
   margin: 0;
   padding-top: 1em;
   text-transform: lowercase;
+  text-wrap: balance;
 }
 h1 {
   padding-top: 0;
@@ -336,7 +397,8 @@ ul {
   /* line-height: 1.1rem; */
   margin-top: 0;
 }
-h2 + p::before {
+h2 + p::before,
+h3.tilt + p::before {
   clear: right;
   content: "";
   display: block;
@@ -346,7 +408,8 @@ h2 + p::before {
   width: 250px;
 }
 h2.tilt,
-h2:has(+ p) {
+h2:has(+ p),
+h3.tilt {
   font-style: oblique;
   transform: skew(0, 14.125deg);
   text-align: right;
@@ -359,10 +422,35 @@ h2:has(+ p) {
   translate: 0 80px;
   /* margin-right: -36px; */
   max-width: 100%;
-  width: 420px;
+  // width: 420px;
 }
-section.alignable h2.standalone {
-  translate: 0;
+h3.tilt:has(+ p) {
+  align-self: flex-end;
+  font-size: 2em;
+  margin-left: auto;
+  margin-right: 0;
+  padding-bottom: 1em;
+  translate: 0 80px;
+  /* margin-right: -36px; */
+  max-width: 100%;
+  // width: 420px;
+}
+main section h1 {
+  box-sizing: border-box;
+  font-size: 4em;
+  font-style: oblique;
+  padding: 0 var(--unit8);
+  margin: auto;
+  max-width: calc(var(--max_text) + var(--unit16));
+  text-align: right;
+  transform: skewY(14.125deg);
+  transform-origin: bottom right;
+  width: 100%;
+  @media (max-width: 700px) {
+    & {
+      font-size: 9.1vw;
+    }
+  }
 }
 section.alignable .compare h2 {
   margin-bottom: 1em;
@@ -416,12 +504,21 @@ textarea {
   color: currentColor;
   margin-bottom: 0;
   padding: var(--unit2);
-  transition: all ease 0.2s;
+  transition: box-shadow ease 0.2s, text-shadow ease 0.2s;
 }
 :is(input, textarea):focus {
   background-color: var(--darkish);
+  background-image: linear-gradient(
+      to bottom,
+      var(--dark) 0,
+      transparent 33%,
+      transparent
+    ),
+    linear-gradient(to right, var(--dark) 0, transparent 33%, transparent),
+    linear-gradient(to left, var(--dark) 0, transparent 33%, transparent),
+    linear-gradient(to top, var(--dark) 0, transparent 33%, transparent);
   color: var(--light);
-  box-shadow: inset 0 0 1em var(--dark);
+  // box-shadow: inset 0 0 1em var(--dark);
   text-shadow: 0 0 0.5em var(--lightish);
 }
 :is(input, textarea)::placeholder {
@@ -641,61 +738,70 @@ table.compare .compare-cta h4 {
   display: flex;
   flex-direction: column;
   gap: var(--unit5);
-}
-.columns-3 {
-  align-self: center;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding-left: var(--unit8);
-  padding-right: var(--unit8);
-  margin-bottom: var(--compensate-full);
-  margin-top: var(--compensate-half);
-  text-align: left;
-  width: 100%;
-}
-.columns-3 :is(h2, h3) {
-  margin-bottom: 0.5em;
-  padding-top: 0;
-  position: static;
-  translate: unset;
-  text-align: left;
-}
-.columns-3 .column {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  margin-bottom: var(--unit4);
-  margin-top: var(--unit4);
-  position: relative;
-}
-@media (min-width: 500px) {
-  .columns-2 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: var(--unit4);
-    justify-content: space-between;
+  @media (min-width: 500px) {
+    & {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: var(--unit4);
+      justify-content: space-between;
+      > * {
+        flex-basis: calc(50% - var(--unit4));
+        text-align: left;
+      }
+    }
   }
-  .columns-2 > * {
-    flex-basis: calc(50% - var(--unit4));
+}
+.columns-few {
+  display: grid;
+  gap: var(--unit8);
+  margin: 0 auto;
+  width: calc(100% - var(--unit16));
+  h2,
+  h3 {
+    margin-bottom: 7%;
+    padding-top: 0;
+    position: static;
+    translate: unset;
     text-align: left;
   }
-}
-@media (min-width: 620px) {
-  .columns-3 {
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: var(--unit8);
-    margin-top: var(--unit6);
-    transform: skewY(14.125deg);
-    max-width: 1200px;
+  &.columns-few--tilt {
+    h2,
+    h3 {
+      font-style: oblique;
+      text-align: right;
+      transform: skewY(14.125deg);
+      + p::before {
+        clear: right;
+        content: "";
+        display: block;
+        float: right;
+        height: 28px;
+        shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
+        width: 120px;
+      }
+      @media (min-width: 620px) {
+        margin-bottom: 1em;
+      }
+    }
   }
-  .columns-3 .column {
-    transform: skewY(-14.125deg);
-    width: calc(33.33% - var(--unit6));
+  @media (min-width: 620px) {
+    & {
+      display: grid;
+      grid-template-rows: auto;
+      grid-auto-flow: columns;
+      grid-template-columns: repeat(2, 1fr);
+      &.columns-few--tilt {
+        transform: skewY(14.125deg);
+        .column {
+          transform: skewY(-14.125deg);
+        }
+      }
+    }
+  }
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
   }
 }
 .pull {
@@ -705,7 +811,7 @@ table.compare .compare-cta h4 {
 }
 .items li,
 .items span {
-  background-color: var(--tint1);
+  background-color: var(--color1a);
   border-radius: var(--radius-all);
   color: var(--color6);
   display: inline-block;

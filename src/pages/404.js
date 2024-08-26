@@ -1,10 +1,11 @@
 import * as React from "react";
 // Components
-import Form from "@components/FormNetlify";
+import Mailto from "@components/Mailto";
 import { Link } from "gatsby";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 
 const NotFoundPage = () => {
@@ -23,24 +24,39 @@ const NotFoundPage = () => {
               these pages:
             </p>
             <p>
-              <Link className="button" to="/resume">
+              <a className="button" href="/resume">
                 Résumé
-              </Link>
-              <Link className="button" to="/story">
+              </a>
+              <a className="button" href="/blog/journey-of-an-artist/">
                 My Story
-              </Link>
+              </a>
             </p>
           </article>
         </section>
-        <section className="alignable skew_b cta_b compensateT" id="contact">
+        <section
+          className="alignable skew_b cta_b bottomS compensateT"
+          id="contact"
+        >
           <article className="self-center">
             <h2>...Or Contact Me</h2>
             <p>
               If you just wanted to contact me, use the form below to send me an
               email. I'd be happy to connect!
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal-child-b self-center compensateBHalf" />
