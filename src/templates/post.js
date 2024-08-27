@@ -2,10 +2,9 @@ import React from "react";
 // Components
 import Mailto from "@components/Mailto";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+// import { GatsbyImage } from "gatsby-plugin-image";
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 // Layouts
 import Page from "@layouts/Page";
 
@@ -26,53 +25,9 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
-  // console.log(props.data.contentfulPost);
   const { title } = props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
-  // const featurl = `https:${props.data.contentfulPost.featuredImage?.file.url}`;
-  // const featdesc = props.data.contentfulPost.featuredImage?.description;
   console.log("html: ", html);
-  // const refs = props.data.contentfulPost.body.references || null;
-  // console.log("refs: ", refs);
-  // console.log(refs);
-  // const options = {
-  //   renderNode: {
-  //     "embedded-asset-block": (node) => {
-  //       const nodeid = node.data.target.sys.id;
-  //       const asset =
-  //         refs !== null
-  //           ? refs.filter((ref) => ref && ref.contentful_id === nodeid)[0]
-  //           : {};
-  //       if (Object.keys(asset).length === 0) {
-  //         return null;
-  //       }
-  //       return (
-  //         <GatsbyImage image={asset.gatsbyImageData} alt={asset.description} />
-  //       );
-  //     },
-  //     "embedded-entry-block": (node) => {
-  //       const nodeid = node.data.target.sys.id;
-  //       console.log("nodeid: ", nodeid);
-  //       // const trefs = [];
-  //       // const tasset =
-  //       //   trefs.filter((tref) => tref.contentful_id === nodeid)[0] ?? {};
-  //       // console.log("tasset: ", tasset);
-  //       const entry =
-  //         refs !== null
-  //           ? refs.filter((ref) => ref && ref.contentful_id === nodeid)[0]
-  //           : {};
-  //       console.log("entry: ", typeof entry, entry);
-  //       if (Object.keys(entry).length === 0) {
-  //         return null;
-  //       }
-  //       return (
-  //         <pre className={`language-${entry.language}`}>
-  //           {entry.snippet.snippet}
-  //         </pre>
-  //       );
-  //     },
-  //   },
-  // };
   return (
     <>
       <section className="hero post">
@@ -132,7 +87,6 @@ const Post = (props) => {
 export default Post;
 
 export const Head = (props) => {
-  // const { description, title } = props.data.contentfulPost;
   return (
     <>
       <title>{props.title} | :joe rhoney</title>
