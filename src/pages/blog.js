@@ -36,7 +36,10 @@ const Blog = () => {
               published
               title
               description
-              thumbnailAlt
+              feat {
+                absolutePath
+              }
+              featalt
             }
             fields {
               slug

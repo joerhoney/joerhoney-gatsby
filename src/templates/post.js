@@ -13,11 +13,13 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
         date
+        description
         published
         title
-        description
-        thumbnail
-        thumbnailAlt
+        feat {
+          absolutePath
+        }
+        featalt
       }
       html
     }
@@ -25,15 +27,22 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
-  const { title } = props.data.markdownRemark.frontmatter;
+  const { date, description, published, title, feat, featalt } =
+    props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
+  console.log("date: ", date);
+  console.log("description: ", description);
+  console.log("published: ", published);
+  console.log("title: ", title);
+  console.log("feat: ", feat.absolutePath);
+  console.log("featalt: ", featalt);
   console.log("html: ", html);
   return (
     <>
       <section className="hero post">
         <div className="hero__bg">
           {/* {console.log("Post.js: featurl: ", featurl)} */}
-          {/* <img alt={featdesc} loading="lazy" src={featurl} /> */}
+          <img alt={featalt} loading="lazy" src={feat.absolutePath} />
         </div>
         <h1>{title}</h1>
       </section>
