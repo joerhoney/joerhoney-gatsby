@@ -14,18 +14,6 @@ import "@css/units.css";
 import "@css/blog.css";
 
 const Blog = () => {
-  // allContentfulPost(sort: { date: DESC }) {
-  //     date(formatString: "YYYY.MM.DD")
-  // description
-  // slug
-  // title
-  // featuredImage {
-  //   file {
-  //     url
-  //   }
-  //   description
-  // }
-
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark {
@@ -36,9 +24,7 @@ const Blog = () => {
               published
               title
               description
-              feat {
-                absolutePath
-              }
+              featimg
               featalt
             }
             fields {
@@ -67,23 +53,25 @@ const Blog = () => {
           if (post.node.frontmatter.published) {
             return (
               <article key={post.node.frontmatter.date}>
-                <h2>
-                  <Link
-                    className="post-featured"
-                    to={`/blog/${post.node.fields.slug}`}
-                  >
+                <Link
+                  className="post-link"
+                  to={`/blog/${post.node.fields.slug}`}
+                >
+                  <h2 className="post-title tilt">
                     {post.node.frontmatter.title}
-                  </Link>
-                </h2>
-                <p>
-                  <Link
-                    className="post-featured"
-                    to={`/blog/${post.node.fields.slug}`}
-                  >
+                  </h2>
+                  <p className="post-date">{post.node.frontmatter.date}</p>
+                  <p className="post-desc">
                     {post.node.frontmatter.description}
-                  </Link>
-                </p>
-                <p>{post.node.frontmatter.date}</p>
+                  </p>
+                  {post.node.frontmatter.featimg != null && (
+                    <img
+                      alt={post.node.frontmatter.featalt}
+                      loading="lazy"
+                      src={`./${post.node.frontmatter.featimg}`}
+                    />
+                  )}
+                </Link>
               </article>
             );
           } else {

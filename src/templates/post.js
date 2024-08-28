@@ -2,11 +2,13 @@ import React from "react";
 // Components
 import Mailto from "@components/Mailto";
 import { graphql } from "gatsby";
-// import { GatsbyImage } from "gatsby-plugin-image";
+import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Layouts
 import Page from "@layouts/Page";
+
+const path = require("path");
 
 export const query = graphql`
   query ($slug: String!) {
@@ -16,9 +18,7 @@ export const query = graphql`
         description
         published
         title
-        feat {
-          absolutePath
-        }
+        featimg
         featalt
       }
       html
@@ -27,22 +27,14 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
-  const { date, description, published, title, feat, featalt } =
+  const { date, description, published, title, featimg, featalt } =
     props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
-  console.log("date: ", date);
-  console.log("description: ", description);
-  console.log("published: ", published);
-  console.log("title: ", title);
-  console.log("feat: ", feat.absolutePath);
-  console.log("featalt: ", featalt);
-  console.log("html: ", html);
   return (
     <>
       <section className="hero post">
         <div className="hero__bg">
-          {/* {console.log("Post.js: featurl: ", featurl)} */}
-          <img alt={featalt} loading="lazy" src={feat.absolutePath} />
+          <img alt={featalt} loading="lazy" src={`/blog/${featimg}`} />
         </div>
         <h1>{title}</h1>
       </section>
@@ -96,10 +88,13 @@ const Post = (props) => {
 export default Post;
 
 export const Head = (props) => {
+  const { date, description, published, title, featimg, featalt } =
+    props.data.markdownRemark.frontmatter;
   return (
     <>
-      <title>{props.title} | :joe rhoney</title>
-      <meta name="description" content={props.description} />
+      <title>{title} | :joe rhoney</title>
+      <meta name="description" content={description} />
+      <meta property="og:image" content={`/blog/${featimg}`} />
       <meta
         property="og:keywords"
         content="Joe Rhoney, Developer, Illustrator"
