@@ -1,4 +1,6 @@
 import React from "react";
+//Utilities
+import dateFormat from "@utils/dateFormat";
 // Components
 import Mailto from "@components/Mailto";
 import { graphql } from "gatsby";
@@ -46,7 +48,7 @@ const Post = (props) => {
       >
         <section className="alignable bottomS">
           <article>
-            <p className="published">Published: {published}</p>
+            <p className="date">Published: {dateFormat(published)}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
         </section>

@@ -1,11 +1,13 @@
 import React from "react";
+//Utilities
+import dateFormat from "@utils/dateFormat";
 // Components
 import { Link, graphql, useStaticQuery } from "gatsby";
 // Layouts
-import Footer from "../layouts/Footer";
-import Nav from "../layouts/Nav";
-// import NavIndicator from "../layouts/NavIndicator";
-import Scheme from "../layouts/Scheme";
+import Footer from "@layouts/Footer";
+import Nav from "@layouts/Nav";
+// import NavIndicator from "@layouts/NavIndicator";
+import Scheme from "@layouts/Scheme";
 // CSS
 import "@css/buttons.scss";
 import "@css/colors-default.css";
@@ -53,33 +55,21 @@ const Blog = () => {
       <main className="blog">
         <h1 className="h1 square">Blog</h1>
         {posts.map((post) => {
-          if (post.node.frontmatter.published) {
-            return (
-              <article key={post.node.frontmatter.date}>
-                <Link
-                  className="post-link"
-                  to={`/blog/${post.node.fields.slug}`}
-                >
-                  <h2 className="post-title tilt">
-                    {post.node.frontmatter.title}
-                  </h2>
-                  <p className="post-date">{post.node.frontmatter.date}</p>
-                  <p className="post-desc">
-                    {post.node.frontmatter.description}
-                  </p>
-                  {post.node.frontmatter.featimg != null && (
-                    <img
-                      alt={post.node.frontmatter.featalt}
-                      loading="lazy"
-                      src={`./${post.node.frontmatter.featimg}`}
-                    />
-                  )}
-                </Link>
-              </article>
-            );
-          } else {
-            return null;
-          }
+          const { description, featimg, featalt, title } =
+            post.node.frontmatter;
+          const published = dateFormat(post.node.frontmatter.published);
+          return (
+            <article key={published}>
+              <Link className="post-link" to={`/blog/${post.node.fields.slug}`}>
+                <h2 className="post-title tilt">{title}</h2>
+                <p className="post-date">{published}</p>
+                <p className="post-desc">{description}</p>
+                {featimg != null && (
+                  <img alt={featalt} loading="lazy" src={`./${featimg}`} />
+                )}
+              </Link>
+            </article>
+          );
         })}
       </main>
       <Footer />
