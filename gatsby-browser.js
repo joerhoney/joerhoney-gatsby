@@ -1,8 +1,9 @@
-// import "/src/css/prism.css";
+import "/src/css/prism.css";
 
-// import "prismjs/plugins/command-line/prism-command-line.css";
+require("prismjs/plugins/command-line/prism-command-line.css");
 
-require("/src/css/prism.css");
+// require("static/css/prism.css");
+// require("prismjs/themes/prism-okaidia.min.css");
 
 // prismjs/themes/prism-coy.css
 // prismjs/themes/prism-coy.min.css
