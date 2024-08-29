@@ -7,7 +7,7 @@ import Profiles from "@fragments/Profiles";
 // Layouts
 import Page from "@layouts/Page";
 
-const path = require("path");
+// const path = inclue("path");
 
 export const query = graphql`
   query ($slug: String!) {
