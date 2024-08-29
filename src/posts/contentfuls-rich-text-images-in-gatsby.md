@@ -1,6 +1,6 @@
 ---
-date: 04-20-2024
-published: true
+published: 2024-04-20
+draft: false
 title: Contentful's Rich Text Images in Gatsby
 description: Why is it so hard to render Contentful's rich text in Gatsby, specifically images? How I resolved this despite the lack of documentation in 2024.
 featimg: contentfuls-rich-text-images-in-gatsby.webp

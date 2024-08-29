@@ -13,7 +13,6 @@ export const query = graphql`
   query ($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       frontmatter {
-        date
         description
         published
         title
@@ -26,7 +25,7 @@ export const query = graphql`
 `;
 
 const Post = (props) => {
-  const { date, description, published, title, featimg, featalt } =
+  const { description, published, title, featimg, featalt } =
     props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
   return (
@@ -47,7 +46,7 @@ const Post = (props) => {
       >
         <section className="alignable bottomS">
           <article>
-            {/* <p className="date">Published: {date}</p> */}
+            <p className="published">Published: {published}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
         </section>
@@ -87,7 +86,7 @@ const Post = (props) => {
 export default Post;
 
 export const Head = (props) => {
-  const { date, description, published, title, featimg, featalt } =
+  const { description, published, title, featimg, featalt } =
     props.data.markdownRemark.frontmatter;
   return (
     <>

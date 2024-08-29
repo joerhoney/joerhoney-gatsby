@@ -16,16 +16,19 @@ import "@css/blog.css";
 const Blog = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        sort: { frontmatter: { published: DESC } }
+        filter: { frontmatter: { draft: { eq: false } } }
+      ) {
         edges {
           node {
             frontmatter {
-              date
               published
               title
               description
               featimg
               featalt
+              draft
             }
             fields {
               slug

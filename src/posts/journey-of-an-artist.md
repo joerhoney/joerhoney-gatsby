@@ -1,6 +1,6 @@
 ---
-date: 10-23-2023
-published: true
+published: 2023-10-23
+draft: false
 title: Journey of an Artist
 description: A brief summary of my life as an artist, and how I became a web developer along the way.
 featimg: cherry-blossom.webp

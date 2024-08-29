@@ -1,6 +1,6 @@
 ---
-date: 01-16-2024
-published: true
+published: 2024-01-16
+draft: false
 title: AI Assisted Phishing is a Thing Now
 description: My encounter with a phishing attack using AI.
 featimg: ai-assisted-phishing.webp
