@@ -15,7 +15,7 @@ module.exports = {
     twitterUsername: `@joerhoney`,
   },
   plugins: [
-    `gatsby-plugin-netlify`,
+    // `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {

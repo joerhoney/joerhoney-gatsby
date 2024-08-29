@@ -2,7 +2,6 @@ import React from "react";
 // Components
 import Mailto from "@components/Mailto";
 import { graphql } from "gatsby";
-import { StaticImage, GatsbyImage } from "gatsby-plugin-image";
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Layouts
