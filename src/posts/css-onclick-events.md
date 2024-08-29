@@ -1,6 +1,6 @@
 ---
-date: 01-23-2024
-published: true
+published: 2024-01-23
+draft: true
 title: CSS On-Click Events
 description: How to use CSS on-click events.
 ---

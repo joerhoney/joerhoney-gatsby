@@ -71,12 +71,9 @@ pre[class*="language-"] {
 .token.comment,
 .token.prolog,
 .token.doctype,
-.token.cdata {
-  color: slategray;
-}
-
+.token.cdata,
 .token.punctuation {
-  color: #999;
+  color: var(--tint6);
 }
 
 .token.namespace {
@@ -90,7 +87,7 @@ pre[class*="language-"] {
 .token.constant,
 .token.symbol,
 .token.deleted {
-  color: #905;
+  color: rgb(184, 54, 125);
 }
 
 .token.selector,
@@ -99,7 +96,7 @@ pre[class*="language-"] {
 .token.char,
 .token.builtin,
 .token.inserted {
-  color: #690;
+  color: rgb(235, 127, 45);
 }
 
 .token.operator,
@@ -107,15 +104,13 @@ pre[class*="language-"] {
 .token.url,
 .language-css .token.string,
 .style .token.string {
-  color: #9a6e3a;
-  /* This background color was intended by the author of this theme. */
-  background: hsla(0, 0%, 100%, 0.5);
+  color: var(--tint5);
 }
 
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-  color: #07a;
+  color: rgb(163, 92, 220);
 }
 
 .token.function,

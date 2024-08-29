@@ -1,11 +1,13 @@
 import React from "react";
+//Utilities
+import dateFormat from "@utils/dateFormat";
 // Components
 import { Link, graphql, useStaticQuery } from "gatsby";
 // Layouts
-import Footer from "../layouts/Footer";
-import Nav from "../layouts/Nav";
-// import NavIndicator from "../layouts/NavIndicator";
-import Scheme from "../layouts/Scheme";
+import Footer from "@layouts/Footer";
+import Nav from "@layouts/Nav";
+// import NavIndicator from "@layouts/NavIndicator";
+import Scheme from "@layouts/Scheme";
 // CSS
 import "@css/buttons.scss";
 import "@css/colors-default.css";
@@ -16,26 +18,29 @@ import "@css/blog.css";
 const Blog = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulPost(sort: { date: DESC }) {
+      allMarkdownRemark(
+        sort: { frontmatter: { published: DESC } }
+        filter: { frontmatter: { draft: { eq: false } } }
+      ) {
         edges {
           node {
-            createdAt(formatString: "YYYY.MM.DD")
-            date(formatString: "YYYY.MM.DD")
-            description
-            slug
-            title
-            featuredImage {
-              file {
-                url
-              }
+            frontmatter {
+              published
+              title
               description
+              featimg
+              featalt
+              draft
+            }
+            fields {
+              slug
             }
           }
         }
       }
     }
   `);
-  const posts = data.allContentfulPost.edges;
+  const posts = data.allMarkdownRemark.edges;
   return (
     <>
       <Scheme />
@@ -50,21 +55,17 @@ const Blog = () => {
       <main className="blog">
         <h1 className="h1 square">Blog</h1>
         {posts.map((post) => {
-          const { createdAt, date, description, title, slug } = post.node;
-          const feat = post.node.featuredImage;
-          const posted = date !== null ? date : createdAt;
+          const { description, featimg, featalt, title } =
+            post.node.frontmatter;
+          const published = dateFormat(post.node.frontmatter.published);
           return (
-            <article key={posted}>
-              <Link className="post-link" to={`/blog/${slug}`}>
+            <article key={published}>
+              <Link className="post-link" to={`/blog/${post.node.fields.slug}`}>
                 <h2 className="post-title tilt">{title}</h2>
-                <p className="post-date">{posted}</p>
+                <p className="post-date">{published}</p>
                 <p className="post-desc">{description}</p>
-                {feat != null && (
-                  <img
-                    alt={feat.description}
-                    loading="lazy"
-                    src={feat.file.url}
-                  />
+                {featimg != null && (
+                  <img alt={featalt} loading="lazy" src={`./${featimg}`} />
                 )}
               </Link>
             </article>
