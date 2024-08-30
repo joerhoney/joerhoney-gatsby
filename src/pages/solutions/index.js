@@ -24,25 +24,34 @@ const solutionsPage = () => {
   return (
     <>
       <Page navItems="none">
-        <section
-          className="heroLP trim tilted-row tilted-row--reversed"
-          style={{ marginTop: "-10vw", position: "relative" }}
-        >
-          <div className="bg-1" style={{ paddingBottom: "0" }}>
-            <h1 className="u-text-small">Solutions!</h1>
-            <h2 className="tilt">Turn the web market into walk-in customers</h2>
-            <img
-              alt="Mouse clicks swarming into your store."
-              className="column-width transluscent"
-              style={{ marginLeft: "auto", marginRight: "0" }}
-              loading="lazy"
-              src={storeFront}
-            />
-          </div>
-          <div className="half1">
-            <h3>
-              Get a website that stands out and attracts the right customers.
-            </h3>
+        <section className="transform skew-y-14 md:skew-y-0 md:rotate-14">
+          <div className="flex flex-col md:flex-row-reverse">
+            <div className="column bg-1 px-4 lg:px-7">
+              <div className="bg-1 reach-right inset-0"></div>
+              <div className="relative -skew-y-14 md:skew-y-0 md:-rotate-14">
+                <h1 className="skew-y-14 italic text-xl text-right">
+                  Solutions!
+                </h1>
+                <h2 className="skew-y-14 italic text-right">
+                  Turn the web market into walk-in customers
+                </h2>
+                <img
+                  alt="Mouse clicks swarming into your store."
+                  className="w-full ml-auto -mr-4 lg:-mr-7 transluscent"
+                  loading="lazy"
+                  src={storeFront}
+                />
+              </div>
+            </div>
+            <div className="column content-center px-4 lg:px-7">
+              <div className="bg-grad-1 reach-left inset-0"></div>
+              <div className="relative -skew-y-14 md:skew-y-0 md:-rotate-14">
+                <h3>
+                  Get a website that stands out and attracts the right
+                  customers.
+                </h3>
+              </div>
+            </div>
           </div>
         </section>
         <section

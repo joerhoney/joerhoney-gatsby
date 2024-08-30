@@ -18,7 +18,7 @@ import "@css/units.css";
 const Page = ({ children, className, id, nav, navItems, scheme }) => {
   return (
     <>
-      <main id={id} className={className}>
+      <main id={id} className={`${className || ""}`}>
         {scheme !== false && <Scheme />}
         {nav !== false && <Nav items={navItems} />}
         {/* {indicator !== false && <NavIndicator />} */}

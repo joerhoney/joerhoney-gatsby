@@ -1,3 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+}
+@layer components {
+  .column {
+    container-type: inline-size;
+    @apply flex-grow w-full;
+  }
+  .bg-grad-1 {
+    background-image: var(--gradBgHalf1);
+    background-repeat: no-repeat;
+  }
+  .bg-grad-2 {
+    background-image: var(--gradBgHalf2);
+    background-repeat: no-repeat;
+  }
+}
+@layer utilities {
+  .reach {
+    &-0,
+    &-left-0 {
+      position: absolute;
+      left: 0;
+      padding-left: 0;
+    }
+    &,
+    &-left {
+      position: absolute;
+      left: -50%;
+      padding-left: 50%;
+    }
+    &-0,
+    &-right-0 {
+      position: absolute;
+      right: 0;
+      padding-right: 0;
+    }
+    &,
+    &-right {
+      position: absolute;
+      right: -50%;
+      padding-right: 50%;
+    }
+  }
+}
+
 /*  R E S E T  */
 :root {
   overflow-x: hidden;
