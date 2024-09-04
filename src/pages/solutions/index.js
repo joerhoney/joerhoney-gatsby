@@ -29,10 +29,10 @@ const solutionsPage = () => {
             <div className="column bg-1 px-4 lg:px-7">
               <div className="bg-1 reach-right inset-0"></div>
               <div className="relative -skew-y-14 md:skew-y-0 md:-rotate-14">
-                <h1 className="skew-y-14 italic text-xl text-right">
+                <h1 className="skew-y-14 italic text-xl text-right pl-10">
                   Solutions!
                 </h1>
-                <h2 className="skew-y-14 italic text-right">
+                <h2 className="skew-y-14 italic text-right pl-10">
                   Turn the web market into walk-in customers
                 </h2>
                 <img
@@ -43,7 +43,7 @@ const solutionsPage = () => {
                 />
               </div>
             </div>
-            <div className="column content-center px-4 lg:px-7">
+            <div className="column content-center cqwy-14 px-4 lg:px-7">
               <div className="bg-grad-1 reach-left inset-0"></div>
               <div className="relative -skew-y-14 md:skew-y-0 md:-rotate-14">
                 <h3>

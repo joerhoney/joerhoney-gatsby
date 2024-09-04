@@ -19,31 +19,53 @@
   }
 }
 @layer utilities {
-  .reach {
-    &-0,
-    &-left-0 {
-      position: absolute;
-      left: 0;
-      padding-left: 0;
-    }
-    &,
-    &-left {
-      position: absolute;
-      left: -50%;
-      padding-left: 50%;
-    }
-    &-0,
-    &-right-0 {
-      position: absolute;
-      right: 0;
-      padding-right: 0;
-    }
-    &,
-    &-right {
-      position: absolute;
-      right: -50%;
-      padding-right: 50%;
-    }
+  .reach-0,
+  .reach-left-0 {
+    position: absolute;
+    left: 0;
+    padding-left: 0;
+  }
+  .reach,
+  .reach-50,
+  .reach-left,
+  .reach-left-50 {
+    position: absolute;
+    left: -50%;
+    padding-left: 50%;
+  }
+  .reach-0,
+  .reach-right-0 {
+    position: absolute;
+    right: 0;
+    padding-right: 0;
+  }
+  .reach,
+  .reach-50,
+  .reach-right,
+  .reach-right-50 {
+    position: absolute;
+    right: -50%;
+    padding-right: 50%;
+  }
+  .cqw-14,
+  .cqwy-14,
+  .cqwt-14 {
+    padding-top: 14.1cqw;
+  }
+  .cqw-14,
+  .cqwx-14,
+  .cqwl-14 {
+    padding-left: 14.1cqw;
+  }
+  .cqw-14,
+  .cqwx-14,
+  .cqwr-14 {
+    padding-right: 14.1cqw;
+  }
+  .cqw-14,
+  .cqwy-14,
+  .cqwb-14 {
+    padding-bottom: 14.1cqw;
   }
 }
 
