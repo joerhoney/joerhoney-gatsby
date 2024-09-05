@@ -12,7 +12,7 @@ import {
   DiTerminal,
   DiW3C,
 } from "react-icons/di";
-import { HiExternalLink, HiMenu } from "react-icons/hi";
+import { HiMenu, HiOutlineExternalLink, HiOutlineMail } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
 import {
   SiAdobeaftereffects,
@@ -78,8 +78,12 @@ import {
   SiZsh,
 } from "react-icons/si";
 import {
+  SvgArrowSketch,
+  SvgCalendarBold,
   // SvgClose,
+  SvgExternalLinkBold,
   SvgHamburger,
+  SvgMailBold,
   SvgResponsive,
   SvgW3c,
 } from "./SVGs.js";
@@ -94,7 +98,9 @@ const Icon = (props) => {
     Modernizr: <DiModernizr />,
     Terminal: <DiTerminal />,
     // Heroicons
-    ExternalLink: <HiExternalLink />,
+    // ExternalLinkBold: <HiExternalLink />,
+    ExternalLink: <HiOutlineExternalLink />,
+    Mail: <HiOutlineMail />,
     Menu: <HiMenu />,
     // Ionicons 5
     Close: <IoClose />,
@@ -158,15 +164,18 @@ const Icon = (props) => {
     WordPress: <SiWordpress />,
     Zsh: <SiZsh />,
     // Custom icons
+    ArrowSketch: <SvgArrowSketch />,
+    CalendarBold: <SvgCalendarBold />,
+    ExternalLinkBold: <SvgExternalLinkBold />,
     Hamburger: <SvgHamburger />,
+    MailBold: <SvgMailBold />,
     Responsive: <SvgResponsive />,
     W3C: <SvgW3c />,
   };
 
-  const { className, href, name } = props;
+  const { className, href, name, style } = props;
   const label = props.label ? props.label : name;
   const icon = name.replace(/\.|\s/g, "");
-  console.log("was: ", name, " now: ", icon);
 
   return (
     <>
@@ -184,7 +193,7 @@ const Icon = (props) => {
             </a>
           )}
         >
-          <div className={`icon ${className ?? ""}`}>
+          <div className={`icon ${className ?? ""}`} style={style}>
             {iconMap[icon]}
             {label !== "false" ? <b>{label}</b> : ""}
           </div>

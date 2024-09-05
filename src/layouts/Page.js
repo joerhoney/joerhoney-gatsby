@@ -4,22 +4,24 @@ import React from "react";
 // Layouts
 import Footer from "./Footer";
 import Nav from "./Nav";
-import NavIndicator from "./NavIndicator";
+// import NavIndicator from "./NavIndicator";
 import Scheme from "./Scheme";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 import "@css/colors-default.css";
 import "@css/global.scss";
 import "@css/hero.scss";
+import "@css/layouts.scss";
+import "@css/typography.scss";
 import "@css/units.css";
 
-const Page = ({ children, className, nav, navItems, scheme }) => {
+const Page = ({ children, className, id, nav, navItems, scheme }) => {
   return (
     <>
-      <main className={className}>
+      <main id={id} className={className}>
         {scheme !== false && <Scheme />}
         {nav !== false && <Nav items={navItems} />}
-        <NavIndicator />
+        {/* {indicator !== false && <NavIndicator />} */}
         {children}
       </main>
       <Footer />

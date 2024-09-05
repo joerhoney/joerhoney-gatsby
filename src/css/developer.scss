@@ -1,0 +1,17 @@
+.portrait {
+  max-width: 700px;
+
+  position: absolute;
+  bottom: -11.1vw;
+  right: 6vw;
+  @media (min-width: 960px) {
+    height: auto;
+    width: 22%;
+    min-width: 350px;
+  }
+}
+@media (max-width: 620px) {
+  :has(.portrait) {
+    padding-bottom: 160px;
+  }
+}

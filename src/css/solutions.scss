@@ -1,0 +1,15 @@
+.all-ears {
+  height: auto;
+  max-width: 550px;
+  width: 320px;
+
+  position: absolute;
+  bottom: -20.15vw;
+  right: 0;
+  @media (min-width: 1000px) {
+    width: 32vw;
+  }
+}
+section:has(.all-ears) {
+  padding-bottom: calc(400px + -20vw);
+}

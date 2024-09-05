@@ -1,105 +1,40 @@
 import React from "react";
+//Utilities
+import dateFormat from "@utils/dateFormat";
 // Components
-import Form from "@components/FormNetlify";
+import Mailto from "@components/Mailto";
 import { graphql } from "gatsby";
-import { GatsbyImage } from "gatsby-plugin-image";
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 // Layouts
 import Page from "@layouts/Page";
 
+// const path = inclue("path");
+
 export const query = graphql`
   query ($slug: String!) {
-    contentfulPost(slug: { eq: $slug }) {
-      date(formatString: "YYYY.MM.DD")
-      description
-      body {
-        raw
-        references {
-          ... on ContentfulAsset {
-            contentful_id
-            __typename
-            description
-            gatsbyImageData
-          }
-          ... on ContentfulCode {
-            contentful_id
-            __typename
-            title
-            description
-            language
-            snippet {
-              snippet
-            }
-          }
-        }
-      }
-      featuredImage {
-        file {
-          url
-        }
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
         description
+        published
+        title
+        featimg
+        featalt
       }
-      slug
-      title
+      html
     }
   }
 `;
 
 const Post = (props) => {
-  // console.log(props.data.contentfulPost);
-  const { date, title } = props.data.contentfulPost;
-  const featurl = `https:${props.data.contentfulPost.featuredImage?.file.url}`;
-  const featdesc = props.data.contentfulPost.featuredImage?.description;
-  const html = JSON.parse(props.data.contentfulPost.body.raw);
-  console.log("html: ", html);
-  const refs = props.data.contentfulPost.body.references || null;
-  console.log("refs: ", refs);
-  // console.log(refs);
-  const options = {
-    renderNode: {
-      "embedded-asset-block": (node) => {
-        const nodeid = node.data.target.sys.id;
-        const asset =
-          refs !== null
-            ? refs.filter((ref) => ref && ref.contentful_id === nodeid)[0]
-            : {};
-        if (Object.keys(asset).length === 0) {
-          return null;
-        }
-        return (
-          <GatsbyImage image={asset.gatsbyImageData} alt={asset.description} />
-        );
-      },
-      "embedded-entry-block": (node) => {
-        const nodeid = node.data.target.sys.id;
-        console.log("nodeid: ", nodeid);
-        // const trefs = [];
-        // const tasset =
-        //   trefs.filter((tref) => tref.contentful_id === nodeid)[0] ?? {};
-        // console.log("tasset: ", tasset);
-        const entry =
-          refs !== null
-            ? refs.filter((ref) => ref && ref.contentful_id === nodeid)[0]
-            : {};
-        console.log("entry: ", typeof entry, entry);
-        if (Object.keys(entry).length === 0) {
-          return null;
-        }
-        return (
-          <pre className={`language-${entry.language}`}>
-            {entry.snippet.snippet}
-          </pre>
-        );
-      },
-    },
-  };
+  const { description, published, title, featimg, featalt } =
+    props.data.markdownRemark.frontmatter;
+  const { html } = props.data.markdownRemark;
   return (
     <>
       <section className="hero post">
         <div className="hero__bg">
-          {console.log("Post.js: featurl: ", featurl)}
-          <img alt={featdesc} loading="lazy" src={featurl} />
+          <img alt={featalt} loading="lazy" src={`/blog/${featimg}`} />
         </div>
         <h1>{title}</h1>
       </section>
@@ -111,14 +46,14 @@ const Post = (props) => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable">
+        <section className="alignable bottomS">
           <article>
-            <p className="date">Published: {date}</p>
-            <div>{html && documentToReactComponents(html, options)}</div>
+            <p className="date">Published: {dateFormat(published)}</p>
+            <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b compensateTHalf u-jump-link"
+          className="alignable skew_b cta_b bottomS compensateTHalf u-jump-section"
           id="contact"
         >
           <article className="self-center">
@@ -127,9 +62,20 @@ const Post = (props) => {
               Whether you need help building something or you just want to
               connect... well I want to connect, so drop me an email!
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          {/* <Query /> */}
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
           <Profiles className="article reveal-child-b self-center compensateBHalf" />
@@ -142,11 +88,13 @@ const Post = (props) => {
 export default Post;
 
 export const Head = (props) => {
-  const { description, title } = props.data.contentfulPost;
+  const { description, published, title, featimg, featalt } =
+    props.data.markdownRemark.frontmatter;
   return (
     <>
       <title>{title} | :joe rhoney</title>
       <meta name="description" content={description} />
+      <meta property="og:image" content={`/blog/${featimg}`} />
       <meta
         property="og:keywords"
         content="Joe Rhoney, Developer, Illustrator"

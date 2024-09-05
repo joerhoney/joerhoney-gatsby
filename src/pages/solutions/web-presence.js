@@ -1,35 +1,32 @@
 import React from "react";
 // Components
 import Checkout from "@components/Checkout";
-import Form from "@components/FormNetlify";
+import Mailto from "@components/Mailto";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Images
 import storeFront from "@images/heros/store-front-transparent.webp";
 import { Link } from "gatsby";
 
 // Test Prices
-const priceDrtChp = "price_1PEiCnJndiOOi7lkFhymi7e7";
-const priceUDrive = "price_1PEiF9JndiOOi7lkWy4DCnfH";
-const priceSellIt = "price_1PEiG6JndiOOi7lkcJzhaJqO";
 
-const websitePage = () => {
+const webPresencePage = () => {
   return (
     <>
-      <section className="hero page">
-        <div className="hero__bg">
-          <img
-            alt="Mouse clicks swarming into your store."
-            loading="lazy"
-            src={storeFront}
-          />
-        </div>
-        <h1>Websites</h1>
-      </section>
-      <Page>
-        <section className="alignable compensateB u-jump-link" id="packages">
+      <Page
+        // id="top"
+        navItems={{
+          Solutions: "/solutions",
+          Websites: "/solutions/website",
+          Maintenance: "/solutions/web-maintenance",
+          Design: "/solutions/web-design",
+        }}
+      >
+        <section className="alignable compensateB u-jump-section" id="packages">
+          <h1>Web Presence</h1>
           <article>
             <table className="compare bottomS ">
               <tr>
@@ -186,7 +183,7 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Dirt Cheap</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -196,7 +193,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/services/website/static">Details</Link>
+                      <Link to="/solutions/website/static">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -222,7 +219,7 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>U Drive</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -232,7 +229,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/services/website/u-drive">Details</Link>
+                      <Link to="/solutions/website/u-drive">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -254,7 +251,7 @@ const websitePage = () => {
                   <div className="compare-cta">
                     <div>
                       <h4>Sell It!</h4>
-                      <Checkout
+                      {/* <Checkout
                         link={true}
                         lineItems={[
                           {
@@ -264,7 +261,7 @@ const websitePage = () => {
                         ]}
                         text="Buy"
                       />{" "}
-                      <Link to="/services/website/sell-it">Details</Link>
+                      <Link to="/solutions/website/sell-it">Details</Link> */}
                     </div>
                     <div className="indicator-gradient"></div>
                   </div>
@@ -288,7 +285,7 @@ const websitePage = () => {
           </article>
           <article>
             <h2 className="bottomXS">More Details</h2>
-            <h4 className="u-jump-link" id="hosting">
+            <h4 className="u-jump-section" id="hosting">
               Additional Hosting Costs
             </h4>
             <p>
@@ -303,7 +300,7 @@ const websitePage = () => {
               $60/year to $600/year (with SSL certificate included), depending
               on the computer resources necessary to run your website.
             </p>
-            <h4 className="u-jump-link" id="ssl">
+            <h4 className="u-jump-section" id="ssl">
               SSL Certificates
             </h4>
             <p>
@@ -311,7 +308,7 @@ const websitePage = () => {
               connection. This is included free with all packages (sort of).
               Actually,
             </p>
-            <h4 className="u-jump-link" id="pages-added">
+            <h4 className="u-jump-section" id="pages-added">
               Pages/Products Added for You
             </h4>
             <p>
@@ -321,34 +318,46 @@ const websitePage = () => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b cta_bu-jump-link" id="contact">
+        <section
+          className="alignable skew_b cta_b bottomS u-jump-section"
+          id="contact"
+        >
           <article className="self-center">
             <h2>Contact Me</h2>
             <p>
               Whether you need help building something or you just want to
               connect... well I want to connect, so drop me an email!
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
-          <Profiles className="article reveal" />
+          <Profiles className="article reveal-child-b" />
         </section>
       </Page>
     </>
   );
 };
 
-export default websitePage;
+export default webPresencePage;
 
 export const Head = () => (
   <>
-    <title>Website Services | :joe rhoney</title>
-    <meta
-      name="description"
-      content="Choose one of my versatile website packages to get start your online project."
-    />
-    <meta property="og:keywords" content="Website Services" />
+    <title>Web Presence | :joe rhoney</title>
+    <meta name="description" content="." />
+    <meta property="og:keywords" content="Web Presence" />
     <meta property="og:type" content="website" />
   </>
 );

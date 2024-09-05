@@ -1,6 +1,6 @@
 import React from "react";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 import "@css/form.scss";
 
 const Form = (props) => {
@@ -21,13 +21,19 @@ const Form = (props) => {
           placeholder="Email Address *"
           required
         />
-        <input type="text" name="subject" placeholder="Subject Line" />
+        <input
+          id="subject"
+          type="text"
+          name="subject"
+          placeholder="Subject Line"
+        />
         <input
           type="url"
           name="website"
           placeholder="Website (if you have one)"
         />
         <textarea
+          id="message"
           placeholder="Your Message *"
           name="message"
           rows="10"

@@ -6,8 +6,9 @@ import "@css/icons.scss";
 import "@css/profiles.css";
 
 const Profiles = (props) => {
+  const { className, heading } = props;
   return (
-    <div className={`profiles ${props.className}`}>
+    <div className={`profiles ${className ?? ""}`}>
       <h4>{props.heading ? props.heading : "Find me on:"}</h4>
       <div className="icons reveal-child-b inline">
         <Icon href="https://www.linkedin.com/in/joerhoney/" name="LinkedIn" />
@@ -15,8 +16,10 @@ const Profiles = (props) => {
         <Icon
           href="https://stackoverflow.com/users/1383937/joe-rhoney"
           name="Stack Overflow"
+          className="tight-text"
         />
         <Icon href="https://codepen.io/joerhoney" name="CodePen" />
+        {/* <Icon href="https://calendly.com/joerhoney" name="Calendly" /> */}
         <Icon href="https://gravatar.com/joerhoney" name="Gravatar" />
       </div>
     </div>

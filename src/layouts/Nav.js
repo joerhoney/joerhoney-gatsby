@@ -2,16 +2,18 @@ import React from "react";
 // Components
 import { Link } from "gatsby";
 // CSS
-import "@css/nav.css";
+import "@css/nav.scss";
 
 const Nav = (props) => {
-  console.log("props: ", props);
-  const items = props.items || {
-    Home: "/",
-    Developer: "/developer",
-    Artist: "/artist",
-    Contact: "#contact",
-  };
+  const items =
+    props.items === "none"
+      ? {}
+      : props.items || {
+          Developer: "/developer",
+          Artist: "/artist",
+          Résumé: "/resume",
+          Contact: "#contact",
+        };
   return (
     <nav className="nav">
       <div className="group">
