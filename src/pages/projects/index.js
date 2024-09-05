@@ -28,9 +28,10 @@ const Projects = () => {
               published
               title
               description
+              draft
               featimg
               featalt
-              draft
+              link
             }
             fields {
               parent
@@ -56,21 +57,20 @@ const Projects = () => {
       <main className="blog">
         <h1 className="h1 square">Projects</h1>
         {projects.map((project) => {
-          console.log("parent: " + post.node.fields.parent);
-          console.log("slug: " + post.node.fields.slug);
-          const { description, featimg, featalt, title } =
+          if (project.node.fields.parent !== "projects") return null;
+          const { description, featimg, featalt, link, title } =
             project.node.frontmatter;
           const published = dateFormat(project.node.frontmatter.published);
           return (
             <article key={published}>
-              <Link className="post-link" to={`${project.node.fields.slug}`}>
+              <a className="post-link" href={link}>
                 <h2 className="post-title tilt">{title}</h2>
                 <p className="post-date">{published}</p>
                 <p className="post-desc">{description}</p>
                 {featimg != null && (
-                  <img alt={featalt} loading="lazy" src={`${featimg}`} />
+                  <img alt={featalt} loading="lazy" src={featimg} />
                 )}
-              </Link>
+              </a>
             </article>
           );
         })}
@@ -80,4 +80,4 @@ const Projects = () => {
   );
 };
 
-export default Blog;
+export default Projects;

@@ -56,8 +56,7 @@ const Blog = () => {
       <main className="blog">
         <h1 className="h1 square">Blog</h1>
         {posts.map((post) => {
-          console.log("parent: " + post.node.fields.parent);
-          console.log("slug: " + post.node.fields.slug);
+          if (post.node.fields.parent !== "blog") return null;
           const { description, featimg, featalt, title } =
             post.node.frontmatter;
           const published = dateFormat(post.node.frontmatter.published);

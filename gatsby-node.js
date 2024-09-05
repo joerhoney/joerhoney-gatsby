@@ -1,4 +1,5 @@
 const path = require("path");
+// const folder = path.resolve(__dirname, "./src/");
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -19,7 +20,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "MarkdownRemark") {
     const slug = path.basename(node.fileAbsolutePath, ".md");
-    const parent = path.dirname(path.basename(__dirname));
+    const parent = path.basename(path.dirname(node.fileAbsolutePath));
     createNodeField({
       node,
       name: "slug",
@@ -53,12 +54,23 @@ module.exports.createPages = async ({ graphql, actions }) => {
   results.data.allMarkdownRemark.edges.forEach((edge) => {
     console.log("slug: " + edge.node.fields.slug);
     console.log("parent: " + edge.node.fields.parent);
-    createPage({
-      component: Post,
-      path: `/blog/${edge.node.fields.slug}`,
-      context: {
-        slug: edge.node.fields.slug,
-      },
-    });
+    if (edge.node.fields.parent === "pages") {
+      createPage({
+        component: Page,
+        path: `/${edge.node.fields.slug}`,
+        context: {
+          slug: edge.node.fields.slug,
+        },
+      });
+    }
+    if (edge.node.fields.parent === "blog") {
+      createPage({
+        component: Post,
+        path: `/blog/${edge.node.fields.slug}`,
+        context: {
+          slug: edge.node.fields.slug,
+        },
+      });
+    }
   });
 };
