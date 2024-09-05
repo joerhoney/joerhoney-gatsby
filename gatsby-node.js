@@ -1,4 +1,5 @@
 const path = require("path");
+// const folder = path.resolve(__dirname, "./src/");
 
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
@@ -19,16 +20,23 @@ module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "MarkdownRemark") {
     const slug = path.basename(node.fileAbsolutePath, ".md");
+    const parent = path.basename(path.dirname(node.fileAbsolutePath));
     createNodeField({
       node,
       name: "slug",
       value: slug,
+    });
+    createNodeField({
+      node,
+      name: "parent",
+      value: parent,
     });
   }
 };
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const Post = path.resolve("src/templates/post.js");
+  const Page = path.resolve("src/templates/page.js");
   const results = await graphql(`
     query {
       allMarkdownRemark {
@@ -36,6 +44,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             fields {
               slug
+              parent
             }
           }
         }
@@ -43,12 +52,25 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   results.data.allMarkdownRemark.edges.forEach((edge) => {
-    createPage({
-      component: Post,
-      path: `/blog/${edge.node.fields.slug}`,
-      context: {
-        slug: edge.node.fields.slug,
-      },
-    });
+    console.log("slug: " + edge.node.fields.slug);
+    console.log("parent: " + edge.node.fields.parent);
+    if (edge.node.fields.parent === "pages") {
+      createPage({
+        component: Page,
+        path: `/${edge.node.fields.slug}`,
+        context: {
+          slug: edge.node.fields.slug,
+        },
+      });
+    }
+    if (edge.node.fields.parent === "blog") {
+      createPage({
+        component: Post,
+        path: `/blog/${edge.node.fields.slug}`,
+        context: {
+          slug: edge.node.fields.slug,
+        },
+      });
+    }
   });
 };

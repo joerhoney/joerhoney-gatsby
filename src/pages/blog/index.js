@@ -33,6 +33,7 @@ const Blog = () => {
               draft
             }
             fields {
+              parent
               slug
             }
           }
@@ -55,6 +56,7 @@ const Blog = () => {
       <main className="blog">
         <h1 className="h1 square">Blog</h1>
         {posts.map((post) => {
+          if (post.node.fields.parent !== "blog") return null;
           const { description, featimg, featalt, title } =
             post.node.frontmatter;
           const published = dateFormat(post.node.frontmatter.published);
