@@ -15,24 +15,7 @@ module.exports = {
     twitterUsername: `@joerhoney`,
   },
   plugins: [
-    {
-      resolve: `gatsby-plugin-schema-snapshot`,
-      options: {
-        path: `schema.gql`,
-        exclude: {
-          plugins: [`gatsby-source-npm-package-search`],
-        },
-        update: process.env.GATSBY_UPDATE_SCHEMA_SNAPSHOT,
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
-        // environment: process.env.CONTENTFUL_ENVIRONMENT,
-      },
-    },
+    // `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-google-fonts`,
       options: {
@@ -76,7 +59,7 @@ module.exports = {
     },
     "gatsby-plugin-sass",
     // "gatsby-plugin-mdx",
-    "gatsby-transformer-remark",
+    // "gatsby-transformer-remark",
     {
       resolve: "gatsby-source-filesystem",
       options: {

@@ -4,6 +4,7 @@
 :root {
   --accent: #5a3a67;
   --color1: #ffffff;
+  --color1a: #fff6d8;
   --color2: #ffd8b7;
   --color3: #ff653a;
   --color4: #ea303c;
@@ -13,7 +14,7 @@
   --glowHalf1: #ffd8b7;
   --glowHalf2: #48293f;
   --headingHalf1: #4a3459;
-  --headingHalf2: #ffb58d;
+  --headingHalf2: #ffb18b;
   --knockout: #ffffff;
   --multiscreen: multiply;
   --text: #121f26;
@@ -23,7 +24,9 @@
   --tint1: #ffffff66;
   --tint2: #ffcc9366;
   --tint3: #ff653a66;
-  --tint4: #fe574a66;
+  --tint4: #ea303c66;
+  --tint5: #5a3a6766;
+  --tint6: #121f2666;
   /* Consistent colors */
   --dark: #121f26;
   --darkish: #29232e;
@@ -54,6 +57,7 @@
 :root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) {
   --accent: #ffd8b7;
   --color1: #121f26;
+  --color1a: #302a3f;
   --color2: #5a3a67;
   --color3: #ea3052;
   --color4: #fd835e;
@@ -63,7 +67,7 @@
   --glowHalf1: #5a3a67;
   --glowHalf2: #fea385;
   --headingHalf1: #fc9f7d;
-  --headingHalf2: #522a41;
+  --headingHalf2: #49293f;
   --knockout: #000000;
   --multiscreen: screen;
   --text: #ffffff;
@@ -88,10 +92,12 @@
   --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
   --scrolltrack: #121f26;
   --lightish: #ffd8b7;
-  --tint1: #121f2666; /* alpha was: .4 */
-  --tint2: #5a3a6766; /* alpha was: .4 */
+  --tint1: #121f2666;
+  --tint2: #5a3a6766;
   --tint3: #ea305266;
-  --tint4: #ff653a66; /* alpha was: .4 */
+  --tint4: #fd835e66;
+  --tint5: #ffd8b766;
+  --tint6: #ffffff66;
 }
 
 /* Dark Mode Preferred */
@@ -99,6 +105,7 @@
   :root {
     --accent: #ffd8b7;
     --color1: #121f26;
+    --color1a: #302a3f;
     --color2: #5a3a67;
     --color3: #ea3052;
     --color4: #fd835e;
@@ -108,7 +115,7 @@
     --glowHalf1: #5a3a67;
     --glowHalf2: #fea385;
     --headingHalf1: #fc9f7d;
-    --headingHalf2: #522a41;
+    --headingHalf2: #49293f;
     --knockout: #000000;
     --multiscreen: screen;
     --text: #ffffff;
@@ -133,16 +140,19 @@
     --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
     --scrolltrack: #121f26;
     --lightish: #ffd8b7;
-    --tint1: #121f2666; /* alpha was: .4 */
-    --tint2: #5a3a6766; /* alpha was: .4 */
+    --tint1: #121f2666;
+    --tint2: #5a3a6766;
     --tint3: #ea305266;
-    --tint4: #ff653a66; /* alpha was: .4 */
+    --tint4: #fd835e66;
+    --tint5: #ffd8b766;
+    --tint6: #ffffff66;
   }
 
   /* Light Mode Selected */
   :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked) {
     --accent: #5a3a67;
     --color1: #ffffff;
+    --color1a: #fff6d8;
     --color2: #ffd8b7;
     --color3: #ff653a;
     --color4: #ea303c;
@@ -152,7 +162,7 @@
     --glowHalf1: #ffd8b7;
     --glowHalf2: #48293f;
     --headingHalf1: #4a3459;
-    --headingHalf2: #ffb58d;
+    --headingHalf2: #ffb18b;
     --knockout: #ffffff;
     --multiscreen: multiply;
     --text: #121f26;
@@ -162,7 +172,9 @@
     --tint1: #ffffff66;
     --tint2: #ffcc9366;
     --tint3: #ff653a66;
-    --tint4: #fe574a66;
+    --tint4: #ea303c66;
+    --tint5: #5a3a6766;
+    --tint6: #121f2666;
     /* Consistent colors */
     --dark: #121f26;
     --darkish: #29232e;

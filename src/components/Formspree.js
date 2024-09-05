@@ -1,6 +1,6 @@
 import React from "react";
 // CSS
-import "@css/buttons.css";
+import "@css/buttons.scss";
 import "@css/form.css";
 
 const Form = (props) => {
@@ -13,6 +13,12 @@ const Form = (props) => {
       >
         <input type="text" name="name" placeholder="Full Name" required />
         <input type="email" name="email" placeholder="Email Address" required />
+        <input
+          type="url"
+          name="url"
+          placeholder="Web Address (if you have one)"
+          required
+        />
         <input
           type="text"
           name="_subject"

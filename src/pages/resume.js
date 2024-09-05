@@ -1,20 +1,19 @@
 import * as React from "react";
 // Components
-import Form from "@components/Formspree";
+import Mailto from "@components/Mailto";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // import { Link } from "gatsby";
 
 const resume = () => {
   return (
     <>
-      <section className="hero page">
-        <h1>Résumé</h1>
-      </section>
       <Page>
         <section className="alignable compensateB">
+          <h1>Résumé</h1>
           <article className="self-center">
             <h2>Web Developer</h2>
             <p>
@@ -301,18 +300,33 @@ const resume = () => {
             </ul>
           </article>
         </section>
-        <section className="alignable skew_b cta_b u-jump-link" id="contact">
+        <section
+          className="alignable skew_b cta_b bottomS u-jump-section"
+          id="contact"
+        >
           <article className="self-center">
             <h2>Let's Talk!</h2>
             <p>
               Even if you're not hiring right now, let's discuss your project.
               Maybe I can help!
             </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
-          <Profiles className="article reveal self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center compensateBHalf" />
         </section>
       </Page>
     </>

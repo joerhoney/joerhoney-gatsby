@@ -1,11 +1,12 @@
 import * as React from "react";
 // Components
-import Form from "@components/Formspree";
+import Mailto from "@components/Mailto";
 import Gallery from "@components/Gallery";
 import { Link } from "gatsby";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 import ScrollIndicator from "@fragments/ScrollIndicator";
 // CSS
@@ -37,9 +38,8 @@ const artistPage = (props) => {
         <h1>Artist</h1>
       </section>
       <Page>
-        <section className="alignable">
+        <section className="alignable bottomM">
           <article>
-            <h2>I &#9829; to Draw!</h2>
             <p>
               Let me show you some of the artwork I've done! The collection on
               this page includes art I've done professionally as well as some
@@ -47,11 +47,8 @@ const artistPage = (props) => {
             </p>
           </article>
         </section>
-        <section
-          className="alignable skew_b tint3_b compensateT"
-          id="animation"
-        >
-          <article className="compensateB">
+        <section className="alignable skew_b tint3_b" id="animation">
+          <article className="bottomM">
             <h2>Animation</h2>
             <p>
               I love bringing my illustrations to life. This was originally a
@@ -83,7 +80,7 @@ const artistPage = (props) => {
               Here is some of the work I completed for various client projects.
             </p>
           </div>
-          <Gallery className="compensateT">
+          <Gallery className="topS">
             <div
               className="layer"
               style={{
@@ -231,13 +228,13 @@ const artistPage = (props) => {
             </div>
           </Gallery>
         </section>
-        <section className="alignable skew_b cta_b" id="contact">
+        <section className="alignable skew_b cta_b bottomS" id="contact">
           <article className="self-center">
             <h2>Let's Talk Art!</h2>
             <p className="text">
               I have been practicing my whole life. I wrote&nbsp;
-              <Link to="/story">a page on that</Link>, but I'm interested in
-              connecting. So please send me a message below.
+              <Link to="/blog/journey-of-an-artist/">a page on that</Link>, but
+              I'm interested in connecting. So please send me a message below.
             </p>
             <div className="columns-2 bottomXS ">
               <div className="pull tint1">
@@ -256,11 +253,23 @@ const artistPage = (props) => {
                 </p>
               </div>
             </div>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
-          <Profiles className="article reveal self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center compensateBHalf" />
         </section>
       </Page>
     </>

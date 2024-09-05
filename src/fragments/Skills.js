@@ -2,62 +2,60 @@ import * as React from "react";
 // Components
 import Icon from "@components/Icon";
 // CSS
-import "@css/icons.css";
+import "@css/icons.scss";
 
 const Browsers = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Chrome" />
       <Icon name="Firefox" />
-      <Icon name="Ie" label="IE ☠️" />
+      <Icon name="Edge" />
       <Icon name="Safari" />
     </div>
   );
 };
 const Cms = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Contentful" />
       <Icon name="Drupal" />
       <Icon name="Gatsby" />
       <Icon name="Joomla" />
-      <Icon name="Wordpress" label="WordPress" />
+      <Icon name="Strapi" />
+      <Icon name="WordPress" />
     </div>
   );
 };
 const Communities = () => {
   return (
-    <div className="icons">
-      <Icon name="Codepen" />
-      <Icon
-        name="Stackoverflow"
-        label="Stack Overflow"
-        className="tight-text"
-      />
+    <div className="icons inline">
+      <Icon name="CodePen" />
+      <Icon name="Stack Overflow" className="tight-text" />
     </div>
   );
 };
 const Compilers = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Apache" />
       <Icon name="Babel" />
       <Icon name="Git" />
       <Icon name="Modernizr" />
-      <Icon name="NodejsSmall" label="Node.js" />
-      <Icon name="Npm" label="npm" />
+      <Icon name="Node.js" />
+      <Icon name="NPM" label="npm" />
       {/* <Icon name="Bootstrap" /> */}
       <Icon name="Sass" />
+      <Icon name="Tailwind" />
     </div>
   );
 };
 const Languages = () => {
   return (
-    <div className="icons">
-      <Icon name="Css3Full" label="CSS3" />
-      <Icon name="Html5" label="HTML5" />
-      <Icon name="JsBadge" label="JavaScript" />
-      <Icon name="JqueryLogo" label="jQuery" />
+    <div className="icons inline">
+      <Icon name="CSS3" />
+      <Icon name="HTML5" />
+      <Icon name="JavaScript" />
+      <Icon name="jQuery" />
       <Icon name="Markdown" />
       {/* <Icon name="Mongodb" /> */}
       <Icon name="Mysql" label="MySQL" />
@@ -69,7 +67,7 @@ const Languages = () => {
 };
 const Os = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       <Icon name="Apple" />
       <Icon name="Windows" />
       <Icon name="Linux" />
@@ -78,35 +76,39 @@ const Os = () => {
 };
 const Services = () => {
   return (
-    <div className="icons">
-      <Icon name="Github" label="GitHub" />
-      <Icon name="Aws" />
-      <Icon label="Digital Ocean" name="Digitalocean" />
+    <div className="icons inline">
+      <Icon name="GitHub" />
+      <Icon name="AWS" />
+      <Icon name="Digital Ocean" className="tight-text" />
       <Icon name="Figma" />
-      <Icon name="GoogleAnalytics" label="Google Analytics" />
+      <Icon name="Analytics" />
+      <Icon name="Drive" />
       <Icon name="Atlassian" />
       <Icon name="Jira" />
-      <Icon name="GoogleDrive" label="Google Drive" />
+      <Icon name="Stripe" />
     </div>
   );
 };
 const Software = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
       {/* <Icon name="AfterEffects" /> */}
-      <Icon name="VSCode" />
+      <Icon name="VS Code" />
       <Icon name="Atom" />
       <Icon name="Brackets" />
-      <Icon label="FileZilla" name="Filezilla" />
+      <Icon name="FileZilla" />
       <Icon name="Illustrator" />
       <Icon name="Photoshop" />
+      <Icon name="Designer" />
+      <Icon name="Photo" />
       <Icon name="Selenium" />
     </div>
   );
 };
 const OtherTech = () => {
   return (
-    <div className="icons">
+    <div className="icons inline">
+      <Icon name="BEM" />
       <Icon name="Responsive" />
       <Icon name="W3C" />
       <Icon name="Terminal" />

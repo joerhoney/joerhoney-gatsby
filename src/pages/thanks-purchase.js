@@ -2,6 +2,7 @@ import React from "react";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 
 const ThanksContact = () => {
@@ -21,7 +22,7 @@ const ThanksContact = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center compensateBHalf" />
         </section>
       </Page>
     </>

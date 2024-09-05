@@ -1,0 +1,107 @@
+.button,
+button {
+  background-color: var(--color3);
+  background-image: var(--gradButton);
+  border: none;
+  border-radius: var(--radius-all);
+  color: var(--textButton);
+  display: inline-block;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  padding: var(--unit2) var(--unit3);
+
+  position: relative;
+  text-decoration: none;
+  transition: background-color ease 0.5s;
+  &:focus,
+  &:hover {
+    background-color: var(--color4);
+  }
+  &:has(.window) .text {
+    margin: 0 var(--unit-1) 1em;
+  }
+  .window {
+    background-color: var(--darkish);
+    border-radius: var(--radius-all);
+    box-shadow: inset 0 0 0.5em var(--dark);
+    color: var(--light);
+    font-weight: normal;
+    margin: 0 var(--unit-1);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 4px 8px;
+    text-shadow: 0 0 0.5em var(--lightish);
+  }
+  &:has(.icon) {
+    padding-right: var(--unit8);
+  }
+  .icon {
+    padding: 0;
+    position: absolute;
+    top: calc(50% - 0.5em);
+    right: var(--unit3);
+  }
+}
+.cta,
+.cta_b {
+  .button,
+  button {
+    background-color: var(--color6);
+    background-image: var(--gradKnockout);
+    color: var(--knockout);
+    mix-blend-mode: var(--multiscreen);
+    &:focus,
+    &:hover {
+      background-color: var(--color5);
+    }
+  }
+}
+p .button {
+  border: none;
+  margin-right: 1em;
+  &:focus,
+  &:hover {
+    border: none;
+  }
+}
+
+.jump-button {
+  border: 0.075em solid currentColor;
+  border-radius: 100px;
+  color: var(--color5);
+  display: block;
+  font-size: 400%;
+  height: 0;
+  margin: auto;
+  overflow: hidden;
+  padding: 0.8em 0 0 0.8em;
+  position: relative;
+  width: 0;
+  transition: color 0.3s ease;
+  &:focus,
+  &:hover {
+    color: var(--color3);
+  }
+  &::before {
+    content: "\2193";
+    display: block;
+    height: 0.6em;
+    padding: 0;
+    width: 0.6em;
+
+    position: absolute;
+    top: 0.2em;
+    left: 0.1em;
+  }
+}
+.cta,
+.cta_b {
+  .jump-button {
+    color: var(--color6);
+    &:focus,
+    &:hover {
+      color: var(--color5);
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 // CSS
-import "@css/buttons.css";
-import "@css/form.css";
+import "@css/buttons.scss";
+import "@css/form.scss";
 // Documentation: https://formsubmit.co/help
 
 const Form = (props) => {
@@ -18,6 +18,12 @@ const Form = (props) => {
           type="text"
           name="_subject"
           placeholder="Subject Line"
+          required
+        />
+        <input
+          type="text"
+          name="_webaddress"
+          placeholder="Web Address (if you have one)"
           required
         />
         <textarea

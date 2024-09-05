@@ -4,11 +4,15 @@ import since from "@utils/since";
 // Components
 import Button from "@components/Button";
 import Collection from "@components/Collection";
-import Form from "@components/Formspree";
+import Mailto from "@components/Mailto";
+import { Link } from "gatsby";
 import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";
+// CSS
+import "@css/developer.scss";
 // Fragments
+import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 import {
   Browsers,
@@ -23,6 +27,7 @@ import {
 } from "@fragments/Skills";
 // Images
 import dragon from "@images/heros/dragon.webp";
+import avatar from "@images/portrait.webp";
 import codazenimg from "@images/screenshots/codazen-home.webp";
 import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
 import metaimg from "@images/screenshots/meta-home.webp";
@@ -114,17 +119,96 @@ const codePage = () => {
         <h1>Developer</h1>
       </section>
       <Page>
-        <section className="alignable bottomM" id="skills">
+        <section className="alignable bottomS">
           <article className="self-center">
+            <p>
+              These days, a web developer is usually expected to be well-rounded
+              and specialize in several aspects of the web. The industry
+              continues to grow exponentially, and anyone involved should know
+              that no one can specialize in all of it. So what do I mean when I
+              say I'm a web developer? Let me start by sharing the more specific
+              web roles I consider myself a good fit for, and why:
+            </p>
+          </article>
+        </section>
+        <section
+          className="alignable skew_b compensateTHalf topS cta_b"
+          style={{ position: "relative" }}
+        >
+          <div className="article">
+            <h2 className="tilt">Roles</h2>
+          </div>
+          <div className="columns-few bottomS columns-few--tilt">
+            <div className="column">
+              <h3>Front-End Developer</h3>
+              <p>
+                All things considered, this is primarily where my skill set and
+                experience places me. Most of what I do is comprised of
+                converting design and content to a functional user interface. In
+                more recent years I've been using a lot of Node, React, GraphQL
+                and Gatsby.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Creative Developer</h3>
+              <p>
+                This lesser-known role is where I see myself heading in my
+                career path. Generally expected to have some HTML canvas and
+                WebGL knowledge, as well as a deep understanding of CSS, a
+                Creative Developer specializes in digital experiences. I am
+                passionate about learning these skills.
+              </p>
+            </div>
+            <div className="column">
+              <h3>WordPress Developer</h3>
+              <p>
+                The majority of my web industry experience involves over 100
+                WordPress websites I designed, built and/or managed over the
+                course of about 12 years. Most of these include my own custom
+                theme and some of my own plugins (10 available in the public
+                directory under the name AddFunc).
+              </p>
+            </div>
+            <div className="column">
+              <h3>Web Developer</h3>
+              <p>
+                To me, this blanket term means understanding the fundamental
+                mechanics of the web and having a thorough grasp of the 3
+                pillars of web linguistics (HTML, CSS and JavaScript). In
+                addition to the daily use of these, a web developer sees the
+                relationships, similarities and differences in all web languages
+                and can therefore adapt as needed.
+              </p>
+            </div>
+            <div className="column">
+              <h3>Web/UI Designer</h3>
+              <p>
+                I have designed many websites and have carefully observed the
+                evolution of modern web design trends and its crossover into
+                online and offline apps.
+              </p>
+            </div>
+          </div>
+          <img
+            alt="Portrait of Joe Rhoney."
+            className="portrait transluscent"
+            height="290"
+            loading="lazy"
+            src={avatar}
+            width="240"
+          />
+        </section>
+        <section className="alignable bottomM topS" id="skills">
+          <article className="self-center bottomXS">
             <h2>Skills &amp; Tools</h2>
             <p>
               These are the technical skills I've picked up and tools I've
-              worked with in my career. I'm always eager to learn more. That's
-              what I love most about coding.
+              worked with in my career. I'm always eager to learn and teach what
+              I know!
             </p>
           </article>
           <div className="content-center self-center wide">
-            <div className="reveal">
+            <div className="reveal-child-b">
               <Languages />
               <Cms />
               <Compilers />
@@ -297,7 +381,7 @@ const codePage = () => {
             <p>
               The client needed their WordPress website's design coded into the
               theme. The main objective was to showcase their construction work,
-              so there were many galleries. A plugin waslimited features used
+              so there were many galleries. A plugin with limited features used
               for the galleries, but it had limited features that didn't cover
               the design or informational needs. After I configured and coded
               adjustments in order to theme the website just as the design
@@ -354,38 +438,65 @@ const codePage = () => {
             </div>
           </Collection>
         </section>
-        <section className="alignable skew_b cta_b" id="contact">
-          <article className="self-center">
-            <h2>Let's Build Something!</h2>
-            <p>
-              Nothing excites me more than starting a new project or making
-              something better. For {since("Jan, 1, 2006")} years I have worked
-              as a freelancer, serving clients in many industries, and have also
-              worked as a full-time employee at various retail manufacturing and
-              marketing agencies.
-            </p>
-            <div className="columns-2 bottomXS">
-              <div className="pull tint1">
-                <h4>Hire me! 😄</h4>
-                <p>
-                  I am currently available for hire! Not for long though, so act
-                  fast if you want me on your team! 🙌
-                </p>
-              </div>
-              <div className="pull tint1">
-                <h4>Contract me! 👍</h4>
-                <p>
-                  I am also open for service as a freelance web developer. Send
-                  me your project ideas and I'll help you hash out the web
-                  solutions you need. 💡
-                </p>
-              </div>
+        <section className="alignable topS bottomM skew_b tint3_b">
+          <div className="columns-few columns-few--tilt">
+            <div className="column u-jump-section" id="plugins">
+              <h3>WordPress Plugins</h3>
+              <p>
+                I have published 10 custom plugins in the WordPress directory
+                under the name AddFunc. You can see them here:
+              </p>
+              <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">
+                AddFunc Plugins
+              </Button>
             </div>
+            <div className="column u-jump-section" id="resume">
+              <h3>My Résumé</h3>
+              <p>
+                You may already have it, but for convenience and to serve also
+                as correlation, you can find my résumé here:
+              </p>
+              <a className="button" href="/resume">
+                View Résumé
+              </a>
+            </div>
+            <div className="column u-jump-section" id="story">
+              <h3>Journey of an&nbsp;Artist</h3>
+              <p>
+                Want to know more about me personally? Well, I wrote a bit about
+                my life here:
+              </p>
+              <a className="button" href="/blog/journey-of-an-artist/">
+                My Story
+              </a>
+            </div>
+          </div>
+        </section>
+        <section className="alignable skew_b cta_b bottomS" id="contact">
+          <article className="self-center">
+            <h2>Contact me</h2>
+            <p>
+              Please don't hesitate to send me an email. I'll get back to you as
+              soon as possible. I look forward to hearing from you!&nbsp;
+              <b className="u-heading-font">:j</b>
+            </p>
+            <Arrow
+              className="self-right"
+              style={{
+                bottom: "150%",
+                left: "-114px",
+                rotate: "280deg",
+              }}
+              inward
+            >
+              <Mailto className="button" subject="General Inquiry">
+                Email Me
+              </Mailto>
+            </Arrow>
           </article>
-          <Form className="compensateBHalf" />
         </section>
         <section className="alignable">
-          <Profiles className="article reveal self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center compensateBHalf" />
         </section>
       </Page>
     </>

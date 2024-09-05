@@ -1,6 +1,8 @@
 import React from "react";
+// Components
+import { Link } from "gatsby";
 // CSS
-import "@css/wizard.css";
+import "@css/wizard.scss";
 
 const Wizard = (props) => {
   // const { children, className, id } = props;
@@ -9,6 +11,7 @@ const Wizard = (props) => {
       if (React.isValidElement(child)) {
         return React.cloneElement(child, {
           name: props.name,
+          start: props.start,
           children: renderChildren(child.props.children),
         });
       }
@@ -18,20 +21,24 @@ const Wizard = (props) => {
 
   return (
     <div className={`wizard ${props.className}`}>
-      <input
-        type="radio"
-        id={props.id}
-        name={props.name}
-        defaultChecked={true}
-      />
       {renderChildren(props.children)}
+      <label className="qa_restart" htmlFor={props.start}>
+        Start over
+      </label>
     </div>
   );
 };
 
 const Step = (props) => {
-  const { children } = props;
-  return <ul className="step">{children}</ul>;
+  const { children, id, name, start } = props;
+  return (
+    <>
+      {id && (
+        <input type="radio" id={id} name={name} defaultChecked={start === id} />
+      )}
+      <ul className="step">{children}</ul>
+    </>
+  );
 };
 
 const Q = (props) => {
@@ -45,25 +52,34 @@ const Q = (props) => {
 };
 
 const A = (props) => {
-  const { a, goto, id, name } = props;
+  const { a, goto } = props;
   return (
     <li>
       <div className="answer">
-        <label className="qa_bubble" htmlFor={goto ? goto : id}>
-          {a}
-        </label>
+        {goto.match(/#[a-z]+/gi) || goto.match(/\/[a-z]+/gi) ? (
+          <Link className="qa_bubble" to={goto}>
+            {a}
+          </Link>
+        ) : (
+          <label className="qa_bubble" htmlFor={goto}>
+            {a}
+          </label>
+        )}
       </div>
-      {id && <input type="radio" id={id} name={name} />}
       {props.children}
     </li>
   );
 };
 
 const End = (props) => {
+  const { children, id, name } = props;
   return (
-    <div className="end">
-      <div className="qa_bubble">{props.children}</div>
-    </div>
+    <>
+      {id && <input type="radio" id={id} name={name} />}
+      <div className="end">
+        <div className="qa_bubble">{children}</div>
+      </div>
+    </>
   );
 };
 

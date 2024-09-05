@@ -1,10 +1,12 @@
 import React from "react";
+// Components
+import Button from "@components/Button";
 
 function ButtonContact() {
   return (
-    <a className="button" href="#contact">
+    <Button className="button" href="#contact">
       Contact Me
-    </a>
+    </Button>
   );
 }
 
