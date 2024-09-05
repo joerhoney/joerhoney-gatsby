@@ -35,6 +35,7 @@ module.exports.onCreateNode = ({ node, actions }) => {
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const Post = path.resolve("src/templates/post.js");
+  const Page = path.resolve("src/templates/page.js");
   const results = await graphql(`
     query {
       allMarkdownRemark {
