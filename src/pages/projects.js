@@ -33,8 +33,8 @@ const Projects = () => {
               draft
             }
             fields {
-              slug
               parent
+              slug
             }
           }
         }
@@ -56,6 +56,8 @@ const Projects = () => {
       <main className="blog">
         <h1 className="h1 square">Projects</h1>
         {projects.map((project) => {
+          console.log("parent: " + post.node.fields.parent);
+          console.log("slug: " + post.node.fields.slug);
           const { description, featimg, featalt, title } =
             project.node.frontmatter;
           const published = dateFormat(project.node.frontmatter.published);
