@@ -19,10 +19,16 @@ module.exports.onCreateNode = ({ node, actions }) => {
   const { createNodeField } = actions;
   if (node.internal.type === "MarkdownRemark") {
     const slug = path.basename(node.fileAbsolutePath, ".md");
+    const parent = path.dirname(path.basename(__dirname));
     createNodeField({
       node,
       name: "slug",
       value: slug,
+    });
+    createNodeField({
+      node,
+      name: "parent",
+      value: parent,
     });
   }
 };
@@ -36,6 +42,7 @@ module.exports.createPages = async ({ graphql, actions }) => {
           node {
             fields {
               slug
+              parent
             }
           }
         }
@@ -43,6 +50,8 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   results.data.allMarkdownRemark.edges.forEach((edge) => {
+    console.log("slug: " + edge.node.fields.slug);
+    console.log("parent: " + edge.node.fields.parent);
     createPage({
       component: Post,
       path: `/blog/${edge.node.fields.slug}`,
