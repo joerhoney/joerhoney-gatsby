@@ -27,16 +27,16 @@
   }
   .question,
   .end {
-    background-color: var(--color5);
+    background-color: var(--fg2);
     background-image: linear-gradient(90deg, var(--tint4), transparent);
     border-radius: 0 var(--unit2) var(--unit2) var(--unit2);
-    color: var(--color1);
+    color: var(--bg0);
     margin-right: var(--unit8);
     transform: translate(-100vw, -25vh);
   }
   .answer {
     background-color: var(--tint2);
-    background-image: linear-gradient(90deg, var(--color1a), transparent);
+    background-image: linear-gradient(90deg, var(--bg1), transparent);
     border-radius: var(--unit2) var(--unit2) 0 var(--unit2);
     cursor: pointer;
     margin-left: var(--unit8);
@@ -45,12 +45,12 @@
       background-color: var(--tint3);
     }
     & > label {
-      color: var(--color6);
+      color: var(--fg0);
       cursor: inherit;
       display: block;
     }
     & > a {
-      color: var(--color6);
+      color: var(--fg0);
       display: block;
       text-decoration: none;
     }
@@ -73,7 +73,7 @@
     }
   }
   .qa_restart {
-    background-color: var(--color1a);
+    background-color: var(--bg1);
     border-radius: var(--radius-all);
     color: var(--tint5);
     display: block;
@@ -82,8 +82,8 @@
     width: max-content;
     transition: all 0.5s ease;
     &:hover {
-      background-color: var(--color2);
-      color: var(--color6);
+      background-color: var(--bg2);
+      color: var(--fg0);
     }
   }
 }

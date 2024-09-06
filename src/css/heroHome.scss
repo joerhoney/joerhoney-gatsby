@@ -36,9 +36,11 @@ body:has(.heroClip) {
     }
   }
   h1 {
-    color: var(--color5);
+    color: var(--fg2);
     display: inline-block;
-    font: 400 14vh/1.2em Rubik, sans-serif;
+    font:
+      400 14vh/1.2em Rubik,
+      sans-serif;
     position: absolute;
     text-transform: lowercase;
     b:nth-child(1) {
@@ -78,17 +80,17 @@ body:has(.heroClip) {
     }
     .jBig-1 {
       background: -webkit-linear-gradient(
-        var(--color6),
-        var(--color5),
-        var(--color4),
-        var(--color3)
+        var(--fg0),
+        var(--fg2),
+        var(--fg4),
+        var(--bg4)
       );
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       top: 5vh;
     }
     .jBig-2 {
-      background: -webkit-linear-gradient(var(--color2), transparent);
+      background: -webkit-linear-gradient(var(--bg2), transparent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       top: 75vh;

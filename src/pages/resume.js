@@ -12,7 +12,7 @@ const resume = () => {
   return (
     <>
       <Page>
-        <section className="alignable compensateB">
+        <section className="compensateB">
           <h1>Résumé</h1>
           <article className="self-center">
             <h2>Web Developer</h2>
@@ -300,11 +300,8 @@ const resume = () => {
             </ul>
           </article>
         </section>
-        <section
-          className="alignable skew_b cta_b bottomS u-jump-section"
-          id="contact"
-        >
-          <article className="self-center">
+        <section className="cta bottomS u-jump-section skew-y-14" id="contact">
+          <article className="-skew-y-14 self-center">
             <h2>Let's Talk!</h2>
             <p>
               Even if you're not hiring right now, let's discuss your project.
@@ -326,7 +323,7 @@ const resume = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b compensateBHalf self-center" />
         </section>
       </Page>
     </>

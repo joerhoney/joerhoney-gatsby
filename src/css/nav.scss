@@ -15,7 +15,7 @@
   overflow: hidden;
   padding: 0 0 500px; /* was 200px 0 300px */
   pointer-events: none;
-  text-shadow: 0 0 140px var(--color1);
+  text-shadow: 0 0 140px var(--bg0);
   transform: scale(1, 1.5);
   transform-origin: top left;
   /* transition: all 1s cubic-bezier(0, 0, 0.15, 1); */
@@ -48,7 +48,7 @@
   letter-spacing: -0.03em;
 }
 .nav a {
-  color: var(--color3);
+  color: var(--bg4);
   display: block;
   font-family: "Rubik", sans-serif;
   font-size: 20px;
@@ -95,15 +95,15 @@
 }
 @media (hover: hover) {
   .nav a {
-    color: var(--color3);
+    color: var(--bg4);
   }
   .nav a:not(.current):is(:active, :focus, :hover) {
-    color: var(--accent);
+    color: var(--fg2);
   }
 }
 .nav-indicator {
   box-sizing: border-box;
-  color: var(--color3);
+  color: var(--bg4);
   display: flex;
   justify-content: center;
   max-width: 460px;

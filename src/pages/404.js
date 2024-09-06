@@ -33,11 +33,8 @@ const NotFoundPage = () => {
             </p>
           </article>
         </section>
-        <section
-          className="alignable skew_b cta_b bottomS compensateT"
-          id="contact"
-        >
-          <article className="self-center">
+        <section className="cta bottomS compensateT skew-y-14" id="contact">
+          <article className="-skew-y-14 self-center">
             <h2>...Or Contact Me</h2>
             <p>
               If you just wanted to contact me, use the form below to send me an
@@ -59,7 +56,7 @@ const NotFoundPage = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b compensateBHalf self-center" />
         </section>
       </Page>
     </>

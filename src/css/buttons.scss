@@ -1,10 +1,10 @@
 .button,
 button {
-  background-color: var(--color3);
+  background-color: var(--bg4);
   background-image: var(--gradButton);
   border: none;
   border-radius: var(--radius-all);
-  color: var(--textButton);
+  color: var(--light);
   display: inline-block;
   font-weight: bold;
   margin-bottom: 1rem;
@@ -16,7 +16,7 @@ button {
   transition: background-color ease 0.5s;
   &:focus,
   &:hover {
-    background-color: var(--color4);
+    background-color: var(--fg4);
   }
   &:has(.window) .text {
     margin: 0 var(--unit-1) 1em;
@@ -43,17 +43,16 @@ button {
     right: var(--unit3);
   }
 }
-.cta,
-.cta_b {
+.cta {
   .button,
   button {
-    background-color: var(--color6);
-    background-image: var(--gradKnockout);
+    background-color: var(--fg0);
+    background-image: var(--grad-fg0);
     color: var(--knockout);
     mix-blend-mode: var(--multiscreen);
     &:focus,
     &:hover {
-      background-color: var(--color5);
+      background-color: var(--fg2);
     }
   }
 }
@@ -69,7 +68,7 @@ p .button {
 .jump-button {
   border: 0.075em solid currentColor;
   border-radius: 100px;
-  color: var(--color5);
+  color: var(--fg2);
   display: block;
   font-size: 400%;
   height: 0;
@@ -81,7 +80,7 @@ p .button {
   transition: color 0.3s ease;
   &:focus,
   &:hover {
-    color: var(--color3);
+    color: var(--bg4);
   }
   &::before {
     content: "\2193";
@@ -95,13 +94,12 @@ p .button {
     left: 0.1em;
   }
 }
-.cta,
-.cta_b {
+.cta {
   .jump-button {
-    color: var(--color6);
+    color: var(--fg0);
     &:focus,
     &:hover {
-      color: var(--color5);
+      color: var(--fg2);
     }
   }
 }

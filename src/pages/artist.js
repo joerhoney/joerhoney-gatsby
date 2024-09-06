@@ -38,7 +38,7 @@ const artistPage = (props) => {
         <h1>Artist</h1>
       </section>
       <Page>
-        <section className="alignable bottomM">
+        <section className="bottomM">
           <article>
             <p>
               Let me show you some of the artwork I've done! The collection on
@@ -47,8 +47,8 @@ const artistPage = (props) => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b tint3_b" id="animation">
-          <article className="bottomM">
+        <section className="tint3_b skew-y-14" id="animation">
+          <article className="bottomM -skew-y-14">
             <h2>Animation</h2>
             <p>
               I love bringing my illustrations to life. This was originally a
@@ -228,15 +228,15 @@ const artistPage = (props) => {
             </div>
           </Gallery>
         </section>
-        <section className="alignable skew_b cta_b bottomS" id="contact">
-          <article className="self-center">
+        <section className="cta bottomS skew-y-14" id="contact">
+          <article className="-skew-y-14 self-center">
             <h2>Let's Talk Art!</h2>
             <p className="text">
               I have been practicing my whole life. I wrote&nbsp;
               <Link to="/blog/journey-of-an-artist/">a page on that</Link>, but
               I'm interested in connecting. So please send me a message below.
             </p>
-            <div className="columns-2 bottomXS ">
+            <div className="bottomXS columns-2">
               <div className="pull tint1">
                 <h4>Hire me! 😄</h4>
                 <p>
@@ -269,7 +269,7 @@ const artistPage = (props) => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b compensateBHalf self-center" />
         </section>
       </Page>
     </>

@@ -2,15 +2,15 @@
   &:focus,
   &:hover {
     .icon {
-      color: var(--color4);
+      color: var(--fg4);
       &:focus,
       &:hover {
-        color: var(--color5);
+        color: var(--fg2);
       }
     }
   }
   .icon {
-    color: var(--color3);
+    color: var(--bg4);
     display: inline-flex;
     flex-direction: column;
     align-items: center;
@@ -29,21 +29,16 @@
       display: block;
       font-size: 0.8em;
       font-weight: normal;
-      transition: all 0.75s ease, scale 0.2s;
+      transition:
+        all 0.75s ease,
+        scale 0.2s;
     }
     &:focus,
     &:hover {
-      color: var(--color5);
+      color: var(--fg2);
       b {
         scale: 1.25;
       }
     }
   }
 }
-// .cta_b .icons {
-//   color: var(--color5);
-// }
-// .cta_b .icons .stack:focus,
-// .cta_b .icons .stack:hover {
-//   color: var(--color6);
-// }

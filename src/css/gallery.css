@@ -5,7 +5,7 @@
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-align: start;
-  scrollbar-color: var(--color3) var(--scrolltrack);
+  scrollbar-color: var(--bg4) var(--scrolltrack);
   scrollbar-width: thin;
 }
 .gallery::-webkit-scrollbar {
@@ -17,7 +17,7 @@
 .gallery::-webkit-resizer {
 }
 .gallery::-webkit-scrollbar-thumb {
-  background-color: var(--color3);
+  background-color: var(--bg4);
 }
 .gallery > * {
 }

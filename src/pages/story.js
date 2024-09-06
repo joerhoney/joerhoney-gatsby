@@ -36,8 +36,8 @@ const storyPage = () => {
             <p>…and my family and I lived happily ever after. 😁</p>
           </article>
         </section>
-        <section className="alignable skew_b tint3_b compensateT">
-          <article className="self-center compensateB">
+        <section className="tint3_b compensateT skew-y-14">
+          <article className="compensateB -skew-y-14 self-center">
             <h2>Journey of an Artist</h2>
             <p>
               I have been an artist since my childhood in rural Northern
@@ -74,7 +74,7 @@ const storyPage = () => {
             </p>
           </article>
         </section>
-        {/* <section className="alignable bottomS">
+        {/* <section className="bottomS">
         <article className="self-center">
           <h2>achievements</h2>
           <p>
@@ -86,10 +86,7 @@ const storyPage = () => {
           </p>
         </article>
       </section> */}
-        <section
-          className="alignable skew_b cta_b bottomS u-jump-section"
-          id="contact"
-        >
+        <section className="cta bottomS u-jump-section skew-y-14" id="contact">
           <article>
             <h2>Contact Me</h2>
             <p>

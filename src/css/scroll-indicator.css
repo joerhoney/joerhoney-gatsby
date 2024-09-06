@@ -1,6 +1,6 @@
 .scroll-indicator {
   box-sizing: border-box;
-  color: var(--color3);
+  color: var(--bg4);
   white-space: pre-wrap;
 }
 .scroll-indicator pre {

@@ -112,14 +112,14 @@ const codazenskills = [
 const codePage = () => {
   return (
     <>
-      <section className="hero page">
+      <section className="hero page overflow-hidden-x">
         <div className="hero__bg">
           <img loading="lazy" src={dragon} alt="Illusutration of a Dragon" />
         </div>
         <h1>Developer</h1>
       </section>
-      <Page>
-        <section className="alignable bottomS">
+      <Page className="overflow-hidden-x">
+        <section className="bottomS">
           <article className="self-center">
             <p>
               These days, a web developer is usually expected to be well-rounded
@@ -132,14 +132,14 @@ const codePage = () => {
           </article>
         </section>
         <section
-          className="alignable skew_b compensateTHalf topS cta_b"
+          className="compensateTHalf topS cta skew-y-14"
           style={{ position: "relative" }}
         >
           <div className="article">
-            <h2 className="tilt">Roles</h2>
+            <h2 className="">Roles</h2>
           </div>
-          <div className="columns-few bottomS columns-few--tilt">
-            <div className="column">
+          <div className="row bottomS">
+            <div className="column -skew-y-14">
               <h3>Front-End Developer</h3>
               <p>
                 All things considered, this is primarily where my skill set and
@@ -149,7 +149,7 @@ const codePage = () => {
                 and Gatsby.
               </p>
             </div>
-            <div className="column">
+            <div className="column -skew-y-14">
               <h3>Creative Developer</h3>
               <p>
                 This lesser-known role is where I see myself heading in my
@@ -159,7 +159,7 @@ const codePage = () => {
                 passionate about learning these skills.
               </p>
             </div>
-            <div className="column">
+            <div className="column -skew-y-14">
               <h3>WordPress Developer</h3>
               <p>
                 The majority of my web industry experience involves over 100
@@ -169,7 +169,7 @@ const codePage = () => {
                 directory under the name AddFunc).
               </p>
             </div>
-            <div className="column">
+            <div className="column -skew-y-14">
               <h3>Web Developer</h3>
               <p>
                 To me, this blanket term means understanding the fundamental
@@ -180,7 +180,7 @@ const codePage = () => {
                 and can therefore adapt as needed.
               </p>
             </div>
-            <div className="column">
+            <div className="column -skew-y-14">
               <h3>Web/UI Designer</h3>
               <p>
                 I have designed many websites and have carefully observed the
@@ -191,15 +191,15 @@ const codePage = () => {
           </div>
           <img
             alt="Portrait of Joe Rhoney."
-            className="portrait transluscent"
+            className="portrait transluscent -skew-y-14"
             height="290"
             loading="lazy"
             src={avatar}
             width="240"
           />
         </section>
-        <section className="alignable bottomM topS" id="skills">
-          <article className="self-center bottomXS">
+        <section className="bottomM topS" id="skills">
+          <article className="bottomXS self-center">
             <h2>Skills &amp; Tools</h2>
             <p>
               These are the technical skills I've picked up and tools I've
@@ -207,7 +207,7 @@ const codePage = () => {
               I know!
             </p>
           </article>
-          <div className="content-center self-center wide">
+          <div className="wide content-center self-center">
             <div className="reveal-child-b">
               <Languages />
               <Cms />
@@ -221,7 +221,7 @@ const codePage = () => {
             </div>
           </div>
         </section>
-        <section className="alignable skew_b tint1_b" id="work">
+        <section className="alignable" id="work">
           <article className="self-center">
             <h2>Work Portfolio</h2>
             <p>
@@ -438,9 +438,9 @@ const codePage = () => {
             </div>
           </Collection>
         </section>
-        <section className="alignable topS bottomM skew_b tint3_b">
-          <div className="columns-few columns-few--tilt">
-            <div className="column u-jump-section" id="plugins">
+        <section className="topS bottomM tint3_b skew-y-14">
+          <div className="row">
+            <div className="column u-jump-section -skew-y-14" id="plugins">
               <h3>WordPress Plugins</h3>
               <p>
                 I have published 10 custom plugins in the WordPress directory
@@ -450,7 +450,7 @@ const codePage = () => {
                 AddFunc Plugins
               </Button>
             </div>
-            <div className="column u-jump-section" id="resume">
+            <div className="column u-jump-section -skew-y-14" id="resume">
               <h3>My Résumé</h3>
               <p>
                 You may already have it, but for convenience and to serve also
@@ -460,7 +460,7 @@ const codePage = () => {
                 View Résumé
               </a>
             </div>
-            <div className="column u-jump-section" id="story">
+            <div className="column u-jump-section -skew-y-14" id="story">
               <h3>Journey of an&nbsp;Artist</h3>
               <p>
                 Want to know more about me personally? Well, I wrote a bit about
@@ -472,8 +472,8 @@ const codePage = () => {
             </div>
           </div>
         </section>
-        <section className="alignable skew_b cta_b bottomS" id="contact">
-          <article className="self-center">
+        <section className="cta bottomS skew-y-14" id="contact">
+          <article className="-skew-y-14 self-center">
             <h2>Contact me</h2>
             <p>
               Please don't hesitate to send me an email. I'll get back to you as
@@ -496,7 +496,7 @@ const codePage = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b compensateBHalf self-center" />
         </section>
       </Page>
     </>

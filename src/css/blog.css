@@ -21,10 +21,10 @@ body:has(.blog) {
   transform: skew(14.125deg);
 }
 a.post-link {
-  color: var(--color6);
+  color: var(--fg0);
 }
 .post-date {
-  color: var(--color5);
+  color: var(--fg2);
 }
 .blog h1 {
   font-size: calc(6vh + 4vw);

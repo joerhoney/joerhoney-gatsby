@@ -7,12 +7,12 @@ footer {
   // z-index: 1;
   .footer__inner {
     padding: 60px 20px 0;
-    color: var(--color5);
+    color: var(--fg2);
     transition: color ease 1s;
     position: relative;
     z-index: 1;
     &::before {
-      background-image: var(--gradFooter);
+      background-image: var(--grad-bg1);
       content: "";
       display: block;
       opacity: 0.66;
@@ -33,7 +33,7 @@ footer {
   }
   &:hover {
     .footer__inner {
-      color: var(--color6);
+      color: var(--fg0);
     }
     .footer__inner::before {
       opacity: 1;

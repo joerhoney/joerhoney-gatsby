@@ -12,8 +12,6 @@ import BookMe from "@fragments/BookMe";
 // import HeroLP from "@fragments/HeroLP";
 import Profiles from "@fragments/Profiles";
 import QHelp from "@fragments/QHelp";
-// CSS
-import "@css/solutions.scss";
 // Images
 import allears from "@images/portrait.webp";
 import storeFront from "@images/heros/store-front-transparent.gif";
@@ -24,28 +22,28 @@ const solutionsPage = () => {
   return (
     <>
       <Page navItems="none">
-        <section className="transform skew-y-14 md:skew-y-0 md:rotate-14">
+        <section className="skew-y-14 transform md:rotate-14 md:skew-y-0">
           <div className="flex flex-col md:flex-row-reverse">
-            <div className="column bg-1 px-4 lg:px-7">
-              <div className="bg-1 reach-right inset-0"></div>
-              <div className="relative -skew-y-14 md:skew-y-0 md:-rotate-14">
-                <h1 className="skew-y-14 italic text-xl text-right pl-10">
+            <div className="column px-4 lg:px-7">
+              <div className="inset-0"></div>
+              <div className="relative -skew-y-14 md:-rotate-14 md:skew-y-0">
+                <h1 className="skew-y-14 pl-10 text-right text-xl italic">
                   Solutions!
                 </h1>
-                <h2 className="skew-y-14 italic text-right pl-10">
-                  Turn the web market into walk-in customers
+                <h2 className="skew-y-14 pl-10 text-right italic">
+                  Turn web traffic into walk-in customers
                 </h2>
                 <img
                   alt="Mouse clicks swarming into your store."
-                  className="w-full ml-auto -mr-4 lg:-mr-7 transluscent"
+                  className="transluscent -mr-4 ml-auto w-full lg:-mr-7"
                   loading="lazy"
                   src={storeFront}
                 />
               </div>
             </div>
-            <div className="column content-center cqwy-14 px-4 lg:px-7">
-              <div className="bg-grad-1 reach-left inset-0"></div>
-              <div className="relative -skew-y-14 md:skew-y-0 md:-rotate-14">
+            <div className="column cqwy-14 content-center px-4 lg:px-7">
+              <div className="grad-bg2 reach-left inset-0"></div>
+              <div className="relative mx-auto -skew-y-14 text-left md:-rotate-14 md:skew-y-0">
                 <h3>
                   Get a website that stands out and attracts the right
                   customers.
@@ -55,36 +53,36 @@ const solutionsPage = () => {
           </div>
         </section>
         <section
-          className="half2 skew_b text-color1"
+          className="grad-fg1 text-bg0 skew-y-14"
           style={{ position: "relative" }}
         >
-          <div className="tilted-row">
+          <div className="">
             <div style={{ paddingBottom: "0" }}>
-              <h2 className="tilt" style={{ textAlign: "left" }}>
+              <h2 className="text-bg2 italic" style={{ textAlign: "left" }}>
                 Highly Recommended by Industry Professionals
               </h2>
             </div>
             <div style={{ paddingBottom: "0" }}>
-              <h2 className="tilt text-color2">★★★★★</h2>
+              <h2 className="text-bg2 italic">★★★★★</h2>
             </div>
           </div>
-          <div className="tilted-row">
-            <div className="column" style={{ paddingTop: "0" }}>
-              <h3 className="text-color1 tilt">Increase Visibility</h3>
+          <div className="flex flex-row">
+            <div className="column -skew-y-14" style={{ paddingTop: "0" }}>
+              <h3 className="text-bg2">Increase Visibility</h3>
               <p>
                 Tap into the web market of buyers looking for your services or
                 products and get more customers in the door.
               </p>
             </div>
-            <div className="column" style={{ paddingTop: "0" }}>
-              <h3 className="text-color1 tilt">Make an Impression</h3>
+            <div className="column -skew-y-14" style={{ paddingTop: "0" }}>
+              <h3 className="text-bg2">Make an Impression</h3>
               <p>
                 Look more professional than your competition with a design that
                 really stands out.
               </p>
             </div>
-            <div className="column" style={{ paddingTop: "0" }}>
-              <h3 className="text-color1 tilt">Have Peace of Mind</h3>
+            <div className="column -skew-y-14" style={{ paddingTop: "0" }}>
+              <h3 className="text-bg2">Have Peace of Mind</h3>
               <p>
                 Rest assured that your web presence is being taken care of so
                 you can focus on running your business.
@@ -92,13 +90,13 @@ const solutionsPage = () => {
             </div>
           </div>
         </section>
-        {/* <section className="alignable topS" id="services">
+        {/* <section className="topS" id="services">
           <div className="article">
-            <h2 className="tilt">Services</h2>
+            <h2 className="">Services</h2>
           </div>
-          <div className="columns-few columns-few--tilt bottomM">
+          <div className="row row-- bottomM">
             <div className="column">
-              <h3 className="tilt">Website Creation</h3>
+              <h3 className="">Website Creation</h3>
               <p>
                 Having a new website built doesn't have to be difficult or
                 costly. Whether you need to enable your customer to place orders
@@ -113,7 +111,7 @@ const solutionsPage = () => {
               </p>
             </div>
             <div className="column">
-              <h3 className="tilt">Web Maintenance</h3>
+              <h3 className="">Web Maintenance</h3>
               <p>
                 As anyone with a website knows, websites need to be updated
                 occasionally. Domain names, hosting and SSL certificates need to
@@ -130,7 +128,7 @@ const solutionsPage = () => {
               </p>
             </div>
             <div className="column">
-              <h3 className="tilt">Web Design</h3>
+              <h3 className="">Web Design</h3>
               <p>
                 Attraction is the responsibility of design. While any web
                 presence is better than nothing, design is one of the main
@@ -150,7 +148,7 @@ const solutionsPage = () => {
               </p>
             </div>
             <div className="column">
-              <h3 className="tilt">Web Presence</h3>
+              <h3 className="">Web Presence</h3>
               <p>
                 Except in rare cases, having a website is crucial to establishing
                 a presence on the web for any organization. People commonly rely
@@ -175,7 +173,7 @@ const solutionsPage = () => {
           </div>
         </section> */}
 
-        {/* <section className="alignable bottomM">
+        {/* <section className="bottomM">
           <article className="self-center">
             <h2>Grow Online</h2>
             <p>
@@ -200,11 +198,8 @@ const solutionsPage = () => {
             </p>
           </article>
         </section> */}
-        <section
-          className="alignable skew_b cta_b bottomXL u-jump-section"
-          id="contact"
-        >
-          <article className="self-center">
+        <section className="cta bottomXL u-jump-section skew-y-14" id="contact">
+          <article className="-skew-y-14 self-center">
             <h2>Contact Me</h2>
             <p className="text">
               Please let me know your web and creative needs in as much detail
@@ -227,7 +222,7 @@ const solutionsPage = () => {
           </article>
           <img
             alt="Illustration"
-            className="self-right transluscent"
+            className="self-right transluscent -skew-y-14"
             height="290"
             loading="lazy"
             src={allears}
@@ -237,13 +232,13 @@ const solutionsPage = () => {
               minWidth: "380px",
               width: "50vw",
               position: "absolute",
-              bottom: "-12.55vw",
+              bottom: "-7.4vw",
               right: "0",
             }}
             width="240"
           />
         </section>
-        <section className="alignable compensateT  tint3_b"></section>
+        <section className="compensateT tint3_b"></section>
       </Page>
     </>
   );

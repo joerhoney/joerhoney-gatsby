@@ -46,17 +46,17 @@ const Page = (props) => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable bottomS">
+        <section className="bottomS">
           <article>
             <p className="date">Published: {dateFormat(published)}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b bottomS compensateTHalf u-jump-section"
+          className="cta bottomS compensateTHalf u-jump-section skew-y-14"
           id="contact"
         >
-          <article className="self-center">
+          <article className="-skew-y-14 self-center">
             <h2>Contact Me</h2>
             <p>
               Whether you need help building something or you just want to
@@ -78,7 +78,7 @@ const Page = (props) => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b compensateBHalf self-center" />
         </section>
       </PageLayout>
     </>

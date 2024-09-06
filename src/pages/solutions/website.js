@@ -29,10 +29,10 @@ const websitePage = () => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable compensateB u-jump-section" id="packages">
+        <section className="compensateB u-jump-section" id="packages">
           <h1>Websites</h1>
           <article>
-            <table className="compare bottomS ">
+            <table className="compare bottomS">
               <tr>
                 <th scope="col">
                   <h2 className="unposition">Packages</h2>
@@ -320,11 +320,8 @@ const websitePage = () => {
             </p>
           </article>
         </section>
-        <section
-          className="alignable skew_b cta_b bottomS u-jump-section"
-          id="contact"
-        >
-          <article className="self-center">
+        <section className="cta bottomS u-jump-section skew-y-14" id="contact">
+          <article className="-skew-y-14 self-center">
             <h2>Contact Me</h2>
             <p>
               Whether you need help building a website or you just want to

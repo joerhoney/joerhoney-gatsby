@@ -54,7 +54,7 @@
     transform-origin: bottom right;
   }
   &.page {
-    background-image: var(--gradBgHero);
+    background-image: var(--grad-bg3);
     background-repeat: no-repeat;
     & .hero__bg {
       mix-blend-mode: overlay;
@@ -94,7 +94,9 @@
     }
     & h1 {
       font-size: calc(3vh + 4vw);
-      transition: opacity 1.5s ease, filter 1.5s ease;
+      transition:
+        opacity 1.5s ease,
+        filter 1.5s ease;
       width: 50vw;
     }
     &:hover {

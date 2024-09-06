@@ -65,7 +65,7 @@ const Home = () => {
           <Half
             alt="Illustration of the front end of a dragon."
             button="Get Solutions"
-            className="half1"
+            className="half1 grad-bg2"
             heading="Solutions"
             id="problem-solver"
             position="top right"
@@ -80,7 +80,7 @@ const Home = () => {
           <Half
             alt="Illustration of the back end of a dragon."
             button="Fill a Role"
-            className="half2"
+            className="gradBgHalf2"
             heading="Developer"
             lift="true"
             id="Developer"
@@ -117,7 +117,7 @@ const Home = () => {
             </p>
           </Half>
         </Split>
-        <section className="alignable compensateTHalf" id="contact">
+        <section className="compensateTHalf" id="contact">
           <article className="self-center">
             <h2>Or Contact Me</h2>
             <p>
@@ -142,7 +142,7 @@ const Home = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b compensateBHalf self-center" />
         </section>
       </Page>
     </>

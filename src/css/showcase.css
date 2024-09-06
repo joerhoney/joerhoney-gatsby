@@ -68,7 +68,7 @@
   padding: 0;
 }
 :is(.showcase, .collection) ul.skills li {
-  color: var(--color3);
+  color: var(--bg4);
   font-weight: bold;
   white-space: nowrap;
 }
@@ -89,7 +89,7 @@
   display: inline-block;
 }
 .collection .card {
-  background-color: var(--color1);
+  background-color: var(--bg0);
   border-radius: var(--radius-all);
   margin-bottom: var(--unit8);
   /* padding: var(--unit2) 0; */

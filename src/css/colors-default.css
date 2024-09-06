@@ -1,174 +1,24 @@
-/*  D E F A U L T   C O L O R S  */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* Light Mode Preferred (Default) */
-:root {
-  --accent: #5a3a67;
-  --color1: #ffffff;
-  --color1a: #fff6d8;
-  --color2: #ffd8b7;
-  --color3: #ff653a;
-  --color4: #ea303c;
-  --color5: #5a3a67;
-  --color6: #121f26;
-  --glow: #ffa698;
-  --glowHalf1: #ffd8b7;
-  --glowHalf2: #48293f;
-  --headingHalf1: #4a3459;
-  --headingHalf2: #ffb18b;
-  --knockout: #ffffff;
-  --multiscreen: multiply;
-  --text: #121f26;
-  --textButton: #ffffff;
-  --textHalf1: #121f26;
-  --textHalf2: #ffd8b7;
-  --tint1: #ffffff66;
-  --tint2: #ffcc9366;
-  --tint3: #ff653a66;
-  --tint4: #ea303c66;
-  --tint5: #5a3a6766;
-  --tint6: #121f2666;
-  /* Consistent colors */
-  --dark: #121f26;
-  --darkish: #29232e;
-  --light: #ffffff;
-  --lightish: #ffb8ad;
-  /* Gradients */
-  --gradBg: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
-  --gradBgCTA: linear-gradient(70deg, #feeaa8, #fed29b, #ffa082, #ff3f55);
-  --gradBgHalf1: linear-gradient(50deg, #feeaa8, #ffa082);
-  --gradBgHalf2: linear-gradient(50deg, #5a3a67, #121f26);
-  --gradBgHero: linear-gradient(70deg, #fff2cc, #ef5a64);
-  --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
-  --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
-  --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
-  --gradKnockout: linear-gradient(70deg, #121f2700, #121f27);
-  --gradNav: radial-gradient(
-    #ffffffcc,
-    #ffffffaa,
-    #ffffff33,
-    #ffffff11,
-    transparent 70%
-  );
-  --scrolltrack: #121f26;
-  /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
-}
-
-/* Dark Mode Selected */
-:root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) {
-  --accent: #ffd8b7;
-  --color1: #121f26;
-  --color1a: #302a3f;
-  --color2: #5a3a67;
-  --color3: #ea3052;
-  --color4: #fd835e;
-  --color5: #ffd8b7;
-  --color6: #ffffff;
-  --glow: #ff3f4c;
-  --glowHalf1: #5a3a67;
-  --glowHalf2: #fea385;
-  --headingHalf1: #fc9f7d;
-  --headingHalf2: #49293f;
-  --knockout: #000000;
-  --multiscreen: screen;
-  --text: #ffffff;
-  --textButton: #ffffff;
-  --textHalf1: #ffffff;
-  --textHalf2: #121f26;
-  --gradBg: linear-gradient(70deg, #121f26 30%, #302a3f 80%, #692938 100%);
-  --gradBgCTA: linear-gradient(70deg, #ce2c3e, #ff936e);
-  --gradBgHalf1: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
-  --gradBgHalf2: linear-gradient(50deg, #fa7d65, #ffefb8);
-  --gradBgHero: linear-gradient(70deg, #b22741, #dd7452);
-  --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
-  --gradFooter: linear-gradient(48deg, #121f26, #312536);
-  --gradKnockout: linear-gradient(70deg, #ffffff00, #ffffff);
-  --gradNav: radial-gradient(
-    #121f26cc,
-    #121f26aa,
-    #121f2633,
-    #121f2611,
-    transparent 70%
-  );
-  --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
-  --scrolltrack: #121f26;
-  --lightish: #ffd8b7;
-  --tint1: #121f2666;
-  --tint2: #5a3a6766;
-  --tint3: #ea305266;
-  --tint4: #fd835e66;
-  --tint5: #ffd8b766;
-  --tint6: #ffffff66;
-}
-
-/* Dark Mode Preferred */
-@media (prefers-color-scheme: dark) {
+@layer base {
+  /* Light Mode Preferred (Default) */
   :root {
-    --accent: #ffd8b7;
-    --color1: #121f26;
-    --color1a: #302a3f;
-    --color2: #5a3a67;
-    --color3: #ea3052;
-    --color4: #fd835e;
-    --color5: #ffd8b7;
-    --color6: #ffffff;
-    --glow: #ff3f4c;
-    --glowHalf1: #5a3a67;
-    --glowHalf2: #fea385;
-    --headingHalf1: #fc9f7d;
-    --headingHalf2: #49293f;
-    --knockout: #000000;
-    --multiscreen: screen;
-    --text: #ffffff;
-    --textButton: #ffffff;
-    --textHalf1: #ffffff;
-    --textHalf2: #121f26;
-    --gradBg: linear-gradient(70deg, #121f26 30%, #302a3f 80%, #692938 100%);
-    --gradBgCTA: linear-gradient(70deg, #ce2c3e, #ff936e);
-    --gradBgHalf1: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
-    --gradBgHalf2: linear-gradient(50deg, #fa7d65, #ffefb8);
-    --gradBgHero: linear-gradient(70deg, #b22741, #dd7452);
-    --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
-    --gradFooter: linear-gradient(48deg, #121f26, #312536);
-    --gradKnockout: linear-gradient(70deg, #ffffff00, #ffffff);
-    --gradNav: radial-gradient(
-      #121f26cc,
-      #121f26aa,
-      #121f2633,
-      #121f2611,
-      transparent 70%
-    );
-    --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
-    --scrolltrack: #121f26;
-    --lightish: #ffd8b7;
-    --tint1: #121f2666;
-    --tint2: #5a3a6766;
-    --tint3: #ea305266;
-    --tint4: #fd835e66;
-    --tint5: #ffd8b766;
-    --tint6: #ffffff66;
-  }
-
-  /* Light Mode Selected */
-  :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked) {
-    --accent: #5a3a67;
-    --color1: #ffffff;
-    --color1a: #fff6d8;
-    --color2: #ffd8b7;
-    --color3: #ff653a;
-    --color4: #ea303c;
-    --color5: #5a3a67;
-    --color6: #121f26;
+    --bg0: #ffffff;
+    --bg1: #fff6d8;
+    --bg2: #ffd8b7;
+    --bg3: #fdae86;
+    --bg4: #ff653a;
+    --acc: #fa4e3b;
+    --fg4: #ea303c;
+    --fg3: #9e3164;
+    --fg2: #5a3a67;
+    --fg1: #302a3f;
+    --fg0: #121f26;
     --glow: #ffa698;
-    --glowHalf1: #ffd8b7;
-    --glowHalf2: #48293f;
-    --headingHalf1: #4a3459;
-    --headingHalf2: #ffb18b;
     --knockout: #ffffff;
     --multiscreen: multiply;
-    --text: #121f26;
-    --textButton: #ffffff;
-    --textHalf1: #121f26;
-    --textHalf2: #ffd8b7;
     --tint1: #ffffff66;
     --tint2: #ffcc9366;
     --tint3: #ff653a66;
@@ -181,23 +31,128 @@
     --light: #ffffff;
     --lightish: #ffb8ad;
     /* Gradients */
-    --gradBg: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
-    --gradBgCTA: linear-gradient(70deg, #feeaa8, #fed29b, #ffa082, #ff3f55);
-    --gradBgHalf1: linear-gradient(50deg, #feeaa8, #ffa082);
-    --gradBgHalf2: linear-gradient(50deg, #5a3a67, #121f26);
-    --gradBgHero: linear-gradient(70deg, #fff2cc, #ef5a64);
+    --grad-bg0: linear-gradient(70deg, #ffffff 30%, #fff6d8 80%, #ffbca9 100%);
+    --grad-bg1: linear-gradient(48deg, #ffffff, #ffd8b7);
+    --grad-bg2: linear-gradient(50deg, #feeaa8, #ffa082);
+    --grad-bg3: linear-gradient(70deg, #fff2cc, #ef5a64);
+    --grad-fg2: linear-gradient(70deg, #feeaa8, #fed29b, #ffa082, #ff3f55);
+    --grad-fg1: linear-gradient(50deg, #5a3a67, #121f26);
+    --grad-fg0: linear-gradient(70deg, #121f2700, #121f27);
     --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
-    --gradFooter: linear-gradient(48deg, #ffffff, #ffd8b7);
-    --gradInvert: linear-gradient(70deg, #4c3459, #121f27);
-    --gradKnockout: linear-gradient(70deg, #121f2700, #121f27);
-    --gradNav: radial-gradient(
-      #ffffffcc,
-      #ffffffaa,
-      #ffffff33,
-      #ffffff11,
-      transparent 70%
-    );
     --scrolltrack: #121f26;
     /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
+  }
+
+  /* Dark Mode Selected */
+  :root:has(#color-scheme input[name="color-scheme"][value="dark"]:checked) {
+    --bg0: #121f26;
+    --bg1: #302a3f;
+    --bg2: #5a3a67;
+    --bg3: #9e3164;
+    --bg4: #ea3052;
+    --fg4: #fd835e;
+    --fg3: #fdae86;
+    --fg2: #ffd8b7;
+    --fg1: #fff6d8;
+    --fg0: #ffffff;
+    --glow: #ff3f4c;
+    --knockout: #000000;
+    --multiscreen: screen;
+    --grad-bg0: linear-gradient(70deg, #121f26 30%, #302a3f 80%, #692938 100%);
+    --grad-bg1: linear-gradient(48deg, #121f26, #312536);
+    --grad-bg2: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
+    --grad-bg3: linear-gradient(70deg, #b22741, #dd7452);
+    --grad-fg2: linear-gradient(70deg, #ce2c3e, #ff936e);
+    --grad-fg1: linear-gradient(50deg, #fa7d65, #ffefb8);
+    --grad-fg0: linear-gradient(70deg, #ffffff00, #ffffff);
+    --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
+    --scrolltrack: #121f26;
+    --lightish: #ffd8b7;
+    --tint1: #121f2666;
+    --tint2: #5a3a6766;
+    --tint3: #ea305266;
+    --tint4: #fd835e66;
+    --tint5: #ffd8b766;
+    --tint6: #ffffff66;
+  }
+
+  /* Dark Mode Preferred */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg0: #121f26;
+      --bg1: #302a3f;
+      --bg2: #5a3a67;
+      --bg3: #9e3164;
+      --bg4: #ea3052;
+      --fg4: #fd835e;
+      --fg3: #fdae86;
+      --fg2: #ffd8b7;
+      --fg1: #fff6d8;
+      --fg0: #ffffff;
+      --glow: #ff3f4c;
+      --headingHalf1: #fc9f7d;
+      --knockout: #000000;
+      --multiscreen: screen;
+      --grad-bg0: linear-gradient(
+        70deg,
+        #121f26 30%,
+        #302a3f 80%,
+        #692938 100%
+      );
+      --grad-bg1: linear-gradient(48deg, #121f26, #312536);
+      --grad-bg2: linear-gradient(50deg, #121f26, #2e283b, #5d2942);
+      --grad-bg3: linear-gradient(70deg, #b22741, #dd7452);
+      --grad-fg2: linear-gradient(70deg, #ce2c3e, #ff936e);
+      --grad-fg1: linear-gradient(50deg, #fa7d65, #ffefb8);
+      --grad-fg0: linear-gradient(70deg, #ffffff00, #ffffff);
+      --gradButton: linear-gradient(70deg, #ea305266, #ffe9a24a);
+      --scrolltrack: #121f26;
+      --lightish: #ffd8b7;
+      --tint1: #121f2666;
+      --tint2: #5a3a6766;
+      --tint3: #ea305266;
+      --tint4: #fd835e66;
+      --tint5: #ffd8b766;
+      --tint6: #ffffff66;
+    }
+
+    /* Light Mode Selected */
+    :root:has(#color-scheme input[name="color-scheme"][value="light"]:checked) {
+      --bg0: #ffffff;
+      --bg1: #fff6d8;
+      --bg2: #ffd8b7;
+      --bg3: #fdae86;
+      --bg4: #ff653a;
+      --fg4: #ea303c;
+      --fg3: #9e3164;
+      --fg2: #5a3a67;
+      --fg1: #302a3f;
+      --fg0: #121f26;
+      --glow: #ffa698;
+      --knockout: #ffffff;
+      --multiscreen: multiply;
+      --tint1: #ffffff66;
+      --tint2: #ffcc9366;
+      --tint3: #ff653a66;
+      --tint4: #ea303c66;
+      --tint5: #5a3a6766;
+      --tint6: #121f2666;
+      /* Gradients */
+      --grad-bg0: linear-gradient(
+        70deg,
+        #ffffff 30%,
+        #fff6d8 80%,
+        #ffbca9 100%
+      );
+      --grad-bg1: linear-gradient(48deg, #ffffff, #ffd8b7);
+      --grad-bg2: linear-gradient(50deg, #feeaa8, #ffa082);
+      --grad-bg3: linear-gradient(70deg, #fff2cc, #ef5a64);
+      --grad-fg2: linear-gradient(70deg, #feeaa8, #fed29b, #ffa082, #ff3f55);
+      --grad-fg1: linear-gradient(50deg, #5a3a67, #121f26);
+      --grad-fg0: linear-gradient(70deg, #121f2700, #121f27);
+      --gradButton: linear-gradient(70deg, #ffe9a24a, #ea305266);
+      --scrolltrack: #121f26;
+      /* --gradText: -webkit-linear-gradient(90deg, #5a3a67, #121f26); */
+    }
   }
 }

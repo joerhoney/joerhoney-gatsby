@@ -23,10 +23,10 @@ const webMaintenancePage = () => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable compensateB u-jump-section" id="plans">
+        <section className="compensateB u-jump-section" id="plans">
           <h1>Web Maintenance</h1>
           <article>
-            <table className="compare bottomS ">
+            <table className="compare bottomS">
               <tr>
                 <th scope="col">
                   <h2 className="unposition">Plans</h2>
@@ -180,11 +180,8 @@ const webMaintenancePage = () => {
             <h3 className="bottomXS">Details</h3>
           </article>
         </section>
-        <section
-          className="alignable skew_b cta_b bottomS u-jump-section"
-          id="contact"
-        >
-          <article className="self-center">
+        <section className="cta bottomS u-jump-section skew-y-14" id="contact">
+          <article className="-skew-y-14 self-center">
             <h2>Contact Me</h2>
             <p>
               Whether you need help building something or you just want to
