@@ -1,6 +1,6 @@
 import React from "react";
 // Components
-import Checkout from "@components/Checkout";
+// import Checkout from "@components/Checkout";
 import Mailto from "@components/Mailto";
 // Layouts
 import Page from "@layouts/Page";
