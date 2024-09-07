@@ -41,22 +41,22 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
-    {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: [
-          "Balance",
-          "BalanceTransaction",
-          "Product",
-          "ApplicationFee",
-          "Sku",
-          "Subscription",
-        ],
-        publicKey: process.env.GATSBY_STRIPE_PUBLIC_KEY,
-        secretKey: process.env.STRIPE_SECRET_KEY,
-        // downloadFiles: true,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-stripe`,
+    //   options: {
+    //     objects: [
+    //       "Balance",
+    //       "BalanceTransaction",
+    //       "Product",
+    //       "ApplicationFee",
+    //       "Sku",
+    //       "Subscription",
+    //     ],
+    //     publicKey: process.env.GATSBY_STRIPE_PUBLIC_KEY,
+    //     secretKey: process.env.STRIPE_SECRET_KEY,
+    //     // downloadFiles: true,
+    //   },
+    // },
     "gatsby-plugin-sass",
     // "gatsby-plugin-mdx",
     // "gatsby-transformer-remark",
