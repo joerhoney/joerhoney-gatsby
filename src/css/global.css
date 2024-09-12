@@ -5,7 +5,7 @@
 @layer base {
   :root {
     overflow-x: hidden;
-    // width: 100vw;
+    /* width: 100vw; */
     font-size: 16px;
     --font-written: "Segoe Print", "Bradley Hand", "Bradley Hand ITC",
       "Noteworthy", "Comic Sans", "Comic Sans MS", "Courier New", "Courier",
@@ -16,7 +16,7 @@
   }
   html {
     scroll-behavior: smooth;
-    // scroll-snap-type: y proximity;
+    /* scroll-snap-type: y proximity; */
     scrollbar-color: var(--bg4) var(--scrolltrack);
     scrollbar-width: thin;
   }
@@ -37,6 +37,37 @@
   ::-webkit-scrollbar-thumb {
     background-color: var(--bg4);
   }
+  /* html:not(:has(.abrupt-scroll)) {
+  } */
+  body {
+    background: var(--bg0);
+    color: var(--fg0);
+    font:
+      400 16px/1.3em Courier,
+      monospace;
+    margin: 0;
+    padding: 0;
+    position: relative; /* Needed for smooth scrolling, apparently. */
+    scrollbar-color: var(--bg4) var(--bg0);
+    scrollbar-width: 6px;
+    width: 100vw;
+    z-index: -10;
+  }
+  body > div { /* #___gatsby */
+    background-color: var(--bg0);
+    background-attachment: fixed;
+    background-image: var(--grad-bg0);
+    background-repeat: no-repeat;
+    /* position: relative; */
+    /* z-index: -10; */
+  }
+  p {
+    margin-block-start: unset;
+    margin-block-end: unset;
+    margin-inline-start: unset;
+    margin-inline-end: unset;
+    margin-bottom: 1rem;
+  }
 }
 @layer components {
   .row {
@@ -46,80 +77,42 @@
     container-type: inline-size;
     @apply w-full flex-grow;
   }
-}
-@layer utilities {
   .reach-0,
   .reach-left-0 {
-    position: absolute;
-    left: 0;
-    padding-left: 0;
+    @apply absolute left-0 pl-0;
   }
   .reach,
   .reach-50,
   .reach-left,
   .reach-left-50 {
-    position: absolute;
-    left: -50%;
-    padding-left: 50%;
+    @apply absolute -left-1/2 pl-1/2;
   }
   .reach-0,
   .reach-right-0 {
-    position: absolute;
-    right: 0;
-    padding-right: 0;
+    @apply absolute right-0 pr-0;
   }
   .reach,
   .reach-50,
   .reach-right,
   .reach-right-50 {
-    position: absolute;
-    right: -50%;
-    padding-right: 50%;
-  }
-  .cqw-14,
-  .cqwy-14,
-  .cqwt-14 {
-    padding-top: 14.1cqw;
-  }
-  .cqw-14,
-  .cqwx-14,
-  .cqwl-14 {
-    padding-left: 14.1cqw;
-  }
-  .cqw-14,
-  .cqwx-14,
-  .cqwr-14 {
-    padding-right: 14.1cqw;
-  }
-  .cqw-14,
-  .cqwy-14,
-  .cqwb-14 {
-    padding-bottom: 14.1cqw;
+    @apply absolute -right-1/2 pr-1/2;
   }
   .u-jump-section {
     scroll-margin-top: 56px;
   }
 }
-
-/*  R E S E T  */
-// html:not(:has(.abrupt-scroll)) {
-// }
-p {
-  margin-block-start: unset;
-  margin-block-end: unset;
-  margin-inline-start: unset;
-  margin-inline-end: unset;
-  margin-bottom: 1rem;
+@layer utilities {
+  .heading-font {
+    font-family: Rubik, sans-serif;
+  }
+  .writing-font {
+    font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Noteworthy",
+      "Comic Sans", "Comic Sans MS", "Courier New", "Courier", monospace;
+  }
 }
 
 /*  T H E M E  */
-.u-heading-font {
-  font-family: Rubik, sans-serif;
-}
-.written-note {
-  font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Noteworthy",
-    "Comic Sans", "Comic Sans MS", "Courier New", "Courier", monospace;
-}
+
 *:has(> .with-arrow) {
   position: relative;
 }
@@ -127,49 +120,27 @@ p {
   position: absolute;
   text-align: center;
   text-wrap: balance;
-  .with-arrow__arrow {
-    width: 24px;
-    height: 60px;
-    position: absolute;
-    transform-origin: 50% 150%;
-    svg {
-      height: 100%;
-    }
-    b {
-      display: none;
-    }
-    &--flip {
-      scale: -1 1;
-    }
-    &--in {
-      scale: 1 -1;
-    }
-    &--in-flip {
-      scale: -1 -1;
-    }
-  }
 }
-body {
-  background: var(--bg0);
-  color: var(--fg0);
-  font:
-    400 16px/1.3em Courier,
-    monospace;
-  margin: 0;
-  padding: 0;
-  position: relative; // Needed for smooth scrolling, apparently.
-  scrollbar-color: var(--bg4) var(--bg0);
-  scrollbar-width: 6px;
-  width: 100vw;
-  z-index: -10;
+.with-arrow__arrow {
+  width: 24px;
+  height: 60px;
+  position: absolute;
+  transform-origin: 50% 150%;
 }
-body > div {
-  background-color: var(--bg0);
-  background-attachment: fixed;
-  background-image: var(--grad-bg0);
-  background-repeat: no-repeat;
-  // position: relative;
-  // z-index: -10;
+.with-arrow__arrow svg {
+  height: 100%;
+}
+.with-arrow__arrow b {
+  display: none;
+}
+.with-arrow__arrow--flip {
+  scale: -1 1;
+}
+.with-arrow__arrow--in {
+  scale: 1 -1;
+}
+.with-arrow__arrow--in-flip {
+  scale: -1 -1;
 }
 a {
   text-decoration: none;
@@ -322,17 +293,6 @@ td :is(a:focus, a:hover) {
   font-weight: bold;
   text-shadow: 0 0 2em var(--fg3);
 }
-// section. {
-//   /* border-radius: var(--radius-all); */
-//   align-items: center;
-//   position: relative;
-//   display: flex;
-//   flex-direction: column;
-// }
-// . {
-//   display: flex;
-//   flex-direction: column;
-// }
 .topXS {
   padding-top: var(--unit5);
 }
@@ -393,7 +353,7 @@ article,
   max-width: calc(var(--max_text) + var(--unit16));
   padding: 0 var(--unit8);
   position: relative;
-  // overflow: hidden;
+  /* overflow: hidden; */
   width: 100%;
 }
 .date {
@@ -489,7 +449,7 @@ h2:has(+ p) {
   translate: 0 80px;
   /* margin-right: -36px; */
   max-width: 100%;
-  // width: 420px;
+  /* width: 420px; */
 }
 h3.tilt:has(+ p) {
   align-self: flex-end;
@@ -500,7 +460,7 @@ h3.tilt:has(+ p) {
   translate: 0 80px;
   /* margin-right: -36px; */
   max-width: 100%;
-  // width: 420px;
+  /* width: 420px; */
 }
 main section h1 {
   box-sizing: border-box;
@@ -519,22 +479,6 @@ main section h1 {
     font-size: 9.1vw;
   }
 }
-// section..compare h2 {
-//   margin-bottom: 1em;
-//   text-align: left;
-//   transform: rotate(0deg);
-//   transform-origin: top right;
-//   translate: 0;
-// }
-// @media (max-width: 480px) {
-//   section..compare h2 {
-//     margin-right: -100vw;
-//     translate: 0 -3.6rem;
-//   }
-// }
-// section..compare h2 + p::before {
-//   content: none;
-// }
 h3 {
   font-size: 22px;
 }
@@ -587,7 +531,7 @@ textarea {
     linear-gradient(to left, var(--dark) 0, transparent 33%, transparent),
     linear-gradient(to top, var(--dark) 0, transparent 33%, transparent);
   color: var(--light);
-  // box-shadow: inset 0 0 1em var(--dark);
+  /* box-shadow: inset 0 0 1em var(--dark); */
   text-shadow: 0 0 0.5em var(--lightish);
 }
 :is(input, textarea)::placeholder {

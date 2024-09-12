@@ -41,9 +41,9 @@ const solutionsPage = () => {
                 />
               </div>
             </div>
-            <div className="column cqwy-14 content-center px-4 lg:px-7">
+            <div className="column content-center px-4 lg:px-7">
               <div className="grad-bg2 reach-left inset-0"></div>
-              <div className="relative mx-auto -skew-y-14 text-left md:-rotate-14 md:skew-y-0">
+              <div className="relative mx-auto py-tri -skew-y-14 text-left md:-rotate-14 md:skew-y-0">
                 <h3>
                   Get a website that stands out and attracts the right
                   customers.

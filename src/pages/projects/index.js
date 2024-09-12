@@ -11,7 +11,7 @@ import Scheme from "@layouts/Scheme";
 // CSS
 import "@css/buttons.scss";
 import "@css/colors-default.css";
-import "@css/global.scss";
+import "@css/global.css";
 import "@css/units.css";
 import "@css/blog.css";
 
