@@ -1,0 +1,130 @@
+import React from "react";
+//Utilities
+import dateFormat from "@utils/dateFormat";
+// Components
+import { graphql } from "gatsby";
+import Icon from "@components/Icon";
+// CSS
+import "@css/compare.scss";
+import "@css/units.css";
+
+// const path = inclue("path");
+
+export const query = graphql`
+  query ($slug: String!) {
+    markdownRemark(fields: { slug: { eq: $slug } }) {
+      frontmatter {
+        title
+        description
+        published
+        ogimg
+        feat1img
+        feat1alt
+        feat2img
+        feat2alt
+        beforetext
+        aftertext
+        beforedesc
+        afterdesc
+      }
+      html
+    }
+  }
+`;
+
+const Compare = (props) => {
+  let {
+    description,
+    published,
+    title,
+    feat1img,
+    feat1alt,
+    feat2img,
+    feat2alt,
+    beforetext,
+    beforedesc,
+    bothtext,
+    bothdesc,
+    aftertext,
+    afterdesc,
+  } = props.data.markdownRemark.frontmatter;
+  beforetext = beforetext || "Before";
+  bothtext = bothtext || "Compare";
+  aftertext = aftertext || "After";
+  const { html } = props.data.markdownRemark;
+  return (
+    <>
+      <div className="details">
+        <h1>{title}</h1>
+      </div>
+      <a
+        href="javascript:history.back()"
+        title="Return to previous page"
+        className="faint"
+        style={{
+          display: "block",
+          color: "unset",
+          position: "fixed",
+          top: "20px",
+          left: "20px",
+          zIndex: 10,
+        }}
+      >
+        <Icon
+          name="ArrowBack"
+          label="none"
+          style={{
+            fontSize: "72px",
+          }}
+        />
+      </a>
+      <div
+        className="multibutton"
+        style={{
+          width: "max-content",
+          margin: "auto",
+          position: "fixed",
+          bottom: "32px",
+          left: "16px",
+          right: "16px",
+          zIndex: 10,
+        }}
+      >
+        <a className="" href="#before" title={beforedesc}>
+          {beforetext}
+        </a>
+        <a className="" href="#both" title={bothdesc}>
+          {bothtext}
+        </a>
+        <a className="" href="#after" title={afterdesc}>
+          {aftertext}
+        </a>
+      </div>
+      <section className="compare">
+        <div className="compare__before" id="before">
+          <img alt={feat1alt} loading="lazy" src={`/compare/${feat1img}`} />
+        </div>
+        <div className="compare__after" id="after">
+          <img alt={feat2alt} loading="lazy" src={`/compare/${feat2img}`} />
+        </div>
+      </section>
+      {/* <p className="date">Published: {dateFormat(published)}</p>
+            <div dangerouslySetInnerHTML={{ __html: html }} /> */}
+    </>
+  );
+};
+
+export default Compare;
+
+export const Head = (props) => {
+  const { description, title, ogimg } = props.data.markdownRemark.frontmatter;
+  return (
+    <>
+      <title>{title} | :joe rhoney</title>
+      <meta name="description" content={description} />
+      <meta property="og:image" content={`/compare/${ogimg}`} />
+      <meta property="og:keywords" content="Joe Rhoney, Developer" />
+      <meta property="og:type" content="website" />
+    </>
+  );
+};

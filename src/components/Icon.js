@@ -13,7 +13,13 @@ import {
   DiW3C,
 } from "react-icons/di";
 import { HiMenu, HiOutlineExternalLink, HiOutlineMail } from "react-icons/hi";
-import { IoClose } from "react-icons/io5";
+import {
+  IoClose,
+  IoArrowDownCircleOutline,
+  IoArrowBackCircleOutline,
+  IoArrowForwardCircleOutline,
+  IoArrowUpCircleOutline,
+} from "react-icons/io5";
 import {
   SiAdobeaftereffects,
   // SiAdobedreamweaver,
@@ -104,6 +110,10 @@ const Icon = (props) => {
     Menu: <HiMenu />,
     // Ionicons 5
     Close: <IoClose />,
+    ArrowBack: <IoArrowBackCircleOutline />,
+    ArrowDown: <IoArrowDownCircleOutline />,
+    ArrowForward: <IoArrowForwardCircleOutline />,
+    ArrowUp: <IoArrowUpCircleOutline />,
     // Simple Icons
     AfterEffects: <SiAdobeaftereffects />,
     Analytics: <SiGoogleanalytics />,
@@ -163,6 +173,11 @@ const Icon = (props) => {
     Windows: <SiWindows />,
     WordPress: <SiWordpress />,
     Zsh: <SiZsh />,
+    //Simple Line Icons
+    // ArrowDown: <SlArrowDownCircle />,
+    // ArrowLeft: <SlArrowLeftCircle />,
+    // ArrowRight: <SlArrowRightCircle />,
+    // ArrowUp: <SlArrowUpCircle />,
     // Custom icons
     ArrowSketch: <SvgArrowSketch />,
     CalendarBold: <SvgCalendarBold />,
@@ -174,7 +189,7 @@ const Icon = (props) => {
   };
 
   const { className, href, name, style } = props;
-  const label = props.label ? props.label : name;
+  const label = props.label ? ("none" ? "" : props.label) : name;
   const icon = name.replace(/\.|\s/g, "");
 
   return (

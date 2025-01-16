@@ -52,8 +52,22 @@ const Home = () => {
               Basically, I provide design and online solutions for your
               business. Now, what are you here for? <br />
               <br />
-              <a href="#question" className="jump-button">
-                Jump to Question
+              <a
+                href="#question"
+                title="Jump to Question"
+                style={{
+                  display: "block",
+                  margin: "auto",
+                  width: "72px",
+                }}
+              >
+                <Icon
+                  name="ArrowDown"
+                  label="none"
+                  style={{
+                    fontSize: "72px",
+                  }}
+                />
               </a>
             </p>
           </article>

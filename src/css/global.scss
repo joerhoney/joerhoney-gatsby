@@ -370,6 +370,13 @@ article,
   .reveal-child-b:hover b {
     opacity: 1;
   }
+  .faint {
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+  }
+  .faint:hover {
+    opacity: 1;
+  }
 }
 h1,
 h2,

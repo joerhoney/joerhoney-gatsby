@@ -35,8 +35,9 @@ module.exports.onCreateNode = ({ node, actions }) => {
 };
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const Post = path.resolve("src/templates/post.js");
   const Page = path.resolve("src/templates/page.js");
+  const Post = path.resolve("src/templates/post.js");
+  const Compare = path.resolve("src/templates/compare.js");
   const results = await graphql(`
     query {
       allMarkdownRemark {
@@ -67,6 +68,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
       createPage({
         component: Post,
         path: `/blog/${edge.node.fields.slug}`,
+        context: {
+          slug: edge.node.fields.slug,
+        },
+      });
+    }
+    if (edge.node.fields.parent === "compare") {
+      createPage({
+        component: Compare,
+        path: `/compare/${edge.node.fields.slug}`,
         context: {
           slug: edge.node.fields.slug,
         },

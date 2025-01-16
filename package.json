@@ -17,9 +17,9 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "gatsby clean",
-    "develop": "gatsby develop",
+    "develop": "gatsby dev",
     "serve": "gatsby serve",
-    "start": "gatsby develop"
+    "start": "gatsby start"
   },
   "dependencies": {
     "@mdx-js/react": "^2.3.0",
