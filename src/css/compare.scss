@@ -57,13 +57,13 @@
         max-width: 100%;
       }
       .details__content {
-        height: 50vh;
+        height: 33vh;
         transition: height 0.3s ease;
       }
     }
   }
 }
-:has(.compare) {
+body :has(.compare) {
   position: fixed;
   inset: 0;
   overflow: auto;
