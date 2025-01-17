@@ -11,6 +11,8 @@ beforetext: PSD
 aftertext: WordPress
 beforedesc: See the original PSD mockup
 afterdesc: See the final WordPress theme
+buttontext: View final website
+buttonlink: https://westchestergentledentistry.com
 ---
 
 **A comparison of a final WordPress theme to its original PSD mockup for Dr. Alidadi's website, by Joe Rhoney.**

@@ -400,30 +400,27 @@ const codePage = () => {
                 alt="Screenshot of bradentonperio.com"
                 src={bradentonperioimg}
               />
-              <Button
-                href="https://bradentonperio.com"
-                window="bradentonperio.com"
-              />
+              <Link className="button" to="/compare/psd-wordpress-rubino/">
+                See project story
+              </Link>
             </div>
             <div className="card">
               <img
                 alt="Screenshot of dentistinsantaclara.com"
                 src={dentistinsantaclaraimg}
               />
-              <Button
-                href="https://dentistinsantaclara.com"
-                window="dentistinsantaclara.com"
-              />
+              <Link className="button" to="/compare/psd-wordpress-khatani/">
+                See project story
+              </Link>
             </div>
             <div className="card">
               <img
                 alt="Screenshot of westchestergentledentistry.com"
                 src={westchestergentledentistryimg}
               />
-              <Button
-                href="https://westchestergentledentistry.com"
-                window="westchestergentledentistry.com"
-              />
+              <Link className="button" to="/compare/psd-wordpress-alidadi/">
+                See project story
+              </Link>
             </div>
           </Collection>
         </section>

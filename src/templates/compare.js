@@ -1,8 +1,7 @@
 import React from "react";
-//Utilities
-import dateFormat from "@utils/dateFormat";
 // Components
 import { graphql } from "gatsby";
+import Button from "@components/Button";
 import Icon from "@components/Icon";
 // CSS
 import "@css/compare.scss";
@@ -26,6 +25,8 @@ export const query = graphql`
         aftertext
         beforedesc
         afterdesc
+        buttontext
+        buttonlink
       }
       html
     }
@@ -47,20 +48,23 @@ const Compare = (props) => {
     bothdesc,
     aftertext,
     afterdesc,
+    buttontext,
+    buttonlink,
   } = props.data.markdownRemark.frontmatter;
   beforetext = beforetext || "Before";
   bothtext = bothtext || "Compare";
   aftertext = aftertext || "After";
+  buttontext = buttontext || "See Project";
   const { html } = props.data.markdownRemark;
   return (
     <>
       <div className="details">
         <div className="details__inner">
           <h1>{title}</h1>
-          <div
-            className="details__content"
-            dangerouslySetInnerHTML={{ __html: html }}
-          />
+          <div className="details__content">
+            <div dangerouslySetInnerHTML={{ __html: html }} />
+            {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
+          </div>
         </div>
       </div>
       <a
