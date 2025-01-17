@@ -189,7 +189,7 @@ const Icon = (props) => {
   };
 
   const { className, href, name, style } = props;
-  const label = props.label ? ("none" ? "" : props.label) : name;
+  const label = props.label ? props.label : name;
   const icon = name.replace(/\.|\s/g, "");
 
   return (

@@ -36,7 +36,6 @@ import laparksimg from "@images/screenshots/lacounty-parks-home.webp";
 import laprobationimg from "@images/screenshots/lacounty-probation-home.webp";
 import bradentonperioimg from "@images/screenshots/bradentonperio-home.webp";
 import dentistinsantaclaraimg from "@images/screenshots/dentistinsantaclara-home.webp";
-import southfortworthdentistimg from "@images/screenshots/southfortworthdentist-home.webp";
 import westchestergentledentistryimg from "@images/screenshots/westchestergentledentistry-home.webp";
 
 const codazenskills = [
@@ -414,16 +413,6 @@ const codePage = () => {
               <Button
                 href="https://dentistinsantaclara.com"
                 window="dentistinsantaclara.com"
-              />
-            </div>
-            <div className="card">
-              <img
-                alt="Screenshot of southfortworthdentist.com"
-                src={southfortworthdentistimg}
-              />
-              <Button
-                href="https://southfortworthdentist.com"
-                window="southfortworthdentist.com"
               />
             </div>
             <div className="card">

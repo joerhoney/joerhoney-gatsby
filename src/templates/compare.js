@@ -78,7 +78,7 @@ const Compare = (props) => {
       >
         <Icon
           name="ArrowBack"
-          label="none"
+          label="false"
           style={{
             fontSize: "72px",
           }}
