@@ -55,7 +55,13 @@ const Compare = (props) => {
   return (
     <>
       <div className="details">
-        <h1>{title}</h1>
+        <div className="details__inner">
+          <h1>{title}</h1>
+          <div
+            className="details__content"
+            dangerouslySetInnerHTML={{ __html: html }}
+          />
+        </div>
       </div>
       <a
         href="javascript:history.back()"
@@ -84,32 +90,31 @@ const Compare = (props) => {
           width: "max-content",
           margin: "auto",
           position: "fixed",
-          bottom: "32px",
+          bottom: "132px",
           left: "16px",
           right: "16px",
-          zIndex: 10,
+          zIndex: 4,
         }}
       >
-        <a className="" href="#before" title={beforedesc}>
+        <a className="multibutton__button" href="#before" title={beforedesc}>
           {beforetext}
         </a>
-        <a className="" href="#both" title={bothdesc}>
+        <a className="multibutton__button" href="#both" title={bothdesc}>
           {bothtext}
         </a>
-        <a className="" href="#after" title={afterdesc}>
+        <a className="multibutton__button" href="#after" title={afterdesc}>
           {aftertext}
         </a>
       </div>
       <section className="compare">
         <div className="compare__before" id="before">
+          {/* See static folder for images */}
           <img alt={feat1alt} loading="lazy" src={`/compare/${feat1img}`} />
         </div>
         <div className="compare__after" id="after">
           <img alt={feat2alt} loading="lazy" src={`/compare/${feat2img}`} />
         </div>
       </section>
-      {/* <p className="date">Published: {dateFormat(published)}</p>
-            <div dangerouslySetInnerHTML={{ __html: html }} /> */}
     </>
   );
 };

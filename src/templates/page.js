@@ -34,6 +34,7 @@ const Page = (props) => {
     <>
       <section className="hero page">
         <div className="hero__bg">
+          {/* See static folder for images */}
           <img alt={featalt} loading="lazy" src={`/blog/${featimg}`} />
         </div>
         <h1>{title}</h1>
