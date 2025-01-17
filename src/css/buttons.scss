@@ -74,7 +74,7 @@ p .button {
   margin-bottom: 1rem;
   margin-top: 0;
   padding: 0;
-  a {
+  > * {
     border-radius: var(--radius-all);
     color: var(--textButton);
     font-weight: bold;

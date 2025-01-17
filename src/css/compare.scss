@@ -88,9 +88,6 @@ body :has(.compare) {
     left: 0;
     right: calc(50% + (var(--gap) / 2));
     transition: right 0.3s ease;
-    &:target {
-      z-index: 2;
-    }
   }
   .compare__after {
     padding: var(--gap) 0 calc(var(--gap) + 172px);
@@ -98,16 +95,22 @@ body :has(.compare) {
     left: calc(50% + (var(--gap) / 2));
     right: 0;
     transition: left 0.3s ease;
-    &:target {
-      z-index: 2;
-    }
   }
-  &:has(.compare__before:target, .compare__after:target) {
-    .compare__before {
+  .compare__controls:has(
+      .compare__before-button:focus,
+      .compare__after-button:focus
+    ) {
+    ~ .compare__before {
       right: 0;
     }
-    .compare__after {
+    ~ .compare__after {
       left: 0;
     }
+  }
+  .compare__controls:has(.compare__before-button:focus) ~ .compare__before {
+    z-index: 2;
+  }
+  .compare__controls:has(.compare__after-button:focus) ~ .compare__after {
+    z-index: 2;
   }
 }

@@ -88,29 +88,41 @@ const Compare = (props) => {
           }}
         />
       </a>
-      <div
-        className="multibutton"
-        style={{
-          width: "max-content",
-          margin: "auto",
-          position: "fixed",
-          bottom: "132px",
-          left: "16px",
-          right: "16px",
-          zIndex: 4,
-        }}
-      >
-        <a className="multibutton__button" href="#before" title={beforedesc}>
-          {beforetext}
-        </a>
-        <a className="multibutton__button" href="#both" title={bothdesc}>
-          {bothtext}
-        </a>
-        <a className="multibutton__button" href="#after" title={afterdesc}>
-          {aftertext}
-        </a>
-      </div>
       <section className="compare">
+        <div
+          className="compare__controls multibutton"
+          style={{
+            width: "max-content",
+            margin: "auto",
+            position: "fixed",
+            bottom: "132px",
+            left: "16px",
+            right: "16px",
+            zIndex: 4,
+          }}
+        >
+          <div
+            className="compare__before-button multibutton__button"
+            title={beforedesc}
+            tabIndex={1}
+          >
+            {beforetext}
+          </div>
+          <div
+            className="compare__before-both multibutton__button"
+            title={bothdesc}
+            tabIndex={2}
+          >
+            {bothtext}
+          </div>
+          <div
+            className="compare__after-button multibutton__button"
+            title={afterdesc}
+            tabIndex={3}
+          >
+            {aftertext}
+          </div>
+        </div>
         <div className="compare__before" id="before">
           {/* See static folder for images */}
           <img alt={feat1alt} loading="lazy" src={`/compare/${feat1img}`} />
