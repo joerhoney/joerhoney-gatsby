@@ -429,7 +429,7 @@ const codePage = () => {
             <div className="column u-jump-section" id="plugins">
               <h3>WordPress Plugins</h3>
               <p>
-                I have published 10 custom plugins in the WordPress directory
+                I have published 6 custom plugins in the WordPress directory
                 under the name AddFunc. You can see them here:
               </p>
               <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">
