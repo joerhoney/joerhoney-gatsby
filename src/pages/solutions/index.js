@@ -15,7 +15,7 @@ import QHelp from "@fragments/QHelp";
 // CSS
 import "@css/solutions.scss";
 // Images
-import allears from "@images/portrait.webp";
+import allears from "@images/portrait-drawing.webp";
 import storeFront from "@images/heros/store-front-transparent.gif";
 // import dragonSplit1 from "@images/dragon-split1.webp";
 // import dragonSplit2 from "@images/dragon-split2.webp";

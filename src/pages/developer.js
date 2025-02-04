@@ -27,7 +27,7 @@ import {
 } from "@fragments/Skills";
 // Images
 import dragon from "@images/heros/dragon.webp";
-import avatar from "@images/portrait.webp";
+import avatar from "@images/portrait-drawing.webp";
 import codazenimg from "@images/screenshots/codazen-home.webp";
 import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
 import metaimg from "@images/screenshots/meta-home.webp";
