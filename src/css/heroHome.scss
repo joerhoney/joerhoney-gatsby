@@ -22,14 +22,13 @@ body:has(.heroClip) {
   height: var(--hero-height);
   margin-bottom: -6vh;
   margin-right: -3vw;
-  transform: rotate(14.125deg);
-  translate: 1vh 1vh;
+  rotate: 14.125deg;
   width: 50vh;
   z-index: 0;
 
   position: relative;
   top: 2vh;
-  left: 0;
+  left: 20px;
   @media (orientation: portrait) {
     & {
       float: none;
