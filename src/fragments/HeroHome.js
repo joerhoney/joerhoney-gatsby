@@ -5,10 +5,11 @@ import React from "react";
 import "@css/heroHome.scss";
 
 function parallax(element, speed) {
-  const elementHeight = element.getBoundingClientRect().height;
-  const windowHeight = window.innerHeight;
-  const maxTranslateY = elementHeight - windowHeight;
-
+  const windowWidth = window.innerWidth;
+  
+  if (windowWidth < 580) {
+    return;
+  }
   window.addEventListener("scroll", () => {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const translateY = (scrollTop * speed) / 2;
@@ -22,7 +23,7 @@ const HeroHome = (props) => {
 
   React.useEffect(() => {
     if (parallaxElement.current) {
-      parallax(parallaxElement.current, 0.55);
+      parallax(parallaxElement.current, 0.75);
     }
   }, []);
 
