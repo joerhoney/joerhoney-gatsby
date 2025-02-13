@@ -27,7 +27,7 @@ import {
 } from "@fragments/Skills";
 // Images
 import dragon from "@images/heros/dragon.webp";
-import avatar from "@images/portrait.webp";
+import avatar from "@images/portrait-drawing.webp";
 import codazenimg from "@images/screenshots/codazen-home.webp";
 import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
 import metaimg from "@images/screenshots/meta-home.webp";
@@ -36,7 +36,6 @@ import laparksimg from "@images/screenshots/lacounty-parks-home.webp";
 import laprobationimg from "@images/screenshots/lacounty-probation-home.webp";
 import bradentonperioimg from "@images/screenshots/bradentonperio-home.webp";
 import dentistinsantaclaraimg from "@images/screenshots/dentistinsantaclara-home.webp";
-import southfortworthdentistimg from "@images/screenshots/southfortworthdentist-home.webp";
 import westchestergentledentistryimg from "@images/screenshots/westchestergentledentistry-home.webp";
 
 const codazenskills = [
@@ -401,40 +400,27 @@ const codePage = () => {
                 alt="Screenshot of bradentonperio.com"
                 src={bradentonperioimg}
               />
-              <Button
-                href="https://bradentonperio.com"
-                window="bradentonperio.com"
-              />
+              <Link className="button" to="/compare/psd-wordpress-rubino/">
+                See project story
+              </Link>
             </div>
             <div className="card">
               <img
                 alt="Screenshot of dentistinsantaclara.com"
                 src={dentistinsantaclaraimg}
               />
-              <Button
-                href="https://dentistinsantaclara.com"
-                window="dentistinsantaclara.com"
-              />
-            </div>
-            <div className="card">
-              <img
-                alt="Screenshot of southfortworthdentist.com"
-                src={southfortworthdentistimg}
-              />
-              <Button
-                href="https://southfortworthdentist.com"
-                window="southfortworthdentist.com"
-              />
+              <Link className="button" to="/compare/psd-wordpress-khatani/">
+                See project story
+              </Link>
             </div>
             <div className="card">
               <img
                 alt="Screenshot of westchestergentledentistry.com"
                 src={westchestergentledentistryimg}
               />
-              <Button
-                href="https://westchestergentledentistry.com"
-                window="westchestergentledentistry.com"
-              />
+              <Link className="button" to="/compare/psd-wordpress-alidadi/">
+                See project story
+              </Link>
             </div>
           </Collection>
         </section>
@@ -443,7 +429,7 @@ const codePage = () => {
             <div className="column u-jump-section -skew-y-14" id="plugins">
               <h3>WordPress Plugins</h3>
               <p>
-                I have published 10 custom plugins in the WordPress directory
+                I have published 6 custom plugins in the WordPress directory
                 under the name AddFunc. You can see them here:
               </p>
               <Button href="https://profiles.wordpress.org/addfunc/#content-plugins">

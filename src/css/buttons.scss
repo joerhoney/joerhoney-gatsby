@@ -64,42 +64,77 @@ p .button {
     border: none;
   }
 }
-
-.jump-button {
-  border: 0.075em solid currentColor;
-  border-radius: 100px;
-  color: var(--fg2);
-  display: block;
-  font-size: 400%;
-  height: 0;
-  margin: auto;
-  overflow: hidden;
-  padding: 0.8em 0 0 0.8em;
-  position: relative;
-  width: 0;
-  transition: color 0.3s ease;
-  &:focus,
-  &:hover {
-    color: var(--bg4);
-  }
-  &::before {
-    content: "\2193";
-    display: block;
-    height: 0.6em;
-    padding: 0;
-    width: 0.6em;
-
-    position: absolute;
-    top: 0.2em;
-    left: 0.1em;
-  }
-}
-.cta {
-  .jump-button {
-    color: var(--fg0);
+.multibutton {
+  background-color: var(--color3);
+  background-image: var(--gradButton);
+  border: none;
+  border-radius: var(--radius-all);
+  display: flex;
+  margin-bottom: 1rem;
+  margin-top: 0;
+  padding: 0;
+  > * {
+    border-radius: var(--radius-all);
+    color: var(--textButton);
+    font-weight: bold;
+    margin: 0;
+    padding: var(--unit2) var(--unit3);
+    position: relative;
+    text-decoration: none;
+    transition: background-color ease 0.5s;
     &:focus,
     &:hover {
-      color: var(--fg2);
+      background-color: var(--color4);
+      color: var(--textButton);
     }
   }
+  &:has(.icon) {
+    padding-right: var(--unit8);
+  }
+  .icon {
+    padding: 0;
+    position: absolute;
+    top: calc(50% - 0.5em);
+    right: var(--unit3);
+  }
 }
+
+// .jump-button {
+//   border: 0.075em solid currentColor;
+//   border-radius: 100px;
+//   color: var(--color5);
+//   display: block;
+//   font-size: 400%;
+//   height: 0;
+//   margin: auto;
+//   overflow: hidden;
+//   padding: 0.8em 0 0 0.8em;
+//   position: relative;
+//   width: 0;
+//   transition: color 0.3s ease;
+//   &:focus,
+//   &:hover {
+//     color: var(--color3);
+//   }
+//   &::before {
+//     content: "\2193";
+//     display: block;
+//     height: 0.6em;
+//     padding: 0;
+//     width: 0.6em;
+
+//     position: absolute;
+//     top: 0.2em;
+//     left: 0.1em;
+//   }
+// }
+// .cta,
+// .cta_b {
+//   .jump-button {
+//     color: var(--color6);
+//     &:focus,
+//     &:hover {
+//       color: var(--color5);
+//     }
+//   }
+// }

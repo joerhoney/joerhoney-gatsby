@@ -15,7 +15,7 @@ import HeroHome from "@fragments/HeroHome";
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Images
-import avatar from "@images/portrait.webp";
+import avatar from "@images/portrait-drawing.webp";
 import dragonSplit1 from "@images/dragon-split1.webp";
 import dragonSplit2 from "@images/dragon-split2.webp";
 // import Query from "../examples/Query";
@@ -52,8 +52,22 @@ const Home = () => {
               Basically, I provide design and online solutions for your
               business. Now, what are you here for? <br />
               <br />
-              <a href="#question" className="jump-button">
-                Jump to Question
+              <a
+                href="#question"
+                title="Jump to Question"
+                style={{
+                  display: "block",
+                  margin: "auto",
+                  width: "72px",
+                }}
+              >
+                <Icon
+                  name="ArrowDown"
+                  label="false"
+                  style={{
+                    fontSize: "72px",
+                  }}
+                />
               </a>
             </p>
           </article>

@@ -48,7 +48,7 @@ const Showcase = (props) => {
       )}
       {props.href && (
         <Button href={props.href} window={window}>
-          See Project<span className="blinking">:</span>
+          See project<span className="blinking">:</span>
         </Button>
       )}
     </div>
