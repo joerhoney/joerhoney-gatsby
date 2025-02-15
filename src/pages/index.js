@@ -43,14 +43,24 @@ const Home = () => {
               Hello, World!
             </h2>
             <p>
-              Pardon my code humor, I've been in this industry for
-              {since("Jan, 1, 2006")} years. Because that's how old I am… Okay,
-              maybe I'm a little older than that. &#128513;
+              Yep, still saying that after {since("Jan, 1, 2006")} years—just
+              with cleaner code, better design, and fewer all-nighters
+              (hopefully).
               <br />
-              <br />I design, build and maintain websites and web apps, using
-              efficient and cost-effective modern development technologies.
-              Basically, I provide design and online solutions for your
-              business. Now, what are you here for? <br />
+              <br />
+              I'm basically a passionate artist and a code junkie combined, so I
+              bridge the gap between creativity and functionality. I grew up
+              filling sketchbooks, which led me to graphic design, and
+              eventually, web development (because someone had to make the
+              designs actually work). Now, I create sleek visuals, build
+              intuitive digital experiences, and make sure everything runs
+              smoother than my morning coffee routine (which is saying a lot).
+              Whether it’s crafting a brand identity, fine-tuning a website, or
+              debugging that one stubborn issue at 2 AM, I bring both artistry
+              and technical know-how to the table.
+              <br />
+              <br />
+              Now, what are you here for? <br />
               <br />
               <a
                 href="#question"
@@ -78,33 +88,31 @@ const Home = () => {
         <Split className="compensateTHalf" id="question">
           <Half
             alt="Illustration of the front end of a dragon."
-            button="Get Solutions"
+            button="Creative"
             className="half1"
-            heading="Solutions"
-            id="problem-solver"
+            heading="Creative"
+            id="creative"
             position="top right"
             src={dragonSplit1}
             speed={9}
-            to="/solutions"
+            to="/creative"
           >
-            <p style={{ maxWidth: "16.5em" }}>
-              Do you need online solutions for your Business?
-            </p>
+            <p style={{ maxWidth: "16.5em" }}>See more of my creative side. </p>
           </Half>
           <Half
             alt="Illustration of the back end of a dragon."
-            button="Fill a Role"
+            button="Developer"
             className="half2"
             heading="Developer"
             lift="true"
-            id="Developer"
+            id="developer"
             position="top left"
             src={dragonSplit2}
             speed={-9}
             to="/developer"
           >
             <p style={{ maxWidth: "16.5em" }}>
-              Or are you looking to hire a developer?{" "}
+              Learn more about my technical work.{" "}
               <span
                 className="written-note with-arrow"
                 style={{
@@ -116,18 +124,7 @@ const Home = () => {
                   rotate: "342deg",
                   width: "85%",
                 }}
-              >
-                <Icon
-                  name="ArrowSketch"
-                  className="with-arrow__arrow"
-                  style={{
-                    bottom: "110%",
-                    right: "50%",
-                    rotate: "352deg",
-                  }}
-                />
-                (Recruiters, Hiring Managers, that's you)
-              </span>
+              ></span>
             </p>
           </Half>
         </Split>

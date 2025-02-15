@@ -91,8 +91,11 @@
   margin: 0;
   padding: 0;
 }
+.half .cell .title > * {
+  white-space: pre;
+}
 .half .cell .title.lift {
-  margin: 0 calc(0.7vw + 0.7vh) 0 calc(-0.7vw + -0.7vh);
+  margin: 0 calc(0.6vw + 0.6vh) 0 calc(-0.6vw + -0.6vh);
 }
 .half .cell .content {
   box-sizing: border-box;
@@ -100,6 +103,7 @@
   grid-row: space;
   margin: 0;
   padding: 0;
+  word-spacing: 100vw;
   z-index: 1;
 }
 .half:nth-child(1) .cell .content {

@@ -24,7 +24,7 @@ import skippingframes from "@images/art/skipping-girl-flipbook.webp";
 import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
 import team from "@images/heros/team.webp";
 
-const artistPage = (props) => {
+const creativePage = (props) => {
   return (
     <>
       <section className="hero page">
@@ -35,7 +35,7 @@ const artistPage = (props) => {
             src={team}
           />
         </div>
-        <h1>Artist</h1>
+        <h1>Creative</h1>
       </section>
       <Page>
         <section className="alignable bottomM">
@@ -276,7 +276,7 @@ const artistPage = (props) => {
   );
 };
 
-export default artistPage;
+export default creativePage;
 
 export const Head = () => (
   <>

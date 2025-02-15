@@ -1,4 +1,6 @@
 import React from "react";
+// Utilities
+import ConditionalWrap from "@utils/ConditionalWrap";
 // Components
 import { Link } from "gatsby";
 // CSS
@@ -46,6 +48,14 @@ const Half = (props) => {
             <Link className="button" to={props.to}>
               {props.button}
             </Link>
+          )}
+          {props.button2 && (
+            <>
+              <br />
+              <Link className="button" to={props.to2}>
+                {props.button2}
+              </Link>
+            </>
           )}
         </div>
       </div>
