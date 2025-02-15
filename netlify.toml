@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/story"
+  to = "/blog/journey-of-an-artist/"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/artist"
+  to = "/creative/"
+  status = 301
+  force = false
