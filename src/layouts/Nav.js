@@ -9,9 +9,9 @@ const Nav = (props) => {
     props.items === "none"
       ? {}
       : props.items || {
+          Creative: "/creative",
           Developer: "/developer",
-          Artist: "/artist",
-          Résumé: "/resume",
+          Freelance: "/solutions",
           Contact: "#contact",
         };
   return (
