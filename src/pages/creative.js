@@ -70,7 +70,7 @@ const creativePage = (props) => {
             />
           </article>
         </section>
-        <section className="compensateB">
+        <section className="compensateB" id="illustration">
           <div className="article">
             <h2 className="tilt">Character/&shy;Creature Creation</h2>
             <p>
