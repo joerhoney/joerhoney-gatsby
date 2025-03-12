@@ -70,7 +70,7 @@ const creativePage = (props) => {
             />
           </article>
         </section>
-        <section className="compensateB" id="illustration">
+        <section className="compensateB">
           <div className="article">
             <h2 className="tilt">Character/&shy;Creature Creation</h2>
             <p>
@@ -80,7 +80,7 @@ const creativePage = (props) => {
               Here is some of the work I completed for various client projects.
             </p>
           </div>
-          <Gallery className="topS">
+          <Gallery className="topS" id="illustration">
             <div
               className="layer"
               style={{

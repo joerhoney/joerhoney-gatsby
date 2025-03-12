@@ -4,7 +4,10 @@ import "@css/gallery.css";
 
 const Gallery = (props) => {
   return (
-    <div className={`gallery ${props.className ? props.className : ""}`}>
+    <div
+      className={`gallery ${props.className ? props.className : ""}`}
+      {...(props.id ? `id=${props.id}` : "")}
+    >
       {props.children}
     </div>
   );
