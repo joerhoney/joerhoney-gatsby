@@ -17,6 +17,7 @@ export const query = graphql`
         description
         published
         ogimg
+        type
         feat1img
         feat1alt
         feat2img
@@ -33,11 +34,12 @@ export const query = graphql`
   }
 `;
 
-const Compare = (props) => {
+const Work = (props) => {
   let {
     description,
     published,
     title,
+    type,
     feat1img,
     feat1alt,
     feat2img,
@@ -125,17 +127,17 @@ const Compare = (props) => {
         </div>
         <div className="compare__before" id="before">
           {/* See static folder for images */}
-          <img alt={feat1alt} loading="lazy" src={`/compare/${feat1img}`} />
+          <img alt={feat1alt} loading="lazy" src={`/work/${feat1img}`} />
         </div>
         <div className="compare__after" id="after">
-          <img alt={feat2alt} loading="lazy" src={`/compare/${feat2img}`} />
+          <img alt={feat2alt} loading="lazy" src={`/work/${feat2img}`} />
         </div>
       </section>
     </>
   );
 };
 
-export default Compare;
+export default Work;
 
 export const Head = (props) => {
   const { description, title, ogimg } = props.data.markdownRemark.frontmatter;
@@ -143,7 +145,7 @@ export const Head = (props) => {
     <>
       <title>{title} | :joe rhoney</title>
       <meta name="description" content={description} />
-      <meta property="og:image" content={`/compare/${ogimg}`} />
+      <meta property="og:image" content={`/work/${ogimg}`} />
       <meta property="og:keywords" content="Joe Rhoney, Developer" />
       <meta property="og:type" content="website" />
     </>

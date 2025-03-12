@@ -3,6 +3,7 @@ published: 2017-08-29
 title: "PSD to WordPress: Dr. Khatani"
 description: A comparison of a final WordPress theme to its original PSD mockup for Dr. Khatani's website, by Joe Rhoney.
 ogimg: khatani-og.webp
+type: compare
 feat1img: khatani-psd.webp
 feat1alt: Screenshot of PSD Home page mockup for Dr. Khatani.
 feat2img: khatani-html.webp

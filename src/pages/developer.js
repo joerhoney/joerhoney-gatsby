@@ -90,8 +90,8 @@ const codazenskills = [
     "PHP",
   ],
   dentistryskills = [
-    "WordPress Theme",
     "WordPress Plugins",
+    "WordPress Theme",
     "HTML5",
     "CSS3",
     "PHP",
@@ -400,7 +400,7 @@ const codePage = () => {
                 alt="Screenshot of bradentonperio.com"
                 src={bradentonperioimg}
               />
-              <Link className="button" to="/compare/psd-wordpress-rubino/">
+              <Link className="button" to="/work/psd-wordpress-rubino/">
                 See project story
               </Link>
             </div>
@@ -409,7 +409,7 @@ const codePage = () => {
                 alt="Screenshot of dentistinsantaclara.com"
                 src={dentistinsantaclaraimg}
               />
-              <Link className="button" to="/compare/psd-wordpress-khatani/">
+              <Link className="button" to="/work/psd-wordpress-khatani/">
                 See project story
               </Link>
             </div>
@@ -418,7 +418,7 @@ const codePage = () => {
                 alt="Screenshot of westchestergentledentistry.com"
                 src={westchestergentledentistryimg}
               />
-              <Link className="button" to="/compare/psd-wordpress-alidadi/">
+              <Link className="button" to="/work/psd-wordpress-alidadi/">
                 See project story
               </Link>
             </div>
