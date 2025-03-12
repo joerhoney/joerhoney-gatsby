@@ -4,9 +4,9 @@ title: "PSD to WordPress: Dr. Alidadi"
 description: A comparison of a final WordPress theme to its original PSD mockup for Dr. Alidadi's website, by Joe Rhoney.
 ogimg: alidadi-og.webp
 type: compare
-feat1img: alidadi-psd.jpg
+feat1img: alidadi-psd.webp
 feat1alt: Screenshot of PSD Home page mockup for Dr. Alidadi.
-feat2img: alidadi-html.jpg
+feat2img: alidadi-html.webp
 feat2alt: Screenshot of final WordPress Home page for Dr. Alidadi.
 beforetext: PSD
 aftertext: WordPress
