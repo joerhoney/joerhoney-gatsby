@@ -22,10 +22,10 @@ export const query = graphql`
         feat1alt
         feat2img
         feat2alt
-        beforetext
-        aftertext
-        beforedesc
-        afterdesc
+        feat1btn
+        feat2btn
+        feat1tip
+        feat2tip
         buttontext
         buttonlink
       }
@@ -44,18 +44,18 @@ const Work = (props) => {
     feat1alt,
     feat2img,
     feat2alt,
-    beforetext,
-    beforedesc,
+    feat1btn,
+    feat1tip,
     bothtext,
     bothdesc,
-    aftertext,
-    afterdesc,
+    feat2btn,
+    feat2tip,
     buttontext,
     buttonlink,
   } = props.data.markdownRemark.frontmatter;
-  beforetext = beforetext || "Before";
+  feat1btn = feat1btn || "Before";
   bothtext = bothtext || "Compare";
-  aftertext = aftertext || "After";
+  feat2btn = feat2btn || "After";
   buttontext = buttontext || "See Project";
   const { html } = props.data.markdownRemark;
   return (
@@ -105,10 +105,10 @@ const Work = (props) => {
         >
           <div
             className="compare__before-button multibutton__button"
-            title={beforedesc}
+            title={feat1tip}
             tabIndex={1}
           >
-            {beforetext}
+            {feat1btn}
           </div>
           <div
             className="compare__before-both multibutton__button"
@@ -119,10 +119,10 @@ const Work = (props) => {
           </div>
           <div
             className="compare__after-button multibutton__button"
-            title={afterdesc}
+            title={feat2tip}
             tabIndex={3}
           >
-            {aftertext}
+            {feat2btn}
           </div>
         </div>
         <div className="compare__before" id="before">

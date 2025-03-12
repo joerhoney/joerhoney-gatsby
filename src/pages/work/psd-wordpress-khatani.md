@@ -6,12 +6,12 @@ ogimg: khatani-og.webp
 type: compare
 feat1img: khatani-psd.webp
 feat1alt: Screenshot of PSD Home page mockup for Dr. Khatani.
+feat1btn: PSD
+feat1tip: See the original PSD mockup
 feat2img: khatani-html.webp
 feat2alt: Screenshot of final WordPress Home page for Dr. Khatani.
-beforetext: PSD
-aftertext: WordPress
-beforedesc: See the original PSD mockup
-afterdesc: See the final WordPress theme
+feat2btn: WordPress
+feat2tip: See the final WordPress theme
 buttontext: View final website
 buttonlink: http://dentistinsantaclara.com
 ---

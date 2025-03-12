@@ -6,12 +6,12 @@ ogimg: alidadi-og.webp
 type: compare
 feat1img: alidadi-psd.webp
 feat1alt: Screenshot of PSD Home page mockup for Dr. Alidadi.
+feat1btn: PSD
+feat1tip: See the original PSD mockup
 feat2img: alidadi-html.webp
 feat2alt: Screenshot of final WordPress Home page for Dr. Alidadi.
-beforetext: PSD
-aftertext: WordPress
-beforedesc: See the original PSD mockup
-afterdesc: See the final WordPress theme
+feat2btn: WordPress
+feat2tip: See the final WordPress theme
 buttontext: View final website
 buttonlink: https://westchestergentledentistry.com
 ---
