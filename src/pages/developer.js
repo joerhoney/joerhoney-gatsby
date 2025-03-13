@@ -375,7 +375,7 @@ const codePage = () => {
           </Showcase>
           <Showcase
             desc="Landing page/website for concierge security and crisis response."
-            href="https://r3risk.com"
+            to="/work/r3risk/"
             skills={r3riskskills}
             src={r3riskimg}
             title="R3 Risk"
@@ -462,7 +462,7 @@ const codePage = () => {
                 src={bradentonperioimg}
               />
               <Link className="button" to="/work/psd-wordpress-rubino/">
-                See project story
+                See project story<span className="blinking">:</span>
               </Link>
             </div>
             <div className="card">
@@ -471,7 +471,7 @@ const codePage = () => {
                 src={dentistinsantaclaraimg}
               />
               <Link className="button" to="/work/psd-wordpress-khatani/">
-                See project story
+                See project story<span className="blinking">:</span>
               </Link>
             </div>
             <div className="card">
@@ -480,7 +480,7 @@ const codePage = () => {
                 src={westchestergentledentistryimg}
               />
               <Link className="button" to="/work/psd-wordpress-alidadi/">
-                See project story
+                See project story<span className="blinking">:</span>
               </Link>
             </div>
           </Collection>

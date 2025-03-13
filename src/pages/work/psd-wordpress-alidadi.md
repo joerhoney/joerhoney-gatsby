@@ -15,6 +15,7 @@ feat2btn: WordPress
 feat2tip: See the final WordPress theme
 buttontext: View final website
 buttonlink: https://westchestergentledentistry.com
+skills: WordPress Plugins, WordPress Theme, HTML5, CSS3, PHP
 ---
 
 **A comparison of a final WordPress theme to its original PSD mockup for Dr. Alidadi's website, by Joe Rhoney.**

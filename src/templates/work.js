@@ -20,11 +20,11 @@ export const query = graphql`
         type
         feat1img
         feat1alt
+        feat1btn
+        feat1tip
         feat2img
         feat2alt
-        feat1btn
         feat2btn
-        feat1tip
         feat2tip
         buttontext
         buttonlink
@@ -43,14 +43,14 @@ const Work = (props) => {
     type,
     feat1img,
     feat1alt,
-    feat2img,
-    feat2alt,
     feat1btn,
     feat1tip,
-    bothtext,
-    bothdesc,
+    feat2img,
+    feat2alt,
     feat2btn,
     feat2tip,
+    bothtext,
+    bothdesc,
     buttontext,
     buttonlink,
     skills,
@@ -59,6 +59,8 @@ const Work = (props) => {
   bothtext = bothtext || "Compare";
   feat2btn = feat2btn || "After";
   buttontext = buttontext || "See Project";
+  skills = skills.split(",");
+  console.log(skills);
   const { html } = props.data.markdownRemark;
   return (
     <>
@@ -70,6 +72,13 @@ const Work = (props) => {
               <h1 className="">{title}</h1>
               <div className="">
                 <div dangerouslySetInnerHTML={{ __html: html }} />
+                <ul className="skills items">
+                  {skills.map((skill) => (
+                    <li key={skill}>
+                      <b>{skill}</b>
+                    </li>
+                  ))}
+                </ul>
                 {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
               </div>
             </div>
@@ -82,7 +91,17 @@ const Work = (props) => {
             <div className="details__inner">
               <h1>{title}</h1>
               <div className="details__content">
-                <div dangerouslySetInnerHTML={{ __html: html }} />
+                <div
+                  dangerouslySetInnerHTML={{ __html: html }}
+                  className="content"
+                />
+                <ul className="skills items">
+                  {skills.map((skill) => (
+                    <li key={skill}>
+                      <b>{skill}</b>
+                    </li>
+                  ))}
+                </ul>
                 {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
               </div>
             </div>

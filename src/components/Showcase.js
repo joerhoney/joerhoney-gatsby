@@ -4,6 +4,7 @@ import getDomainName from "@utils/getDomainName";
 import isExternal from "@utils/isExternal";
 // Components
 import Button from "./Button.js";
+import { Link } from "gatsby";
 // CSS
 import "@css/showcase.css";
 
@@ -50,6 +51,11 @@ const Showcase = (props) => {
         <Button href={props.href} window={window}>
           See project<span className="blinking">:</span>
         </Button>
+      )}
+      {props.to && (
+        <Link className="button" to={props.to} window={window}>
+          See project story<span className="blinking">:</span>
+        </Link>
       )}
     </div>
     // </div>

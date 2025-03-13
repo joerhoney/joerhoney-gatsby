@@ -1,7 +1,7 @@
 /*  R E S E T  */
 :root {
-  overflow-x: hidden;
   width: 100vw;
+  overflow-x: hidden;
   font-size: 16px;
 }
 // html:not(:has(.abrupt-scroll)) {
@@ -13,22 +13,22 @@ html {
   scrollbar-width: thin;
 }
 p {
-  margin-block-start: unset;
-  margin-block-end: unset;
+  margin-bottom: 1rem;
   margin-inline-start: unset;
   margin-inline-end: unset;
-  margin-bottom: 1rem;
+  margin-block-start: unset;
+  margin-block-end: 1rem;
 }
 
 /*  T H E M E  */
 ::selection {
-  color: var(--light);
   background: var(--color3);
+  color: var(--light);
   text-shadow: 0 0 10px var(--light);
 }
 ::-webkit-scrollbar {
-  height: 4px;
   width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-track-corner,
@@ -62,10 +62,10 @@ h1.u-text-small {
   text-align: center;
   text-wrap: balance;
   .with-arrow__arrow {
-    width: 24px;
-    height: 60px;
     position: absolute;
     transform-origin: 50% 150%;
+    width: 24px;
+    height: 60px;
     svg {
       height: 100%;
     }
@@ -84,22 +84,22 @@ h1.u-text-small {
   }
 }
 body {
-  background: var(--color1);
-  color: var(--color6);
-  font: 400 16px/1.3em Courier, monospace;
-  margin: 0;
-  padding: 0;
   position: relative; // Needed for smooth scrolling, apparently.
+  z-index: -10;
+  margin: 0;
+  background: var(--color1);
+  padding: 0;
+  width: 100vw;
   scrollbar-color: var(--color3) var(--color1);
   scrollbar-width: 6px;
-  width: 100vw;
-  z-index: -10;
+  color: var(--color6);
+  font: 400 16px/1.3em Courier, monospace;
 }
 body > div {
-  background-color: var(--color1);
-  background-attachment: fixed;
   background-image: var(--gradBg);
   background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--color1);
   // position: relative;
   // z-index: -10;
 }
@@ -116,32 +116,32 @@ a:not([class]):hover {
   color: var(--color3);
 }
 section.alignable p a[href*="http"]::after {
+  vertical-align: middle;
+  margin-left: 0.3em;
   border: 0.14em solid currentColor;
   border-radius: 0.3em;
-  content: "\2197";
-  font-family: monospace;
-  font-size: 0.75em;
-  font-weight: bold;
-  letter-spacing: 0.25em;
-  margin-left: 0.3em;
   padding-left: 0.18em;
+  content: "\2197";
+  font-weight: bold;
+  font-size: 0.75em;
+  font-family: monospace;
+  letter-spacing: 0.25em;
   text-decoration: none;
-  vertical-align: middle;
 }
 p code {
   background-color: var(--color2);
-  font-size: 0.9em;
   padding: 0.25em;
+  font-size: 0.9em;
   white-space: pre-wrap;
 }
 .text a,
 th a,
 td a {
-  border-bottom: 2px solid var(--color5);
+  transition: border-bottom ease 0.2s;
   box-sizing: border-box;
+  border-bottom: 2px solid var(--color5);
   color: currentColor;
   text-decoration: none;
-  transition: border-bottom ease 0.2s;
 }
 .text :is(a:focus, a:hover):not(.button),
 th :is(a:focus, a:hover),
@@ -174,35 +174,35 @@ td :is(a:focus, a:hover) {
 .tint1_b::before,
 .tint2_b::before,
 .tint3_b::before {
-  bottom: 0;
-  content: "";
   display: block;
 
   position: absolute;
-  left: 0;
-  right: 0;
   top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
 }
 .tint1_b::before {
-  background-color: var(--color1);
   opacity: 0.4;
+  background-color: var(--color1);
 }
 .tint2_b::before {
-  background-color: var(--color2);
   opacity: 0.4;
+  background-color: var(--color2);
 }
 .tint3_b::before {
-  background-color: var(--color3);
-  background-image: linear-gradient(70deg, var(--color2), transparent);
   opacity: 0.4;
+  background-image: linear-gradient(70deg, var(--color2), transparent);
+  background-color: var(--color3);
 }
 .cta,
 .cta_b::before {
+  box-sizing: border-box;
   background-image: var(--gradBgCTA);
   background-repeat: no-repeat;
-  box-sizing: border-box;
-  color: var(--color6);
   padding: var(--unit4);
+  color: var(--color6);
 }
 .cta h2,
 .cta h3,
@@ -240,11 +240,11 @@ td :is(a:focus, a:hover) {
   text-shadow: 0 0 2em var(--glowHalf2);
 }
 section.alignable {
+  display: flex;
+  position: relative;
+  flex-direction: column;
   /* border-radius: var(--radius-all); */
   align-items: center;
-  position: relative;
-  display: flex;
-  flex-direction: column;
 }
 .alignable {
   display: flex;
@@ -293,17 +293,17 @@ section.alignable {
   margin-top: var(--compensate-half);
 }
 .skew_b::before {
-  content: "";
   display: block;
-  transform: skewY(14.125deg);
-  transform-origin: center;
   // z-index: -1;
 
   position: absolute;
   top: 0;
   right: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
+  transform: skewY(14.125deg);
+  transform-origin: center;
+  content: "";
 }
 .skew_b > * {
   position: relative;
@@ -319,15 +319,15 @@ section.alignable {
 }
 article,
 .article {
-  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  margin: auto;
-  max-width: calc(var(--max_text) + var(--unit16));
-  padding: 0 var(--unit8);
   position: relative;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0 var(--unit8);
   // overflow: hidden;
   width: 100%;
+  max-width: calc(var(--max_text) + var(--unit16));
 }
 .date {
   color: var(--color3);
@@ -352,8 +352,8 @@ article,
   max-width: 1000px;
 }
 .expand {
-  margin-left: var(--unit-8);
   margin-right: var(--unit-8);
+  margin-left: var(--unit-8);
 }
 .transluscent {
   mix-blend-mode: var(--multiscreen);
@@ -382,13 +382,13 @@ h1,
 h2,
 h3,
 h4 {
-  color: var(--color5);
-  font-family: Rubik, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1em;
   margin: 0;
   padding-top: 1em;
+  color: var(--color5);
+  font-weight: 700;
+  line-height: 1em;
+  font-family: Rubik, sans-serif;
+  letter-spacing: -0.03em;
   text-transform: lowercase;
   text-wrap: balance;
 }
@@ -406,53 +406,53 @@ ul {
 }
 h2 + p::before,
 h3.tilt + p::before {
-  clear: right;
-  content: "";
   display: block;
   float: right;
-  height: 64px;
+  clear: right;
   shape-outside: polygon(16% 0%, 100% 0%, 100% 74%, 90% 74%);
   width: 250px;
+  height: 64px;
+  content: "";
 }
 h2.tilt,
 h2:has(+ p),
 h3.tilt {
-  font-style: oblique;
   transform: skew(0, 14.125deg);
-  text-align: right;
   transform-origin: top right;
+  font-style: oblique;
+  text-align: right;
 }
 h2:has(+ p) {
   align-self: flex-end;
+  translate: 0 80px;
   margin-left: auto;
   padding-bottom: 0.5em;
-  translate: 0 80px;
   /* margin-right: -36px; */
   max-width: 100%;
   // width: 420px;
 }
 h3.tilt:has(+ p) {
   align-self: flex-end;
-  font-size: 2em;
-  margin-left: auto;
-  margin-right: 0;
-  padding-bottom: 1em;
   translate: 0 80px;
+  margin-right: 0;
+  margin-left: auto;
+  padding-bottom: 1em;
   /* margin-right: -36px; */
   max-width: 100%;
+  font-size: 2em;
   // width: 420px;
 }
 main section h1 {
-  box-sizing: border-box;
-  font-size: 4em;
-  font-style: oblique;
-  padding: 0 var(--unit8);
-  margin: auto;
-  max-width: calc(var(--max_text) + var(--unit16));
-  text-align: right;
   transform: skewY(14.125deg);
   transform-origin: bottom right;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0 var(--unit8);
   width: 100%;
+  max-width: calc(var(--max_text) + var(--unit16));
+  font-style: oblique;
+  font-size: 4em;
+  text-align: right;
   @media (max-width: 700px) {
     & {
       font-size: 9.1vw;
@@ -460,16 +460,16 @@ main section h1 {
   }
 }
 section.alignable .compare h2 {
-  margin-bottom: 1em;
-  text-align: left;
   transform: rotate(0deg);
   transform-origin: top right;
   translate: 0;
+  margin-bottom: 1em;
+  text-align: left;
 }
 @media (max-width: 480px) {
   section.alignable .compare h2 {
-    margin-right: -100vw;
     translate: 0 -3.6rem;
+    margin-right: -100vw;
   }
 }
 section.alignable .compare h2 + p::before {
@@ -479,14 +479,14 @@ h3 {
   font-size: 22px;
 }
 h4 {
-  font-size: 20px;
   margin-bottom: 1rem;
+  font-size: 20px;
 }
 sup {
-  top: -0.3em;
-  font-size: 66%;
   position: relative;
+  top: -0.3em;
   vertical-align: baseline;
+  font-size: 66%;
 }
 .small-text {
   font-size: 0.8rem;
@@ -494,8 +494,8 @@ sup {
 }
 form {
   display: grid;
-  gap: var(--unit4);
   grid-template-columns: 1fr 1fr;
+  gap: var(--unit4);
   /* grid-template-rows: repeat(4, auto [row-top]); */
 }
 form > * {
@@ -503,18 +503,17 @@ form > * {
 }
 input,
 textarea {
-  background-color: transparent;
+  transition: box-shadow ease 0.2s, text-shadow ease 0.2s;
+  box-sizing: border-box;
+  margin-bottom: 0;
   outline: none;
   border: 2px solid currentColor;
   border-radius: var(--radius-all);
-  box-sizing: border-box;
-  color: currentColor;
-  margin-bottom: 0;
+  background-color: transparent;
   padding: var(--unit2);
-  transition: box-shadow ease 0.2s, text-shadow ease 0.2s;
+  color: currentColor;
 }
 :is(input, textarea):focus {
-  background-color: var(--darkish);
   background-image: linear-gradient(
       to bottom,
       var(--dark) 0,
@@ -524,13 +523,14 @@ textarea {
     linear-gradient(to right, var(--dark) 0, transparent 33%, transparent),
     linear-gradient(to left, var(--dark) 0, transparent 33%, transparent),
     linear-gradient(to top, var(--dark) 0, transparent 33%, transparent);
+  background-color: var(--darkish);
   color: var(--light);
   // box-shadow: inset 0 0 1em var(--dark);
   text-shadow: 0 0 0.5em var(--lightish);
 }
 :is(input, textarea)::placeholder {
-  color: currentColor;
   opacity: 0.5;
+  color: currentColor;
 }
 input:autofill {
   background-color: var(--darkish);
@@ -557,13 +557,13 @@ input:-webkit-autofill {
   text-align: right;
 }
 table.compare {
+  position: relative;
   border: 0;
   border-collapse: collapse;
+  padding: 0 var(--unit8);
+  width: 100%;
   /* border-spacing: 0; */
   max-width: calc(var(--max_text) + var(--unit16));
-  padding: 0 var(--unit8);
-  position: relative;
-  width: 100%;
 }
 @media (max-width: 480px) {
   table.compare {
@@ -571,17 +571,17 @@ table.compare {
   }
 }
 tr.checkmarks td {
-  color: var(--color3);
-  font-size: 1.5em;
-  font-weight: 400;
-  padding: 0 2px;
   position: relative;
+  padding: 0 2px;
+  color: var(--color3);
+  font-weight: 400;
+  font-size: 1.5em;
 }
 th {
-  font-weight: 400;
-  padding: var(--unit1) var(--unit1) var(--unit1) 0;
-  text-align: left;
   vertical-align: top;
+  padding: var(--unit1) var(--unit1) var(--unit1) 0;
+  font-weight: 400;
+  text-align: left;
 }
 th[scope="col"] {
   vertical-align: bottom;
@@ -610,51 +610,47 @@ table.compare .indicator-line {
 }
 table.compare .indicator-corner::before,
 table.compare .indicator-line::before {
-  content: "";
-
   position: absolute;
   top: 0;
   left: -2px;
+  content: "";
 }
 table.compare .indicator-gradient {
   position: relative;
 }
 table.compare .indicator-gradient::before {
+  display: block;
+
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  left: 0;
   background-image: linear-gradient(
     90deg,
     var(--color5),
     var(--color4),
     var(--color3)
   );
-  content: "";
-  display: block;
   height: 1px;
-
-  position: absolute;
-  bottom: 50%;
-  left: 0;
-  right: 0;
+  content: "";
 }
 table.compare .indicator-corner::before {
+  right: 50%;
+  bottom: 50%;
   border-right: 1px solid var(--color3);
   border-bottom: 1px solid var(--color3);
   border-radius: 0 0 var(--unit1) 0;
-
-  right: 50%;
-  bottom: 50%;
 }
 table.compare .indicator-line::before {
-  border-bottom: 1px solid var(--color3);
-
   right: 0;
   bottom: 0;
+  border-bottom: 1px solid var(--color3);
 }
 table.compare .indicator-corner ~ .indicator-line::before {
-  border-right: 1px solid var(--color3);
-  border-bottom: 0;
-
   right: 50%;
   bottom: 0;
+  border-right: 1px solid var(--color3);
+  border-bottom: 0;
 }
 table.compare .compare-cta {
   display: flex;
@@ -677,22 +673,22 @@ table.compare .compare-cta h4 {
     text-align: center;
   }
   th.compact {
+    width: 3.4em;
     line-height: 0.7em;
     white-space: nowrap;
-    width: 3.4em;
   }
   th.compact .subtle {
     font-size: 0.8em;
   }
   th.compact > div {
-    margin-bottom: var(--unit2);
     transform: rotate(-68deg);
+    margin-bottom: var(--unit2);
     width: 50px;
   }
   td .price {
+    transform: rotate(-68deg);
     margin-top: 2em;
     margin-bottom: 0;
-    transform: rotate(-68deg);
     width: 0;
   }
   table.compare .indicator-corner::before {
@@ -718,16 +714,15 @@ table.compare .compare-cta h4 {
     width: 0;
   }
   td .price {
-    margin-bottom: 0;
-    margin-top: 3em;
     transform: rotate(-90deg);
+    margin-top: 3em;
+    margin-bottom: 0;
     width: 0;
   }
   tr.checkmarks td .price-plus {
-    width: auto;
-
     position: absolute;
     right: 0;
+    width: auto;
   }
 }
 @media (min-width: 701px) {
@@ -750,8 +745,8 @@ table.compare .compare-cta h4 {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      gap: var(--unit4);
       justify-content: space-between;
+      gap: var(--unit4);
       > * {
         flex-basis: calc(50% - var(--unit4));
         text-align: left;
@@ -766,26 +761,26 @@ table.compare .compare-cta h4 {
   width: calc(100% - var(--unit16));
   h2,
   h3 {
-    margin-bottom: 7%;
-    padding-top: 0;
     position: static;
     translate: unset;
+    margin-bottom: 7%;
+    padding-top: 0;
     text-align: left;
   }
   &.columns-few--tilt {
     h2,
     h3 {
+      transform: skewY(14.125deg);
       font-style: oblique;
       text-align: right;
-      transform: skewY(14.125deg);
       + p::before {
-        clear: right;
-        content: "";
         display: block;
         float: right;
-        height: 28px;
+        clear: right;
         shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
         width: 120px;
+        height: 28px;
+        content: "";
       }
       @media (min-width: 620px) {
         margin-bottom: 1em;
@@ -796,8 +791,8 @@ table.compare .compare-cta h4 {
     & {
       display: grid;
       grid-template-rows: auto;
-      grid-auto-flow: columns;
       grid-template-columns: repeat(2, 1fr);
+      grid-auto-flow: columns;
       &.columns-few--tilt {
         transform: skewY(14.125deg);
         .column {
@@ -812,18 +807,22 @@ table.compare .compare-cta h4 {
   }
 }
 .pull {
-  border-radius: var(--radius-all);
   box-sizing: border-box;
+  border-radius: var(--radius-all);
   padding: 0 var(--unit4);
+}
+.items {
+  padding-left: 0;
+  list-style-type: none;
 }
 .items li,
 .items span {
-  background-color: var(--color1a);
-  border-radius: var(--radius-all);
-  color: var(--color6);
   display: inline-block;
   margin: 4px 8px 4px 0;
+  border-radius: var(--radius-all);
+  background-color: var(--color1a);
   padding: 2px 6px;
+  color: var(--color6);
 }
 .blinking {
   animation: blinking 2s ease infinite;
