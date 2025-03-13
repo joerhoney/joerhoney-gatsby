@@ -33,6 +33,7 @@ import codazenimg from "@images/screenshots/codazen-home.webp";
 import laparksimg from "@images/screenshots/lacounty-parks-home.webp";
 import laprobationimg from "@images/screenshots/lacounty-probation-home.webp";
 import r3riskimg from "@images/screenshots/r3risk-home.webp";
+import santiagochildrenscenterimg from "@images/screenshots/santiagochildrenscenter-home.webp";
 import laactingcoachimg from "@images/screenshots/laactingcoach-home.webp";
 import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
 import bradentonperioimg from "@images/screenshots/bradentonperio-home.webp";
@@ -54,6 +55,7 @@ const codazenskills = [
     "Git",
   ],
   r3riskskills = ["JavaScript", "Tailwind", "HTML5", "CSS3", "Git"],
+  santiagochildrenscenterskills = ["JavaScript", "HTML5", "CSS3", "Git"],
   laactingcoachskills = [
     "WordPress Plugins",
     "WordPress Theme",
@@ -380,11 +382,26 @@ const codePage = () => {
           >
             <p>
               Static landing page built with minimum HTML, CSS, and JavaScript,
-              for highly efficient performance. The client need a simple,
+              for highly efficient performance. The client needed a simple,
               modern, and professional look, with a focus on the services they
               provide. The page was designed to be responsive and
               mobile-friendly, with a clean and easy-to-read layout. The client
               was very pleased with the results.
+            </p>
+          </Showcase>
+          <Showcase
+            desc="Landing page for a preschool/childcare center."
+            href="https://santiagochildrenscenter.com"
+            skills={santiagochildrenscenterskills}
+            src={santiagochildrenscenterimg}
+            title="Santiago Children's Center"
+          >
+            <p>
+              Static landing page optimized for high performance and conversion.
+              Crucial elements included a clear call-to-action, a simple and
+              professional design, and a focus on the services provided. The
+              client expressed satisfaction and was excited to begin her
+              marketing campaign.
             </p>
           </Showcase>
           <Showcase
