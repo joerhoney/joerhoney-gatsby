@@ -55,7 +55,7 @@ const Home = () => {
               designs actually work). Now, I create sleek visuals, build
               intuitive digital experiences, and make sure everything runs
               smoother than my morning coffee routine (which is saying a lot).
-              Whether it’s crafting a brand identity, fine-tuning a website, or
+              Whether it's crafting a brand identity, fine-tuning a website, or
               debugging that one stubborn issue at 2 AM, I bring both artistry
               and technical know-how to the table.
               <br />

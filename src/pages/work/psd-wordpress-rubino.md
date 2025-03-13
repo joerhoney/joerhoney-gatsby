@@ -1,5 +1,6 @@
 ---
 published: 2016-08-29
+weight: 0
 title: "PSD to WordPress: Dr. Rubino"
 description: A comparison of a final WordPress theme to its original PSD mockup for Dr. Rubino's website, by Joe Rhoney.
 ogimg: rubino-og.webp

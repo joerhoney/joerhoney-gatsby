@@ -32,7 +32,7 @@ const HeroHome = (props) => {
       <div className="heroWrapper">
         <div ref={parallaxElement} className="heroHome">
           <div className="jBig">
-<pre aria-hidden="true" class="jBig-1" role='presentation'>
+<pre aria-hidden="true" className="jBig-1" role='presentation'>
 {""}                                 brand solutions{"\n"}
 {""}                                website  creation{"\n"}
 {""}                                web design online{"\n"}
@@ -77,7 +77,7 @@ const HeroHome = (props) => {
 {""}                   watercolor digital art{"\n"}
 {""}                    web design!!^^```{"\n"}
 </pre>
-<pre aria-hidden="true" class="jBig-2" role='presentation'>
+<pre aria-hidden="true" className="jBig-2" role='presentation'>
 {""}website solutions front-end developer  creative developer          logo creation     art{"\n"}
 {""} user experience user interface good communicator listens         DIY help{"\n"}
 {""} providing  feedback  senior web engineer   marketing experience   web apps      web  services{"\n"}

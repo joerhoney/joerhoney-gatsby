@@ -28,6 +28,7 @@ export const query = graphql`
         feat2tip
         buttontext
         buttonlink
+        skills
       }
       html
     }
@@ -52,6 +53,7 @@ const Work = (props) => {
     feat2tip,
     buttontext,
     buttonlink,
+    skills,
   } = props.data.markdownRemark.frontmatter;
   feat1btn = feat1btn || "Before";
   bothtext = bothtext || "Compare";
@@ -60,79 +62,97 @@ const Work = (props) => {
   const { html } = props.data.markdownRemark;
   return (
     <>
-      <div className="details">
-        <div className="details__inner">
-          <h1>{title}</h1>
-          <div className="details__content">
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-            {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
+      {type === "showcase" && (
+        <>
+          <div className="">
+            <div className="">
+              <img alt={feat1alt} loading="lazy" src={`/work/${feat1img}`} />
+              <h1 className="">{title}</h1>
+              <div className="">
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+                {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <a
-        href="javascript:history.back()"
-        title="Return to previous page"
-        className="faint"
-        style={{
-          display: "block",
-          color: "unset",
-          position: "fixed",
-          top: "20px",
-          left: "20px",
-          zIndex: 10,
-        }}
-      >
-        <Icon
-          name="ArrowBack"
-          label="false"
-          style={{
-            fontSize: "72px",
-          }}
-        />
-      </a>
-      <section className="compare">
-        <div
-          className="compare__controls multibutton"
-          style={{
-            width: "max-content",
-            margin: "auto",
-            position: "fixed",
-            bottom: "132px",
-            left: "16px",
-            right: "16px",
-            zIndex: 4,
-          }}
-        >
-          <div
-            className="compare__before-button multibutton__button"
-            title={feat1tip}
-            tabIndex={1}
+        </>
+      )}
+      {type === "compare" && (
+        <>
+          <div className="details">
+            <div className="details__inner">
+              <h1>{title}</h1>
+              <div className="details__content">
+                <div dangerouslySetInnerHTML={{ __html: html }} />
+                {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
+              </div>
+            </div>
+          </div>
+          <a
+            href="javascript:history.back()"
+            title="Return to previous page"
+            className="faint"
+            style={{
+              display: "block",
+              color: "unset",
+              position: "fixed",
+              top: "20px",
+              left: "20px",
+              zIndex: 10,
+            }}
           >
-            {feat1btn}
-          </div>
-          <div
-            className="compare__before-both multibutton__button"
-            title={bothdesc}
-            tabIndex={2}
-          >
-            {bothtext}
-          </div>
-          <div
-            className="compare__after-button multibutton__button"
-            title={feat2tip}
-            tabIndex={3}
-          >
-            {feat2btn}
-          </div>
-        </div>
-        <div className="compare__before" id="before">
-          {/* See static folder for images */}
-          <img alt={feat1alt} loading="lazy" src={`/work/${feat1img}`} />
-        </div>
-        <div className="compare__after" id="after">
-          <img alt={feat2alt} loading="lazy" src={`/work/${feat2img}`} />
-        </div>
-      </section>
+            <Icon
+              name="ArrowBack"
+              label="false"
+              style={{
+                fontSize: "72px",
+              }}
+            />
+          </a>
+          <section className="compare">
+            <div
+              className="compare__controls multibutton"
+              style={{
+                width: "max-content",
+                margin: "auto",
+                position: "fixed",
+                bottom: "132px",
+                left: "16px",
+                right: "16px",
+                zIndex: 4,
+              }}
+            >
+              <div
+                className="compare__before-button multibutton__button"
+                title={feat1tip}
+                tabIndex={1}
+              >
+                {feat1btn}
+              </div>
+              <div
+                className="compare__before-both multibutton__button"
+                title={bothdesc}
+                tabIndex={2}
+              >
+                {bothtext}
+              </div>
+              <div
+                className="compare__after-button multibutton__button"
+                title={feat2tip}
+                tabIndex={3}
+              >
+                {feat2btn}
+              </div>
+            </div>
+            <div className="compare__before" id="before">
+              {/* See static folder for images */}
+              <img alt={feat1alt} loading="lazy" src={`/work/${feat1img}`} />
+            </div>
+            <div className="compare__after" id="after">
+              <img alt={feat2alt} loading="lazy" src={`/work/${feat2img}`} />
+            </div>
+          </section>
+        </>
+      )}
     </>
   );
 };
@@ -143,10 +163,13 @@ export const Head = (props) => {
   const { description, title, ogimg } = props.data.markdownRemark.frontmatter;
   return (
     <>
-      <title>{title} | :joe rhoney</title>
+      <title>{title} | Work by :joe rhoney</title>
       <meta name="description" content={description} />
       <meta property="og:image" content={`/work/${ogimg}`} />
-      <meta property="og:keywords" content="Joe Rhoney, Developer" />
+      <meta
+        property="og:keywords"
+        content="Joe Rhoney, Designer, Developer, Engineer, Front-End, UX, UI"
+      />
       <meta property="og:type" content="website" />
     </>
   );

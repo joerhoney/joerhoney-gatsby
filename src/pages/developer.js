@@ -5,7 +5,7 @@ import since from "@utils/since";
 import Button from "@components/Button";
 import Collection from "@components/Collection";
 import Mailto from "@components/Mailto";
-import { Link } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";
@@ -28,12 +28,13 @@ import {
 // Images
 import dragon from "@images/heros/dragon.webp";
 import avatar from "@images/portrait-drawing.webp";
-import codazenimg from "@images/screenshots/codazen-home.webp";
-import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
 import metaimg from "@images/screenshots/meta-home.webp";
-import laactingcoachimg from "@images/screenshots/laactingcoach-home.webp";
+import codazenimg from "@images/screenshots/codazen-home.webp";
 import laparksimg from "@images/screenshots/lacounty-parks-home.webp";
 import laprobationimg from "@images/screenshots/lacounty-probation-home.webp";
+import r3riskimg from "@images/screenshots/r3risk-home.webp";
+import laactingcoachimg from "@images/screenshots/laactingcoach-home.webp";
+import kreizenbeckimg from "@images/screenshots/kreizenbeck-home.webp";
 import bradentonperioimg from "@images/screenshots/bradentonperio-home.webp";
 import dentistinsantaclaraimg from "@images/screenshots/dentistinsantaclara-home.webp";
 import westchestergentledentistryimg from "@images/screenshots/westchestergentledentistry-home.webp";
@@ -52,6 +53,7 @@ const codazenskills = [
     "JSX",
     "Git",
   ],
+  r3riskskills = ["JavaScript", "Tailwind", "HTML5", "CSS3", "Git"],
   laactingcoachskills = [
     "WordPress Plugins",
     "WordPress Theme",
@@ -109,6 +111,32 @@ const codazenskills = [
   ];
 
 const codePage = () => {
+  // const data = useStaticQuery(graphql`
+  //   query {
+  //     allMarkdownRemark(
+  //       sort: { frontmatter: { weight: DESC } }
+  //       filter: { frontmatter: { draft: { eq: false } } }
+  //     ) {
+  //       edges {
+  //         node {
+  //           frontmatter {
+  //             published
+  //             title
+  //             description
+  //             ogimg
+  //             feat1alt
+  //             draft
+  //             skills
+  //           }
+  //           fields {
+  //             html
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  // `);
+  // const posts = data.allMarkdownRemark.edges;
   return (
     <>
       <section className="hero page">
@@ -341,6 +369,22 @@ const codePage = () => {
             <p>
               The client at the LA County Probation Dept. was very pleased with
               this new home page.
+            </p>
+          </Showcase>
+          <Showcase
+            desc="Landing page/website for concierge security and crisis response."
+            href="https://r3risk.com"
+            skills={r3riskskills}
+            src={r3riskimg}
+            title="R3 Risk"
+          >
+            <p>
+              Static landing page built with minimum HTML, CSS, and JavaScript,
+              for highly efficient performance. The client need a simple,
+              modern, and professional look, with a focus on the services they
+              provide. The page was designed to be responsive and
+              mobile-friendly, with a clean and easy-to-read layout. The client
+              was very pleased with the results.
             </p>
           </Showcase>
           <Showcase
