@@ -261,7 +261,6 @@ const codePage = () => {
           </article>
           <Showcase
             desc="Analytics Enhancement and Website Maintenance"
-            to="meta"
             href="https://meta.com"
             skills={metaskills}
             src={metaimg}
@@ -294,7 +293,6 @@ const codePage = () => {
           </Showcase>
           <Showcase
             desc="Website and blog maintenance, modifications and improvements."
-            to="codazen"
             href="https://codazen.com"
             skills={codazenskills}
             src={codazenimg}
@@ -426,7 +424,6 @@ const codePage = () => {
           </Showcase>
           <Showcase
             desc="Website makeover, built on WordPress with a modified theme."
-            to="kreizenbeck"
             href="https://www.kreizenbeckplanroom.com"
             skills={[
               "WordPress Plugins",
