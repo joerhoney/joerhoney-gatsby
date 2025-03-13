@@ -66,21 +66,29 @@ const Work = (props) => {
     <>
       {type === "showcase" && (
         <>
-          <div className="">
-            <div className="">
-              <img alt={feat1alt} loading="lazy" src={`/work/${feat1img}`} />
+          <div
+            className="columns-2"
+            style={{ minHeight: "100vh", alignContent: "center" }}
+          >
+            <div className="screenshot">
+              <img
+                alt={feat1alt}
+                loading="lazy"
+                src={`/work/${feat1img}`}
+                style={{ maxWidth: "100%" }}
+              />
+            </div>
+            <div className="content">
               <h1 className="">{title}</h1>
-              <div className="">
-                <div dangerouslySetInnerHTML={{ __html: html }} />
-                <ul className="skills items">
-                  {skills.map((skill) => (
-                    <li key={skill}>
-                      <b>{skill}</b>
-                    </li>
-                  ))}
-                </ul>
-                {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
-              </div>
+              <div dangerouslySetInnerHTML={{ __html: html }} />
+              <ul className="skills items">
+                {skills.map((skill) => (
+                  <li key={skill}>
+                    <b>{skill}</b>
+                  </li>
+                ))}
+              </ul>
+              {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
             </div>
           </div>
         </>
