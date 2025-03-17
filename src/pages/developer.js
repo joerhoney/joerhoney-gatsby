@@ -389,17 +389,17 @@ const codePage = () => {
           </Showcase>
           <Showcase
             desc="Landing page for a preschool/childcare center."
-            href="https://santiagochildrenscenter.com"
+            to="/work/santiagochildrenscenter/"
             skills={santiagochildrenscenterskills}
             src={santiagochildrenscenterimg}
             title="Santiago Children's Center"
           >
             <p>
               Static landing page optimized for high performance and conversion.
-              Crucial elements included a clear call-to-action, a simple and
-              professional design, and a focus on the services provided. The
-              client expressed satisfaction and was excited to begin her
-              marketing campaign.
+              Crucial elements included a clear call-to-action, social
+              credibilty, a focus on the benefits of the services, and a simple
+              and friendly design. The client expressed satisfaction and was
+              excited to begin her marketing campaign.
             </p>
           </Showcase>
           <Showcase
