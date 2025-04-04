@@ -3,6 +3,7 @@ import * as React from "react";
 import Mailto from "@components/Mailto";
 import Gallery from "@components/Gallery";
 import { Link } from "gatsby";
+import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
@@ -13,6 +14,8 @@ import ScrollIndicator from "@fragments/ScrollIndicator";
 import "@css/reel.css";
 // Impages
 import dragon from "@images/art/dragon-both-ends.webp";
+import r3riskimg from "@images/screenshots/r3risk-home.webp";
+import santiagochildrenscenterimg from "@images/screenshots/santiagochildrenscenter-home.webp";
 import kinggamagama from "@images/art/king-gama-gama.webp";
 import samuraistanding from "@images/art/samurai-standing.webp";
 import samuraionhorseback from "@images/art/samurai-on-horseback.webp";
@@ -25,6 +28,8 @@ import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
 import team from "@images/heros/team.webp";
 
 const creativePage = (props) => {
+  const r3riskskills = ["JavaScript", "Tailwind", "HTML5", "CSS3", "Git"],
+    santiagochildrenscenterskills = ["JavaScript", "HTML5", "CSS3", "Git"];
   return (
     <>
       <section className="hero page">
@@ -41,11 +46,52 @@ const creativePage = (props) => {
         <section className="alignable bottomM">
           <article>
             <p>
-              Let me show you some of the artwork I've done! The collection on
-              this page includes art I've done professionally as well as some
-              art I created on my own time.
+              Let me show you some of the creative work I've done! The
+              collection on this page includes designs and artwork I did
+              professionally as well as some I did on my own time.
             </p>
           </article>
+        </section>
+        <section className="alignable skew_b tint1_b bottomM" id="work">
+          <article className="self-center">
+            <h2>UI Design</h2>
+            <p>
+              Here are some of the website designs I created using Figma. You
+              can see a side-by-side comparison of each by clicking the project
+              story button.
+            </p>
+          </article>
+          <Showcase
+            desc="Landing page/website for concierge security and crisis response."
+            to="/work/r3risk/"
+            skills={r3riskskills}
+            src={r3riskimg}
+            title="R3 Risk"
+          >
+            <p>
+              Static landing page built with minimum HTML, CSS, and JavaScript,
+              for highly efficient performance. The client needed a simple,
+              modern, and professional look, with a focus on the services they
+              provide. The page was designed to be responsive and
+              mobile-friendly, with a clean and easy-to-read layout. The client
+              was very pleased with the results.
+            </p>
+          </Showcase>
+          <Showcase
+            desc="Landing page for a preschool/childcare center."
+            to="/work/santiagochildrenscenter/"
+            skills={santiagochildrenscenterskills}
+            src={santiagochildrenscenterimg}
+            title="Santiago Children's Center"
+          >
+            <p>
+              Static landing page optimized for high performance and conversion.
+              Crucial elements included a clear call-to-action, social
+              credibilty, a focus on the benefits of the services, and a simple
+              and friendly design. The client expressed satisfaction and was
+              excited to begin her marketing campaign.
+            </p>
+          </Showcase>
         </section>
         <section className="alignable skew_b tint3_b" id="animation">
           <article className="bottomM">

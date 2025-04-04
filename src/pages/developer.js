@@ -210,11 +210,13 @@ const codePage = () => {
               </p>
             </div>
             <div className="column">
-              <h3>Web/UI Designer</h3>
+              <h3>UX/UI Designer</h3>
               <p>
                 I have designed many websites and have carefully observed the
-                evolution of modern web design trends and its crossover into
-                online and offline apps.
+                evolution of modern design trends and its crossover into online
+                and offline apps. I am fascinated with what results in a good
+                user experience versus a bad one. The design has a lot to do
+                with that, but so does the logical flow of an interface.
               </p>
             </div>
           </div>
