@@ -1,9 +1,9 @@
 body:has(.heroClip) {
   overflow: hidden;
   .splitWrap {
-    overflow: visible;
     margin: 0;
     padding: 0;
+    overflow: visible;
   }
 }
 .heroClip {
@@ -18,62 +18,61 @@ body:has(.heroClip) {
 }
 .heroHome {
   --hero-height: 106vh;
-  float: left;
-  height: var(--hero-height);
-  margin-bottom: -6vh;
-  margin-right: -3vw;
-  rotate: 14.125deg;
-  width: 50vh;
-  z-index: 0;
 
   position: relative;
   top: 2vh;
   left: 10px;
+  float: left;
+  rotate: 14.125deg;
+  z-index: 0;
+  margin-right: -3vw;
+  margin-bottom: -6vh;
+  width: 50vh;
+  height: var(--hero-height);
   @media (orientation: portrait) {
     & {
       float: none;
     }
   }
   h1 {
-    color: var(--color5);
     display: inline-block;
-    font: 400 14vh/1.2em Rubik, sans-serif;
     position: absolute;
+    color: var(--color5);
+    font: 400 14vh/1.2em Rubik, sans-serif;
     text-transform: lowercase;
     b:nth-child(1) {
       position: relative;
       top: -0.6vh;
       left: -1.2vh;
       &::before {
-        font: inherit;
-        content: ": ";
         display: inline-block;
+        content: ": ";
+        font: inherit;
         letter-spacing: 0.2vh;
       }
     }
     b:nth-child(2) {
       position: absolute;
-      left: 3.2vh;
       top: 61vh;
+      left: 3.2vh;
     }
   }
   .jBig {
-    height: var(--hero-height);
+    position: absolute;
     margin: 0;
     padding: 0;
-    position: absolute;
+    height: var(--hero-height);
 
     .jBig-1,
     .jBig-2 {
-      font-family: Courier, monospace;
-      font-size: 1.28vh;
-      font-weight: 400;
-      letter-spacing: -0.08em;
-      line-height: 1.1em;
-      margin: 0;
-
       position: absolute;
       left: 3.8vh;
+      margin: 0;
+      font-weight: 400;
+      font-size: 1.28vh;
+      line-height: 1.1em;
+      font-family: Courier, monospace;
+      letter-spacing: -0.08em;
     }
     .jBig-1 {
       background: -webkit-linear-gradient(
@@ -83,27 +82,48 @@ body:has(.heroClip) {
         var(--color3)
       );
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       top: 5vh;
+      -webkit-text-fill-color: transparent;
     }
     .jBig-2 {
       background: -webkit-linear-gradient(var(--color2), transparent);
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
       top: 75vh;
+      -webkit-text-fill-color: transparent;
     }
   }
 }
 .subhero {
-  align-items: center;
   display: flex;
-  justify-content: center;
-  min-height: 100vh;
   position: relative;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
   @media (orientation: portrait) {
     & {
       margin-bottom: var(--unit16);
       min-height: unset;
     }
+  }
+}
+
+@supports (animation-timeline: scroll()) {
+  // body {
+  //   scroll-timeline-name: --parallax1;
+  // }
+  .parallaxHome {
+    animation-name: parallax1;
+    animation-timeline: scroll(root);
+    animation-duration: 1ms; /* Firefox requires this */
+    animation-timing-function: linear;
+  }
+}
+
+@keyframes parallax1 {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(600px);
   }
 }

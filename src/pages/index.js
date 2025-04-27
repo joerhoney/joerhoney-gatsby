@@ -11,7 +11,7 @@ import { Half, Split } from "@components/Split";
 import Page from "@layouts/Page";
 import Scheme from "../layouts/Scheme";
 // Fragments
-import HeroHome from "@fragments/HeroHome";
+import HeroHome from "@fragments/HeroHome2";
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Images
