@@ -112,14 +112,14 @@ body:has(.heroClip) {
   //   scroll-timeline-name: --parallax1;
   // }
   .parallaxHome {
-    animation-name: parallax1;
+    animation-name: parallax-y1;
     animation-timeline: scroll(root);
     animation-duration: 1ms; /* Firefox requires this */
     animation-timing-function: linear;
   }
 }
 
-@keyframes parallax1 {
+@keyframes parallax-y1 {
   from {
     transform: translateY(0);
   }

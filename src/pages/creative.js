@@ -1,7 +1,6 @@
 import * as React from "react";
 // Components
 import Mailto from "@components/Mailto";
-import Gallery from "@components/Gallery";
 import { Link } from "gatsby";
 import Showcase from "@components/Showcase";
 // Layouts
@@ -12,6 +11,7 @@ import Profiles from "@fragments/Profiles";
 import ScrollIndicator from "@fragments/ScrollIndicator";
 // CSS
 import "@css/reel.css";
+import "@css/gallery.css";
 // Impages
 import dragon from "@images/art/dragon-both-ends.webp";
 import r3riskimg from "@images/screenshots/r3risk-home.webp";
@@ -126,7 +126,7 @@ const creativePage = (props) => {
               Here is some of the work I completed for various client projects.
             </p>
           </div>
-          <Gallery className="topS" id="illustration">
+          <div className="gallery topS" id="illustration">
             <div
               className="layer"
               style={{
@@ -272,7 +272,7 @@ const creativePage = (props) => {
                 }}
               />
             </div>
-          </Gallery>
+          </div>
         </section>
         <section className="alignable skew_b cta_b bottomS" id="contact">
           <article className="self-center">

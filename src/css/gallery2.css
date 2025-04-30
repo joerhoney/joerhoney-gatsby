@@ -1,0 +1,216 @@
+.gallery {
+  display: flex;
+  flex-wrap: nowrap;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-align: start;
+  scrollbar-color: var(--color3) var(--scrolltrack);
+  scrollbar-width: thin;
+}
+.gallery::-webkit-scrollbar {
+  background-color: var(--scrolltrack);
+  height: 4px;
+}
+.gallery::-webkit-scrollbar-track,
+.gallery::-webkit-scrollbar-track-corner,
+.gallery::-webkit-resizer {
+}
+.gallery::-webkit-scrollbar-thumb {
+  background-color: var(--color3);
+}
+.gallery > * {
+}
+.gallery > .exhibit p:first-of-type {
+  margin-top: 140px;
+  padding: 0 var(--unit8);
+}
+.gallery .layer {
+  max-height: 100%;
+}
+.gallery .layer img {
+  max-height: 100%;
+  pointer-events: none;
+}
+@supports (perspective: 1px) {
+  /* Parallax evnironment */
+  .gallery {
+    /* perspective: 100px; */
+    /* transform-style: preserve-3d; */
+    /* transform: translateZ(0); */
+  }
+  .gallery .layer {
+    position: relative;
+  }
+  .l0 {
+    z-index: 41;
+  }
+  .l25 {
+    /* transform: translateZ(-25px); */
+    z-index: 40;
+  }
+  .l25 > * {
+    /* transform: scale(1.25); */
+  }
+  .l50 {
+    /* transform: translateZ(-50px); */
+    z-index: 39;
+  }
+  .l50 > * {
+    /* transform: scale(1.5); */
+  }
+  .l75 {
+    /* transform: translateZ(-75px); */
+    z-index: 38;
+  }
+  .l75 > * {
+    /* transform: scale(1.75); */
+  }
+  .l100 {
+    /* transform: translateZ(-100px); */
+    z-index: 37;
+  }
+  .l100 > * {
+    /* transform: scale(2); */
+  }
+  .l125 {
+    /* transform: translateZ(-125px); */
+    z-index: 36;
+  }
+  .l125 > * {
+    /* transform: scale(2.25); */
+  }
+  .l150 {
+    /* transform: translateZ(-150px); */
+    z-index: 35;
+  }
+  .l150 > * {
+    /* transform: scale(2.5); */
+  }
+  .l175 {
+    /* transform: translateZ(-175px); */
+    z-index: 34;
+  }
+  .l175 > * {
+    /* transform: scale(2.75); */
+  }
+  .l200 {
+    /* transform: translateZ(-200px); */
+    z-index: 33;
+  }
+  .l200 > * {
+    /* transform: scale(2); */
+  }
+  .l225 {
+    /* transform: translateZ(-225px); */
+    z-index: 32;
+  }
+  .l225 > * {
+    /* transform: scale(3.25); */
+  }
+  .l250 {
+    /* transform: translateZ(-250px); */
+    z-index: 31;
+  }
+  .l250 > * {
+    /* transform: scale(3.5); */
+  }
+  .l275 {
+    /* transform: translateZ(-275px); */
+    z-index: 30;
+  }
+  .l275 > * {
+    /* transform: scale(3.75); */
+  }
+  .l1000 {
+    /* transform: translateZ(-1000px); */
+    z-index: 1;
+  }
+  .l1000 > * {
+    /* transform: scale(11); */
+  }
+}
+@supports (animation-timeline: scroll()) {
+  .layer {
+    animation-timeline: scroll(x);
+    animation-duration: 1ms; /* Firefox requires this */
+    animation-timing-function: linear;
+  }
+  .l25 {
+    animation-name: parallax-x25;
+  }
+  @keyframes parallax-x25 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(25vw);
+    }
+  }
+  .l150 {
+    animation-name: parallax-x150;
+  }
+  @keyframes parallax-x150 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(150vw);
+    }
+  }
+  .l175 {
+    animation-name: parallax-x175;
+  }
+  @keyframes parallax-x175 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(175vw);
+    }
+  }
+  .l200 {
+    animation-name: parallax-x200;
+  }
+  @keyframes parallax-x200 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(200vw);
+    }
+  }
+  .l250 {
+    animation-name: parallax-x250;
+  }
+  @keyframes parallax-x250 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(250vw);
+    }
+  }
+  .l275 {
+    animation-name: parallax-x275;
+  }
+  @keyframes parallax-x275 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(275vw);
+    }
+  }
+  .l1000 {
+    animation-name: parallax-x1000;
+  }
+  @keyframes parallax-x1000 {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(400vw);
+    }
+  }
+}
