@@ -49,7 +49,10 @@ const solutionsPage = () => {
           className="half2 skew_b text-color1"
           style={{ position: "relative" }}
         >
-          <div className="tilted-row">
+          <div
+            className="tilted-row"
+            style={{ maxWidth: "1300px", margin: "0 auto" }}
+          >
             <div style={{ paddingBottom: "0" }}>
               <h2 className="tilt" style={{ textAlign: "left" }}>
                 Highly Recommended by Industry Professionals
@@ -59,7 +62,10 @@ const solutionsPage = () => {
               <h2 className="tilt text-color2">★★★★★</h2>
             </div>
           </div>
-          <div className="tilted-row">
+          <div
+            className="tilted-row"
+            style={{ maxWidth: "1300px", margin: "0 auto" }}
+          >
             <div className="column" style={{ paddingTop: "0" }}>
               <h3 className="text-color1 tilt">Increase Visibility</h3>
               <p>
@@ -216,23 +222,25 @@ const solutionsPage = () => {
               </Mailto>
             </Arrow>
           </article>
-          <img
-            alt="Illustration"
-            className="self-right transluscent"
-            height="290"
-            loading="lazy"
-            src={allears}
-            style={{
-              height: "auto",
-              maxWidth: "480px",
-              minWidth: "380px",
-              width: "50vw",
-              position: "absolute",
-              bottom: "-12.55vw",
-              right: "0",
-            }}
-            width="240"
-          />
+          <div>
+            <img
+              alt="Illustration"
+              className="self-right transluscent"
+              height="290"
+              loading="lazy"
+              src={allears}
+              style={{
+                height: "auto",
+                maxWidth: "480px",
+                minWidth: "380px",
+                width: "50vw",
+                position: "absolute",
+                bottom: "-12.55vw",
+                right: "0",
+              }}
+              width="240"
+            />
+          </div>
         </section>
         <section className="alignable compensateT  tint3_b"></section>
       </Page>
