@@ -15,7 +15,7 @@ import HeroHome from "@fragments/HeroHome2";
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 // Images
-import avatar from "@images/portrait-drawing.webp";
+import avatar from "@images/portrait-photo.webp";
 import dragonSplit1 from "@images/dragon-split1.webp";
 import dragonSplit2 from "@images/dragon-split2.webp";
 // import Query from "../examples/Query";

@@ -27,7 +27,7 @@ import {
 } from "@fragments/Skills";
 // Images
 import dragon from "@images/heros/dragon.webp";
-import avatar from "@images/portrait-drawing.webp";
+import avatar from "@images/portrait-photo.webp";
 import metaimg from "@images/screenshots/meta-home.webp";
 import codazenimg from "@images/screenshots/codazen-home.webp";
 import laparksimg from "@images/screenshots/lacounty-parks-home.webp";
