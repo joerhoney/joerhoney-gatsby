@@ -222,35 +222,16 @@ const solutionsPage = () => {
               </Mailto>
             </Arrow>
           </article>
-          {/* <div style={{ position: "absolute", inset: "0" }}> */}
-          <div
-            style={{
-              height: "100%",
-              position: "absolute",
-              margin: "0 auto",
-              width: "100%",
-              maxWidth: "960px",
-            }}
-          >
+          <div className="wrapper-joe">
             <img
               alt="Illustration"
               className="self-right transluscent"
               height="290"
               loading="lazy"
               src={allears}
-              style={{
-                height: "auto",
-                maxWidth: "480px",
-                minWidth: "380px",
-                width: "50vw",
-                position: "absolute",
-                bottom: "-15%",
-                left: "0",
-              }}
               width="240"
             />
           </div>
-          {/* </div> */}
         </section>
         <section className="alignable compensateT  tint3_b"></section>
       </Page>

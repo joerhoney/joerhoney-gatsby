@@ -841,3 +841,25 @@ table.compare .compare-cta h4 {
     opacity: 0;
   }
 }
+
+// S P E C I A L
+
+.wrapper-joe {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  img {
+    position: absolute;
+    right: 0;
+    bottom: -16%;
+    width: 50vw;
+    min-width: 380px;
+    max-width: 480px;
+    height: auto;
+    @media (max-width: 960px) {
+      bottom: -12.4vw;
+    }
+  }
+}
