@@ -2,18 +2,32 @@
   <head>
     <title>Code Library | :joe rhoney</title>
     <style>
+      body {
+        font-family: "Helvetica Neue", Helvetica, "Century Gothic", Arial,
+          sans-serif;
+      }
       a[target="_blank"]::after {
-        border: 0.14em solid currentColor;
-        border-radius: 0.3em;
-        content: "\2197";
-        font-family: monospace;
-        font-size: 0.75em;
-        font-weight: bold;
-        letter-spacing: 0.25em;
-        margin-left: 0.3em;
-        padding-left: 0.18em;
-        text-decoration: none;
         vertical-align: middle;
+        margin-left: 0.3em;
+        border: 0.15em solid currentColor;
+        border-radius: 0.3em;
+        padding-left: 0.18em;
+        content: "\2197";
+        font-weight: bold;
+        font-size: 0.75em;
+        font-family: monospace;
+        letter-spacing: 0.25em;
+        text-decoration: none;
+      }
+      h4 {
+        margin-top: 2em;
+        margin-bottom: 0;
+        font-size: 2em;
+      }
+      h5 {
+        margin-top: 2em;
+        margin-bottom: 0;
+        font-size: 1.5em;
       }
     </style>
   </head>
@@ -22,17 +36,6 @@
       <p>
         This is my temporary (unorganized, out-dated) code library location.
       </p>
-      <p>Add html5shiv in WordPress theme without browser sniffing:</p>
-      <p>
-        <code
-          >&lt;script type="text/javascript"&gt;<br />
-          document.createElement('canvas').getContext ||
-          document.write('&lt;script src="&lt;?php echo
-          get_template_directory_uri();
-          ?&gt;/js/html5shiv.js"&gt;&lt;\/script&gt;');<br />
-          &lt;/script&gt;</code
-        >
-      </p>
       <h4>HTML Character Codes</h4>
       <h5>Common</h5>
       <p>
@@ -40,7 +43,7 @@
           href="https://www.toptal.com/designers/htmlarrows/"
           target="_blank"
           rel="noopener noreferrer"
-          >Go here</a
+          >Common Symbols</a
         >
       </p>
       <p>
@@ -155,6 +158,8 @@
         ><br />
         <code>"Myriad Pro","Myriad","Segoe UI",Segoe,sans-serif</code>
       </p>
+      <h4>Video</h4>
+      <code>blob &roarr; m3u8 &roarr; VLC</code>
       <h4>WordPress Admin UI Color Classes</h4>
       <div style="padding: 1rem; border: 1px solid #eee">
         <p>wp-ui-core (wrapper, required)</p>
@@ -209,17 +214,8 @@
         >&nbsp;<code>&lt;body&gt;</code>&nbsp;(other
         content…)&nbsp;here&nbsp;<code>&lt;/body&gt;</code>
       </p>
-      <h4>Rad CSS stuff to try out</h4>
-      <p><code>currentColor</code> (color unit)</p>
-      <p>
-        <strong
-          ><a
-            href="http://keithclark.co.uk/articles/pure-css-parallax-websites/demo3/"
-            >CSS Parallax</a
-          ></strong
-        >
-      </p>
-      <h3>Useful Command lines</h3>
+
+      <h4>Useful Commands</h4>
       <p>
         <strong>Clear cache on your local system:</strong>
         <code>sudo dscacheutil -flushchache</code>
@@ -228,10 +224,6 @@
         <strong>Check what IP address a domain name is resolving to:</strong>
         <code>ping domain.name</code>
       </p>
-      <h3>Commands to remember</h3>
-      <pre>
-          $ babel &lt;source-file&gt; --out-file=&lt;public-file&gt; --presets=env,react --watch
-      </pre>
       <p>
         <a href="https://stackoverflow.com/users/1383937/joe-rhoney"
           ><br />
