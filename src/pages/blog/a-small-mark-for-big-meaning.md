@@ -1,6 +1,6 @@
 ---
 published: 2026-04-08
-draft: true
+draft: false
 title: A Small Mark for Big Meaning
 description: Using a single symbol to mark CSS variant classes.
 featimg: a-small-mark-for-big-meaning.webp
@@ -61,28 +61,33 @@ I considered a handful of single characters. Brief pros/cons:
 
 Why `%`? It's uncommon in class names (so less chance of accidental overlap), easy to escape in selectors, visually stands out in markup, and communicates "special modifier" without pretending to be a full class by itself.
 
-Example workflow:
+#### Example workflow:
 
-- In markup:
-  - <div class="card %pink %rounded"></div>
-- In CSS:
-  - Use escaped selector syntax:
-    - ```css
-      .card.\%pink {
-        background: hotpink;
-      }
-      .card.\%rounded {
-        border-radius: 8px;
-      }
-      ```
-  - Alternatively, combine in the Dom-aware rule:
-    - ```css
-      .card.\%pink.\%rounded {
-        /* both modifiers present */
-      }
-      ```
+**In markup:**
+`<div class="card %pink %rounded"></div>`
 
-Rules I follow when using modifiers this way:
+**In CSS:**
+
+- Use escaped selector syntax:
+
+```css
+.card.\%pink {
+  background: hotpink;
+}
+.card.\%rounded {
+  border-radius: 8px;
+}
+```
+
+- Alternatively, combine in the Dom-aware rule:
+
+```css
+.card.\%pink.\%rounded {
+  /* both modifiers present */
+}
+```
+
+#### Rules I follow when using modifiers this way:
 
 - A modifier class never applies meaningful styles by itself. It only adds to a base class (or set of base classes).
 - Keep modifiers short and focused: `%pink`, `%rounded`, `%sm`.
