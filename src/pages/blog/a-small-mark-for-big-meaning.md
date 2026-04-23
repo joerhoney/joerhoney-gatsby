@@ -11,11 +11,11 @@ featalt: AI generated techy art featuring the percent symbol.
 
 I got tired of writing things like:
 
-```css
-.card.card__pink.card__rounded
+```html
+<div class="card card__pink card__rounded card__compact card__accents">...</div>
 ```
 
-…and then realizing I'd basically declared the same thing three times while my stylesheet silently judged me. BEM has its merits, but the redundancy and verbosity got old. So I asked: what if we had a single-character convention to mark "this class is a variant" — a modifier that does nothing alone and only makes sense attached to a base class?
+…and then realizing I'd basically declared the same thing three times while my stylesheet silently judged me. Worse yet, the overloaded attributes. I mean, you might as well use Tailwind. BEM has its merits, but the redundancy and verbosity got old. So I asked: what if we had a single-character convention to mark "this class is a variant" — a modifier that does nothing alone and only makes sense attached to a base class?
 
 Here's the research, the trade-offs, and my pick — with a dash of snark.
 
