@@ -1,0 +1,689 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clamp() Slope Calculator</title>
+  </head>
+  <body>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --color-text-primary: light-dark(black, white);
+        --color-text-secondary: light-dark(black, white);
+        --color-border-primary: light-dark(black, white);
+        --color-border-secondary: light-dark(black, white);
+        --color-border-tertiary: light-dark(black, white);
+        --color-border-danger: #ef4444;
+        --color-text-danger: #ef4444;
+        --color-background-secondary: light-dark(white, black);
+        --color-background-tertiary: light-dark(white, black);
+        --border-radius-md: 8px;
+        font: 400 1rem/1.5 monospace;
+      }
+      body {
+        background-image: linear-gradient(
+          70deg,
+          #121f26 30%,
+          #302a3f 80%,
+          #692938
+        );
+        color: --color-text-primary;
+        font: 400 1rem/1.5 monospace;
+      }
+      h4 {
+        font-weight: 700;
+        font-size: 1rem;
+      }
+      .app {
+        margin: auto;
+        padding: 1rem;
+        max-width: 840px;
+      }
+      .tiles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .tiles > * {
+        flex: 1 1 100%;
+        margin-bottom: 1rem;
+        min-width: 0%;
+      }
+      .toggle-sibs {
+        text-indent: -99999px;
+      }
+      .toggle-sibs + label {
+      }
+      .toggle-sibs + label + * + * {
+        display: none;
+      }
+      .toggle-sibs:checked + label + * {
+        display: none;
+      }
+      .toggle-sibs:checked + label + * + * {
+        display: block;
+      }
+      .sr-only {
+        position: absolute;
+        margin: -1px;
+        padding: 0;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+      }
+      /* Claude's CSS: */
+      .field-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .field label {
+        color: var(--color-text-secondary);
+      }
+      .rem-base-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 1.5rem;
+        color: var(--color-text-secondary);
+      }
+      .rem-base-row input {
+        width: 52px;
+        text-align: center;
+      }
+      .toggle-field {
+        display: flex;
+      }
+      .toggle-field input[type="number"] {
+        /* flex: 1; */
+        border-radius: var(--border-radius-md) 0 0 var(--border-radius-md) !important;
+        min-width: 0;
+      }
+      .unit-switch {
+        display: flex;
+        border: 0.5px solid var(--color-border-secondary);
+        border-left: none;
+        border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+        overflow: hidden;
+      }
+      .unit-switch button {
+        transition:
+          background 0.15s,
+          color 0.15s;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+        padding: 0 10px;
+        height: 36px;
+        color: var(--color-text-secondary);
+        white-space: nowrap;
+      }
+      .unit-switch button.active {
+        background: var(--color-background-tertiary);
+        color: var(--color-text-primary);
+        font-weight: 500;
+      }
+      .unit-switch button:first-child {
+        border-right: 0.5px solid var(--color-border-secondary);
+      }
+      .metric-label {
+        margin-bottom: 4px;
+        color: var(--color-text-secondary);
+      }
+      .output-block {
+        margin-bottom: 12px;
+        border-radius: var(--border-radius-md);
+        background: var(--color-background-secondary);
+        padding: 14px 16px;
+      }
+      .output-label {
+        margin-bottom: 8px;
+        color: var(--color-text-secondary);
+      }
+      .copy-btn {
+        cursor: pointer;
+        margin-top: 12px;
+        padding: 6px 14px;
+        width: 100%;
+      }
+      .notice {
+        display: none;
+        margin-bottom: 10px;
+        border-radius: var(--border-radius-md);
+        background: var(--color-background-warning);
+        padding: 10px 16px;
+        color: var(--color-text-warning);
+      }
+      .section-title {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: var(--color-text-secondary);
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .graph-wrap {
+        width: 100%;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      .graph-svg {
+        display: block;
+        width: 100%;
+        overflow: visible;
+        color: var(--color-text-secondary);
+      }
+      .drag-hint {
+        opacity: 0.7;
+        margin-top: 6px;
+        color: var(--color-text-secondary);
+        text-align: center;
+      }
+
+      /* Validation states */
+      .invalid-min-max #f-min,
+      .invalid-min-max #f-max {
+        border-color: var(--color-border-danger) !important;
+        color: var(--color-text-danger);
+      }
+      .invalid-min-max .min-unit-switch,
+      .invalid-min-max .max-unit-switch {
+        border-color: var(--color-border-danger) !important;
+      }
+      .invalid-min-max .notice-minmax {
+        display: block;
+      }
+
+      .invalid-breakpoints #bp-min,
+      .invalid-breakpoints #bp-max {
+        border-color: var(--color-border-danger) !important;
+        color: var(--color-text-danger);
+      }
+      .invalid-breakpoints .notice-bp {
+        display: block;
+      }
+    </style>
+
+    <div id="app" class="app">
+      <div class="tiles">
+        <section style="flex-basis: 20rem">
+          <h4 class="section-title">Input values</h4>
+
+          <div class="tiles">
+            <div class="field" style="flex-basis: 10rem">
+              <label>Minimum size</label>
+              <div class="toggle-field">
+                <input
+                  type="number"
+                  id="f-min"
+                  value="1"
+                  step="any"
+                  oninput="calc()"
+                />
+                <div class="toggle-switch">
+                  <button class="active" onclick="setUnit('min', 'rem', this)">
+                    rem
+                  </button>
+                  <button onclick="setUnit('min', 'px', this)">px</button>
+                </div>
+              </div>
+            </div>
+            <div class="field" style="flex-basis: 10rem">
+              <label>Maximum size</label>
+              <div class="toggle-field">
+                <input
+                  type="number"
+                  id="f-max"
+                  value="1.25"
+                  step="any"
+                  oninput="calc()"
+                />
+                <div class="toggle-switch">
+                  <button class="active" onclick="setUnit('max', 'rem', this)">
+                    rem
+                  </button>
+                  <button onclick="setUnit('max', 'px', this)">px</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tiles">
+            <div class="field" style="flex-basis: 10rem">
+              <label for="bp-min">Lower breakpoint (px)</label>
+              <input
+                type="number"
+                id="bp-min"
+                value="768"
+                min="1"
+                oninput="calc()"
+              />
+            </div>
+            <div class="field" style="flex-basis: 10rem">
+              <label for="bp-max">Upper breakpoint (px)</label>
+              <input
+                type="number"
+                id="bp-max"
+                value="1200"
+                min="1"
+                oninput="calc()"
+              />
+            </div>
+          </div>
+
+          <div class="rem-base-row" style="flex-basis: 10rem">
+            <span>rem =</span>
+            <input
+              type="number"
+              id="rem-base"
+              value="16"
+              min="1"
+              step="any"
+              oninput="calc()"
+            />
+            <span>px</span>
+          </div>
+
+          <div class="notice notice-minmax">
+            Min size must be less than max size.
+          </div>
+          <div class="notice notice-bp">
+            Lower breakpoint must be less than upper breakpoint.
+          </div>
+        </section>
+
+        <section style="flex-basis: 20rem">
+          <h4 class="section-title">Results</h4>
+
+          <div class="tiles">
+            <div class="metric" style="flex-basis: 10rem">
+              <div class="metric-label">Slope (vw multiplier)</div>
+              <div class="metric-value" id="out-slope">—</div>
+            </div>
+            <div class="metric" style="flex-basis: 10rem">
+              <div class="metric-label">Intercept (offset)</div>
+              <div class="metric-value" id="out-intercept">—</div>
+            </div>
+            <div class="metric" style="flex-basis: 10rem">
+              <div class="output-label">Preferred value</div>
+              <div class="output-value" id="out-preferred">—</div>
+            </div>
+          </div>
+
+          <input type="checkbox" id="clamp-slope-legacy" class="toggle-sibs" />
+          <label
+            for="clamp-slope-legacy"
+            data-false="clamp()"
+            data-true="max(min())"
+          >
+            Support legacy browsers
+          </label>
+
+          <div class="output-block">
+            <div class="sr-only">clamp() — modern browsers</div>
+            <div class="output-value" id="out-clamp">—</div>
+            <button class="copy-btn" onclick="copyOutput('out-clamp', this)">
+              Copy
+            </button>
+          </div>
+
+          <div class="output-block">
+            <div class="sr-only">max(min()) — broader support</div>
+            <div class="output-value" id="out-full">—</div>
+            <button class="copy-btn" onclick="copyOutput('out-full', this)">
+              Copy
+            </button>
+          </div>
+        </section>
+      </div>
+      <section>
+        <h4 class="section-title">Scale visualisation</h4>
+
+        <div class="graph-wrap">
+          <svg
+            id="graph"
+            class="graph-svg"
+            viewBox="0 0 560 220"
+            xmlns="http://www.w3.org/2000/svg"
+          ></svg>
+          <p class="drag-hint">Drag handles to adjust values</p>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const units = { min: "rem", max: "rem" };
+      const PAD = { l: 52, r: 24, t: 20, b: 36 };
+      const W = 560,
+        H = 220;
+      const GW = W - PAD.l - PAD.r;
+      const GH = H - PAD.t - PAD.b;
+
+      const dark = () => matchMedia("(prefers-color-scheme: dark)").matches;
+      const C = {
+        line: () => (dark() ? "#7F77DD" : "#534AB7"),
+        flat: () =>
+          dark() ? "rgba(127,119,221,0.35)" : "rgba(83,74,183,0.25)",
+        grid: () => (dark() ? "rgba(255,255,255,0.07)" : "rgba(0,0,0,0.07)"),
+        handle: () => "#fff",
+        hbord: () => (dark() ? "#7F77DD" : "#534AB7"),
+        zone: () =>
+          dark() ? "rgba(127,119,221,0.08)" : "rgba(83,74,183,0.06)",
+        axisLine: () =>
+          dark() ? "rgba(255,255,255,0.12)" : "rgba(0,0,0,0.12)",
+      };
+
+      function remBase() {
+        const v = parseFloat(document.getElementById("rem-base").value);
+        return isNaN(v) || v <= 0 ? 16 : v;
+      }
+      function toPx(val, unit) {
+        return unit === "rem" ? val * remBase() : val;
+      }
+      function fromPx(px, unit) {
+        return unit === "rem" ? px / remBase() : px;
+      }
+      function round(n, d) {
+        const f = Math.pow(10, d);
+        return Math.round(n * f) / f;
+      }
+      function fmt(pxVal, unit) {
+        return round(fromPx(pxVal, unit), 4) + unit;
+      }
+
+      function setUnit(field, newUnit, btn) {
+        const oldUnit = units[field];
+        if (oldUnit === newUnit) return;
+        const input = document.getElementById("f-" + field);
+        const val = parseFloat(input.value);
+        if (!isNaN(val))
+          input.value = round(fromPx(toPx(val, oldUnit), newUnit), 4);
+        units[field] = newUnit;
+        btn.parentElement
+          .querySelectorAll("button")
+          .forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+        calc();
+      }
+
+      function getVals() {
+        return {
+          minVal: parseFloat(document.getElementById("f-min").value),
+          maxVal: parseFloat(document.getElementById("f-max").value),
+          bpMin: parseFloat(document.getElementById("bp-min").value),
+          bpMax: parseFloat(document.getElementById("bp-max").value),
+        };
+      }
+
+      function setField(id, val, decimals = 4) {
+        document.getElementById(id).value = round(val, decimals);
+      }
+
+      function calc() {
+        const { minVal, maxVal, bpMin, bpMax } = getVals();
+        const app = document.getElementById("app");
+
+        const minPx = toPx(minVal, units.min);
+        const maxPx = toPx(maxVal, units.max);
+
+        const badSizes = !isNaN(minPx) && !isNaN(maxPx) && minPx >= maxPx;
+        const badBps = !isNaN(bpMin) && !isNaN(bpMax) && bpMin >= bpMax;
+
+        app.classList.toggle("invalid-min-max", badSizes);
+        app.classList.toggle("invalid-breakpoints", badBps);
+
+        if (badSizes || badBps || [minVal, maxVal, bpMin, bpMax].some(isNaN)) {
+          clearOutputs();
+          document.getElementById("graph").innerHTML = "";
+          return;
+        }
+
+        const slope = (maxPx - minPx) / (bpMax - bpMin);
+        const slopeVw = round(slope * 100, 4);
+        const interceptPx = minPx - slope * bpMin;
+        const slopeStr = slopeVw + "vw";
+        const interceptStr = fmt(interceptPx, units.min);
+        const preferredStr = slopeStr + " + " + interceptStr;
+        const minStr = minVal + units.min;
+        const maxStr = maxVal + units.max;
+
+        document.getElementById("out-slope").textContent = slopeStr;
+        document.getElementById("out-intercept").textContent = interceptStr;
+        document.getElementById("out-preferred").textContent = preferredStr;
+        document.getElementById("out-clamp").textContent =
+          `clamp(${minStr}, ${preferredStr}, ${maxStr})`;
+        document.getElementById("out-full").textContent =
+          `max(${minStr}, min(${preferredStr}, ${maxStr}))`;
+
+        drawGraph(minPx, maxPx, bpMin, bpMax, slope, interceptPx);
+      }
+
+      function drawGraph(minPx, maxPx, bpMin, bpMax, slope, interceptPx) {
+        const svg = document.getElementById("graph");
+        const pad = (bpMax - bpMin) * 0.4;
+        const xMin = Math.max(0, bpMin - pad);
+        const xMax = bpMax + pad;
+        const yPad = (maxPx - minPx) * 0.4 || maxPx * 0.2;
+        const yMin = minPx - yPad;
+        const yMax = maxPx + yPad;
+
+        const sx = (v) => PAD.l + ((v - xMin) / (xMax - xMin)) * GW;
+        const sy = (v) => PAD.t + (1 - (v - yMin) / (yMax - yMin)) * GH;
+        const clampedY = (vw) =>
+          Math.min(maxPx, Math.max(minPx, slope * vw + interceptPx));
+
+        const xBpMin = sx(bpMin),
+          xBpMax = sx(bpMax);
+        const yMinPx = sy(minPx),
+          yMaxPx = sy(maxPx);
+
+        const xTicks = niceTicks(xMin, xMax, 5);
+        const yTicks = niceTicksY(yMin, yMax, 4, units.min, remBase());
+
+        let html = "";
+
+        html += `<rect x="${PAD.l}" y="${PAD.t}" width="${GW}" height="${GH}" fill="${C.zone()}" rx="3"/>`;
+
+        xTicks.forEach((v) => {
+          const x = sx(v);
+          if (x < PAD.l - 1 || x > PAD.l + GW + 1) return;
+          html += `<line x1="${x}" y1="${PAD.t}" x2="${x}" y2="${PAD.t + GH}" stroke="${C.grid()}" stroke-width="1"/>`;
+          html += `<text x="${x}" y="${PAD.t + GH + 14}" text-anchor="middle" font-size="10" fill="currentColor" font-family="var(--font-mono)">${Math.round(v)}</text>`;
+        });
+
+        yTicks.forEach(({ px, label }) => {
+          const y = sy(px);
+          if (y < PAD.t - 1 || y > PAD.t + GH + 1) return;
+          html += `<line x1="${PAD.l}" y1="${y}" x2="${PAD.l + GW}" y2="${y}" stroke="${C.grid()}" stroke-width="1"/>`;
+          html += `<text x="${PAD.l - 6}" y="${y + 4}" text-anchor="end" font-size="10" fill="currentColor" font-family="var(--font-mono)">${label}</text>`;
+        });
+
+        html += `<line x1="${PAD.l}" y1="${PAD.t}" x2="${PAD.l}" y2="${PAD.t + GH}" stroke="${C.axisLine()}" stroke-width="0.5"/>`;
+        html += `<line x1="${PAD.l}" y1="${PAD.t + GH}" x2="${PAD.l + GW}" y2="${PAD.t + GH}" stroke="${C.axisLine()}" stroke-width="0.5"/>`;
+
+        html += `<line x1="${PAD.l}" y1="${yMinPx}" x2="${xBpMin}" y2="${yMinPx}" stroke="${C.flat()}" stroke-width="2" stroke-dasharray="4 3"/>`;
+        html += `<line x1="${xBpMax}" y1="${yMaxPx}" x2="${PAD.l + GW}" y2="${yMaxPx}" stroke="${C.flat()}" stroke-width="2" stroke-dasharray="4 3"/>`;
+
+        const pts = [];
+        for (let i = 0; i <= 60; i++) {
+          const vw = xMin + (xMax - xMin) * (i / 60);
+          if (vw >= bpMin && vw <= bpMax)
+            pts.push(`${sx(vw)},${sy(clampedY(vw))}`);
+        }
+        html += `<polyline points="${pts.join(" ")}" fill="none" stroke="${C.line()}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;
+
+        html += `<line x1="${xBpMin}" y1="${PAD.t}" x2="${xBpMin}" y2="${PAD.t + GH}" stroke="${C.line()}" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.5"/>`;
+        html += `<line x1="${xBpMax}" y1="${PAD.t}" x2="${xBpMax}" y2="${PAD.t + GH}" stroke="${C.line()}" stroke-width="0.5" stroke-dasharray="3 3" opacity="0.5"/>`;
+
+        const HR = 6;
+        html += `<circle id="h-min"   cx="${xBpMin}" cy="${yMinPx}"   r="${HR}" fill="${C.handle()}" stroke="${C.hbord()}" stroke-width="2" class="handle handle-ns"/>`;
+        html += `<circle id="h-max"   cx="${xBpMax}" cy="${yMaxPx}"   r="${HR}" fill="${C.handle()}" stroke="${C.hbord()}" stroke-width="2" class="handle handle-ns"/>`;
+        html += `<circle id="h-bpmin" cx="${xBpMin}" cy="${PAD.t + GH}" r="${HR}" fill="${C.handle()}" stroke="${C.hbord()}" stroke-width="2" class="handle handle-ew"/>`;
+        html += `<circle id="h-bpmax" cx="${xBpMax}" cy="${PAD.t + GH}" r="${HR}" fill="${C.handle()}" stroke="${C.hbord()}" stroke-width="2" class="handle handle-ew"/>`;
+
+        svg.innerHTML = html;
+        attachDrag(
+          svg,
+          sx,
+          sy,
+          xMin,
+          xMax,
+          yMin,
+          yMax,
+          minPx,
+          maxPx,
+          bpMin,
+          bpMax,
+        );
+      }
+
+      function niceTicks(min, max, count) {
+        const range = max - min;
+        const step = Math.pow(10, Math.floor(Math.log10(range / count)));
+        const nice =
+          [1, 2, 5, 10]
+            .map((m) => m * step)
+            .find((s) => range / s <= count * 1.5) || step;
+        const start = Math.ceil(min / nice) * nice;
+        const ticks = [];
+        for (let v = start; v <= max + nice * 0.01; v += nice)
+          ticks.push(Math.round(v * 1000) / 1000);
+        return ticks;
+      }
+
+      function niceTicksY(minPx, maxPx, count, unit, base) {
+        return niceTicks(minPx, maxPx, count).map((px) => ({
+          px,
+          label:
+            unit === "rem"
+              ? round(px / base, 2) + "rem"
+              : Math.round(px) + "px",
+        }));
+      }
+
+      function attachDrag(
+        svg,
+        sx,
+        sy,
+        xMin,
+        xMax,
+        yMin,
+        yMax,
+        minPx,
+        maxPx,
+        bpMin,
+        bpMax,
+      ) {
+        let dragging = null;
+
+        function svgPoint(e) {
+          const rect = svg.getBoundingClientRect();
+          const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+          const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+          return {
+            x: (clientX - rect.left) * (W / rect.width),
+            y: (clientY - rect.top) * (H / rect.height),
+          };
+        }
+
+        function xToVw(x) {
+          return xMin + ((x - PAD.l) / GW) * (xMax - xMin);
+        }
+        function yToPx(y) {
+          return yMin + (1 - (y - PAD.t) / GH) * (yMax - yMin);
+        }
+
+        function startDrag(id, e) {
+          e.preventDefault();
+          dragging = id;
+        }
+
+        ["h-min", "h-max", "h-bpmin", "h-bpmax"].forEach((id) => {
+          const el = svg.querySelector("#" + id);
+          if (!el) return;
+          el.addEventListener("mousedown", (e) => startDrag(id, e));
+          el.addEventListener("touchstart", (e) => startDrag(id, e), {
+            passive: false,
+          });
+        });
+
+        function onMove(e) {
+          if (!dragging) return;
+          e.preventDefault();
+          const pt = svgPoint(e);
+          const { minVal, maxVal, bpMin: bpMinC, bpMax: bpMaxC } = getVals();
+
+          if (dragging === "h-min") {
+            const newPx = Math.max(
+              0.1,
+              Math.min(toPx(maxVal, units.max) - 0.1, yToPx(pt.y)),
+            );
+            setField("f-min", fromPx(newPx, units.min));
+          } else if (dragging === "h-max") {
+            const newPx = Math.max(toPx(minVal, units.min) + 0.1, yToPx(pt.y));
+            setField("f-max", fromPx(newPx, units.max));
+          } else if (dragging === "h-bpmin") {
+            const newVw = Math.max(1, Math.min(bpMaxC - 1, xToVw(pt.x)));
+            setField("bp-min", newVw, 0);
+          } else if (dragging === "h-bpmax") {
+            const newVw = Math.max(bpMinC + 1, xToVw(pt.x));
+            setField("bp-max", newVw, 0);
+          }
+          calc();
+        }
+
+        function onEnd() {
+          dragging = null;
+        }
+
+        window.addEventListener("mousemove", onMove);
+        window.addEventListener("mouseup", onEnd);
+        window.addEventListener("touchmove", onMove, { passive: false });
+        window.addEventListener("touchend", onEnd);
+      }
+
+      function clearOutputs() {
+        [
+          "out-slope",
+          "out-intercept",
+          "out-preferred",
+          "out-clamp",
+          "out-full",
+        ].forEach((id) => {
+          document.getElementById(id).textContent = "—";
+        });
+      }
+
+      function copyOutput(id, btn) {
+        const text = document.getElementById(id).textContent;
+        if (text === "—") return;
+        navigator.clipboard.writeText(text).then(() => {
+          btn.textContent = "Copied";
+          setTimeout(() => (btn.textContent = "Copy"), 1500);
+        });
+      }
+
+      calc();
+    </script>
+
+    <style>
+      .handle {
+        cursor: grab;
+      }
+      .handle-ns {
+        cursor: ns-resize;
+      }
+      .handle-ew {
+        cursor: ew-resize;
+      }
+    </style>
+  </body>
+</html>
