@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Clamp() Slope Calculator</title>
+    <title>Clamp(Slope) Calculator</title>
   </head>
   <body>
     <style>
@@ -305,17 +305,34 @@
 
           <div class="tiles">
             <div class="metric" style="flex-basis: 10rem">
-              <div class="metric-label">Slope (vw multiplier)</div>
-              <div class="metric-value" id="out-slope">—</div>
+              <!-- <div class="metric-label">Slope (vw multiplier)</div> -->
+              <span
+                class="metric-value"
+                id="out-slope"
+                title="Slope (vw multiplier)"
+              >
+                —
+              </span>
+              <!-- <div class="metric-label">Intercept (offset)</div> -->
+              <span> + </span>
+              <span
+                class="metric-value"
+                id="out-intercept"
+                title="Intercept (offset)"
+              >
+                —
+              </span>
             </div>
-            <div class="metric" style="flex-basis: 10rem">
-              <div class="metric-label">Intercept (offset)</div>
-              <div class="metric-value" id="out-intercept">—</div>
-            </div>
-            <div class="metric" style="flex-basis: 10rem">
+            <!-- <div class="metric" style="flex-basis: 5rem">
               <div class="output-label">Preferred value</div>
-              <div class="output-value" id="out-preferred">—</div>
-            </div>
+              <div
+                class="output-value"
+                id="out-preferred"
+                title="Preferred value"
+              >
+                —
+              </div>
+            </div> -->
           </div>
 
           <input type="checkbox" id="clamp-slope-legacy" class="toggle-sibs" />
@@ -457,7 +474,6 @@
 
         document.getElementById("out-slope").textContent = slopeStr;
         document.getElementById("out-intercept").textContent = interceptStr;
-        document.getElementById("out-preferred").textContent = preferredStr;
         document.getElementById("out-clamp").textContent =
           `clamp(${minStr}, ${preferredStr}, ${maxStr})`;
         document.getElementById("out-full").textContent =
@@ -651,15 +667,11 @@
       }
 
       function clearOutputs() {
-        [
-          "out-slope",
-          "out-intercept",
-          "out-preferred",
-          "out-clamp",
-          "out-full",
-        ].forEach((id) => {
-          document.getElementById(id).textContent = "—";
-        });
+        ["out-slope", "out-intercept", "out-clamp", "out-full"].forEach(
+          (id) => {
+            document.getElementById(id).textContent = "—";
+          },
+        );
       }
 
       function copyOutput(id, btn) {
