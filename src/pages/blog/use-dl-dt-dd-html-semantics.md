@@ -9,7 +9,7 @@ featalt: Semantic HTML illustration showing description list markup using dl, dt
 
 ## Because `<div>` Soup Isn't a Semantic Strategy
 
-Turns out I already knew about `<dl>`, `<dt>`, and `<dd>`. My brain just filed them under 'not my problem' for a few years. There, tucked between nostalgic thumbnails and memories of plugins I no longer remember, were `<dl>`, `<dt>`, and `<dd>`—the classic description-list trio. I thought: “Huh. That’s oddly specific.” I hadn’t used that gallery in years, let alone inspected it, and yet there it was, like a helpful librarian whispering, “Use me properly, mortal.”
+So there I was, down a rabbit hole in WordPress's old Media Gallery — nostalgic thumbnails, sitting inline with the prehistoric TinyMCE — when I spotted `<dl>`, `<dt>`, and `<dd>` hiding in the markup like they'd been there all along. They had been. Naturally. Turns out my brain had just filed them under 'not my problem' for a few years.
 
 If you’ve been using `<div>`s, `<span>`s, or frankly anything else you can slap a class on to fake a term–definition pair, this is your nudge. Here’s why you should stop faking it and start embracing the delightful semantics of description lists.
 
