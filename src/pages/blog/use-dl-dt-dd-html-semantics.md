@@ -2,7 +2,7 @@
 published: 2026-04-29
 draft: false
 title: The Case for <dl>, <dt>, and <dd>
-description: Stop faking term–definition markup with divs. Learn when and why to use <dl>, <dt>, and <dd> for cleaner, more accessible HTML.
+description: Stop faking term–definition markup with divs. Learn when and why to use &lt;dl&gt;, &lt;dt&gt;, and &lt;dd&gt; for cleaner, more accessible HTML.
 featimg: use-dl-dt-dd-html-semantics.webp
 featalt: Semantic HTML illustration showing description list markup using dl, dt, and dd tags in a developer workspace scene.
 ---
