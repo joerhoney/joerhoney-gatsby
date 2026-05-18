@@ -296,6 +296,10 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
           <input type="number" id="iRH" placeholder="H" min="1" step="1">
           <button class="lk" id="lkR" aria-label="Lock ratio" style="margin-left:2px">🔓</button>
         </div>
+        <div class="ir" style="margin-top:.4rem">
+          <input type="number" id="iDec" placeholder="Decimal  e.g. 1.7778" min="0.0001" step="0.0001">
+          <span class="unit" style="min-width:40px">: 1</span>
+        </div>
       </div>
 
       <hr class="dl">
@@ -304,15 +308,8 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
         <div class="fl">Total Pixels</div>
         <div class="ir">
           <input type="number" id="iTx" placeholder="e.g. 2073600" min="1" step="1">
+          <button class="lk" id="lkTx" aria-label="Lock total pixels" style="margin-left:2px">🔓</button>
           <span class="unit">px²</span>
-        </div>
-      </div>
-
-      <div class="fg">
-        <div class="fl">Decimal Ratio</div>
-        <div class="ir">
-          <input type="number" id="iDec" placeholder="e.g. 1.7778" min="0.0001" step="0.0001">
-          <span class="unit" style="min-width:40px">: 1</span>
         </div>
       </div>
 
@@ -456,7 +453,7 @@ function putDec(el, v) {
 /* ══════════════════════════════════════════════════════════════
    STATE
 ══════════════════════════════════════════════════════════════ */
-const locked = { W: false, H: false, R: false };
+const locked = { W: false, H: false, R: false, Tx: false };
 let lastPx = 'W';   // which pixel dim was typed most recently
 let imgOn  = false;
 let _guard = false; // re-entrancy guard
@@ -465,27 +462,27 @@ let _guard = false; // re-entrancy guard
    LOCK LOGIC
 ══════════════════════════════════════════════════════════════ */
 function updateLockUI() {
-  const bothPxLocked = locked.W && locked.H; // should never be true, but guard anyway
-
-  ['W','H','R'].forEach(k => {
+  // W and H can't both be locked
+  ['W','H','R','Tx'].forEach(k => {
     const btn = g('lk'+k);
     const on  = locked[k];
     btn.textContent = on ? '🔒' : '🔓';
     btn.classList.toggle('on', on);
 
-    // Disable the OTHER pixel lock when one is already on
-    if (k === 'W') btn.disabled = (!on && locked.H); // can't lock W if H already locked
-    if (k === 'H') btn.disabled = (!on && locked.W); // can't lock H if W already locked
-    if (k === 'R') btn.disabled = false;
+    if (k === 'W')  btn.disabled = (!on && locked.H);
+    if (k === 'H')  btn.disabled = (!on && locked.W);
+    if (k === 'R')  btn.disabled = false;
+    if (k === 'Tx') btn.disabled = false;
 
-    // Disable associated inputs
-    if (k === 'W') g('iW').disabled = on;
-    if (k === 'H') g('iH').disabled = on;
-    if (k === 'R') { g('iRW').disabled = on; g('iRH').disabled = on; }
+    // Disable associated inputs while locked
+    if (k === 'W')  g('iW').disabled  = on;
+    if (k === 'H')  g('iH').disabled  = on;
+    if (k === 'R')  { g('iRW').disabled = on; g('iRH').disabled = on; g('iDec').disabled = on; }
+    if (k === 'Tx') g('iTx').disabled  = on;
   });
 }
 
-['W','H','R'].forEach(k => {
+['W','H','R','Tx'].forEach(k => {
   g('lk'+k).addEventListener('click', () => {
     locked[k] = !locked[k];
     updateLockUI();
@@ -647,6 +644,22 @@ function compute(src) {
 
   // For 'lock' and 'init', just fall through and re-derive display from current values
 
+  // If Tx is locked, override W/H from the locked pixel count + ratio
+  if (locked.Tx && src !== 'Tx') {
+    const tx = nv(g('iTx'));
+    const r  = ratio || (W && H ? W/H : null);
+    if (tx && r) {
+      if (locked.W && W) {
+        H = tx / W;
+      } else if (locked.H && H) {
+        W = tx / H;
+      } else {
+        W = Math.sqrt(tx * r);
+        H = Math.sqrt(tx / r);
+      }
+    }
+  }
+
   /* ── Write back derived fields ── */
 
   if (W && !locked.W)  put(g('iW'),  W,  src !== 'W');
@@ -660,7 +673,7 @@ function compute(src) {
       put(g('iRH'), sh, src !== 'R');
     }
     // Total pixels
-    if (src !== 'Tx') {
+    if (src !== 'Tx' && !locked.Tx) {
       const tx = Math.round(W) * Math.round(H);
       if (g('iTx').value !== String(tx)) {
         g('iTx').value = tx;
@@ -831,7 +844,7 @@ g('clearBtn').addEventListener('click', () => {
   [g('iW'),g('iH'),g('iRW'),g('iRH'),g('iTx'),g('iDec'),g('origW'),g('origH')]
     .forEach(el => { el.value=''; el.classList.remove('derived'); });
   // Reset locks
-  locked.W=false; locked.H=false; locked.R=false;
+  locked.W=false; locked.H=false; locked.R=false; locked.Tx=false;
   _guard = false;
   imgOn=false; lastPx='W';
   const pi=g('prevImg'); pi.src=''; pi.classList.remove('on');
