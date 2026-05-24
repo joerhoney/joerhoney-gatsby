@@ -16,14 +16,14 @@
   --text:    #1a1916;
   --muted:   #6b6860;
   --faint:   #9e9c97;
-  --accent:  #2a2520;
   --alight:  #e8e4dc;
   --gold:    #b8924a;
   --gold-bg: #f7f0e2;
   --danger:  #c04a35;
   --ok:      #2d7a4f;
+  --magenta: #c0288a;
   --blue:    #3a6ea8;
-  --blue-bg: #e8f0f9;
+  --blue-bg: #ddeaf7;
   --mono: ui-monospace,'Cascadia Code','SF Mono',Menlo,Consolas,monospace;
   --sans: system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --r:  6px;
@@ -39,7 +39,6 @@
     --text:    #f0ede6;
     --muted:   #9e9c97;
     --faint:   #6b6860;
-    --accent:  #e8e4dc;
     --alight:  #2a2824;
     --gold-bg: #2a2318;
     --blue-bg: #162030;
@@ -58,12 +57,32 @@ body {
 .page { max-width: 880px; margin: 0 auto; }
 
 header {
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
   padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--brd);
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
-header h1 { font-size: 1.7rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; margin-bottom: .2rem; }
-header p  { font-size: 13px; color: var(--muted); }
+header h1 { font-size: 1.7rem; font-weight: 600; letter-spacing: -.02em; line-height: 1.2; }
+header p  { font-size: 13px; color: var(--muted); margin-top: .15rem; }
+
+/* ── Rounding setting (in header) ── */
+.round-setting {
+  display: flex; align-items: center; gap: .5rem;
+  font-size: 12px; color: var(--muted); font-family: var(--mono);
+  flex-shrink: 0;
+}
+.round-setting label { white-space: nowrap; }
+.round-setting input[type="number"] {
+  width: 56px; height: 30px; padding: 0 .5rem;
+  font-size: 13px; flex: none;
+}
+.round-setting .round-hint {
+  font-size: 10.5px; color: var(--faint); white-space: nowrap;
+}
 
 .layout {
   display: grid;
@@ -83,102 +102,176 @@ header p  { font-size: 13px; color: var(--muted); }
 }
 .panel:last-child { margin-bottom: 0; }
 .ph {
-  padding: .55rem 1.25rem;
+  padding: .5rem 1.2rem;
   border-bottom: 1px solid var(--brd);
   font-size: 10.5px; font-weight: 600; letter-spacing: .08em;
   text-transform: uppercase; color: var(--muted); font-family: var(--mono);
   background: var(--sf2);
 }
-.pb { padding: 1.2rem 1.25rem; }
-
-.fg  { margin-bottom: 1.05rem; }
+.pb { padding: 1.15rem 1.2rem; }
+.fg { margin-bottom: 1rem; }
 .fg:last-child { margin-bottom: 0; }
-.fl  { font-size: 11.5px; font-weight: 500; color: var(--muted); margin-bottom: .35rem; }
+.fl {
+  font-size: 11.5px; font-weight: 500; color: var(--muted); margin-bottom: .3rem;
+  display: flex; align-items: center; justify-content: space-between;
+}
 .ir  { display: flex; gap: .4rem; align-items: center; }
 .sep { font-size: 15px; color: var(--faint); font-family: var(--mono); user-select: none; padding: 0 1px; }
 .unit{ font-size: 12px; color: var(--faint); font-family: var(--mono); flex-shrink: 0; }
 
+/* ── Number inputs ── */
 input[type="number"] {
   flex: 1; min-width: 0; height: 38px; padding: 0 .7rem;
   background: var(--sf2); border: 1px solid var(--brds);
   border-radius: var(--r); font-family: var(--mono); font-size: 14px;
-  color: var(--text); outline: none; transition: border-color .15s, background .15s;
+  color: var(--text); outline: none;
+  transition: border-color .15s, background .15s, box-shadow .15s;
   -moz-appearance: textfield;
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; }
-input[type="number"]:focus  { border-color: var(--gold); background: var(--gold-bg); }
-input[type="number"].derived { color: var(--gold); border-color: rgba(184,146,74,.4); }
-input[type="number"]:disabled {
-  opacity: .45; cursor: not-allowed;
-  background: var(--sf2) !important; border-color: var(--brd) !important;
+input[type="number"]:focus { border-color: var(--gold); background: var(--gold-bg); }
+input.is-anchor { box-shadow: 0 0 0 2px rgba(192,40,138,0.30); border-color: var(--magenta) !important; }
+input.is-locked {
+  background: var(--blue-bg) !important;
+  border-color: var(--blue) !important;
+  color: var(--blue) !important;
 }
+input.is-locked:focus { box-shadow: 0 0 0 2px rgba(58,110,168,0.25); }
+
+/* ── Exact value ghost ── */
+.field-wrap { position: relative; flex: 1; min-width: 0; }
+.field-wrap input[type="number"] { width: 100%; }
+.exact-val {
+  display: block;
+  font-size: 10px; font-family: var(--mono); color: var(--faint);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  max-width: 100%;
+  padding: 1px 2px;
+  line-height: 1.3;
+  min-height: 1em; /* always occupies space */
+}
+.exact-val.matched { color: transparent; } /* values match — can style later */
 
 /* ── Lock button ── */
 .lk {
-  width: 34px; height: 34px; flex-shrink: 0;
+  width: 22px; height: 22px; flex-shrink: 0;
   display: inline-flex; align-items: center; justify-content: center;
-  background: none; border: 1px solid var(--brds); border-radius: var(--r);
-  cursor: pointer; font-size: 15px; color: var(--faint);
-  transition: all .15s; user-select: none;
+  background: none; border: none; border-radius: var(--r);
+  cursor: pointer; font-size: 13px; color: var(--faint);
+  transition: all .15s; user-select: none; line-height: 1;
+  padding: 0;
 }
-.lk:hover:not(:disabled) { background: var(--alight); color: var(--text); }
-.lk.on  { background: var(--blue-bg); border-color: var(--blue); color: var(--blue); }
-.lk:disabled { opacity: .3; cursor: not-allowed; pointer-events: none; }
+.lk:hover { color: var(--text); }
+.lk.on { color: var(--blue); }
 
-/* ── Swap ── */
+/* ── Lock target badge ── */
+.lock-target {
+  font-size: 10.5px; font-family: var(--mono); color: var(--blue);
+  background: var(--blue-bg); border: 1px solid rgba(58,110,168,.25);
+  border-radius: 4px; padding: 1px 6px;
+  display: none; white-space: nowrap;
+}
+.lock-target.visible { display: inline-block; }
+
+/* ── Swap button ── */
 .swap-btn {
-  width: 34px; height: 34px; flex-shrink: 0;
+  width: 32px; height: 32px; flex-shrink: 0;
   display: inline-flex; align-items: center; justify-content: center;
   background: none; border: 1px solid var(--brds); border-radius: var(--r);
-  cursor: pointer; font-size: 15px; color: var(--muted);
-  transition: all .15s;
+  cursor: pointer; font-size: 16px; color: var(--muted); transition: all .15s;
+  font-family: var(--mono);
 }
-.swap-btn:hover { background: var(--alight); color: var(--text); }
+.swap-btn:hover:not(:disabled) { background: var(--alight); color: var(--text); }
+.swap-btn:disabled { opacity: .28; cursor: not-allowed; }
 
-hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
+hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1rem 0; }
+
+/* ── Anchor legend — compact info icon + tooltip ── */
+.anchor-info {
+  display: inline-flex; align-items: center; gap: .3rem;
+  margin-top: .3rem; font-size: 11px; color: var(--faint);
+  font-family: var(--mono);
+}
+.anchor-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+  background: var(--magenta); display: inline-block;
+}
+.info-icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 14px; height: 14px; border-radius: 50%;
+  border: 1px solid var(--faint); font-size: 9px; color: var(--faint);
+  cursor: default; font-style: italic; font-family: serif; line-height: 1;
+  position: relative;
+}
+.info-icon:hover .tooltip { display: block; }
+.tooltip {
+  display: none; position: absolute; left: 50%; bottom: calc(100% + 5px);
+  transform: translateX(-50%);
+  background: var(--accent); color: var(--bg);
+  font-size: 11px; font-family: var(--sans); font-style: normal;
+  white-space: nowrap; padding: .35rem .6rem; border-radius: var(--r);
+  pointer-events: none; z-index: 10; line-height: 1.4;
+}
+.tooltip::after {
+  content: ''; position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 4px solid transparent; border-top-color: var(--accent);
+}
+.ldot.green { background: var(--ok); }
+.ldot.blue  { background: var(--blue); }
 
 /* ── Presets ── */
-.presets { display: flex; flex-wrap: wrap; gap: .35rem; }
+.presets-wrap { transition: opacity .2s; }
+.presets-wrap.r-locked { opacity: .3; pointer-events: none; }
+.presets { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
+.presets-group-label {
+  font-size: 10px; font-family: var(--mono); color: var(--faint);
+  text-transform: uppercase; letter-spacing: .06em;
+  margin-right: .1rem; margin-top: .1rem;
+}
 .preset-btn {
   background: none; border: 1px solid var(--brds); border-radius: 999px;
   padding: .18rem .6rem; font-size: 11px; font-family: var(--mono);
   color: var(--muted); cursor: pointer; transition: all .12s;
 }
 .preset-btn:hover { background: var(--alight); color: var(--text); }
-.preset-btn.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+.preset-btn.active { background: #2a2520; color: #f4f2ed; border-color: #2a2520; }
+@media (prefers-color-scheme: dark) {
+  .preset-btn.active { background: #e8e4dc; color: #1a1916; border-color: #e8e4dc; }
+}
 
-/* ── Ratio strip (bottom of main panel) ── */
-.ratio-strip {
-  display: flex; align-items: center; gap: .65rem; flex-wrap: wrap;
-  background: var(--sf2); border: 1px solid var(--brd); border-radius: var(--r);
-  padding: .55rem .9rem; margin-top: 1.05rem;
+/* ── Preview image controls ── */
+.prev-controls {
+  padding: .6rem 1.2rem;
+  border-top: 1px solid var(--brd);
+  display: flex; flex-direction: column; gap: .55rem;
 }
-.rs-ratio { font-family: var(--mono); font-size: 20px; font-weight: 600; letter-spacing: -.02em; }
-.rs-tag {
-  font-size: 11px; font-weight: 600;
-  background: var(--gold-bg); color: var(--gold);
-  border: 1px solid rgba(184,146,74,.3);
-  padding: 2px 8px; border-radius: 999px; font-family: var(--mono);
+.ctrl-row { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.ctrl-label { font-size: 11px; color: var(--muted); font-family: var(--mono); min-width: 48px; }
+.fit-btns { display: flex; gap: .3rem; flex-wrap: wrap; }
+.fit-btn {
+  background: none; border: 1px solid var(--brds); border-radius: 999px;
+  padding: .15rem .55rem; font-size: 11px; font-family: var(--mono);
+  color: var(--muted); cursor: pointer; transition: all .12s;
 }
-.copy-btn {
-  margin-left: auto;
-  background: none; border: 1px solid var(--brds); border-radius: var(--r);
-  padding: .26rem .65rem; font-size: 11px; font-family: var(--mono);
-  color: var(--muted); cursor: pointer; transition: all .15s;
+.fit-btn:hover { background: var(--alight); color: var(--text); }
+.fit-btn.active { background: #2a2520; color: #f4f2ed; border-color: #2a2520; }
+@media (prefers-color-scheme: dark) { .fit-btn.active { background: #e8e4dc; color: #1a1916; } }
+.pos-inputs { display: flex; gap: .4rem; align-items: center; }
+.pos-inputs input[type="number"] {
+  width: 72px; flex: none; height: 30px; font-size: 13px; padding: 0 .5rem;
 }
-.copy-btn:hover  { background: var(--alight); color: var(--text); }
-.copy-btn.copied { color: var(--ok); border-color: var(--ok); }
+.pos-inputs .unit { font-size: 11px; }
+.pos-note { font-size: 10.5px; color: var(--faint); font-family: var(--mono); }
 
 /* ── Orig note ── */
-.orig-note { font-size: 12px; color: var(--muted); font-family: var(--mono); margin-top: .45rem; line-height: 1.55; min-height: 1em; }
-.orig-note .up   { color: #e07b30; }
-.orig-note .dn   { color: var(--ok); }
+.orig-note { font-size: 12px; color: var(--muted); font-family: var(--mono); margin-top: .4rem; line-height: 1.55; }
+.orig-note .up { color: #c07030; }
+.orig-note .dn { color: var(--ok); }
 
-/* ── Clear btn ── */
 .clear-btn {
   background: none; border: 1px solid var(--brds); border-radius: var(--r);
-  padding: .26rem .7rem; font-size: 11px; font-family: var(--mono);
+  padding: .24rem .65rem; font-size: 11px; font-family: var(--mono);
   color: var(--muted); cursor: pointer; margin-top: .5rem; transition: all .15s; display: none;
 }
 .clear-btn:hover { color: var(--danger); border-color: var(--danger); }
@@ -186,7 +279,7 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
 /* ── Preview ── */
 .preview-sticky { position: sticky; top: 1.5rem; }
 .prev-head {
-  padding: .55rem 1.25rem;
+  padding: .5rem 1.2rem;
   border: 1px solid var(--brd); border-bottom: none;
   border-radius: var(--rl) var(--rl) 0 0;
   font-size: 10.5px; font-weight: 600; letter-spacing: .08em;
@@ -194,10 +287,8 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
   background: var(--sf2);
 }
 .prev-wrap {
-  background: var(--surface);
-  border: 1px solid var(--brd);
-  border-radius: 0 0 var(--rl) var(--rl);
-  overflow: hidden;
+  background: var(--surface); border: 1px solid var(--brd);
+  border-radius: 0 0 var(--rl) var(--rl); overflow: hidden;
 }
 .prev-canvas {
   background:
@@ -209,9 +300,9 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
   background-position: 0 0,0 8px,8px -8px,-8px 0;
   background-color: var(--bg);
   display: flex; align-items: center; justify-content: center;
-  min-height: 240px; padding: 1.5rem;
+  /* Enough padding around the box so there's always drop area, but no min-height floor */
+  padding: 1.5rem;
   position: relative; cursor: pointer;
-  transition: outline .15s;
 }
 .prev-canvas.dragover { outline: 2.5px dashed var(--gold); outline-offset: -6px; background-color: var(--gold-bg); }
 .prev-canvas input[type="file"] {
@@ -221,110 +312,141 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
   position: relative; border: 1.5px solid var(--gold); border-radius: 3px;
   overflow: hidden; display: flex; align-items: center; justify-content: center;
   background: var(--surface); max-width: 100%;
-  transition: width .12s, height .12s;
-  pointer-events: none;
+  /* No min-width/height — size is set entirely by JS */
+  transition: width .12s, height .12s; pointer-events: none;
 }
 #pbox img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; display: none; }
 #pbox img.on { display: block; }
+/* pph must never add intrinsic size to the box — no padding, no min-height */
 .pph {
   font-family: var(--mono); font-size: 12px; color: var(--faint);
-  text-align: center; padding: .75rem; line-height: 1.6; pointer-events: none;
+  text-align: center; line-height: 1.6; pointer-events: none;
+  padding: 0; margin: 0; overflow: hidden;
+  /* Shown/hidden by JS; when shown it's absolutely positioned so it doesn't stretch the box */
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
 }
-.pdims {
-  position: absolute; bottom: 0; left: 0; right: 0;
-  background: rgba(0,0,0,.5); color: #fff;
-  font-family: var(--mono); font-size: 11px; text-align: center; padding: 3px; display: none;
-}
-.prev-footer {
-  padding: .6rem 1.25rem; border-top: 1px solid var(--brd);
-  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem;
-}
+.pdims { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,.5); color: #fff; font-family: var(--mono); font-size: 11px; text-align: center; padding: 3px; display: none; }
+.prev-footer { padding: .6rem 1.2rem; border-top: 1px solid var(--brd); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem; }
 .pf-ratio { font-family: var(--mono); font-size: 14px; font-weight: 600; }
+.pf-dims  { font-size: 12px; color: var(--muted); font-family: var(--mono); }
 .pf-info  { font-size: 12px; color: var(--muted); font-family: var(--mono); }
-.prev-hint {
-  font-size: 11.5px; color: var(--muted); font-family: var(--mono);
-  text-align: center; padding: .3rem 1.25rem .55rem;
-  border-top: 1px dashed var(--brd);
-}
-.scales-note {
-  font-size: 11.5px; color: var(--muted); font-family: var(--mono);
-  background: var(--gold-bg); border: 1px solid rgba(184,146,74,.2);
-  border-radius: var(--r); padding: .4rem .75rem;
-  margin-top: .75rem; display: none;
-}
+.prev-hint { font-size: 11.5px; color: var(--muted); font-family: var(--mono); text-align: center; padding: .3rem 1.2rem .5rem; border-top: 1px dashed var(--brd); }
+.scales-note { font-size: 11.5px; color: var(--muted); font-family: var(--mono); background: var(--gold-bg); border: 1px solid rgba(184,146,74,.2); border-radius: var(--r); padding: .4rem .75rem; margin-top: .75rem; display: none; }
 </style>
 </head>
 <body>
 <div class="page">
 
 <header>
-  <h1>Aspect Ratio Calculator</h1>
-  <p>All fields are live and fully connected. Lock any single field to pin it while others adjust. Drop an image onto the preview.</p>
+  <div>
+    <h1>Aspect Ratio Calculator</h1>
+    <p>Fields are independent by default. Soft-lock any field to create coupling.</p>
+  </div>
+  <div class="round-setting">
+    <label for="iRound">Decimal places</label>
+    <input type="number" id="iRound" value="0" min="-1" max="10" step="1" title="0 = round to nearest pixel, -1 = no rounding">
+    <span class="round-hint" id="roundHint">(nearest px)</span>
+  </div>
 </header>
 
 <div class="layout">
+<div><!-- left -->
 
-<!-- ── LEFT ── -->
-<div>
-
-  <!-- Dimensions & Ratio -->
   <div class="panel">
     <div class="ph">Dimensions &amp; Ratio</div>
     <div class="pb">
 
+      <!-- Width & Height -->
       <div class="fg">
-        <div class="fl">Width &amp; Height</div>
+        <div class="fl">
+          <span style="display:flex;align-items:center;gap:.35rem">
+            Width &amp; Height
+            <span class="lock-target" id="tgtWH"></span>
+          </span>
+        </div>
         <div class="ir">
-          <input type="number" id="iW" placeholder="Width"  min="1" step="1">
-          <button class="lk" id="lkW" aria-label="Lock width">🔓</button>
+          <div class="field-wrap">
+            <input type="number" id="iW" placeholder="Width" min="1" step="1">
+            <div class="exact-val" id="exW"></div>
+          </div>
+          <button class="lk" id="lkW" aria-label="Soft-lock width">🔓</button>
           <span class="unit">px</span>
           <span class="sep">×</span>
-          <input type="number" id="iH" placeholder="Height" min="1" step="1">
-          <button class="lk" id="lkH" aria-label="Lock height">🔓</button>
+          <div class="field-wrap">
+            <input type="number" id="iH" placeholder="Height" min="1" step="1">
+            <div class="exact-val" id="exH"></div>
+          </div>
+          <button class="lk" id="lkH" aria-label="Soft-lock height">🔓</button>
           <span class="unit">px</span>
-          <button class="swap-btn" id="swapBtn" title="Swap W ↔ H" aria-label="Swap width and height">⇄</button>
+          <button class="swap-btn" id="swapBtn" title="Swap W ↔ H">⇄</button>
+        </div>
+        <div class="anchor-info">
+          <span class="anchor-dot" id="anchorDot"></span>
+          <span id="anchorText">Width active</span>
+          <span class="info-icon">i
+            <span class="tooltip" id="anchorTip">The active (magenta-outlined) field is the anchor.<br>Presets &amp; ratio changes update the other dimension.<br>Click a field to make it the anchor. 🔒 = soft-locked.</span>
+          </span>
         </div>
       </div>
 
       <hr class="dl">
 
+      <!-- Aspect Ratio + Decimal + Presets -->
       <div class="fg">
-        <div class="fl">Aspect Ratio</div>
+        <div class="fl">
+          <span>Aspect Ratio &amp; Decimal</span>
+          <span style="display:flex;align-items:center;gap:.3rem">
+            <span class="lock-target" id="tgtR"></span>
+            <button class="lk" id="lkR" aria-label="Soft-lock ratio">🔓</button>
+          </span>
+        </div>
         <div class="ir">
-          <input type="number" id="iRW" placeholder="W" min="1" step="1">
+          <div class="field-wrap">
+            <input type="number" id="iRW" placeholder="W" min="0.001" step="1">
+            <div class="exact-val" id="exRW"></div>
+          </div>
           <span class="sep" style="font-size:13px">:</span>
-          <input type="number" id="iRH" placeholder="H" min="1" step="1">
-          <button class="lk" id="lkR" aria-label="Lock ratio" style="margin-left:2px">🔓</button>
+          <div class="field-wrap">
+            <input type="number" id="iRH" placeholder="H" min="0.001" step="1">
+            <div class="exact-val" id="exRH"></div>
+          </div>
         </div>
         <div class="ir" style="margin-top:.4rem">
-          <input type="number" id="iDec" placeholder="Decimal  e.g. 1.7778" min="0.0001" step="0.0001">
-          <span class="unit" style="min-width:40px">: 1</span>
+          <div class="field-wrap">
+            <input type="number" id="iDec" placeholder="Decimal  e.g. 1.7778" min="0.0001" step="0.0001">
+            <div class="exact-val" id="exDec"></div>
+          </div>
+          <span class="unit" style="min-width:38px">: 1</span>
         </div>
       </div>
 
-      <hr class="dl">
-
-      <div class="fg">
-        <div class="fl">Total Pixels</div>
-        <div class="ir">
-          <input type="number" id="iTx" placeholder="e.g. 2073600" min="1" step="1">
-          <button class="lk" id="lkTx" aria-label="Lock total pixels" style="margin-left:2px">🔓</button>
-          <span class="unit">px²</span>
-        </div>
-      </div>
-
-      <hr class="dl">
-
+      <!-- Common Presets (grouped with ratio) -->
       <div class="fg">
         <div class="fl">Common Presets</div>
-        <div class="presets" id="presets"></div>
+        <div class="presets-wrap" id="presetsWrap">
+          <div class="presets" id="presets"></div>
+        </div>
       </div>
 
-      <!-- simplified ratio strip + copy -->
-      <div class="ratio-strip" id="ratioStrip">
-        <span class="rs-ratio" id="rsRatio">— : —</span>
-        <span class="rs-tag"   id="rsTag"   style="display:none"></span>
-        <button class="copy-btn" id="copyBtn" onclick="copyRatio()">Copy</button>
+      <hr class="dl">
+
+      <!-- Total Pixels -->
+      <div class="fg">
+        <div class="fl">
+          <span>Total Pixels</span>
+          <span style="display:flex;align-items:center;gap:.3rem">
+            <span class="lock-target" id="tgtTx"></span>
+            <button class="lk" id="lkTx" aria-label="Soft-lock total pixels">🔓</button>
+          </span>
+        </div>
+        <div class="ir">
+          <div class="field-wrap">
+            <input type="number" id="iTx" placeholder="e.g. 2073600" min="1" step="1">
+            <div class="exact-val" id="exTx"></div>
+          </div>
+          <span class="unit">px²</span>
+        </div>
       </div>
 
     </div>
@@ -334,7 +456,7 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
   <div class="panel">
     <div class="ph">Original Dimensions</div>
     <div class="pb">
-      <p style="font-size:12px;color:var(--muted);margin-bottom:.85rem;">Set automatically when an image is loaded. Edit manually to compare against current dimensions.</p>
+      <p style="font-size:12px;color:var(--muted);margin-bottom:.8rem;">Captured automatically when an image is loaded. Edit manually to compare.</p>
       <div class="fg">
         <div class="fl">Original Width &amp; Height</div>
         <div class="ir">
@@ -352,22 +474,43 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
 
 </div><!-- /left -->
 
-<!-- ── RIGHT: Preview ── -->
+<!-- Preview -->
 <div class="preview-sticky">
   <div class="prev-head">Preview &amp; Image</div>
   <div class="prev-wrap">
     <div class="prev-canvas" id="prevCanvas">
       <input type="file" id="fileInput" accept="image/*" aria-label="Upload image">
-      <div id="pbox" style="width:180px;height:180px">
+      <div id="pbox">
         <img id="prevImg" alt="Preview">
         <div class="pph" id="pPh">Drop an image here<br>or click to browse</div>
-        <div class="pdims" id="pDims"></div>
       </div>
     </div>
     <div class="prev-hint" id="prevHint">click or drop an image to load it</div>
     <div class="prev-footer">
       <span class="pf-ratio" id="pfRatio">—</span>
+      <span class="pf-dims"  id="pfDims"></span>
       <span class="pf-info"  id="pfInfo"></span>
+    </div>
+    <div class="prev-controls">
+      <div class="ctrl-row">
+        <span class="ctrl-label">Fit</span>
+        <div class="fit-btns">
+          <button class="fit-btn active" data-fit="contain" title="Fit — whole image visible (contain)">Fit</button>
+          <button class="fit-btn" data-fit="cover"   title="Crop — fills box, crops edges (cover)">Crop</button>
+          <button class="fit-btn" data-fit="fill"    title="Stretch — distorts to fill exactly">Stretch</button>
+          <button class="fit-btn" data-fit="tile"    title="Tile — repeat the image (CSS repeat)">Tile</button>
+        </div>
+      </div>
+      <div class="ctrl-row" id="posRow">
+        <span class="ctrl-label">Position</span>
+        <div class="pos-inputs">
+          <input type="number" id="posX" value="50" step="1" title="Horizontal position (%)">
+          <span class="unit">%X</span>
+          <input type="number" id="posY" value="50" step="1" title="Vertical position (%)">
+          <span class="unit">%Y</span>
+        </div>
+        <span class="pos-note" id="posNote"></span>
+      </div>
     </div>
   </div>
   <div class="scales-note" id="scalesNote">↕ Preview scaled to fit — ratio is exact.</div>
@@ -377,21 +520,22 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1.05rem 0; }
 </div><!-- /page -->
 
 <script>
-/* ══════════════════════════════════════════════════════════════
+'use strict';
+
+/* ═══════════════════════════════════════════════
    HELPERS
-══════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════ */
 function gcd(a, b) {
   a = Math.abs(Math.round(a)); b = Math.abs(Math.round(b));
   if (!a || !b) return 1;
-  while (b) { let t = b; b = a % b; a = t; }
+  while (b) { const t = b; b = a % b; a = t; }
   return a || 1;
 }
 function simplify(w, h) {
   if (!w || !h) return [null, null];
   const g = gcd(w, h);
-  return [w / g, h / g];
+  return [Math.round(w/g), Math.round(h/g)];
 }
-
 const KNOWN = [
   {label:'Square',        w:1,   h:1   },
   {label:'Classic 4:3',   w:4,   h:3   },
@@ -408,17 +552,26 @@ const KNOWN = [
   {label:'Golden Ratio',  w:1618,h:1000},
 ];
 const PRESETS = [
-  {label:'1:1',  w:1,   h:1   },
-  {label:'4:3',  w:4,   h:3   },
-  {label:'3:2',  w:3,   h:2   },
-  {label:'16:9', w:16,  h:9   },
-  {label:'16:10',w:16,  h:10  },
-  {label:'21:9', w:21,  h:9   },
-  {label:'9:16', w:9,   h:16  },
-  {label:'2:3',  w:2,   h:3   },
-  {label:'φ',    w:1618,h:1000},
+  // Screen
+  {label:'1:1',        w:1,    h:1,    group:'screen'},
+  {label:'4:3',        w:4,    h:3,    group:'screen'},
+  {label:'3:2',        w:3,    h:2,    group:'screen'},
+  {label:'16:9',       w:16,   h:9,    group:'screen'},
+  {label:'16:10',      w:16,   h:10,   group:'screen'},
+  {label:'21:9',       w:21,   h:9,    group:'screen'},
+  {label:'9:16',       w:9,    h:16,   group:'screen'},
+  {label:'2:3',        w:2,    h:3,    group:'screen'},
+  {label:'φ',          w:1618, h:1000, group:'screen'},
+  // Print — Letter 8.5×11, Legal 8.5×14, Tabloid 11×17, A4 210×297, A3 297×420, A5 148×210
+  {label:'Letter',     w:85,   h:110,  group:'print'},
+  {label:'Letter ↑',   w:110,  h:85,   group:'print'},
+  {label:'Legal',      w:85,   h:140,  group:'print'},
+  {label:'Tabloid',    w:110,  h:170,  group:'print'},
+  {label:'A4',         w:210,  h:297,  group:'print'},
+  {label:'A4 ↑',       w:297,  h:210,  group:'print'},
+  {label:'A3',         w:297,  h:420,  group:'print'},
+  {label:'A5',         w:148,  h:210,  group:'print'},
 ];
-
 function knownLabel(w, h) {
   if (!w || !h) return null;
   const d = w / h;
@@ -426,412 +579,578 @@ function knownLabel(w, h) {
   return null;
 }
 
-function g(id) { return document.getElementById(id); }
+const $ = id => document.getElementById(id);
+function nv(inp) { const f = parseFloat(inp.value); return (isFinite(f) && f > 0) ? f : null; }
 
-function nv(el) {
-  const f = parseFloat(el.value);
-  return isFinite(f) && f > 0 ? f : null;
+/* ── Rounding ──────────────────────────────────
+   places: 0  = round to integer
+           1+ = fixed decimal places
+          -1  = no rounding (full JS precision)
+─────────────────────────────────────────────── */
+function roundPlaces() {
+  const v = parseInt($('iRound').value, 10);
+  return isNaN(v) ? 0 : Math.max(-1, Math.min(10, v));
 }
 
-// Write a computed value into a field only if it differs meaningfully
-function put(el, v, derived) {
-  if (v == null || !isFinite(v) || v <= 0) return;
-  const rounded = derived ? Math.round(v) : v;
-  const s = derived ? String(rounded) : String(+v.toFixed(6));
-  if (el.value !== s) el.value = s;
-  el.classList.toggle('derived', !!derived);
+// Round an exact value according to current setting
+function applyRound(exact) {
+  if (!isFinite(exact) || exact <= 0) return exact;
+  const p = roundPlaces();
+  if (p === -1) return exact;
+  if (p === 0)  return Math.round(exact);
+  return parseFloat(exact.toFixed(p));
 }
 
-function putDec(el, v) {
-  // decimal ratio: up to 6 sig figs, no trailing zeros
-  if (v == null || !isFinite(v) || v <= 0) return;
-  const s = parseFloat(v.toFixed(6)).toString();
-  if (el.value !== s) el.value = s;
-  el.classList.add('derived');
+// Format a number for display in an editable field
+function fmtField(exact) {
+  const p = roundPlaces();
+  if (p === -1) return parseFloat(exact.toFixed(15)).toString();
+  if (p === 0)  return String(Math.round(exact));
+  return parseFloat(exact.toFixed(p)).toString();
 }
 
-/* ══════════════════════════════════════════════════════════════
+// Format the exact ghost — always full precision (capped at 10 dp)
+function fmtExact(exact) {
+  return parseFloat(exact.toFixed(10)).toString();
+}
+
+// Write a computed value to a field + update its ghost
+// exact   = the unrounded JS value
+// src     = the current compute source (don't overwrite if user is editing this field)
+// fieldSrc = the src string(s) that correspond to this field being edited
+function writeField(inp, ghostEl, exact, src, ...fieldSrcs) {
+  if (!isFinite(exact) || exact <= 0) return;
+  if (fieldSrcs.includes(src)) return;
+
+  const rounded  = fmtField(exact);
+  if (inp.value !== rounded) inp.value = rounded;
+
+  const exactStr = fmtExact(exact);
+  ghostEl.textContent = exactStr;
+  // matched = values are the same (rounding had no effect, or places = -1)
+  ghostEl.classList.toggle('matched', exactStr === rounded);
+  // remove any leftover .visible from old code
+  ghostEl.classList.remove('visible');
+}
+
+// For simplified ratio parts (iRW / iRH) — always integers
+function putRatioParts(w, h) {
+  if (!w || !h) return;
+  const [sw, sh] = simplify(w, h);
+  if ($('iRW').value !== String(sw)) $('iRW').value = sw;
+  if ($('iRH').value !== String(sh)) $('iRH').value = sh;
+  // Ratio parts are always exact integers — mark as matched
+  $('exRW').textContent = String(sw); $('exRW').classList.add('matched');
+  $('exRH').textContent = String(sh); $('exRH').classList.add('matched');
+}
+
+/* ═══════════════════════════════════════════════
    STATE
-══════════════════════════════════════════════════════════════ */
-const locked = { W: false, H: false, R: false, Tx: false };
-let lastPx = 'W';   // which pixel dim was typed most recently
-let imgOn  = false;
-let _guard = false; // re-entrancy guard
+═══════════════════════════════════════════════ */
+let activeDim  = 'W';   // 'W' | 'H' — anchor for ratio/preset changes
+let imgOn      = false;
+let _guard     = false;
 
-/* ══════════════════════════════════════════════════════════════
-   LOCK LOGIC
-══════════════════════════════════════════════════════════════ */
+// One lock at a time (radio)
+let activeLock = null;  // null | 'W' | 'H' | 'R' | 'Tx'
+const target   = { W: null, H: null, R: null, Tx: null };
+
+// Proxy so we can write locked.W etc. conveniently
+const locked = new Proxy({}, { get: (_, k) => activeLock === k });
+
+/* ═══════════════════════════════════════════════
+   LOCK UI
+═══════════════════════════════════════════════ */
 function updateLockUI() {
-  // W and H can't both be locked
   ['W','H','R','Tx'].forEach(k => {
-    const btn = g('lk'+k);
-    const on  = locked[k];
+    const btn = $('lk'+k);
+    const on  = activeLock === k;
     btn.textContent = on ? '🔒' : '🔓';
     btn.classList.toggle('on', on);
-
-    if (k === 'W')  btn.disabled = (!on && locked.H);
-    if (k === 'H')  btn.disabled = (!on && locked.W);
-    if (k === 'R')  btn.disabled = false;
-    if (k === 'Tx') btn.disabled = false;
-
-    // Disable associated inputs while locked
-    if (k === 'W')  g('iW').disabled  = on;
-    if (k === 'H')  g('iH').disabled  = on;
-    if (k === 'R')  { g('iRW').disabled = on; g('iRH').disabled = on; g('iDec').disabled = on; }
-    if (k === 'Tx') g('iTx').disabled  = on;
+    if (k === 'W')  $('iW').classList.toggle('is-locked', on);
+    if (k === 'H')  $('iH').classList.toggle('is-locked', on);
+    if (k === 'R')  { $('iRW').classList.toggle('is-locked', on); $('iRH').classList.toggle('is-locked', on); $('iDec').classList.toggle('is-locked', on); }
+    if (k === 'Tx') $('iTx').classList.toggle('is-locked', on);
   });
+
+  // W/H badge
+  const wh = $('tgtWH');
+  if (activeLock === 'W' && target.W != null) {
+    wh.textContent = `⊙ W: ${fmtField(target.W)} px`; wh.classList.add('visible');
+  } else if (activeLock === 'H' && target.H != null) {
+    wh.textContent = `⊙ H: ${fmtField(target.H)} px`; wh.classList.add('visible');
+  } else { wh.classList.remove('visible'); }
+
+  // R badge
+  const tR = $('tgtR');
+  if (activeLock === 'R' && target.R != null) {
+    tR.textContent = `⊙ ${fmtExact(target.R)}`; tR.classList.add('visible');
+  } else { tR.classList.remove('visible'); }
+
+  // Tx badge
+  const tT = $('tgtTx');
+  if (activeLock === 'Tx' && target.Tx != null) {
+    tT.textContent = `⊙ ${Math.round(target.Tx).toLocaleString()}`; tT.classList.add('visible');
+  } else { tT.classList.remove('visible'); }
+
+  // Dim presets when R is locked
+  $('presetsWrap').classList.toggle('r-locked', activeLock === 'R');
+
+  // Swap button label
+  updateSwapBtn();
+  updateAnchorLegend();
+}
+
+function updateSwapBtn() {
+  const btn = $('swapBtn');
+  const disable = activeLock === 'R' || activeLock === 'W' || activeLock === 'H';
+  btn.disabled = disable;
+  btn.textContent = '⇄';
+  btn.title = disable ? 'Swap unavailable while a field is soft-locked' : 'Swap Width ↔ Height';
 }
 
 ['W','H','R','Tx'].forEach(k => {
-  g('lk'+k).addEventListener('click', () => {
-    locked[k] = !locked[k];
+  $('lk'+k).addEventListener('click', () => {
+    if (activeLock === k) {
+      activeLock = null;
+      Object.keys(target).forEach(t => target[t] = null);
+    } else {
+      activeLock = k;
+      Object.keys(target).forEach(t => target[t] = null);
+      if (k === 'W')  target.W  = nv($('iW'));
+      if (k === 'H')  target.H  = nv($('iH'));
+      if (k === 'R')  target.R  = (() => {
+        const d = nv($('iDec')); if (d) return d;
+        const rw = nv($('iRW')), rh = nv($('iRH'));
+        return (rw && rh) ? rw/rh : null;
+      })();
+      if (k === 'Tx') target.Tx = nv($('iTx'));
+      if (k === 'W') activeDim = 'W';
+      if (k === 'H') activeDim = 'H';
+    }
     updateLockUI();
     compute('lock');
   });
 });
 
-/* ══════════════════════════════════════════════════════════════
-   PRESETS
-══════════════════════════════════════════════════════════════ */
-const presetsEl = g('presets');
-PRESETS.forEach(p => {
-  const btn = document.createElement('button');
-  btn.className = 'preset-btn';
-  btn.textContent = p.label;
-  btn.addEventListener('click', () => {
-    if (locked.R) return;
-    _guard = true;
-    g('iRW').value = p.w; g('iRH').value = p.h;
-    g('iRW').classList.remove('derived'); g('iRH').classList.remove('derived');
-    _guard = false;
-    compute('R');
-  });
-  presetsEl.appendChild(btn);
-});
+/* ═══════════════════════════════════════════════
+   ANCHOR LEGEND
+═══════════════════════════════════════════════ */
+function setAnchorDim(dim) {
+  if (!locked.W && !locked.H) activeDim = dim;
+  updateAnchorLegend();
+  syncAnchorStyle();
+}
 
-function syncPresets(rw, rh) {
-  presetsEl.querySelectorAll('.preset-btn').forEach(btn => {
+function updateAnchorLegend() {
+  const dim   = locked.W ? 'W' : locked.H ? 'H' : activeDim;
+  const name  = dim === 'W' ? 'Width' : 'Height';
+  const other = dim === 'W' ? 'Height' : 'Width';
+  const el = $('anchorText');
+  if (el) el.textContent = `${name} active`;
+  syncAnchorStyle();
+}
+
+function syncAnchorStyle() {
+  const dim = locked.W ? 'W' : locked.H ? 'H' : activeDim;
+  $('iW').classList.toggle('is-anchor', dim === 'W' && !locked.W);
+  $('iH').classList.toggle('is-anchor', dim === 'H' && !locked.H);
+}
+
+/* ═══════════════════════════════════════════════
+   PRESETS
+═══════════════════════════════════════════════ */
+// Build grouped presets
+(function buildPresets() {
+  const container = $('presets');
+  let lastGroup = null;
+  PRESETS.forEach(p => {
+    if (p.group !== lastGroup) {
+      const lbl = document.createElement('span');
+      lbl.className = 'presets-group-label';
+      lbl.textContent = p.group === 'print' ? '· print' : '';
+      if (p.group === 'print') container.appendChild(lbl);
+      lastGroup = p.group;
+    }
+    const btn = document.createElement('button');
+    btn.className = 'preset-btn';
+    btn.textContent = p.label;
+    btn.title = p.group === 'print' ? `${p.label} (${p.w}:${p.h})` : '';
+    btn.addEventListener('click', () => {
+      if (activeLock === 'R') return;
+      _guard = true;
+      $('iRW').value = p.w; $('iRH').value = p.h;
+      _guard = false;
+      compute('preset');
+    });
+    container.appendChild(btn);
+  });
+})();
+
+function syncPresets(w, h) {
+  if (!w || !h) { document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active')); return; }
+  const [sw,sh] = simplify(w,h);
+  document.querySelectorAll('.preset-btn').forEach(btn => {
     const p = PRESETS.find(x => x.label === btn.textContent);
     if (!p) { btn.classList.remove('active'); return; }
-    if (!rw || !rh) { btn.classList.remove('active'); return; }
-    const [sw,sh] = simplify(rw,rh);
     const [pw,ph] = simplify(p.w,p.h);
     btn.classList.toggle('active', sw===pw && sh===ph);
   });
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════
+   ROUNDING HINT
+═══════════════════════════════════════════════ */
+function updateRoundHint() {
+  const p = roundPlaces();
+  const hint = $('roundHint');
+  if (p === -1) hint.textContent = '(no rounding)';
+  else if (p === 0) hint.textContent = '(nearest px)';
+  else hint.textContent = `(${p} decimal${p>1?'s':''})`;
+}
+
+$('iRound').addEventListener('input', () => {
+  updateRoundHint();
+  compute('reround'); // re-run so all ghosts and field values refresh
+});
+
+/* ═══════════════════════════════════════════════
    CORE COMPUTE
-   src = 'W' | 'H' | 'R' | 'Tx' | 'Dec' | 'image' | 'swap' | 'lock' | 'init'
 
-   Field relationships:
-     W × H  = Total pixels
-     W / H  = Decimal ratio
-     ratio  = simplified W:H
+   Field independence rules:
+   ─────────────────────────────────────────────
+   No lock:
+     W edited  → W changes. If R locked: H follows. If Tx locked: H follows. Otherwise nothing else changes.
+     H edited  → H changes. Same mirror.
+     RW edited → W updates (H is anchor). Tx updates.
+     RH edited → H updates (W is anchor). Tx updates.
+     Dec edited → non-anchor dim updates. Tx updates.
+     Tx edited  → W & H back-calc from Tx + current ratio. If no ratio, use anchor.
 
-   Lock rules (only one of W/H can be locked at a time):
-     lock W  → changes to ratio/Dec/Tx only adjust H
-     lock H  → changes to ratio/Dec/Tx only adjust W
-     lock R  → changes to W or H derive the other (ratio held)
-     no lock → all six fields fully interconnected
-══════════════════════════════════════════════════════════════ */
+   R locked:
+     W edited  → H = W / target.R
+     H edited  → W = H * target.R
+     RW/RH/Dec → blocked (is-locked, no edit)
+     Tx edited  → W & H from sqrt(Tx × target.R), sqrt(Tx / target.R)
+     preset    → blocked
 
-// The six editable fields:
-//   iW, iH, iRW, iRH, iTx, iDec
-// We compute a canonical (W, H) pair, then derive everything else from it.
+   Tx locked:
+     W edited  → H = target.Tx / W
+     H edited  → W = target.Tx / H
+     RW edited → W from H+ratio, then H = target.Tx / W
+     RH edited → H from W+ratio, then W = target.Tx / H
+     Dec edited → anchor stays, other = target.Tx / anchor
+     Tx field  → locked, not editable while locked
+
+   W locked:
+     H edited  → H changes freely. Tx, ratio derive from W×H.
+     RH edited → H updates, Tx updates.
+     Dec/preset → H updates.
+     W snaps back to target.W after any compute.
+
+   H locked: mirror of W.
+═══════════════════════════════════════════════ */
 
 function compute(src) {
   if (_guard) return;
   _guard = true;
 
-  if (src === 'W') lastPx = 'W';
-  if (src === 'H') lastPx = 'H';
+  // Snapshot
+  let W   = nv($('iW'));
+  let H   = nv($('iH'));
+  let RW  = nv($('iRW'));
+  let RH  = nv($('iRH'));
+  let Dec = nv($('iDec'));
+  let Tx  = nv($('iTx'));
 
-  // Snapshot all raw inputs
-  let W   = nv(g('iW'));
-  let H   = nv(g('iH'));
-  let RW  = nv(g('iRW'));
-  let RH  = nv(g('iRH'));
-  let Tx  = nv(g('iTx'));
-  let Dec = nv(g('iDec'));
+  // Best available ratio
+  const getRatio = () => {
+    if (locked.R && target.R) return target.R;
+    if (RW && RH) return RW / RH;
+    if (Dec)      return Dec;
+    if (W && H)   return W / H;
+    return null;
+  };
+  let ratio = getRatio();
 
-  // Derive a ratio value from whatever ratio representation is available
-  // Priority: explicit RW:RH > Dec
-  let ratio = (RW && RH) ? RW/RH : (Dec ? Dec : null);
+  const anchor = locked.W ? 'W' : locked.H ? 'H' : activeDim;
 
-  /* ── Resolve canonical W and H ── */
+  /* ── Source-based derivation ── */
 
-  if (src === 'W' && !locked.W) {
-    // W just changed
-    if (H && !locked.R) {
-      // Both dims → derive ratio
-      ratio = W / H;
-    } else if (ratio && !locked.H) {
-      H = W / ratio;
+  if (src === 'W') {
+    W = nv($('iW'));
+    if (!W) { _guard = false; return; }
+    if (locked.R && target.R)         H = W / target.R;
+    else if (locked.Tx && target.Tx)  H = target.Tx / W;
+    // else: H unchanged
+
+  } else if (src === 'H') {
+    H = nv($('iH'));
+    if (!H) { _guard = false; return; }
+    if (locked.R && target.R)         W = H * target.R;
+    else if (locked.Tx && target.Tx)  W = target.Tx / H;
+    // else: W unchanged
+
+  } else if (src === 'RW') {
+    RW = nv($('iRW')); RH = nv($('iRH'));
+    if (RW && RH) {
+      ratio = RW / RH;
+      // RW drives W, H is the anchor
+      if (H)       W = H * ratio;
+      else if (W)  H = W / ratio;
+      if (locked.Tx && target.Tx && ratio) {
+        W = Math.sqrt(target.Tx * ratio);
+        H = target.Tx / W;
+      }
     }
-  }
 
-  else if (src === 'H' && !locked.H) {
-    if (W && !locked.R) {
-      ratio = W / H;
-    } else if (ratio && !locked.W) {
-      W = H * ratio;
+  } else if (src === 'RH') {
+    RW = nv($('iRW')); RH = nv($('iRH'));
+    if (RW && RH) {
+      ratio = RW / RH;
+      // RH drives H, W is the anchor
+      if (W)       H = W / ratio;
+      else if (H)  W = H * ratio;
+      if (locked.Tx && target.Tx && ratio) {
+        H = Math.sqrt(target.Tx / ratio);
+        W = target.Tx / H;
+      }
     }
-  }
 
-  else if (src === 'R' && !locked.R) {
-    // Ratio fields changed
-    RW = nv(g('iRW')); RH = nv(g('iRH'));
-    ratio = (RW && RH) ? RW/RH : null;
-    if (ratio) {
-      if (locked.W && W) {
-        H = W / ratio;
-      } else if (locked.H && H) {
-        W = H * ratio;
-      } else if (W && H) {
-        if (lastPx === 'W') H = W / ratio;
-        else                W = H * ratio;
-      } else if (W) { H = W / ratio; }
-      else if (H)   { W = H * ratio; }
-    }
-  }
-
-  else if (src === 'Dec' && !locked.R) {
-    // Decimal ratio changed
-    Dec = nv(g('iDec'));
-    ratio = Dec;
-    if (ratio) {
-      if (locked.W && W) {
-        H = W / ratio;
-      } else if (locked.H && H) {
-        W = H * ratio;
-      } else if (W && H) {
-        if (lastPx === 'W') H = W / ratio;
-        else                W = H * ratio;
-      } else if (W) { H = W / ratio; }
-      else if (H)   { W = H * ratio; }
-    }
-  }
-
-  else if (src === 'Tx') {
-    // Total pixels changed
-    Tx = nv(g('iTx'));
-    if (Tx && ratio) {
-      if (locked.W && W) {
-        H = Tx / W;
-      } else if (locked.H && H) {
-        W = Tx / H;
+  } else if (src === 'Dec') {
+    Dec = nv($('iDec'));
+    if (Dec) {
+      ratio = Dec;
+      if (locked.Tx && target.Tx) {
+        W = Math.sqrt(target.Tx * ratio);
+        H = target.Tx / W;
       } else {
+        if (anchor === 'W' && W) H = W / ratio;
+        else if (anchor === 'H' && H) W = H * ratio;
+      }
+    }
+
+  } else if (src === 'Tx') {
+    Tx = nv($('iTx'));
+    if (Tx) {
+      ratio = getRatio();
+      if (ratio) {
         W = Math.sqrt(Tx * ratio);
-        H = Math.sqrt(Tx / ratio);
-      }
-    } else if (Tx && W && !locked.W && !H) {
-      H = Tx / W;
-    } else if (Tx && H && !locked.H && !W) {
-      W = Tx / H;
+        H = Tx / W;
+      } else if (W && !H) H = Tx / W;
+      else if (H && !W)   W = Tx / H;
     }
-  }
 
-  else if (src === 'image') {
-    W = nv(g('iW')); H = nv(g('iH'));
-    if (W && H && !locked.R) ratio = W / H;
-  }
-
-  else if (src === 'swap') {
-    W = nv(g('iW')); H = nv(g('iH'));
-    if (W && H && !locked.R) ratio = W / H;
-  }
-
-  // For 'lock' and 'init', just fall through and re-derive display from current values
-
-  // If Tx is locked, override W/H from the locked pixel count + ratio
-  if (locked.Tx && src !== 'Tx') {
-    const tx = nv(g('iTx'));
-    const r  = ratio || (W && H ? W/H : null);
-    if (tx && r) {
-      if (locked.W && W) {
-        H = tx / W;
-      } else if (locked.H && H) {
-        W = tx / H;
+  } else if (src === 'preset') {
+    RW = nv($('iRW')); RH = nv($('iRH'));
+    if (RW && RH) {
+      ratio = RW / RH;
+      if (locked.Tx && target.Tx) {
+        W = Math.sqrt(target.Tx * ratio);
+        H = target.Tx / W;
       } else {
-        W = Math.sqrt(tx * r);
-        H = Math.sqrt(tx / r);
+        if (anchor === 'W' && W) H = W / ratio;
+        else if (anchor === 'H' && H) W = H * ratio;
+      }
+    }
+
+  } else {
+    // image, swap, lock, init, reround, orig
+    W = nv($('iW')); H = nv($('iH'));
+    ratio = (W && H) ? W/H : getRatio();
+  }
+
+  /* ── Soft-lock snap (one correction pass) ── */
+  if (W && H) {
+    if (locked.W && target.W) {
+      const drift = Math.abs(W - target.W) / target.W;
+      if (drift > 0.0005) { W = target.W; }
+    }
+    if (locked.H && target.H) {
+      const drift = Math.abs(H - target.H) / target.H;
+      if (drift > 0.0005) { H = target.H; }
+    }
+    if (locked.R && target.R) {
+      const drift = Math.abs((W/H) - target.R) / target.R;
+      if (drift > 0.0005) {
+        ratio = target.R;
+        if (anchor === 'W') H = W / ratio;
+        else                W = H * ratio;
+      }
+    }
+    if (locked.Tx && target.Tx) {
+      const curTx = W * H;
+      const drift  = Math.abs(curTx - target.Tx) / target.Tx;
+      if (drift > 0.001) {
+        ratio = ratio || (W/H);
+        if (ratio) { W = Math.sqrt(target.Tx * ratio); H = target.Tx / W; }
       }
     }
   }
 
-  /* ── Write back derived fields ── */
+  /* ── Write back ── */
 
-  if (W && !locked.W)  put(g('iW'),  W,  src !== 'W');
-  if (H && !locked.H)  put(g('iH'),  H,  src !== 'H');
+  // Exact values (pre-rounding) for W and H
+  const exactW = (W && isFinite(W) && W >= 0.0001) ? W : null;
+  const exactH = (H && isFinite(H) && H >= 0.0001) ? H : null;
 
-  if (W && H) {
-    // Derive ratio fields
-    if (!locked.R) {
-      const [sw,sh] = simplify(W,H);
-      put(g('iRW'), sw, src !== 'R');
-      put(g('iRH'), sh, src !== 'R');
+  if (exactW) writeField($('iW'), $('exW'), exactW, src, 'W');
+  if (exactH) writeField($('iH'), $('exH'), exactH, src, 'H');
+
+  // Re-read rounded values
+  const fW = nv($('iW')), fH = nv($('iH'));
+  const useW = exactW || fW, useH = exactH || fH;
+
+  if (useW && useH) {
+    const exactRatio = useW / useH;
+    const exactTx    = useW * useH;
+
+    // Ratio parts (always simplified integers — no ghost needed)
+    if (src !== 'RW' && src !== 'RH' && !locked.R) {
+      putRatioParts(useW, useH);
     }
+
+    // Decimal ratio — always full precision, unaffected by rounding setting
+    if (src !== 'Dec' && !locked.R) {
+      const decStr = fmtExact(exactRatio);
+      if ($('iDec').value !== decStr) $('iDec').value = decStr;
+      $('exDec').textContent = decStr;
+      $('exDec').classList.add('matched'); // exact and displayed always match
+    }
+
     // Total pixels
     if (src !== 'Tx' && !locked.Tx) {
-      const tx = Math.round(W) * Math.round(H);
-      if (g('iTx').value !== String(tx)) {
-        g('iTx').value = tx;
-        g('iTx').classList.toggle('derived', src !== 'Tx');
-      }
+      writeField($('iTx'), $('exTx'), exactTx, src, 'Tx');
     }
-    // Decimal ratio
-    if (src !== 'Dec') {
-      putDec(g('iDec'), W/H);
-    }
-  }
-
-  /* ── Re-read final values for display ── */
-  const fW  = nv(g('iW'));
-  const fH  = nv(g('iH'));
-  const fRW = nv(g('iRW'));
-  const fRH = nv(g('iRH'));
-
-  /* ── Ratio strip ── */
-  if (fW && fH) {
-    const [sw,sh] = simplify(fW,fH);
-    g('rsRatio').textContent = `${sw} : ${sh}`;
-    const name = knownLabel(fW,fH);
-    if (name) { g('rsTag').textContent = name; g('rsTag').style.display='inline'; }
-    else        g('rsTag').style.display='none';
-  } else if (fRW && fRH) {
-    const [sw,sh] = simplify(fRW,fRH);
-    g('rsRatio').textContent = `${sw} : ${sh}`;
-    const name = knownLabel(fRW,fRH);
-    if (name) { g('rsTag').textContent = name; g('rsTag').style.display='inline'; }
-    else        g('rsTag').style.display='none';
-  } else {
-    g('rsRatio').textContent = '— : —';
-    g('rsTag').style.display='none';
   }
 
   /* ── Preset highlight ── */
-  syncPresets(fRW, fRH);
+  syncPresets(useW, useH);
 
-  /* ── Original dims note ── */
-  const oW = nv(g('origW')), oH = nv(g('origH'));
-  const noteEl = g('origNote');
-  if (oW && oH && fW && fH) {
-    const origPx = Math.round(oW)*Math.round(oH);
-    const curPx  = Math.round(fW)*Math.round(fH);
-    const dPx    = curPx - origPx;
-    const dPct   = (dPx/origPx*100).toFixed(1);
-    const cls    = dPx > 0 ? 'up' : 'dn';
-    const sign   = dPx > 0 ? '+' : '';
-    noteEl.innerHTML =
-      `Orig: ${Math.round(oW).toLocaleString()} × ${Math.round(oH).toLocaleString()} = ${origPx.toLocaleString()} px²<br>` +
-      `Now:  ${Math.round(fW).toLocaleString()} × ${Math.round(fH).toLocaleString()} = ${curPx.toLocaleString()} px²<br>` +
-      `<span class="${cls}">${sign}${dPx.toLocaleString()} px² (${sign}${dPct}%)</span>`;
+  /* ── Original dims comparison ── */
+  const oW = nv($('origW')), oH = nv($('origH'));
+  const note = $('origNote');
+  if (oW && oH && useW && useH) {
+    const oPx = oW * oH;
+    const cPx = useW * useH;
+    const d   = cPx - oPx;
+    const pct = (d/oPx*100).toFixed(1);
+    const cls = d > 0 ? 'up' : 'dn';
+    const sgn = d > 0 ? '+' : '';
+    note.innerHTML =
+      `Orig: ${Math.round(oW).toLocaleString()} × ${Math.round(oH).toLocaleString()} = ${Math.round(oPx).toLocaleString()} px²<br>` +
+      `Now:&nbsp; ${Math.round(useW).toLocaleString()} × ${Math.round(useH).toLocaleString()} = ${Math.round(cPx).toLocaleString()} px²<br>` +
+      `<span class="${cls}">${sgn}${Math.round(d).toLocaleString()} px² (${sgn}${pct}%)</span>`;
   } else if (oW && oH) {
-    const origPx = Math.round(oW)*Math.round(oH);
-    noteEl.innerHTML = `Orig: ${Math.round(oW).toLocaleString()} × ${Math.round(oH).toLocaleString()} = ${origPx.toLocaleString()} px²`;
-  } else { noteEl.textContent = ''; }
+    note.textContent = `Orig: ${Math.round(oW).toLocaleString()} × ${Math.round(oH).toLocaleString()} = ${Math.round(oW*oH).toLocaleString()} px²`;
+  } else note.textContent = '';
 
-  /* ── Preview ── */
-  updatePreview(fW, fH);
+  updatePreview(useW, useH);
+  updateLockUI();
 
   _guard = false;
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════
    PREVIEW
-══════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════ */
 function updatePreview(w, h) {
-  const box=g('pbox'), ph=g('pPh'), dims=g('pDims');
-  const pfR=g('pfRatio'), pfI=g('pfInfo'), sn=g('scalesNote');
+  const box=$('pbox'), ph=$('pPh');
+  const pfR=$('pfRatio'), pfD=$('pfDims'), pfI=$('pfInfo'), sn=$('scalesNote');
 
   if (!w || !h) {
-    box.style.width='180px'; box.style.height='180px';
-    if (!imgOn) ph.style.display='block';
-    dims.style.display='none';
-    pfR.textContent='—'; pfI.textContent=''; sn.style.display='none';
+    // No dimensions — show a neutral default box, placeholder visible
+    box.style.width='180px'; box.style.height='120px';
+    ph.style.display = imgOn ? 'none' : 'flex';
+    pfR.textContent='—'; pfD.textContent=''; pfI.textContent=''; sn.style.display='none';
     return;
   }
 
-  const maxW=350, maxH=340;
-  let dw=w, dh=h;
-  if (dw>maxW) { dh=dh*maxW/dw; dw=maxW; }
-  if (dh>maxH) { dw=dw*maxH/dh; dh=maxH; }
-  dw=Math.max(60,Math.round(dw)); dh=Math.max(60,Math.round(dh));
+  // Available space inside the canvas (accounting for padding)
+  const canvas    = $('prevCanvas');
+  const padH      = 48; // 1.5rem each side
+  const padV      = 48;
+  const maxW      = Math.max(60, canvas.clientWidth  - padH);
+  const maxH      = Math.max(60, canvas.clientHeight > padV * 2 ? canvas.clientHeight - padV : 400);
 
-  box.style.width=dw+'px'; box.style.height=dh+'px';
-  ph.style.display = imgOn ? 'none' : 'block';
-  dims.style.display='block'; dims.textContent=`${Math.round(w)} × ${Math.round(h)}`;
+  // Scale down only if needed — never scale up
+  let dw = w, dh = h;
+  if (dw > maxW) { dh = dh * maxW / dw; dw = maxW; }
+  if (dh > maxH) { dw = dw * maxH / dh; dh = maxH; }
+  // No minimum — let it be as small as the ratio demands
+  dw = Math.round(dw); dh = Math.round(dh);
 
-  const [sw,sh]=simplify(w,h);
-  pfR.textContent=`${sw} : ${sh}`;
-  pfI.textContent=`${(w/h).toFixed(4)} : 1`;
-  sn.style.display=(Math.round(w)!==dw||Math.round(h)!==dh)?'block':'none';
+  box.style.width  = dw + 'px';
+  box.style.height = dh + 'px';
+
+  // Placeholder: only show when box is large enough to hold the text comfortably
+  const tooSmall = dw < 120 || dh < 55;
+  ph.style.display = (imgOn || tooSmall) ? 'none' : 'flex';
+
+  // Footer info
+  pfD.textContent = `${Math.round(w)} × ${Math.round(h)}`;
+  const [sw,sh] = simplify(w,h);
+  pfR.textContent = `${sw} : ${sh}`;
+  pfI.textContent = `${(w/h).toFixed(4)} : 1`;
+
+  // "Scaled to fit" note — only when we actually had to scale down
+  const wasScaled = (w > maxW || h > maxH);
+  sn.style.display = wasScaled ? 'block' : 'none';
 }
 
-/* ══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════
    EVENT LISTENERS
-══════════════════════════════════════════════════════════════ */
-g('iW').addEventListener('input',  () => { g('iW').classList.remove('derived');  compute('W');   });
-g('iH').addEventListener('input',  () => { g('iH').classList.remove('derived');  compute('H');   });
-g('iRW').addEventListener('input', () => { g('iRW').classList.remove('derived'); compute('R');   });
-g('iRH').addEventListener('input', () => { g('iRH').classList.remove('derived'); compute('R');   });
-g('iTx').addEventListener('input', () => { g('iTx').classList.remove('derived'); compute('Tx');  });
-g('iDec').addEventListener('input',() => { g('iDec').classList.remove('derived');compute('Dec'); });
-g('origW').addEventListener('input', () => compute('orig'));
-g('origH').addEventListener('input', () => compute('orig'));
+═══════════════════════════════════════════════ */
+$('iW').addEventListener('focus', () => setAnchorDim('W'));
+$('iH').addEventListener('focus', () => setAnchorDim('H'));
 
-g('swapBtn').addEventListener('click', () => {
-  if (locked.W || locked.H) return;
+$('iW').addEventListener('input',   () => compute('W'));
+$('iH').addEventListener('input',   () => compute('H'));
+$('iRW').addEventListener('input',  () => compute('RW'));
+$('iRH').addEventListener('input',  () => compute('RH'));
+$('iDec').addEventListener('input', () => compute('Dec'));
+$('iTx').addEventListener('input',  () => compute('Tx'));
+$('origW').addEventListener('input',() => compute('orig'));
+$('origH').addEventListener('input',() => compute('orig'));
+
+$('swapBtn').addEventListener('click', () => {
+  if (activeLock) return; // disabled while any lock is active
   _guard = true;
-  const tmp = g('iW').value; g('iW').value = g('iH').value; g('iH').value = tmp;
-  g('iW').classList.remove('derived'); g('iH').classList.remove('derived');
+  const tmp = $('iW').value; $('iW').value = $('iH').value; $('iH').value = tmp;
   _guard = false;
-  lastPx = 'W';
+  activeDim = 'W';
   compute('swap');
 });
 
-/* ── Copy ── */
-function copyRatio() {
-  const t = g('rsRatio').textContent;
-  if (t.includes('—')) return;
-  navigator.clipboard.writeText(t).then(() => {
-    const b = g('copyBtn');
-    b.textContent='Copied!'; b.classList.add('copied');
-    setTimeout(()=>{ b.textContent='Copy'; b.classList.remove('copied'); }, 1500);
-  });
-}
-
-/* ══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════
    IMAGE LOADING
-══════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════ */
 function loadImageFile(file) {
   if (!file || !file.type.startsWith('image/')) return;
   const url = URL.createObjectURL(file);
   const tmp = new Image();
   tmp.onload = () => {
     _guard = true;
-    g('iW').value = tmp.naturalWidth;  g('iW').classList.remove('derived');
-    g('iH').value = tmp.naturalHeight; g('iH').classList.remove('derived');
-    g('iRW').value=''; g('iRH').value=''; g('iTx').value=''; g('iDec').value='';
-    g('origW').value = tmp.naturalWidth;
-    g('origH').value = tmp.naturalHeight;
+    $('iW').value = tmp.naturalWidth;
+    $('iH').value = tmp.naturalHeight;
+    ['iRW','iRH','iDec','iTx'].forEach(id => { $(id).value = ''; });
+    $('origW').value = tmp.naturalWidth;
+    $('origH').value = tmp.naturalHeight;
     _guard = false;
-
-    const pi = g('prevImg');
-    pi.src=url; pi.classList.add('on');
-    g('pPh').style.display='none';
-    g('prevHint').textContent = `${file.name}  ·  ${tmp.naturalWidth} × ${tmp.naturalHeight}`;
-    g('clearBtn').style.display='inline-block';
-    imgOn=true;
+    const pi = $('prevImg');
+    pi.src = url; pi.classList.add('on');
+    $('pPh').style.display = 'none';
+    $('prevHint').textContent = `${file.name}  ·  ${tmp.naturalWidth} × ${tmp.naturalHeight}`;
+    $('clearBtn').style.display = 'inline-block';
+    imgOn = true; activeDim = 'W';
     compute('image');
+    applyImageDisplay();
   };
-  tmp.src=url;
+  tmp.src = url;
 }
 
-g('fileInput').addEventListener('change', e => { if (e.target.files[0]) loadImageFile(e.target.files[0]); });
-
-const pc = g('prevCanvas');
+$('fileInput').addEventListener('change', e => { if (e.target.files[0]) loadImageFile(e.target.files[0]); });
+const pc = $('prevCanvas');
 pc.addEventListener('dragover',  e => { e.preventDefault(); pc.classList.add('dragover'); });
 pc.addEventListener('dragleave', ()  => pc.classList.remove('dragover'));
 pc.addEventListener('drop', e => {
@@ -839,27 +1158,102 @@ pc.addEventListener('drop', e => {
   if (e.dataTransfer.files[0]) loadImageFile(e.dataTransfer.files[0]);
 });
 
-g('clearBtn').addEventListener('click', () => {
+$('clearBtn').addEventListener('click', () => {
   _guard = true;
-  [g('iW'),g('iH'),g('iRW'),g('iRH'),g('iTx'),g('iDec'),g('origW'),g('origH')]
-    .forEach(el => { el.value=''; el.classList.remove('derived'); });
-  // Reset locks
-  locked.W=false; locked.H=false; locked.R=false; locked.Tx=false;
+  ['iW','iH','iRW','iRH','iDec','iTx','origW','origH'].forEach(id => {
+    $(id).value = '';
+    $(id).classList.remove('is-locked','is-anchor');
+  });
+  ['exW','exH','exRW','exRH','exDec','exTx'].forEach(id => {
+    $(id).textContent = ''; $(id).classList.remove('matched');
+  });
+  Object.keys(target).forEach(k => target[k] = null);
+  activeLock = null;
   _guard = false;
-  imgOn=false; lastPx='W';
-  const pi=g('prevImg'); pi.src=''; pi.classList.remove('on');
-  g('pPh').style.display='block';
-  g('prevHint').textContent='click or drop an image to load it';
-  g('clearBtn').style.display='none';
-  g('fileInput').value='';
+  imgOn = false; activeDim = 'W';
+  fitMode = 'contain';
+  document.querySelectorAll('.fit-btn').forEach(b => b.classList.toggle('active', b.dataset.fit === 'contain'));
+  $('posX').value = 50; $('posY').value = 50;
+  $('posRow').style.opacity = ''; $('posRow').style.pointerEvents = '';
+  $('posNote').textContent = '';
+  const pi = $('prevImg'); pi.src=''; pi.classList.remove('on');
+  $('pPh').style.display = 'block';
+  $('prevHint').textContent = 'click or drop an image to load it';
+  $('clearBtn').style.display = 'none';
+  $('fileInput').value = '';
   updateLockUI();
   compute('init');
 });
 
-/* ══════════════════════════════════════════════════════════════
+/* ═══════════════════════════════════════════════
+   IMAGE FIT & POSITION
+═══════════════════════════════════════════════ */
+let fitMode = 'contain'; // 'contain' | 'cover' | 'fill' | 'tile'
+
+function applyImageDisplay() {
+  const img = $('prevImg');
+  const box = $('pbox');
+  const px  = $('posX').value + '% ' + $('posY').value + '%';
+  const isStretch = fitMode === 'fill';
+  const isTile    = fitMode === 'tile';
+
+  // Reset
+  img.style.objectFit      = '';
+  img.style.objectPosition = '';
+  box.style.backgroundImage    = '';
+  box.style.backgroundSize     = '';
+  box.style.backgroundRepeat   = '';
+  box.style.backgroundPosition = '';
+
+  if (!imgOn) return;
+
+  if (isTile) {
+    // Use background-image for tiling; img element hidden
+    const src = $('prevImg').src;
+    img.style.display = 'none';
+    box.style.backgroundImage    = `url("${src}")`;
+    box.style.backgroundSize     = 'auto';
+    box.style.backgroundRepeat   = 'repeat';
+    box.style.backgroundPosition = px;
+  } else {
+    img.style.display    = 'block';
+    img.style.objectFit  = fitMode;  // contain | cover | fill
+    img.style.objectPosition = isStretch ? 'center' : px;
+    box.style.backgroundImage = '';
+  }
+
+  // Note: position has no effect on Stretch
+  $('posNote').textContent = isStretch ? '(no effect on Stretch)' : '';
+  // Position row dimmed for Stretch
+  $('posRow').style.opacity = isStretch ? '.4' : '1';
+  $('posRow').style.pointerEvents = isStretch ? 'none' : '';
+}
+
+// Fit buttons
+document.querySelectorAll('.fit-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.fit-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    fitMode = btn.dataset.fit;
+    // For tile, store image src on box before switching
+    if (fitMode === 'tile') {
+      const src = $('prevImg').src;
+      $('pbox').dataset.imgSrc = src;
+    }
+    applyImageDisplay();
+  });
+});
+
+// Position inputs
+$('posX').addEventListener('input', applyImageDisplay);
+$('posY').addEventListener('input', applyImageDisplay);
+
+/* ═══════════════════════════════════════════════
    INIT
-══════════════════════════════════════════════════════════════ */
+═══════════════════════════════════════════════ */
+updateRoundHint();
 updateLockUI();
+setAnchorDim('W');
 compute('init');
 </script>
 </body>
