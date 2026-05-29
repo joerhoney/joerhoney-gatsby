@@ -299,8 +299,9 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1rem 0; }
   background-size: 16px 16px;
   background-position: 0 0,0 8px,8px -8px,-8px 0;
   background-color: var(--bg);
+  aspect-ratio: 1 / 1;
+  width: 100%;
   display: flex; align-items: center; justify-content: center;
-  /* Enough padding around the box so there's always drop area, but no min-height floor */
   padding: 1.5rem;
   position: relative; cursor: pointer;
 }
@@ -327,11 +328,23 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1rem 0; }
   display: flex; align-items: center; justify-content: center;
 }
 .pdims { position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,.5); color: #fff; font-family: var(--mono); font-size: 11px; text-align: center; padding: 3px; display: none; }
-.prev-footer { padding: .6rem 1.2rem; border-top: 1px solid var(--brd); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem; }
+.prev-hint {
+  font-size: 11.5px; color: var(--muted); font-family: var(--mono);
+  text-align: center; padding: .3rem 1.2rem .5rem;
+  border-top: 1px dashed var(--brd);
+}
+.prev-footer {
+  padding: .6rem 1.2rem; border-top: 1px solid var(--brd);
+  display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem;
+}
 .pf-ratio { font-family: var(--mono); font-size: 14px; font-weight: 600; }
 .pf-dims  { font-size: 12px; color: var(--muted); font-family: var(--mono); }
 .pf-info  { font-size: 12px; color: var(--muted); font-family: var(--mono); }
-.prev-hint { font-size: 11.5px; color: var(--muted); font-family: var(--mono); text-align: center; padding: .3rem 1.2rem .5rem; border-top: 1px dashed var(--brd); }
+.prev-controls {
+  padding: .6rem 1.2rem;
+  border-top: 1px solid var(--brd);
+  display: flex; flex-direction: column; gap: .55rem;
+}
 .scales-note { font-size: 11.5px; color: var(--muted); font-family: var(--mono); background: var(--gold-bg); border: 1px solid rgba(184,146,74,.2); border-radius: var(--r); padding: .4rem .75rem; margin-top: .75rem; display: none; }
 </style>
 </head>
@@ -498,7 +511,6 @@ hr.dl { border: none; border-top: 1px solid var(--brd); margin: 1rem 0; }
           <button class="fit-btn active" data-fit="contain" title="Fit — whole image visible (contain)">Fit</button>
           <button class="fit-btn" data-fit="cover"   title="Crop — fills box, crops edges (cover)">Crop</button>
           <button class="fit-btn" data-fit="fill"    title="Stretch — distorts to fill exactly">Stretch</button>
-          <button class="fit-btn" data-fit="tile"    title="Tile — repeat the image (CSS repeat)">Tile</button>
         </div>
       </div>
       <div class="ctrl-row" id="posRow">
@@ -564,11 +576,9 @@ const PRESETS = [
   {label:'φ',          w:1618, h:1000, group:'screen'},
   // Print — Letter 8.5×11, Legal 8.5×14, Tabloid 11×17, A4 210×297, A3 297×420, A5 148×210
   {label:'Letter',     w:85,   h:110,  group:'print'},
-  {label:'Letter ↑',   w:110,  h:85,   group:'print'},
   {label:'Legal',      w:85,   h:140,  group:'print'},
   {label:'Tabloid',    w:110,  h:170,  group:'print'},
   {label:'A4',         w:210,  h:297,  group:'print'},
-  {label:'A4 ↑',       w:297,  h:210,  group:'print'},
   {label:'A3',         w:297,  h:420,  group:'print'},
   {label:'A5',         w:148,  h:210,  group:'print'},
 ];
@@ -1059,42 +1069,38 @@ function updatePreview(w, h) {
   const pfR=$('pfRatio'), pfD=$('pfDims'), pfI=$('pfInfo'), sn=$('scalesNote');
 
   if (!w || !h) {
-    // No dimensions — show a neutral default box, placeholder visible
-    box.style.width='180px'; box.style.height='120px';
+    box.style.width='180px'; box.style.height='180px';
     ph.style.display = imgOn ? 'none' : 'flex';
     pfR.textContent='—'; pfD.textContent=''; pfI.textContent=''; sn.style.display='none';
     return;
   }
 
-  // Available space inside the canvas (accounting for padding)
-  const canvas    = $('prevCanvas');
-  const padH      = 48; // 1.5rem each side
-  const padV      = 48;
-  const maxW      = Math.max(60, canvas.clientWidth  - padH);
-  const maxH      = Math.max(60, canvas.clientHeight > padV * 2 ? canvas.clientHeight - padV : 400);
+  // Canvas is a fixed square — available space is (clientWidth - padding) in both axes
+  const canvas = $('prevCanvas');
+  const pad    = 48; // 1.5rem × 2
+  const avail  = Math.max(60, canvas.clientWidth - pad);
 
-  // Scale down only if needed — never scale up
+  // Scale down only if either dimension exceeds avail; never scale up
   let dw = w, dh = h;
-  if (dw > maxW) { dh = dh * maxW / dw; dw = maxW; }
-  if (dh > maxH) { dw = dw * maxH / dh; dh = maxH; }
-  // No minimum — let it be as small as the ratio demands
+  if (dw > avail || dh > avail) {
+    const scale = Math.min(avail / dw, avail / dh);
+    dw = dw * scale;
+    dh = dh * scale;
+  }
   dw = Math.round(dw); dh = Math.round(dh);
 
   box.style.width  = dw + 'px';
   box.style.height = dh + 'px';
 
-  // Placeholder: only show when box is large enough to hold the text comfortably
   const tooSmall = dw < 120 || dh < 55;
   ph.style.display = (imgOn || tooSmall) ? 'none' : 'flex';
 
-  // Footer info
   pfD.textContent = `${Math.round(w)} × ${Math.round(h)}`;
   const [sw,sh] = simplify(w,h);
   pfR.textContent = `${sw} : ${sh}`;
   pfI.textContent = `${(w/h).toFixed(4)} : 1`;
 
-  // "Scaled to fit" note — only when we actually had to scale down
-  const wasScaled = (w > maxW || h > maxH);
+  const wasScaled = (w > avail || h > avail);
   sn.style.display = wasScaled ? 'block' : 'none';
 }
 
@@ -1195,11 +1201,8 @@ function applyImageDisplay() {
   const box = $('pbox');
   const px  = $('posX').value + '% ' + $('posY').value + '%';
   const isStretch = fitMode === 'fill';
-  const isTile    = fitMode === 'tile';
 
-  // Reset
-  img.style.objectFit      = '';
-  img.style.objectPosition = '';
+  // Reset background (leftover from any previous tile mode)
   box.style.backgroundImage    = '';
   box.style.backgroundSize     = '';
   box.style.backgroundRepeat   = '';
@@ -1207,25 +1210,12 @@ function applyImageDisplay() {
 
   if (!imgOn) return;
 
-  if (isTile) {
-    // Use background-image for tiling; img element hidden
-    const src = $('prevImg').src;
-    img.style.display = 'none';
-    box.style.backgroundImage    = `url("${src}")`;
-    box.style.backgroundSize     = 'auto';
-    box.style.backgroundRepeat   = 'repeat';
-    box.style.backgroundPosition = px;
-  } else {
-    img.style.display    = 'block';
-    img.style.objectFit  = fitMode;  // contain | cover | fill
-    img.style.objectPosition = isStretch ? 'center' : px;
-    box.style.backgroundImage = '';
-  }
+  img.style.display        = 'block';
+  img.style.objectFit      = fitMode; // contain | cover | fill
+  img.style.objectPosition = isStretch ? 'center' : px;
 
-  // Note: position has no effect on Stretch
   $('posNote').textContent = isStretch ? '(no effect on Stretch)' : '';
-  // Position row dimmed for Stretch
-  $('posRow').style.opacity = isStretch ? '.4' : '1';
+  $('posRow').style.opacity       = isStretch ? '.4' : '1';
   $('posRow').style.pointerEvents = isStretch ? 'none' : '';
 }
 
@@ -1235,11 +1225,6 @@ document.querySelectorAll('.fit-btn').forEach(btn => {
     document.querySelectorAll('.fit-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     fitMode = btn.dataset.fit;
-    // For tile, store image src on box before switching
-    if (fitMode === 'tile') {
-      const src = $('prevImg').src;
-      $('pbox').dataset.imgSrc = src;
-    }
     applyImageDisplay();
   });
 });
