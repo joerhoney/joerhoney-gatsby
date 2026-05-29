@@ -1,0 +1,445 @@
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    padding: 1.5rem;
+    background: transparent;
+  }
+
+  .section {
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+  }
+
+  label {
+    font-size: 14px;
+    color: var(--color-text-secondary);
+    min-width: 120px;
+  }
+
+  input[type="range"] {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  .value-display {
+    font-size: 14px;
+    font-weight: 500;
+    min-width: 80px;
+    text-align: right;
+    color: var(--color-text-primary);
+  }
+
+  .waveform-container {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  canvas {
+    display: block;
+    width: 100%;
+    height: 180px;
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-primary);
+  }
+
+  .keyboard-controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 8px;
+    margin-bottom: 1.5rem;
+  }
+
+  .key-button {
+    padding: 0.5rem;
+    font-size: 12px;
+    font-weight: 500;
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    transition: all 0.1s;
+    user-select: none;
+  }
+
+  .key-button:hover {
+    background: var(--color-background-secondary);
+    border-color: var(--color-border-secondary);
+  }
+
+  .key-button.active {
+    background: var(--color-background-info);
+    color: var(--color-text-info);
+    border-color: var(--color-border-info);
+  }
+
+  .info-panel {
+    background: var(--color-background-secondary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    padding: 1rem;
+    font-size: 13px;
+  }
+
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+  }
+
+  .info-row:last-child {
+    border-bottom: none;
+  }
+
+  .info-label {
+    color: var(--color-text-secondary);
+  }
+
+  .info-value {
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  .instructions {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+</style>
+
+<div class="instructions">
+  <strong>How to test:</strong> Adjust the start cursor position with the slider, then click note buttons or press your keyboard (A-G keys). Watch the waveform to see which portion is being looped for each note. Lower notes use longer samples, higher notes use shorter snippets. Try different crossfade settings to hear the difference.
+</div>
+
+<div class="section">
+  <h2>Waveform & cursor</h2>
+  <div class="waveform-container">
+    <canvas id="waveformCanvas"></canvas>
+  </div>
+
+  <div class="control-group">
+    <label>Start cursor</label>
+    <input type="range" id="cursorSlider" min="0" max="100" value="0" style="flex: 1;">
+    <span class="value-display" id="cursorValue">0 ms</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Playback settings</h2>
+  <div class="control-group">
+    <label>Crossfade</label>
+    <input type="range" id="crossfadeSlider" min="0" max="100" value="50">
+    <span class="value-display" id="crossfadeValue">50%</span>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Play notes</h2>
+  <p style="font-size: 13px; color: var(--color-text-secondary); margin-bottom: 1rem;">Click buttons or press A/B/C/D/E/F/G keys (octave 4). Use Shift for octave 5.</p>
+  <div class="keyboard-controls" id="keyboardControls"></div>
+</div>
+
+<div class="section">
+  <div class="info-panel">
+    <div class="info-row">
+      <span class="info-label">Current note</span>
+      <span class="info-value" id="noteDisplay">—</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Frequency</span>
+      <span class="info-value" id="frequencyDisplay">— Hz</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Loop length</span>
+      <span class="info-value" id="loopLengthDisplay">— ms</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Sample rate</span>
+      <span class="info-value" id="sampleRateDisplay">— Hz</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const SAMPLE_RATE = 44100;
+  const SAMPLE_DURATION = 2; // seconds
+  const SAMPLE_LENGTH = SAMPLE_RATE * SAMPLE_DURATION;
+
+  const noteMap = {
+    'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88,
+    'C5': 523.25, 'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00, 'B5': 987.77,
+  };
+
+  const keyboardMap = {
+    'a': 'C4', 'b': 'B4', 'c': 'C5', 'd': 'D4', 'e': 'E4', 'f': 'F4', 'g': 'G4',
+  };
+
+  let audioContext;
+  let sampleBuffer;
+  let workletNode;
+  let activeNotes = new Map();
+
+  // Generate test waveform
+  function generateTestWaveform() {
+    const buffer = new Float32Array(SAMPLE_LENGTH);
+    
+    for (let i = 0; i < SAMPLE_LENGTH; i++) {
+      const t = i / SAMPLE_RATE;
+      const freq = 440 + Math.sin(t * Math.PI) * 100; // Sweep with some character
+      buffer[i] = Math.sin(2 * Math.PI * freq * t) * 0.5;
+      buffer[i] += Math.sin(2 * Math.PI * freq * 2.1 * t) * 0.2; // Add harmonic
+      buffer[i] *= Math.exp(-t * 0.5); // Envelope
+    }
+    
+    return buffer;
+  }
+
+  // Initialize audio
+  async function initAudio() {
+    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    sampleBuffer = generateTestWaveform();
+
+    const workletCode = `
+      class LoopProcessor extends AudioWorkletProcessor {
+        constructor() {
+          super();
+          this.activeNotes = new Map();
+          this.sampleBuffer = null;
+          this.cursorPos = 0;
+          this.crossfadeMs = 50;
+          
+          this.port.onmessage = (e) => {
+            const { type, noteNum, frequency, sampleBuffer, cursorPos, crossfadeMs } = e.data;
+            
+            if (type === 'buffer') {
+              this.sampleBuffer = sampleBuffer;
+            } else if (type === 'cursor') {
+              this.cursorPos = cursorPos;
+              this.activeNotes.forEach(note => {
+                note.startSample = Math.floor(this.cursorPos * sampleRate / 1000);
+              });
+            } else if (type === 'crossfade') {
+              this.crossfadeMs = crossfadeMs;
+            } else if (type === 'noteOn') {
+              this.activeNotes.set(noteNum, {
+                frequency,
+                startSample: Math.floor(this.cursorPos * sampleRate / 1000),
+                position: 0,
+              });
+            } else if (type === 'noteOff') {
+              this.activeNotes.delete(noteNum);
+            }
+          };
+        }
+
+        process(inputs, outputs) {
+          const out = outputs[0][0];
+          
+          if (!this.sampleBuffer) {
+            out.fill(0);
+            return true;
+          }
+
+          for (let i = 0; i < out.length; i++) {
+            let sum = 0;
+            let count = 0;
+
+            this.activeNotes.forEach((note) => {
+              const loopSamples = sampleRate / note.frequency;
+              const readPos = (note.startSample + note.position) % this.sampleBuffer.length;
+              
+              const frac = note.position % loopSamples - Math.floor(note.position % loopSamples);
+              const idx = Math.floor(readPos);
+              const s0 = this.sampleBuffer[idx % this.sampleBuffer.length] || 0;
+              const s1 = this.sampleBuffer[(idx + 1) % this.sampleBuffer.length] || 0;
+              let sample = s0 + (s1 - s0) * frac;
+
+              const crossfadeSamples = (this.crossfadeMs / 1000) * sampleRate;
+              const distFromEnd = loopSamples - (note.position % loopSamples);
+              
+              if (distFromEnd < crossfadeSamples) {
+                sample *= distFromEnd / crossfadeSamples;
+              }
+
+              sum += sample;
+              count++;
+              note.position += loopSamples / 44100;
+            });
+
+            out[i] = count > 0 ? sum / count : 0;
+          }
+
+          return true;
+        }
+      }
+
+      registerProcessor('loop-processor', LoopProcessor);
+    `;
+
+    const blob = new Blob([workletCode], { type: 'application/javascript' });
+    const url = URL.createObjectURL(blob);
+    
+    await audioContext.audioWorklet.addModule(url);
+    workletNode = new AudioWorkletNode(audioContext, 'loop-processor');
+    workletNode.connect(audioContext.destination);
+    
+    workletNode.port.postMessage({ type: 'buffer', sampleBuffer });
+  }
+
+  // Draw waveform
+  function drawWaveform() {
+    const canvas = document.getElementById('waveformCanvas');
+    const ctx = canvas.getContext('2d');
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+
+    const step = Math.floor(sampleBuffer.length / canvas.width);
+    
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-background-primary').trim();
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-text-secondary').trim();
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.moveTo(0, canvas.height / 2);
+
+    for (let i = 0; i < canvas.width; i++) {
+      const idx = i * step;
+      const sample = sampleBuffer[idx] || 0;
+      const y = canvas.height / 2 - (sample * canvas.height / 2.5);
+      if (i === 0) ctx.moveTo(i, y);
+      else ctx.lineTo(i, y);
+    }
+
+    ctx.stroke();
+
+    const cursorPct = parseFloat(document.getElementById('cursorSlider').value) / 100;
+    const cursorX = cursorPct * canvas.width;
+    
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--color-text-info').trim();
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(cursorX, 0);
+    ctx.lineTo(cursorX, canvas.height);
+    ctx.stroke();
+  }
+
+  // Update cursor
+  document.getElementById('cursorSlider').addEventListener('input', (e) => {
+    const value = parseFloat(e.target.value);
+    const ms = (value / 100) * SAMPLE_DURATION * 1000;
+    document.getElementById('cursorValue').textContent = Math.round(ms) + ' ms';
+    
+    if (workletNode) {
+      workletNode.port.postMessage({ type: 'cursor', cursorPos: ms });
+    }
+    
+    drawWaveform();
+  });
+
+  // Update crossfade
+  document.getElementById('crossfadeSlider').addEventListener('input', (e) => {
+    const value = parseFloat(e.target.value);
+    document.getElementById('crossfadeValue').textContent = Math.round(value) + '%';
+    
+    if (workletNode) {
+      workletNode.port.postMessage({ type: 'crossfade', crossfadeMs: value * 0.5 });
+    }
+  });
+
+  // Create keyboard buttons
+  function createKeyboardButtons() {
+    const container = document.getElementById('keyboardControls');
+    Object.keys(noteMap).forEach(note => {
+      const btn = document.createElement('button');
+      btn.className = 'key-button';
+      btn.textContent = note;
+      btn.onmousedown = () => playNote(note, btn);
+      btn.onmouseup = () => stopNote(note, btn);
+      btn.onmouseleave = () => stopNote(note, btn);
+      container.appendChild(btn);
+    });
+  }
+
+  function playNote(note, btn) {
+    if (activeNotes.has(note)) return;
+    
+    if (audioContext.state === 'suspended') audioContext.resume();
+    
+    const freq = noteMap[note];
+    activeNotes.set(note, true);
+    
+    workletNode.port.postMessage({
+      type: 'noteOn',
+      noteNum: note,
+      frequency: freq,
+    });
+    
+    document.getElementById('noteDisplay').textContent = note;
+    document.getElementById('frequencyDisplay').textContent = Math.round(freq) + ' Hz';
+    document.getElementById('loopLengthDisplay').textContent = 
+      Math.round(SAMPLE_RATE / freq * 1000 / 44100) + ' ms';
+    
+    if (btn) btn.classList.add('active');
+  }
+
+  function stopNote(note, btn) {
+    activeNotes.delete(note);
+    workletNode.port.postMessage({ type: 'noteOff', noteNum: note });
+    if (btn) btn.classList.remove('active');
+    
+    if (activeNotes.size === 0) {
+      document.getElementById('noteDisplay').textContent = '—';
+      document.getElementById('frequencyDisplay').textContent = '— Hz';
+      document.getElementById('loopLengthDisplay').textContent = '— ms';
+    }
+  }
+
+  // Keyboard input
+  window.addEventListener('keydown', (e) => {
+    const key = e.key.toLowerCase();
+    if (keyboardMap[key] && !e.repeat) {
+      const note = keyboardMap[key];
+      playNote(note);
+    }
+  });
+
+  window.addEventListener('keyup', (e) => {
+    const key = e.key.toLowerCase();
+    if (keyboardMap[key]) {
+      const note = keyboardMap[key];
+      stopNote(note);
+    }
+  });
+
+  // Initialize
+  document.getElementById('sampleRateDisplay').textContent = SAMPLE_RATE + ' Hz';
+  createKeyboardButtons();
+  initAudio().then(() => {
+    drawWaveform();
+    console.log('Audio prototype ready');
+  });
+</script>
