@@ -251,14 +251,21 @@
     <div class="file-info" id="fileInfo"></div>
 
     <div class="control-group">
-      <label>Start cursor</label>
-      <input type="range" id="cursorSlider" min="0" max="100" value="0" style="flex: 1;">
+      <button id="playBtn" style="padding: 0.5rem 1rem; font-size: 14px; background: var(--color-background-info); color: var(--color-text-info); border: 0.5px solid var(--color-border-info); border-radius: var(--border-radius-md); cursor: pointer;">▶ Play</button>
+      <button id="loadFileBtn" style="padding: 0.5rem 1rem; font-size: 14px; background: var(--color-background-secondary); color: var(--color-text-primary); border: 0.5px solid var(--color-border-tertiary); border-radius: var(--border-radius-md); cursor: pointer;">📁 Load</button>
+      <label style="margin-left: auto;">Start cursor</label>
+      <input type="range" id="cursorSlider" min="0" max="100" value="0" style="flex: 1; min-width: 150px;">
       <span class="value-display" id="cursorValue">0 ms</span>
     </div>
   </div>
 
   <div class="section">
     <h2>Playback settings</h2>
+    <div class="control-group">
+      <label>Octave</label>
+      <input type="range" id="octaveSlider" min="0" max="8" value="4">
+      <span class="value-display" id="octaveValue">4</span>
+    </div>
     <div class="control-group">
       <label>Crossfade</label>
       <input type="range" id="crossfadeSlider" min="0" max="100" value="50">
@@ -301,14 +308,52 @@
     const SAMPLE_RATE = 44100;
     let sampleDuration = 2; // Will update when file is loaded
 
-    const noteMap = {
-      'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88,
-      'C5': 523.25, 'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00, 'B5': 987.77,
+    const baseNoteMap = {
+      'C': 261.63, 'D': 293.66, 'E': 329.63, 'F': 349.23, 'G': 392.00, 'A': 440.00, 'B': 493.88,
     };
 
+    let currentOctave = 4;
+    let noteMap = {};
+
+    function generateNoteMap(octave) {
+      noteMap = {};
+      Object.keys(baseNoteMap).forEach(note => {
+        const freq = baseNoteMap[note] * Math.pow(2, octave - 4);
+        noteMap[note + octave] = freq;
+      });
+    }
+
     const keyboardMap = {
-      'a': 'C4', 'b': 'B4', 'c': 'C5', 'd': 'D4', 'e': 'E4', 'f': 'F4', 'g': 'G4',
+      // Lower octave (octave - 1)
+      'z': { note: 'C', octaveOffset: -1 },
+      'x': { note: 'D', octaveOffset: -1 },
+      'c': { note: 'E', octaveOffset: -1 },
+      'v': { note: 'F', octaveOffset: -1 },
+      
+      // Main octave
+      'a': { note: 'C', octaveOffset: 0 },
+      's': { note: 'D', octaveOffset: 0 },
+      'd': { note: 'E', octaveOffset: 0 },
+      'f': { note: 'F', octaveOffset: 0 },
+      'g': { note: 'G', octaveOffset: 0 },
+      'h': { note: 'A', octaveOffset: 0 },
+      'j': { note: 'B', octaveOffset: 0 },
+      'k': { note: 'C', octaveOffset: 1 },
+      'l': { note: 'D', octaveOffset: 1 },
+      ';': { note: 'E', octaveOffset: 1 },
+      "'": { note: 'F', octaveOffset: 1 },
+      
+      // Black keys (sharps)
+      'w': { note: 'C#', octaveOffset: 0 },
+      'e': { note: 'D#', octaveOffset: 0 },
+      't': { note: 'F#', octaveOffset: 0 },
+      'y': { note: 'G#', octaveOffset: 0 },
+      'u': { note: 'A#', octaveOffset: 0 },
+      'o': { note: 'C#', octaveOffset: 1 },
+      'p': { note: 'D#', octaveOffset: 1 },
     };
+
+    generateNoteMap(currentOctave);
 
     let audioContext;
     let sampleBuffer;
@@ -382,16 +427,23 @@
 
               this.activeNotes.forEach((note) => {
                 const loopSamples = sampleRate / note.frequency;
-                const readPos = (note.startSample + note.position) % this.sampleBuffer.length;
                 
-                const frac = note.position % loopSamples - Math.floor(note.position % loopSamples);
+                // Position within the loop (0 to loopSamples)
+                const posInLoop = note.position % loopSamples;
+                
+                // Sample index in the buffer
+                const readPos = note.startSample + Math.floor(posInLoop);
+                
+                // Linear interpolation
+                const frac = posInLoop - Math.floor(posInLoop);
                 const idx = Math.floor(readPos);
                 const s0 = this.sampleBuffer[idx % this.sampleBuffer.length] || 0;
                 const s1 = this.sampleBuffer[(idx + 1) % this.sampleBuffer.length] || 0;
                 let sample = s0 + (s1 - s0) * frac;
 
+                // Crossfade at loop boundary
                 const crossfadeSamples = (this.crossfadeMs / 1000) * sampleRate;
-                const distFromEnd = loopSamples - (note.position % loopSamples);
+                const distFromEnd = loopSamples - posInLoop;
                 
                 if (distFromEnd < crossfadeSamples) {
                   sample *= distFromEnd / crossfadeSamples;
@@ -399,7 +451,9 @@
 
                 sum += sample;
                 count++;
-                note.position += loopSamples / 44100;
+                
+                // Advance position by 1 sample
+                note.position += 1;
               });
 
               out[i] = count > 0 ? sum / count : 0;
@@ -512,8 +566,9 @@
       ctx.stroke();
     }
 
-    // Waveform drop zone
+    // Waveform drop zone and cursor dragging
     const waveformContainer = document.getElementById('waveformContainer');
+    let isDraggingCursor = false;
     
     waveformContainer.addEventListener('dragover', (e) => {
       e.preventDefault();
@@ -534,7 +589,8 @@
       }
     });
 
-    waveformContainer.addEventListener('click', () => {
+    // File load button
+    document.getElementById('loadFileBtn').addEventListener('click', () => {
       const input = document.createElement('input');
       input.type = 'file';
       input.accept = 'audio/*';
@@ -546,8 +602,105 @@
       input.click();
     });
 
-    // Update cursor
+    // Cursor dragging on waveform
+    waveformContainer.addEventListener('mousedown', (e) => {
+      const canvas = waveformContainer.querySelector('canvas');
+      if (!canvas) return;
+      
+      isDraggingCursor = true;
+      updateCursorFromMouse(e, canvas);
+    });
+
+    waveformContainer.addEventListener('mousemove', (e) => {
+      if (!isDraggingCursor) return;
+      const canvas = waveformContainer.querySelector('canvas');
+      if (!canvas) return;
+      
+      updateCursorFromMouse(e, canvas);
+    });
+
+    window.addEventListener('mouseup', () => {
+      isDraggingCursor = false;
+    });
+
+    function updateCursorFromMouse(e, canvas) {
+      const rect = canvas.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
+      
+      document.getElementById('cursorSlider').value = pct;
+      const value = pct / 100;
+      const ms = value * sampleDuration * 1000;
+      document.getElementById('cursorValue').textContent = Math.round(ms) + ' ms';
+      
+      if (workletNode) {
+        workletNode.port.postMessage({ type: 'cursor', cursorPos: ms });
+      }
+      
+      drawWaveform();
+    }
+
+    let isPlaying = false;
+    let playStartTime = 0;
+    let playStartPosition = 0;
+    let playLoopId = null;
+
+    // Play button
+    document.getElementById('playBtn').addEventListener('click', () => {
+      const btn = document.getElementById('playBtn');
+      isPlaying = !isPlaying;
+      
+      if (isPlaying) {
+        btn.textContent = '⏸ Pause';
+        btn.style.background = '#ff6b6b';
+        btn.style.color = '#ffffff';
+        playStartTime = performance.now();
+        playStartPosition = (parseFloat(document.getElementById('cursorSlider').value) / 100) * sampleDuration * 1000;
+        
+        function updatePlay() {
+          if (!isPlaying) return;
+          
+          const elapsed = (performance.now() - playStartTime) / 1000; // seconds
+          const newMs = playStartPosition + (elapsed * 1000);
+          const maxMs = sampleDuration * 1000;
+          
+          if (newMs > maxMs) {
+            // Loop back to start
+            playStartTime = performance.now();
+            playStartPosition = 0;
+          } else {
+            const pct = (newMs / maxMs) * 100;
+            document.getElementById('cursorSlider').value = pct;
+            document.getElementById('cursorValue').textContent = Math.round(newMs) + ' ms';
+            
+            if (workletNode) {
+              workletNode.port.postMessage({ type: 'cursor', cursorPos: newMs });
+            }
+            
+            drawWaveform();
+          }
+          
+          playLoopId = requestAnimationFrame(updatePlay);
+        }
+        
+        updatePlay();
+      } else {
+        btn.textContent = '▶ Play';
+        btn.style.background = 'var(--color-background-info)';
+        btn.style.color = 'var(--color-text-info)';
+        if (playLoopId) {
+          cancelAnimationFrame(playLoopId);
+        }
+      }
+    });
+
+    // Update cursor via slider
     document.getElementById('cursorSlider').addEventListener('input', (e) => {
+      // Stop playback when user manually adjusts slider
+      if (isPlaying) {
+        document.getElementById('playBtn').click();
+      }
+      
       const value = parseFloat(e.target.value);
       const ms = (value / 100) * sampleDuration * 1000;
       document.getElementById('cursorValue').textContent = Math.round(ms) + ' ms';
@@ -558,8 +711,6 @@
       
       drawWaveform();
     });
-
-    // Update crossfade
     document.getElementById('crossfadeSlider').addEventListener('input', (e) => {
       const value = parseFloat(e.target.value);
       document.getElementById('crossfadeValue').textContent = Math.round(value) + '%';
@@ -572,6 +723,7 @@
     // Create keyboard buttons
     function createKeyboardButtons() {
       const container = document.getElementById('keyboardControls');
+      container.innerHTML = '';
       Object.keys(noteMap).forEach(note => {
         const btn = document.createElement('button');
         btn.className = 'key-button';
@@ -582,6 +734,20 @@
         container.appendChild(btn);
       });
     }
+
+    // Update octave
+    document.getElementById('octaveSlider').addEventListener('input', (e) => {
+      currentOctave = parseInt(e.target.value);
+      document.getElementById('octaveValue').textContent = currentOctave;
+      generateNoteMap(currentOctave);
+      createKeyboardButtons();
+      
+      // Stop any playing notes and update UI
+      activeNotes.forEach(note => {
+        stopNote(note);
+      });
+      activeNotes.clear();
+    });
 
     function playNote(note, btn) {
       if (activeNotes.has(note)) return;
@@ -620,17 +786,25 @@
     // Keyboard input
     window.addEventListener('keydown', (e) => {
       const key = e.key.toLowerCase();
-      if (keyboardMap[key] && !e.repeat) {
-        const note = keyboardMap[key];
-        playNote(note);
+      const mapping = keyboardMap[key];
+      if (mapping && !e.repeat) {
+        const octave = currentOctave + mapping.octaveOffset;
+        const noteName = mapping.note + octave;
+        if (noteMap[noteName]) {
+          playNote(noteName);
+        }
       }
     });
 
     window.addEventListener('keyup', (e) => {
       const key = e.key.toLowerCase();
-      if (keyboardMap[key]) {
-        const note = keyboardMap[key];
-        stopNote(note);
+      const mapping = keyboardMap[key];
+      if (mapping) {
+        const octave = currentOctave + mapping.octaveOffset;
+        const noteName = mapping.note + octave;
+        if (noteMap[noteName]) {
+          stopNote(noteName);
+        }
       }
     });
 
