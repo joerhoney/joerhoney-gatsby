@@ -467,10 +467,13 @@
 
     function generateNoteMap(octave) {
       noteMap = {};
-      Object.keys(baseNoteMap).forEach(note => {
-        const freq = baseNoteMap[note] * Math.pow(2, octave - 4);
-        noteMap[note + octave] = freq;
-      });
+      // Generate notes for current octave AND next octave (to support keyboard layout with octaveOffset: 1)
+      for (let o = octave; o <= octave + 1; o++) {
+        Object.keys(baseNoteMap).forEach(note => {
+          const freq = baseNoteMap[note] * Math.pow(2, o - 4);
+          noteMap[note + o] = freq;
+        });
+      }
     }
 
     // GarageBand keyboard layout: A S D F G H J K L ; '
@@ -947,7 +950,9 @@
             drawWaveform();
           }
           
-          playLoopId = requestAnimationFrame(updatePlay);
+          // Update every 1ms instead of on display refresh (60fps)
+          // This eliminates the audible "fan blade" chopping effect
+          playLoopId = setTimeout(updatePlay, 1);
         }
         
         updatePlay();
@@ -955,7 +960,7 @@
         btn.textContent = '▶ Play';
         btn.classList.remove('playing');
         if (playLoopId) {
-          cancelAnimationFrame(playLoopId);
+          clearTimeout(playLoopId);
         }
       }
     });
