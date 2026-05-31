@@ -42,8 +42,12 @@
       font-family: var(--font-sans);
       color: var(--color-text-primary);
       background: var(--color-background-secondary);
-      padding: 2rem;
-      max-width: 900px;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+
+    .container {
+      width: 100%;
       margin: 0 auto;
     }
 
@@ -85,7 +89,8 @@
     label {
       font-size: 14px;
       color: var(--color-text-secondary);
-      min-width: 120px;
+      min-width: 100px;
+      flex-shrink: 0;
     }
 
     input[type="range"] {
@@ -122,9 +127,10 @@
     .value-display {
       font-size: 14px;
       font-weight: 500;
-      min-width: 80px;
+      min-width: 60px;
       text-align: right;
       color: var(--color-text-primary);
+      flex-shrink: 0;
     }
 
     button {
@@ -136,6 +142,7 @@
       border-radius: var(--border-radius-md);
       cursor: pointer;
       transition: all 0.2s;
+      flex-shrink: 0;
     }
 
     button:hover {
@@ -169,15 +176,6 @@
       border-color: var(--color-border-info);
     }
 
-    .waveform-container.no-sample {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 200px;
-      color: var(--color-text-secondary);
-      font-size: 14px;
-    }
-
     canvas {
       display: block;
       width: 100%;
@@ -190,20 +188,28 @@
       font-size: 13px;
       color: var(--color-text-secondary);
       padding: 0.5rem 0;
+      margin-bottom: 1rem;
     }
 
     /* Piano Keyboard Layout */
     .keyboard-container {
       margin: 1rem 0;
-      overflow-x: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .octave-controls-top {
+      display: none;
+      gap: 0.5rem;
     }
 
     .piano-keyboard {
       display: flex;
       gap: 0.5rem;
       width: fit-content;
-      max-width: 520px;
-      margin: 0 auto;
+      max-width: 100%;
       padding: 1rem;
       background: var(--color-background-secondary);
       border-radius: var(--border-radius-md);
@@ -263,6 +269,10 @@
       box-shadow: 0 2px 8px rgba(55, 138, 221, 0.3);
     }
 
+    .white-key.bonus {
+      display: none;
+    }
+
     .black-key {
       grid-row: 1;
       width: 26px;
@@ -296,19 +306,23 @@
       box-shadow: 0 2px 8px rgba(255, 107, 107, 0.4);
     }
 
+    .black-key.bonus {
+      display: none;
+    }
+
     .key-label {
       font-size: 10px;
       margin-top: 0.25rem;
     }
 
     /* Key positioning for black keys between whites */
-    .black-key:nth-child(2) { grid-column: 2; }  /* W between A/S */
-    .black-key:nth-child(3) { grid-column: 3; }  /* E between S/D */
-    .black-key:nth-child(4) { grid-column: 5; }  /* T between F/G */
-    .black-key:nth-child(5) { grid-column: 6; }  /* Y between G/H */
-    .black-key:nth-child(6) { grid-column: 7; }  /* U between H/J */
-    .black-key:nth-child(7) { grid-column: 9; }  /* O between K/L */
-    .black-key:nth-child(8) { grid-column: 10; } /* P between L/; */
+    .black-key:nth-child(2) { grid-column: 2; }
+    .black-key:nth-child(3) { grid-column: 3; }
+    .black-key:nth-child(4) { grid-column: 5; }
+    .black-key:nth-child(5) { grid-column: 6; }
+    .black-key:nth-child(6) { grid-column: 7; }
+    .black-key:nth-child(7) { grid-column: 9; }
+    .black-key:nth-child(8) { grid-column: 10; }
 
     .info-panel {
       background: var(--color-background-secondary);
@@ -349,15 +363,44 @@
       border-left: 2px solid var(--color-border-info);
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 900px) {
       .piano-keyboard {
         max-width: 100%;
-        font-size: 12px;
+      }
+
+      .white-key {
+        width: 32px;
+        height: 120px;
+        font-size: 10px;
+      }
+
+      .black-key {
+        width: 23px;
+        height: 80px;
+        font-size: 9px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .octave-controls {
+        display: none;
+      }
+
+      .octave-controls-top {
+        display: flex;
+      }
+
+      .white-key.bonus {
+        display: none;
+      }
+
+      .black-key.bonus {
+        display: none;
       }
 
       .white-key {
         width: 28px;
-        height: 110px;
+        height: 100px;
         font-size: 9px;
       }
 
@@ -367,87 +410,152 @@
         font-size: 8px;
       }
     }
+
+    @media (max-width: 500px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+
+      .section {
+        padding: 1rem;
+      }
+
+      .white-key {
+        width: 24px;
+        height: 80px;
+        font-size: 8px;
+      }
+
+      .black-key {
+        width: 18px;
+        height: 60px;
+        font-size: 7px;
+      }
+
+      label {
+        min-width: 80px;
+      }
+
+      .value-display {
+        min-width: 50px;
+      }
+    }
   </style>
 </head>
 <body>
-  <h1>Looping Sampler Prototype</h1>
-  <p class="subtitle">Drag an audio file onto the waveform to load it. Use the keyboard (GarageBand layout) to play notes.</p>
+  <div class="container">
+    <h1>Looping Sampler Prototype</h1>
+    <p class="subtitle">Drag an audio file onto the waveform to load it. Use the keyboard (GarageBand layout) to play notes.</p>
 
-  <div class="section">
-    <h2>Waveform & cursor</h2>
-    <div class="instructions">
-      <strong>Drag audio file here:</strong> MP3, WAV, OGG, or other browser-supported formats. Or click "📁 Load" to browse.
-    </div>
-    <div class="waveform-container" id="waveformContainer">
-      <div class="no-sample">Drop audio file here or click Load</div>
-    </div>
-    <div class="file-info" id="fileInfo"></div>
+    <div class="section">
+      <h2>Waveform & cursor</h2>
+      <div class="instructions">
+        <strong>Drag audio file here:</strong> MP3, WAV, OGG, or other browser-supported formats. Or click "📁 Load" to browse.
+      </div>
+      <div class="waveform-container" id="waveformContainer">
+        <div>Drop audio file here or click Load</div>
+      </div>
+      <div class="file-info" id="fileInfo"></div>
 
-    <div class="control-group">
-      <button id="playBtn" class="primary">▶ Play</button>
-      <button id="loadFileBtn">📁 Load</button>
-      <label style="margin-left: auto;">Start cursor</label>
-      <input type="range" id="cursorSlider" min="0" max="100" value="0" style="flex: 1; min-width: 150px;">
-      <span class="value-display" id="cursorValue">0 ms</span>
+      <div class="control-group">
+        <button id="playBtn" class="primary">▶ Play</button>
+        <button id="loadFileBtn">📁 Load</button>
+        <label style="margin-left: auto;">Start cursor</label>
+        <input type="range" id="cursorSlider" min="0" max="100" value="0" style="flex: 1; min-width: 150px;">
+        <span class="value-display" id="cursorValue">0 ms</span>
+      </div>
     </div>
-  </div>
 
-  <div class="section">
-    <h2>Playback settings</h2>
-    <div class="control-group">
-      <label>Octave</label>
-      <input type="range" id="octaveSlider" min="0" max="8" value="4">
-      <span class="value-display" id="octaveValue">4</span>
+    <div class="section">
+      <h2>Playback settings</h2>
+      <div class="control-group">
+        <label>Octave</label>
+        <input type="range" id="octaveSlider" min="0" max="8" value="4">
+        <span class="value-display" id="octaveValue">4</span>
+      </div>
+      <div class="control-group">
+        <label>Pitch shift</label>
+        <input type="range" id="pitchSlider" min="-4" max="4" value="0" step="0.01">
+        <span class="value-display" id="pitchValue">0 st</span>
+      </div>
+      <div class="control-group">
+        <label>Hann Window</label>
+        <input type="range" id="smoothnessSlider" min="0" max="100" value="0">
+        <span class="value-display" id="smoothnessValue">0%</span>
+      </div>
+      <div class="control-group">
+        <label>Clip Suppression</label>
+        <input type="range" id="crossfadeSlider" min="0" max="100" value="50">
+        <span class="value-display" id="crossfadeValue">50%</span>
+      </div>
     </div>
-    <div class="control-group">
-      <label>Smoothness</label>
-      <input type="range" id="smoothnessSlider" min="0" max="100" value="0">
-      <span class="value-display" id="smoothnessValue">0%</span>
-    </div>
-    <div class="control-group">
-      <label>Crossfade</label>
-      <input type="range" id="crossfadeSlider" min="0" max="100" value="50">
-      <span class="value-display" id="crossfadeValue">50%</span>
-    </div>
-  </div>
 
-  <div class="section">
-    <h2>Play notes</h2>
-    <div class="instructions">
-      Use keyboard keys (GarageBand layout): <strong>A-; and '</strong> for white keys, <strong>W, E, T, Y, U, O, P</strong> for sharps. <strong>Z/X</strong> to shift octaves.
+    <div class="section">
+      <h2>Envelope (ADSR)</h2>
+      <div class="control-group">
+        <label>Attack (ms)</label>
+        <input type="range" id="attackSlider" min="0" max="1000" value="0">
+        <span class="value-display" id="attackValue">0 ms</span>
+      </div>
+      <div class="control-group">
+        <label>Decay (ms)</label>
+        <input type="range" id="decaySlider" min="0" max="1000" value="100">
+        <span class="value-display" id="decayValue">100 ms</span>
+      </div>
+      <div class="control-group">
+        <label>Sustain</label>
+        <input type="range" id="sustainSlider" min="0" max="100" value="70">
+        <span class="value-display" id="sustainValue">70%</span>
+      </div>
+      <div class="control-group">
+        <label>Release (ms)</label>
+        <input type="range" id="releaseSlider" min="0" max="2000" value="500">
+        <span class="value-display" id="releaseValue">500 ms</span>
+      </div>
     </div>
-    <div class="keyboard-container">
-      <div class="piano-keyboard">
-        <div class="octave-controls">
-          <button class="octave-btn" id="octaveDownBtn">-</button>
-          <button class="octave-btn" id="octaveUpBtn">+</button>
+
+    <div class="section">
+      <h2>Play notes</h2>
+      <div class="instructions">
+        Use keyboard keys (GarageBand layout): <strong>A-;</strong> for main octave white keys, <strong>W, E, T, Y, U</strong> for sharps. <strong>Z/X</strong> to shift octaves.
+      </div>
+      <div class="keyboard-container">
+        <div class="octave-controls-top" id="octaveControlsTop">
+          <button class="octave-btn" id="octaveDownBtnTop">- Octave</button>
+          <button class="octave-btn" id="octaveUpBtnTop">+ Octave</button>
         </div>
-        <div class="keyboard-keys" id="keyboardKeys"></div>
+        <div class="piano-keyboard">
+          <div class="octave-controls">
+            <button class="octave-btn" id="octaveDownBtn">-</button>
+            <button class="octave-btn" id="octaveUpBtn">+</button>
+          </div>
+          <div class="keyboard-keys" id="keyboardKeys"></div>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="section">
-    <div class="info-panel">
-      <div class="info-row">
-        <span class="info-label">Current note</span>
-        <span class="info-value" id="noteDisplay">—</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Frequency</span>
-        <span class="info-value" id="frequencyDisplay">— Hz</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Loop length</span>
-        <span class="info-value" id="loopLengthDisplay">— ms</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Sample rate</span>
-        <span class="info-value" id="sampleRateDisplay">— Hz</span>
-      </div>
-      <div class="info-row">
-        <span class="info-label">Sample duration</span>
-        <span class="info-value" id="durationDisplay">— s</span>
+    <div class="section">
+      <div class="info-panel">
+        <div class="info-row">
+          <span class="info-label">Current note</span>
+          <span class="info-value" id="noteDisplay">—</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Frequency</span>
+          <span class="info-value" id="frequencyDisplay">— Hz</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Loop length</span>
+          <span class="info-value" id="loopLengthDisplay">— ms</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Sample rate</span>
+          <span class="info-value" id="sampleRateDisplay">— Hz</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Sample duration</span>
+          <span class="info-value" id="durationDisplay">— s</span>
+        </div>
       </div>
     </div>
   </div>
@@ -463,48 +571,46 @@
     };
 
     let currentOctave = 4;
+    let pitchShift = 0;
     let noteMap = {};
 
     function generateNoteMap(octave) {
       noteMap = {};
-      // Generate notes for current octave AND next octave (to support keyboard layout with octaveOffset: 1)
       for (let o = octave; o <= octave + 1; o++) {
         Object.keys(baseNoteMap).forEach(note => {
-          const freq = baseNoteMap[note] * Math.pow(2, o - 4);
-          noteMap[note + o] = freq;
+          const baseFreq = baseNoteMap[note] * Math.pow(2, o - 4);
+          const shiftedFreq = baseFreq * Math.pow(2, pitchShift / 12);
+          noteMap[note + o] = shiftedFreq;
         });
       }
     }
 
-    // GarageBand keyboard layout: A S D F G H J K L ; '
-    // Sharps: W E T Y U O P
     const keyboardLayout = [
-      { type: 'white', note: 'C', key: 'a', octaveOffset: 0 },
-      { type: 'black', note: 'C#', key: 'w', octaveOffset: 0 },
-      { type: 'white', note: 'D', key: 's', octaveOffset: 0 },
-      { type: 'black', note: 'D#', key: 'e', octaveOffset: 0 },
-      { type: 'white', note: 'E', key: 'd', octaveOffset: 0 },
-      { type: 'white', note: 'F', key: 'f', octaveOffset: 0 },
-      { type: 'black', note: 'F#', key: 't', octaveOffset: 0 },
-      { type: 'white', note: 'G', key: 'g', octaveOffset: 0 },
-      { type: 'black', note: 'G#', key: 'y', octaveOffset: 0 },
-      { type: 'white', note: 'A', key: 'h', octaveOffset: 0 },
-      { type: 'black', note: 'A#', key: 'u', octaveOffset: 0 },
-      { type: 'white', note: 'B', key: 'j', octaveOffset: 0 },
-      { type: 'white', note: 'C', key: 'k', octaveOffset: 1 },
-      { type: 'black', note: 'C#', key: 'o', octaveOffset: 1 },
-      { type: 'white', note: 'D', key: 'l', octaveOffset: 1 },
-      { type: 'black', note: 'D#', key: 'p', octaveOffset: 1 },
-      { type: 'white', note: 'E', key: ';', octaveOffset: 1 },
-      { type: 'white', note: 'F', key: "'", octaveOffset: 1 },
+      { type: 'white', note: 'C', key: 'a', octaveOffset: 0, bonus: false },
+      { type: 'black', note: 'C#', key: 'w', octaveOffset: 0, bonus: false },
+      { type: 'white', note: 'D', key: 's', octaveOffset: 0, bonus: false },
+      { type: 'black', note: 'D#', key: 'e', octaveOffset: 0, bonus: false },
+      { type: 'white', note: 'E', key: 'd', octaveOffset: 0, bonus: false },
+      { type: 'white', note: 'F', key: 'f', octaveOffset: 0, bonus: false },
+      { type: 'black', note: 'F#', key: 't', octaveOffset: 0, bonus: false },
+      { type: 'white', note: 'G', key: 'g', octaveOffset: 0, bonus: false },
+      { type: 'black', note: 'G#', key: 'y', octaveOffset: 0, bonus: false },
+      { type: 'white', note: 'A', key: 'h', octaveOffset: 0, bonus: false },
+      { type: 'black', note: 'A#', key: 'u', octaveOffset: 0, bonus: false },
+      { type: 'white', note: 'B', key: 'j', octaveOffset: 0, bonus: false },
+      { type: 'white', note: 'C', key: 'k', octaveOffset: 1, bonus: true },
+      { type: 'black', note: 'C#', key: 'o', octaveOffset: 1, bonus: true },
+      { type: 'white', note: 'D', key: 'l', octaveOffset: 1, bonus: true },
+      { type: 'black', note: 'D#', key: 'p', octaveOffset: 1, bonus: true },
+      { type: 'white', note: 'E', key: ';', octaveOffset: 1, bonus: true },
+      { type: 'white', note: 'F', key: "'", octaveOffset: 1, bonus: true },
     ];
 
-    const keyMap = {}; // Maps keyboard key to {note, octaveOffset}
+    const keyMap = {};
     keyboardLayout.forEach(k => {
       keyMap[k.key] = { note: k.note, octaveOffset: k.octaveOffset };
     });
 
-    // Octave shift keys
     const specialKeys = {
       'z': 'octaveDown',
       'x': 'octaveUp',
@@ -514,6 +620,15 @@
     let sampleBuffer;
     let workletNode;
     let activeNotes = new Map();
+    let audioUpdateInterval = null;
+
+    // ADSR settings
+    let adsrSettings = {
+      attack: 0,
+      decay: 100,
+      sustain: 0.7,
+      release: 500,
+    };
 
     function generateTestWaveform() {
       const length = SAMPLE_RATE * sampleDuration;
@@ -542,9 +657,10 @@
             this.cursorPos = 0;
             this.crossfadeMs = 50;
             this.smoothness = 0;
+            this.adsrSettings = { attack: 0, decay: 100, sustain: 0.7, release: 500 };
             
             this.port.onmessage = (e) => {
-              const { type, noteNum, frequency, sampleBuffer, cursorPos, crossfadeMs, smoothness } = e.data;
+              const { type, noteNum, frequency, sampleBuffer, cursorPos, crossfadeMs, smoothness, adsrSettings } = e.data;
               
               if (type === 'buffer') {
                 this.sampleBuffer = sampleBuffer;
@@ -557,22 +673,59 @@
                 this.crossfadeMs = crossfadeMs;
               } else if (type === 'smoothness') {
                 this.smoothness = smoothness;
+              } else if (type === 'adsr') {
+                this.adsrSettings = adsrSettings;
               } else if (type === 'noteOn') {
                 this.activeNotes.set(noteNum, {
                   frequency,
                   startSample: Math.floor(this.cursorPos * sampleRate / 1000),
                   position: 0,
+                  noteOnTime: currentTime,
+                  noteOffTime: null,
                 });
               } else if (type === 'noteOff') {
-                this.activeNotes.delete(noteNum);
+                const note = this.activeNotes.get(noteNum);
+                if (note) {
+                  note.noteOffTime = currentTime;
+                }
               }
             };
           }
 
           hannWindow(phase) {
-            // Returns 0-1, smooth envelope using Hann window
-            // phase goes from 0 to 1 over one cycle
             return 0.5 * (1 - Math.cos(2 * Math.PI * phase));
+          }
+
+          getADSREnvelope(note) {
+            const timeSinceOn = (currentTime - note.noteOnTime) * 1000;
+            const attack = this.adsrSettings.attack;
+            const decay = this.adsrSettings.decay;
+            const sustain = this.adsrSettings.sustain;
+            const release = this.adsrSettings.release;
+
+            if (note.noteOffTime === null) {
+              // Note still held
+              if (timeSinceOn < attack) {
+                // Attack phase
+                return timeSinceOn / attack;
+              } else if (timeSinceOn < attack + decay) {
+                // Decay phase
+                const decayProgress = (timeSinceOn - attack) / decay;
+                return 1 - (decayProgress * (1 - sustain));
+              } else {
+                // Sustain phase
+                return sustain;
+              }
+            } else {
+              // Note released
+              const timeSinceOff = (currentTime - note.noteOffTime) * 1000;
+              if (timeSinceOff < release) {
+                const sustainLevel = Math.max(sustain, 0);
+                return sustainLevel * (1 - (timeSinceOff / release));
+              } else {
+                return 0;
+              }
+            }
           }
 
           process(inputs, outputs) {
@@ -587,23 +740,26 @@
               let sum = 0;
               let count = 0;
 
-              this.activeNotes.forEach((note) => {
+              const notesToRemove = [];
+
+              this.activeNotes.forEach((note, noteNum) => {
+                const envelope = this.getADSREnvelope(note);
+                
+                if (envelope <= 0 && note.noteOffTime !== null) {
+                  notesToRemove.push(noteNum);
+                  return;
+                }
+
                 const loopSamples = sampleRate / note.frequency;
-                
-                // Position within the loop (0 to loopSamples)
                 const posInLoop = note.position % loopSamples;
-                
-                // Sample index in the buffer
                 const readPos = note.startSample + Math.floor(posInLoop);
                 
-                // Linear interpolation
                 const frac = posInLoop - Math.floor(posInLoop);
                 const idx = Math.floor(readPos);
                 const s0 = this.sampleBuffer[idx % this.sampleBuffer.length] || 0;
                 const s1 = this.sampleBuffer[(idx + 1) % this.sampleBuffer.length] || 0;
                 let sample = s0 + (s1 - s0) * frac;
 
-                // Crossfade at loop boundary
                 const crossfadeSamples = (this.crossfadeMs / 1000) * sampleRate;
                 const distFromEnd = loopSamples - posInLoop;
                 
@@ -611,22 +767,20 @@
                   sample *= distFromEnd / crossfadeSamples;
                 }
 
-                // Apply smoothing envelope (Hann window per cycle)
                 if (this.smoothness > 0) {
                   const phase = posInLoop / loopSamples;
-                  const envelope = this.hannWindow(phase);
+                  const hannEnv = this.hannWindow(phase);
                   const smoothAmount = this.smoothness / 100;
-                  // Blend between raw sample and smoothed sample
-                  sample = sample * (1 - smoothAmount) + sample * envelope * smoothAmount;
+                  sample = sample * (1 - smoothAmount) + sample * hannEnv * smoothAmount;
                 }
 
+                sample *= envelope;
                 sum += sample;
                 count++;
-                
-                // Advance position by 1 sample
                 note.position += 1;
               });
 
+              notesToRemove.forEach(noteNum => this.activeNotes.delete(noteNum));
               out[i] = count > 0 ? sum / count : 0;
             }
 
@@ -662,7 +816,6 @@
         
         document.getElementById('fileInfo').textContent = `Loaded: ${file.name} (${Math.round(sampleDuration * 1000)} ms)`;
         document.getElementById('durationDisplay').textContent = sampleDuration.toFixed(2) + ' s';
-        document.getElementById('cursorSlider').max = 100;
         document.getElementById('cursorSlider').value = 0;
         document.getElementById('cursorValue').textContent = '0 ms';
         
@@ -730,14 +883,14 @@
       ctx.stroke();
     }
 
-    // Create keyboard buttons
     function createKeyboardButtons() {
       const container = document.getElementById('keyboardKeys');
       container.innerHTML = '';
       
-      keyboardLayout.forEach((keyInfo, idx) => {
+      keyboardLayout.forEach((keyInfo) => {
         const btn = document.createElement('button');
         btn.className = keyInfo.type === 'white' ? 'white-key' : 'black-key';
+        if (keyInfo.bonus) btn.classList.add('bonus');
         btn.dataset.note = keyInfo.note;
         btn.dataset.octaveOffset = keyInfo.octaveOffset;
         btn.dataset.key = keyInfo.key;
@@ -807,7 +960,6 @@
       }
     }
 
-    // Keyboard input
     window.addEventListener('keydown', (e) => {
       const key = e.key.toLowerCase();
       
@@ -842,7 +994,6 @@
       }
     });
 
-    // Waveform drop zone and cursor dragging
     const waveformContainer = document.getElementById('waveformContainer');
     let isDraggingCursor = false;
     
@@ -901,22 +1052,23 @@
       const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
       
       document.getElementById('cursorSlider').value = pct;
-      const value = pct / 100;
-      const ms = value * sampleDuration * 1000;
+      updateCursorPosition();
+    }
+
+    function updateCursorPosition() {
+      const value = parseFloat(document.getElementById('cursorSlider').value);
+      const ms = (value / 100) * sampleDuration * 1000;
       document.getElementById('cursorValue').textContent = Math.round(ms) + ' ms';
       
       if (workletNode) {
         workletNode.port.postMessage({ type: 'cursor', cursorPos: ms });
       }
-      
-      drawWaveform();
     }
 
-    // Play button and cursor playback
     let isPlaying = false;
     let playStartTime = 0;
     let playStartPosition = 0;
-    let playLoopId = null;
+    let lastCanvasUpdateTime = 0;
 
     document.getElementById('playBtn').addEventListener('click', () => {
       const btn = document.getElementById('playBtn');
@@ -927,8 +1079,9 @@
         btn.classList.add('playing');
         playStartTime = performance.now();
         playStartPosition = (parseFloat(document.getElementById('cursorSlider').value) / 100) * sampleDuration * 1000;
+        lastCanvasUpdateTime = performance.now();
         
-        function updatePlay() {
+        function updatePlayAudio() {
           if (!isPlaying) return;
           
           const elapsed = (performance.now() - playStartTime) / 1000;
@@ -939,50 +1092,44 @@
             playStartTime = performance.now();
             playStartPosition = 0;
           } else {
-            const pct = (newMs / maxMs) * 100;
-            document.getElementById('cursorSlider').value = pct;
-            document.getElementById('cursorValue').textContent = Math.round(newMs) + ' ms';
-            
+            // Always update audio
             if (workletNode) {
               workletNode.port.postMessage({ type: 'cursor', cursorPos: newMs });
             }
             
-            drawWaveform();
+            // Update canvas only every 30ms to reduce overhead
+            const now = performance.now();
+            if (now - lastCanvasUpdateTime > 30) {
+              const pct = (newMs / maxMs) * 100;
+              document.getElementById('cursorSlider').value = pct;
+              document.getElementById('cursorValue').textContent = Math.round(newMs) + ' ms';
+              drawWaveform();
+              lastCanvasUpdateTime = now;
+            }
           }
           
-          // Update every 1ms instead of on display refresh (60fps)
-          // This eliminates the audible "fan blade" chopping effect
-          playLoopId = setTimeout(updatePlay, 1);
+          audioUpdateInterval = setTimeout(updatePlayAudio, 0.5);
         }
         
-        updatePlay();
+        updatePlayAudio();
       } else {
         btn.textContent = '▶ Play';
         btn.classList.remove('playing');
-        if (playLoopId) {
-          clearTimeout(playLoopId);
+        if (audioUpdateInterval) {
+          clearTimeout(audioUpdateInterval);
         }
       }
     });
 
-    // Cursor slider
     document.getElementById('cursorSlider').addEventListener('input', (e) => {
       if (isPlaying) {
         document.getElementById('playBtn').click();
       }
       
-      const value = parseFloat(e.target.value);
-      const ms = (value / 100) * sampleDuration * 1000;
-      document.getElementById('cursorValue').textContent = Math.round(ms) + ' ms';
-      
-      if (workletNode) {
-        workletNode.port.postMessage({ type: 'cursor', cursorPos: ms });
-      }
-      
+      updateCursorPosition();
       drawWaveform();
     });
 
-    // Octave controls
     document.getElementById('octaveSlider').addEventListener('input', (e) => {
       currentOctave = parseInt(e.target.value);
       document.getElementById('octaveValue').textContent = currentOctave;
@@ -1009,7 +1156,21 @@
       slider.dispatchEvent(new Event('input'));
     });
 
-    // Smoothness slider
+    document.getElementById('octaveDownBtnTop').addEventListener('click', () => {
+      document.getElementById('octaveDownBtn').click();
+    });
+
+    document.getElementById('octaveUpBtnTop').addEventListener('click', () => {
+      document.getElementById('octaveUpBtn').click();
+    });
+
+    document.getElementById('pitchSlider').addEventListener('input', (e) => {
+      pitchShift = parseFloat(e.target.value);
+      const semitones = Math.round(pitchShift * 100) / 100;
+      document.getElementById('pitchValue').textContent = (semitones >= 0 ? '+' : '') + semitones + ' st';
+      generateNoteMap(currentOctave);
+    });
+
     document.getElementById('smoothnessSlider').addEventListener('input', (e) => {
       const value = parseFloat(e.target.value);
       document.getElementById('smoothnessValue').textContent = Math.round(value) + '%';
@@ -1019,7 +1180,6 @@
       }
     });
 
-    // Crossfade slider
     document.getElementById('crossfadeSlider').addEventListener('input', (e) => {
       const value = parseFloat(e.target.value);
       document.getElementById('crossfadeValue').textContent = Math.round(value) + '%';
@@ -1029,7 +1189,39 @@
       }
     });
 
-    // Initialize
+    // ADSR controls
+    document.getElementById('attackSlider').addEventListener('input', (e) => {
+      adsrSettings.attack = parseFloat(e.target.value);
+      document.getElementById('attackValue').textContent = Math.round(adsrSettings.attack) + ' ms';
+      if (workletNode) {
+        workletNode.port.postMessage({ type: 'adsr', adsrSettings });
+      }
+    });
+
+    document.getElementById('decaySlider').addEventListener('input', (e) => {
+      adsrSettings.decay = parseFloat(e.target.value);
+      document.getElementById('decayValue').textContent = Math.round(adsrSettings.decay) + ' ms';
+      if (workletNode) {
+        workletNode.port.postMessage({ type: 'adsr', adsrSettings });
+      }
+    });
+
+    document.getElementById('sustainSlider').addEventListener('input', (e) => {
+      adsrSettings.sustain = parseFloat(e.target.value) / 100;
+      document.getElementById('sustainValue').textContent = Math.round(parseFloat(e.target.value)) + '%';
+      if (workletNode) {
+        workletNode.port.postMessage({ type: 'adsr', adsrSettings });
+      }
+    });
+
+    document.getElementById('releaseSlider').addEventListener('input', (e) => {
+      adsrSettings.release = parseFloat(e.target.value);
+      document.getElementById('releaseValue').textContent = Math.round(adsrSettings.release) + ' ms';
+      if (workletNode) {
+        workletNode.port.postMessage({ type: 'adsr', adsrSettings });
+      }
+    });
+
     window.addEventListener('load', async () => {
       generateNoteMap(currentOctave);
       document.getElementById('sampleRateDisplay').textContent = SAMPLE_RATE + ' Hz';
