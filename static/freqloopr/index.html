@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Looping Sampler Prototype</title>
+  <title>Looping Sampler Prototype v0.3</title>
   <style>
     * {
       margin: 0;
@@ -377,6 +377,22 @@
       flex-wrap: wrap;
     }
 
+    .bottom-sections {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .bottom-sections .section {
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 1000px) {
+      .bottom-sections {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 900px) {
       .piano-keyboard {
         max-width: 100%;
@@ -458,7 +474,7 @@
 </head>
 <body>
   <div class="container">
-    <h1>Looping Sampler Prototype</h1>
+    <h1>Looping Sampler Prototype <span style="font-size: 16px; font-weight: 400; color: var(--color-text-secondary);">v0.3</span></h1>
     <p class="subtitle">Drag an audio file onto the waveform to load it. Use the keyboard (GarageBand layout) to play notes.</p>
 
     <div class="section">
@@ -503,6 +519,20 @@
         <input type="range" id="crossfadeSlider" min="0" max="100" value="50">
         <span class="value-display" id="crossfadeValue">50%</span>
       </div>
+      <div class="control-group">
+        <label>Play cursor stepping (BPM)</label>
+        <input type="range" id="playStepSlider" min="0" max="300" value="0">
+        <span class="value-display" id="playStepValue">Off</span>
+      </div>
+      <div class="control-group">
+        <label>Soft Clipping</label>
+        <button id="softClippingToggle" style="padding: 0.4rem 0.8rem; font-size: 13px; font-weight: 500;">Off</button>
+      </div>
+      <div class="control-group">
+        <label>Headroom</label>
+        <input type="range" id="headroomSlider" min="0" max="12" value="0" step="0.1">
+        <span class="value-display" id="headroomValue">0 dB</span>
+      </div>
     </div>
 
     <div class="section">
@@ -529,47 +559,49 @@
       </div>
     </div>
 
-    <div class="section">
-      <h2>Play notes</h2>
-      <div class="instructions">
-        Use keyboard keys (GarageBand layout): <strong>A-;</strong> for main octave white keys, <strong>W, E, T, Y, U</strong> for sharps. <strong>Z/X</strong> to shift octaves.
-      </div>
-      <div class="keyboard-container">
-        <div class="octave-controls-top" id="octaveControlsTop">
-          <button class="octave-btn" id="octaveDownBtnTop">- Octave</button>
-          <button class="octave-btn" id="octaveUpBtnTop">+ Octave</button>
+    <div class="bottom-sections">
+      <div class="section">
+        <h2>Play notes</h2>
+        <div class="instructions">
+          Use keyboard keys (GarageBand layout): <strong>A-;</strong> for main octave white keys, <strong>W, E, T, Y, U</strong> for sharps. <strong>Z/X</strong> to shift octaves.
         </div>
-        <div class="piano-keyboard">
-          <div class="octave-controls">
-            <button class="octave-btn" id="octaveDownBtn">-</button>
-            <button class="octave-btn" id="octaveUpBtn">+</button>
+        <div class="keyboard-container">
+          <div class="octave-controls-top" id="octaveControlsTop">
+            <button class="octave-btn" id="octaveDownBtnTop">- Octave</button>
+            <button class="octave-btn" id="octaveUpBtnTop">+ Octave</button>
           </div>
-          <div class="keyboard-keys" id="keyboardKeys"></div>
+          <div class="piano-keyboard">
+            <div class="octave-controls">
+              <button class="octave-btn" id="octaveDownBtn">-</button>
+              <button class="octave-btn" id="octaveUpBtn">+</button>
+            </div>
+            <div class="keyboard-keys" id="keyboardKeys"></div>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="section">
-      <div class="info-panel">
-        <div class="info-row">
-          <span class="info-label">Current note</span>
-          <span class="info-value" id="noteDisplay">—</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Frequency</span>
-          <span class="info-value" id="frequencyDisplay">— Hz</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Loop length</span>
-          <span class="info-value" id="loopLengthDisplay">— ms</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Sample rate</span>
-          <span class="info-value" id="sampleRateDisplay">— Hz</span>
-        </div>
-        <div class="info-row">
-          <span class="info-label">Sample duration</span>
-          <span class="info-value" id="durationDisplay">— s</span>
+      <div class="section">
+        <div class="info-panel">
+          <div class="info-row">
+            <span class="info-label">Current note</span>
+            <span class="info-value" id="noteDisplay">—</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Frequency</span>
+            <span class="info-value" id="frequencyDisplay">— Hz</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Loop length</span>
+            <span class="info-value" id="loopLengthDisplay">— ms</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Sample rate</span>
+            <span class="info-value" id="sampleRateDisplay">— Hz</span>
+          </div>
+          <div class="info-row">
+            <span class="info-label">Sample duration</span>
+            <span class="info-value" id="durationDisplay">— s</span>
+          </div>
         </div>
       </div>
     </div>
@@ -673,10 +705,12 @@
             this.cursorPos = 0;
             this.crossfadeMs = 50;
             this.smoothness = 0;
+            this.softClipping = false;
+            this.headroomDb = 0;
             this.adsrSettings = { attack: 0, decay: 100, sustain: 0.7, release: 500 };
             
             this.port.onmessage = (e) => {
-              const { type, noteNum, frequency, sampleBuffer, cursorPos, crossfadeMs, smoothness, adsrSettings, updateFrequency } = e.data;
+              const { type, noteNum, frequency, sampleBuffer, cursorPos, crossfadeMs, smoothness, softClipping, headroomDb, adsrSettings, updateFrequency } = e.data;
               
               if (type === 'buffer') {
                 this.sampleBuffer = sampleBuffer;
@@ -689,6 +723,10 @@
                 this.crossfadeMs = crossfadeMs;
               } else if (type === 'smoothness') {
                 this.smoothness = smoothness;
+              } else if (type === 'softClipping') {
+                this.softClipping = softClipping;
+              } else if (type === 'headroom') {
+                this.headroomDb = headroomDb;
               } else if (type === 'adsr') {
                 this.adsrSettings = adsrSettings;
               } else if (type === 'updateFrequency') {
@@ -715,6 +753,11 @@
 
           hannWindow(phase) {
             return 0.5 * (1 - Math.cos(2 * Math.PI * phase));
+          }
+
+          softClip(sample) {
+            // tanh soft clipping: smoothly compresses peaks
+            return Math.tanh(sample);
           }
 
           getADSREnvelope(note) {
@@ -752,6 +795,9 @@
               return true;
             }
 
+            // Calculate gain reduction from headroom
+            const headroomGain = Math.pow(10, -this.headroomDb / 20);
+
             for (let i = 0; i < out.length; i++) {
               let sum = 0;
               const notesToRemove = [];
@@ -774,20 +820,6 @@
                 const s1 = this.sampleBuffer[(idx + 1) % this.sampleBuffer.length] || 0;
                 let sample = s0 + (s1 - s0) * frac;
 
-                // Blend with next cycle for smoother play
-                if (posInLoop > loopSamples * 0.85) {
-                  const nextCyclePos = (posInLoop - loopSamples) + this.sampleBuffer.length;
-                  const nextReadPos = note.startSample + Math.floor(nextCyclePos);
-                  const nextIdx = Math.floor(nextReadPos);
-                  const nextFrac = nextCyclePos - nextIdx;
-                  const nextS0 = this.sampleBuffer[nextIdx % this.sampleBuffer.length] || 0;
-                  const nextS1 = this.sampleBuffer[(nextIdx + 1) % this.sampleBuffer.length] || 0;
-                  const nextSample = nextS0 + (nextS1 - nextS0) * nextFrac;
-                  
-                  const blendAmount = (posInLoop - loopSamples * 0.85) / (loopSamples * 0.15);
-                  sample = sample * (1 - blendAmount) + nextSample * blendAmount;
-                }
-
                 const crossfadeSamples = (this.crossfadeMs / 1000) * sampleRate;
                 const distFromEnd = loopSamples - posInLoop;
                 
@@ -808,7 +840,16 @@
               });
 
               notesToRemove.forEach(noteNum => this.activeNotes.delete(noteNum));
-              out[i] = sum;
+              
+              // Apply headroom gain
+              let output = sum * headroomGain;
+              
+              // Apply soft clipping if enabled
+              if (this.softClipping) {
+                output = this.softClip(output);
+              }
+              
+              out[i] = output;
             }
 
             return true;
@@ -1068,6 +1109,13 @@
       const pct = Math.max(0, Math.min(100, (x / rect.width) * 100));
       
       document.getElementById('cursorSlider').value = pct;
+      const ms = (pct / 100) * sampleDuration * 1000;
+      
+      // If playing, update the dragged position for the play function
+      if (isPlaying) {
+        draggedPlayPosition = ms;
+      }
+      
       updateCursorPosition();
     }
 
@@ -1094,10 +1142,26 @@
 
     window.addEventListener('mouseup', () => {
       isDraggingCursor = false;
+      if (isPlaying) {
+        // Commit the dragged position
+        if (draggedPlayPosition !== null) {
+          playStartTime = performance.now();
+          playStartPosition = draggedPlayPosition;
+          draggedPlayPosition = null;
+        }
+      }
     });
 
     window.addEventListener('touchend', () => {
       isDraggingCursor = false;
+      if (isPlaying) {
+        // Commit the dragged position
+        if (draggedPlayPosition !== null) {
+          playStartTime = performance.now();
+          playStartPosition = draggedPlayPosition;
+          draggedPlayPosition = null;
+        }
+      }
     });
 
     function updateCursorPosition() {
@@ -1113,6 +1177,8 @@
     let isPlaying = false;
     let playStartTime = 0;
     let playStartPosition = 0;
+    let lastStepTime = 0;
+    let draggedPlayPosition = null; // Track dragged position during playback
 
     document.getElementById('playBtn').addEventListener('click', () => {
       const btn = document.getElementById('playBtn');
@@ -1123,21 +1189,54 @@
         btn.classList.add('playing');
         playStartTime = performance.now();
         playStartPosition = (parseFloat(document.getElementById('cursorSlider').value) / 100) * sampleDuration * 1000;
+        lastStepTime = performance.now();
+        draggedPlayPosition = null;
         
         function updatePlayAudio() {
           if (!isPlaying) return;
           
-          const elapsed = (performance.now() - playStartTime) / 1000;
-          const newMs = playStartPosition + (elapsed * 1000);
+          // If user is dragging, use dragged position instead of elapsed time
+          let newMs;
+          if (draggedPlayPosition !== null) {
+            newMs = draggedPlayPosition;
+          } else {
+            const elapsed = (performance.now() - playStartTime) / 1000;
+            newMs = playStartPosition + (elapsed * 1000);
+          }
+          
           const maxMs = sampleDuration * 1000;
           
           if (newMs > maxMs) {
             playStartTime = performance.now();
             playStartPosition = 0;
+            lastStepTime = performance.now();
+            draggedPlayPosition = null;
           } else {
-            // Always update audio with high frequency
-            if (workletNode) {
-              workletNode.port.postMessage({ type: 'cursor', cursorPos: newMs });
+            // Get BPM and subdivision settings
+            const bpm = parseFloat(document.getElementById('playStepSlider').value);
+            const subdivisions = parseFloat(document.getElementById('subdivisionSlider').value);
+            
+            // Determine if we should update
+            let shouldUpdate = true;
+            if (bpm > 0) {
+              // Calculate step interval with subdivisions multiplier
+              const effectiveBpm = bpm * subdivisions;
+              const stepIntervalMs = 60000 / effectiveBpm;
+              const timeSinceLastStep = performance.now() - lastStepTime;
+              
+              if (timeSinceLastStep >= stepIntervalMs) {
+                lastStepTime = performance.now();
+                shouldUpdate = true;
+              } else {
+                shouldUpdate = false;
+              }
+            }
+            
+            if (shouldUpdate) {
+              // Update audio with stepping or continuous
+              if (workletNode) {
+                workletNode.port.postMessage({ type: 'cursor', cursorPos: newMs });
+              }
             }
             
             // Update visual with requestAnimationFrame for smooth display
@@ -1159,6 +1258,7 @@
         if (audioUpdateInterval) {
           clearTimeout(audioUpdateInterval);
         }
+        draggedPlayPosition = null;
       }
     });
 
@@ -1247,6 +1347,44 @@
       
       if (workletNode) {
         workletNode.port.postMessage({ type: 'crossfade', crossfadeMs: value * 0.5 });
+      }
+    });
+
+    document.getElementById('playStepSlider').addEventListener('input', (e) => {
+      const bpm = parseFloat(e.target.value);
+      if (bpm === 0) {
+        document.getElementById('playStepValue').textContent = 'Off';
+      } else {
+        document.getElementById('playStepValue').textContent = Math.round(bpm) + ' BPM';
+      }
+    });
+
+    document.getElementById('subdivisionSlider').addEventListener('input', (e) => {
+      const sub = parseFloat(e.target.value);
+      document.getElementById('subdivisionValue').textContent = Math.round(sub) + 'x';
+    });
+
+    let softClippingEnabled = false;
+
+    document.getElementById('softClippingToggle').addEventListener('click', () => {
+      const btn = document.getElementById('softClippingToggle');
+      softClippingEnabled = !softClippingEnabled;
+      btn.textContent = softClippingEnabled ? 'On' : 'Off';
+      btn.style.background = softClippingEnabled ? 'var(--color-background-info)' : 'var(--color-background-secondary)';
+      btn.style.color = softClippingEnabled ? 'var(--color-text-info)' : 'var(--color-text-primary)';
+      btn.style.borderColor = softClippingEnabled ? 'var(--color-border-info)' : 'var(--color-border-tertiary)';
+      
+      if (workletNode) {
+        workletNode.port.postMessage({ type: 'softClipping', softClipping: softClippingEnabled });
+      }
+    });
+
+    document.getElementById('headroomSlider').addEventListener('input', (e) => {
+      const value = parseFloat(e.target.value);
+      document.getElementById('headroomValue').textContent = Math.round(value * 10) / 10 + ' dB';
+      
+      if (workletNode) {
+        workletNode.port.postMessage({ type: 'headroom', headroomDb: value });
       }
     });
 
