@@ -17,48 +17,58 @@ main:has(.nav) section h1 {
   }
 }
 .nav {
-  left: 18px;
-  height: 0;
   position: sticky;
   top: 0;
+  left: 18px;
   z-index: 999;
   width: 150px;
+  height: 0;
 }
 .nav::before {
-  box-sizing: border-box;
-  color: transparent;
-  content: "\25b6";
-  font-size: 540px;
-  height: 0;
-  overflow: hidden;
-  padding: 0 0 500px; /* was 200px 0 300px */
-  pointer-events: none;
-  text-shadow: 0 0 140px var(--color1);
-  transform: scale(1, 1.5);
-  transform-origin: top left;
-  /* transition: all 1s cubic-bezier(0, 0, 0.15, 1); */
-  width: calc(100vw + 100px);
-  z-index: -1;
-
   position: absolute;
-  left: -120px;
-  top: 0; /* was -290px */
+  top: 0;
+  left: -20px;
+  z-index: -1;
+  backdrop-filter: blur(3px);
+  mask-image: linear-gradient(135deg, black, transparent, transparent);
+  background: var(--tint1);
+  width: 600px;
+  max-width: 100vw;
+  height: 600px;
+  max-height: 100vw;
+  pointer-events: none;
+  content: "";
+}
+.nav::after {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  z-index: -1;
+  backdrop-filter: blur(9px);
+  mask-image: linear-gradient(135deg, black, transparent, transparent);
+  background: var(--tint1);
+  width: 600px;
+  max-width: 100vw;
+  height: 600px;
+  max-height: 100vw;
+  pointer-events: none;
+  content: "";
 }
 .nav .group {
-  height: 90px;
   transform: rotate(14.125deg);
   transform-origin: top left;
   width: 170px;
+  height: 90px;
 }
 .nav ul {
   display: block;
-  margin: 0;
-  padding: 0;
-  transform-origin: top left;
 
   position: absolute;
   top: 0;
   left: 68px;
+  transform-origin: top left;
+  margin: 0;
+  padding: 0;
 }
 .nav ul li {
   display: flex;
@@ -66,26 +76,26 @@ main:has(.nav) section h1 {
   letter-spacing: -0.03em;
 }
 .nav a {
-  color: var(--color3);
   display: block;
-  font-family: "Rubik", sans-serif;
-  font-size: 20px;
-  font-weight: 700;
   position: relative;
+  transition: color 0.5s ease;
+  color: var(--color3);
+  font-weight: 700;
+  font-size: 20px;
+  font-family: "Rubik", sans-serif;
   text-decoration: none;
   text-transform: lowercase;
-  transition: color 0.5s ease;
 }
 .nav a.logo {
-  content: ":j";
   display: block;
-  font-size: 90px;
-  letter-spacing: 0.3rem;
-  z-index: 1;
 
   position: absolute;
-  left: 10px;
   top: 31px;
+  left: 10px;
+  z-index: 1;
+  content: ":j";
+  font-size: 90px;
+  letter-spacing: 0.3rem;
 }
 .nav .toggle {
   display: none;
@@ -120,18 +130,18 @@ main:has(.nav) section h1 {
   }
 }
 .nav-indicator {
-  box-sizing: border-box;
-  color: var(--color3);
   display: flex;
-  justify-content: center;
-  max-width: 460px;
-  margin: 72px 0 -72px;
-  padding-left: 140px;
-  padding-top: var(--unit6);
   position: relative;
+  justify-content: center;
   transform: translateY(-50%);
-  white-space: pre-wrap;
+  box-sizing: border-box;
+  margin: 72px 0 -72px;
+  padding-top: var(--unit6);
+  padding-left: 140px;
   width: 100%;
+  max-width: 460px;
+  color: var(--color3);
+  white-space: pre-wrap;
 }
 .nav-indicator pre {
   font-size: 15px;
@@ -141,8 +151,8 @@ main:has(.nav) section h1 {
 }
 @media (max-width: 400px) {
   .nav-indicator pre {
-    font-size: 3.75vw;
     font-weight: bold;
+    font-size: 3.75vw;
     line-height: 4.875vw;
     /* text-transform: uppercase; */
   }
