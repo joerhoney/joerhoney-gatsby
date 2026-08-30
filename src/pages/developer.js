@@ -270,29 +270,32 @@ const codePage = () => {
             title="Meta"
           >
             <p>
-              Built out sections on several pages using Meta's custom XML
-              component sets. Some of the areas of the website included:
+              Working within a large, established design system meant a
+              different kind of challenge than greenfield work — precision and
+              consistency mattered more than individual creative direction. I
+              built out sections across several product areas (Quest, Quest
+              Accessories, Horizon, Meta for Work, VR for Good, Meta
+              Experiences) using Meta's custom XML/XHP component sets, and
+              carried that same work through oculus.com and portal.facebook.com
+              ahead of their migration into meta.com.
             </p>
-            <ul>
-              <li>Quest products</li>
-              <li>Quest Accessories</li>
-              <li>Horizon</li>
-              <li>Meta for Work</li>
-              <li>VR for Good</li>
-              <li>Meta Experiences</li>
-            </ul>
             <p>
-              Reviewed sections built by others (including Meta staff and my
-              team mates) for design adherence, copy accuracy and code quality.
-              Deprecated old components (built in XHP), as well as old pages,
-              files and directories. Updated, added and removed 301 redirects.
-              Executed similar work on oculus.com and portal.facebook.com, prior
-              to migration to meta.com. Audited page event logging on several
-              meta.com pages, compared to best practices, recommended specific
-              updates, and helped to establish more precise standards for
-              analytics. Implemented these findings upon approval.
+              Beyond building, I reviewed sections built by teammates and Meta
+              staff for design adherence, copy accuracy, and code quality — work
+              that required understanding the system well enough to hold others
+              to it, not just follow it myself. I also took on an analytics
+              audit across several meta.com pages: comparing existing event
+              logging against best practices, recommending specific changes, and
+              helping establish clearer standards going forward, which I then
+              implemented once approved.
+            </p>
+            <p>
+              It was a good lesson in what "quality" means at scale — less about
+              any one page looking good, and more about hundreds of pages
+              staying consistent, accurate, and maintainable over time.
             </p>
           </Showcase>
+
           <Showcase
             desc="Website and blog maintenance, modifications and improvements."
             href="https://codazen.com"
@@ -301,14 +304,24 @@ const codePage = () => {
             title="Codazen"
           >
             <p>
-              Updated pages with React, powered by Gatsby on Node and deployed
-              via GitHub through Netlify (prior to migration). Created new React
-              components. Participated in peer-reviews as required for all work.
-              Added blog posts powered by HubSpot. Became the go-to for
-              Codazen's blog as to it's maintenance and structure and necessary
-              steps for improvement. Provided insight and direction on migration
-              to newer frameworks and platforms, for an improved company
-              website.
+              At Codazen, most of my work lived in their React/Gatsby site,
+              deployed through GitHub via Netlify — building new components,
+              updating existing pages, and going through peer review like
+              everyone else on the team. Over time I became the person the team
+              turned to for the blog specifically: its structure, its
+              maintenance, and what it needed to keep improving, including new
+              posts built around their HubSpot integration.{" "}
+            </p>
+            <p>
+              I also spent time looking ahead — evaluating what a migration to
+              newer frameworks and platforms could look like for the company
+              site, and sharing that direction with the team.
+            </p>
+            <p>
+              It was a good environment for learning what "ownership" looks like
+              on someone else's codebase: less about staking out your own
+              corner, and more about becoming reliably useful across the whole
+              thing.
             </p>
           </Showcase>
           <Showcase
@@ -496,15 +509,15 @@ const codePage = () => {
                 AddFunc Plugins
               </Button>
             </div>
-            <div className="column u-jump-section" id="resume">
-              <h3>My Résumé</h3>
+            <div className="column u-jump-section">
+              <h3>Hire me! 😄</h3>
               <p>
-                You may already have it, but for convenience and to serve also
-                as correlation, you can find my résumé here:
+                I am currently available for hire! You can learn about and
+                contact me on LinkedIn.
               </p>
-              <a className="button" href="/resume">
-                View Résumé
-              </a>
+              <Button href="https://www.linkedin.com/in/joerhoney/">
+                Me on LinkedIn
+              </Button>
             </div>
             <div className="column u-jump-section" id="story">
               <h3>Journey of an&nbsp;Artist</h3>

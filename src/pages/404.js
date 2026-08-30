@@ -24,8 +24,11 @@ const NotFoundPage = () => {
               these pages:
             </p>
             <p>
-              <a className="button" href="/resume">
-                Résumé
+              <a className="button" href="/creative">
+                Creative
+              </a>
+              <a className="button" href="/developer">
+                Developers
               </a>
               <a className="button" href="/blog/journey-of-an-artist/">
                 My Story

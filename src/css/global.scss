@@ -1,3 +1,6 @@
+@view-transition {
+  navigation: auto;
+}
 /*  R E S E T  */
 :root {
   width: 100vw;
@@ -51,7 +54,8 @@ h1.u-text-small {
   font-family: Rubik, sans-serif;
 }
 .written-note {
-  font-family: "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Noteworthy",
+  font-family:
+    "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Noteworthy",
     "Comic Sans", "Comic Sans MS", "Courier New", "Courier", monospace;
 }
 *:has(> .with-arrow) {
@@ -93,7 +97,9 @@ body {
   scrollbar-color: var(--color3) var(--color1);
   scrollbar-width: 6px;
   color: var(--color6);
-  font: 400 16px/1.3em Courier, monospace;
+  font:
+    400 16px/1.3em Courier,
+    monospace;
 }
 body > div {
   background-image: var(--gradBg);
@@ -503,7 +509,9 @@ form > * {
 }
 input,
 textarea {
-  transition: box-shadow ease 0.2s, text-shadow ease 0.2s;
+  transition:
+    box-shadow ease 0.2s,
+    text-shadow ease 0.2s;
   box-sizing: border-box;
   margin-bottom: 0;
   outline: none;
@@ -514,12 +522,8 @@ textarea {
   color: currentColor;
 }
 :is(input, textarea):focus {
-  background-image: linear-gradient(
-      to bottom,
-      var(--dark) 0,
-      transparent 33%,
-      transparent
-    ),
+  background-image:
+    linear-gradient(to bottom, var(--dark) 0, transparent 33%, transparent),
     linear-gradient(to right, var(--dark) 0, transparent 33%, transparent),
     linear-gradient(to left, var(--dark) 0, transparent 33%, transparent),
     linear-gradient(to top, var(--dark) 0, transparent 33%, transparent);
