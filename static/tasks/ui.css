@@ -1,5 +1,6 @@
 :root {
   --bg: #f6f5f0;
+  --bg-fade: #f6f5f0cc;
   --surface: #ffffff;
   --surface-hover: #fbfaf7;
   --text: #1c1b18;
@@ -18,6 +19,7 @@
 }
 [data-theme="dark"] {
   --bg: #15181a;
+  --bg-fade: #15181acc;
   --surface: #1d2124;
   --surface-hover: #20252a;
   --text: #ece9e1;
@@ -77,11 +79,19 @@ footer.hints {
   right: 0;
   left: 0;
   z-index: 30;
-  transition:
-    background 0.25s ease,
-    border-color 0.25s ease;
-  border-bottom: 1px solid var(--border);
-  background: var(--bg);
+  transition: background 0.25s ease;
+}
+/* soft fade under the glass instead of a hard rule */
+.topbar::before {
+  position: absolute;
+  backdrop-filter: blur(6px) saturate(160%);
+  inset: 0 0 -24px;
+  background: linear-gradient(to bottom, var(--bg-fade) 55%, transparent);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  z-index: -1;
+  mask-image: linear-gradient(to bottom, black 75%, transparent);
+  pointer-events: none;
+  content: "";
 }
 .topbar-inner {
   margin: 0 auto;
@@ -112,11 +122,37 @@ header.top h1 {
 }
 header.top .sub {
   display: block;
+  opacity: 1;
   margin-top: 4px;
+  max-height: 18px;
+  overflow: hidden;
   color: var(--text-dim);
   font-weight: 400;
   font-size: 13px;
   letter-spacing: 0;
+}
+/* Collapse the tagline as the page scrolls away from the top.
+   Pure CSS scroll-driven animation — no JS, no scroll listeners.
+   Browsers without support (mainly Firefox, as of 2026) just keep
+   the tagline static, which is a fine fallback. */
+@supports (animation-timeline: scroll()) {
+  header.top .sub {
+    animation: tend-sub-collapse linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 90px;
+  }
+  @keyframes tend-sub-collapse {
+    from {
+      opacity: 1;
+      margin-top: 4px;
+      max-height: 18px;
+    }
+    to {
+      opacity: 0;
+      margin-top: 0;
+      max-height: 0;
+    }
+  }
 }
 .icon-btn {
   display: flex;
