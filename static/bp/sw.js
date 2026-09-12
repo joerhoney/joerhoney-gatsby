@@ -1,5 +1,5 @@
-// Minimal app-shell cache so Tend keeps working offline once it's been opened.
-var CACHE_NAME = 'tend-shell-v1';
+// Minimal app-shell cache so Battle Plan keeps working offline once it's been opened.
+var CACHE_NAME = 'battleplan-shell-v1';
 var ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', function (e) {

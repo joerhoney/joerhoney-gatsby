@@ -23,7 +23,7 @@ joerhoney.com        ▟███▄▄
       name="viewport"
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>Tend — a to-do list</title>
+    <title>Battle Plan — a to-do list</title>
     <link rel="manifest" href="manifest.json" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <link rel="icon" href="icon-192.png" type="image/png" />
@@ -43,7 +43,7 @@ joerhoney.com        ▟███▄▄
       name="apple-mobile-web-app-status-bar-style"
       content="black-translucent"
     />
-    <meta name="apple-mobile-web-app-title" content="Tend" />
+    <meta name="apple-mobile-web-app-title" content="Battle Plan" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -57,7 +57,7 @@ joerhoney.com        ▟███▄▄
       <div class="topbar-inner">
         <header class="top">
           <div>
-            <h1>Tend</h1>
+            <h1>Battle Plan</h1>
             <span class="sub">a quiet place to keep track</span>
           </div>
           <button
@@ -126,7 +126,30 @@ joerhoney.com        ▟███▄▄
         <div class="section-head">
           <h2>Tasks</h2>
           <span class="count" id="activeCount"></span>
+          <button class="sort-indicator" id="sortIndicator" hidden></button>
           <span class="spacer"></span>
+          <button
+            class="sort-btn"
+            id="sortBtn"
+            aria-label="Sort tasks"
+            title="Sort tasks"
+            hidden
+          >
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 6h11" />
+              <path d="M3 12h7" />
+              <path d="M3 18h4" />
+              <path d="M17 4v16" />
+              <path d="M13 16l4 4 4-4" />
+            </svg>
+          </button>
         </div>
         <ul class="task-list" id="activeList"></ul>
         <p class="empty-msg" id="activeEmpty" style="display: none">
@@ -202,8 +225,117 @@ joerhoney.com        ▟███▄▄
             <option value="dark">Dark</option>
           </select>
         </div>
+        <div class="setting-row">
+          <div>
+            <label for="addBottomToggle">New tasks go to the bottom</label>
+            <div class="desc">Off adds new tasks to the top of the list.</div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="addBottomToggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div>
+            <label for="softSortToggle">Show soft sort</label>
+            <div class="desc">
+              A view-only sort you can leave on; your manual order is kept
+              underneath.
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="softSortToggle" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div>
+            <label for="hardSortToggle">Show sort once</label>
+            <div class="desc">
+              A one-time reorder of your tasks, then back to manual.
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="hardSortToggle" checked />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-row">
+          <div>
+            <label for="autoPurgeToggle">Auto-delete done items</label>
+            <div class="desc">
+              Permanently remove a task a set number of days after it's
+              checked off.
+            </div>
+          </div>
+          <label class="switch">
+            <input type="checkbox" id="autoPurgeToggle" />
+            <span class="slider"></span>
+          </label>
+        </div>
+        <div class="setting-row" id="autoPurgeDaysRow" hidden>
+          <div>
+            <label for="autoPurgeDaysInput">Days to keep</label>
+          </div>
+          <input
+            type="number"
+            id="autoPurgeDaysInput"
+            class="days-input"
+            min="1"
+            max="365"
+            step="1"
+            inputmode="numeric"
+          />
+        </div>
         <div class="modal-close-row">
           <button id="settingsClose">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sort modal -->
+    <div class="overlay hidden" id="sortOverlay">
+      <div class="modal sort-modal">
+        <h3>Sort tasks</h3>
+        <div class="sort-group" id="softSortGroup">
+          <div class="sort-group-label">
+            Soft sort
+            <span class="desc">stays on &middot; pauses drag reorder</span>
+          </div>
+          <div class="pill-row" id="softSortPills">
+            <button type="button" class="pill" data-key="">Manual</button>
+            <button type="button" class="pill" data-key="dueSoonest">
+              Due soonest
+            </button>
+            <button type="button" class="pill" data-key="oldest">
+              Oldest first
+            </button>
+            <button type="button" class="pill" data-key="newest">
+              Newest first
+            </button>
+            <button type="button" class="pill" data-key="alpha">A → Z</button>
+          </div>
+        </div>
+        <div class="sort-group" id="hardSortGroup">
+          <div class="sort-group-label">
+            Sort once
+            <span class="desc">reorders now &middot; undo with Ctrl+Z</span>
+          </div>
+          <div class="pill-row" id="hardSortPills">
+            <button type="button" class="pill" data-key="dueSoonest">
+              Due soonest
+            </button>
+            <button type="button" class="pill" data-key="oldest">
+              Oldest first
+            </button>
+            <button type="button" class="pill" data-key="newest">
+              Newest first
+            </button>
+            <button type="button" class="pill" data-key="alpha">A → Z</button>
+          </div>
+        </div>
+        <div class="modal-close-row">
+          <button id="sortClose">Done</button>
         </div>
       </div>
     </div>
@@ -227,12 +359,21 @@ joerhoney.com        ▟███▄▄
           '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>';
 
         /* ---------- Storage keys ---------- */
-        var TASKS_KEY = "tend_tasks_v1";
-        var SETTINGS_KEY = "tend_settings_v1";
+        var TASKS_KEY = "battleplan_tasks_v1";
+        var SETTINGS_KEY = "battleplan_settings_v1";
 
         /* ---------- State ---------- */
         var tasks = [];
-        var settings = { urgencyEffects: true, theme: "auto" };
+        var settings = {
+          urgencyEffects: true,
+          theme: "auto",
+          showSoftSort: true,
+          showHardSort: true,
+          softSortKey: "",
+          addToBottom: false,
+          autoPurgeEnabled: false,
+          autoPurgeDays: 7,
+        };
         var undoStack = [];
         var redoStack = [];
         var editingDueId = null; // id of task whose due date is being edited inline
@@ -385,11 +526,96 @@ joerhoney.com        ▟███▄▄
           );
         }
 
+        /* ---------- Sorting ---------- */
+        var SORT_LABELS = {
+          dueSoonest: "Due soonest",
+          oldest: "Oldest first",
+          newest: "Newest first",
+          alpha: "A \u2192 Z",
+        };
+        function sortComparator(key) {
+          switch (key) {
+            case "dueSoonest":
+              return function (a, b) {
+                var ad = a.dueDate ? new Date(a.dueDate).getTime() : Infinity;
+                var bd = b.dueDate ? new Date(b.dueDate).getTime() : Infinity;
+                return ad - bd;
+              };
+            case "oldest":
+              return function (a, b) {
+                return (a.createdAt || 0) - (b.createdAt || 0);
+              };
+            case "newest":
+              return function (a, b) {
+                return (b.createdAt || 0) - (a.createdAt || 0);
+              };
+            case "alpha":
+              return function (a, b) {
+                return a.text.localeCompare(b.text, undefined, {
+                  sensitivity: "base",
+                });
+              };
+            default:
+              return function () {
+                return 0;
+              };
+          }
+        }
+        /* ---------- Auto-purge done items after N days ---------- */
+        function runAutoPurge() {
+          if (!settings.autoPurgeEnabled || !settings.autoPurgeDays) return;
+          var cutoff =
+            Date.now() - settings.autoPurgeDays * 24 * 60 * 60 * 1000;
+          var expired = tasks.filter(function (t) {
+            return t.done && t.completedAt && t.completedAt <= cutoff;
+          });
+          if (!expired.length) return;
+          mutate(function () {
+            tasks = tasks.filter(function (t) {
+              return !(t.done && t.completedAt && t.completedAt <= cutoff);
+            });
+          });
+          toast(
+            expired.length +
+              " done item" +
+              (expired.length === 1 ? "" : "s") +
+              " auto-purged",
+          );
+        }
+
+        function hardSort(key) {
+          var cmp = sortComparator(key);
+          mutate(function () {
+            var active = tasks
+              .filter(function (t) {
+                return !t.done;
+              })
+              .sort(cmp);
+            var done = tasks.filter(function (t) {
+              return t.done;
+            });
+            tasks = active.concat(done);
+          });
+          // A hard sort always lands back in true manual mode, per its own
+          // description ("then manual again") — so drop any soft sort that
+          // was driving the view, and re-render to unlock dragging.
+          if (settings.softSortKey) {
+            settings.softSortKey = "";
+            persistSettings();
+            render();
+          }
+          toast("Sorted \u00b7 " + SORT_LABELS[key] + " \u2014 Ctrl+Z to undo");
+        }
+
         /* ---------- Rendering ---------- */
         function render() {
+          var sortLocked = !!settings.softSortKey;
           var active = tasks.filter(function (t) {
             return !t.done;
           });
+          if (sortLocked) {
+            active = active.slice().sort(sortComparator(settings.softSortKey));
+          }
           var done = tasks
             .filter(function (t) {
               return t.done;
@@ -415,19 +641,22 @@ joerhoney.com        ▟███▄▄
             ? "visible"
             : "hidden";
 
-          renderList(document.getElementById("activeList"), active, false);
-          renderList(document.getElementById("doneList"), done, true);
+          var activeListEl = document.getElementById("activeList");
+          activeListEl.classList.toggle("sort-locked", sortLocked);
+          renderList(activeListEl, active, false, sortLocked);
+          renderList(document.getElementById("doneList"), done, true, false);
           refreshUrgency();
+          updateSortUI();
         }
 
-        function renderList(ul, list, isDone) {
+        function renderList(ul, list, isDone, sortLocked) {
           ul.innerHTML = "";
           list.forEach(function (t) {
-            ul.appendChild(renderItem(t, isDone));
+            ul.appendChild(renderItem(t, isDone, sortLocked));
           });
         }
 
-        function renderItem(t, isDone) {
+        function renderItem(t, isDone, sortLocked) {
           var li = document.createElement("li");
           li.className = "task-item";
           li.dataset.id = t.id;
@@ -437,10 +666,18 @@ joerhoney.com        ▟███▄▄
             var grip = document.createElement("span");
             grip.className = "grip";
             grip.innerHTML = ICON_GRIP;
-            grip.draggable = true;
             grip.setAttribute("aria-label", "Drag to reorder");
+            if (sortLocked) {
+              grip.title = "Manual reorder is paused while a sort is active";
+              grip.addEventListener("pointerdown", function (e) {
+                e.preventDefault();
+                pulseSortBtn();
+              });
+            } else {
+              grip.draggable = true;
+            }
             li.appendChild(grip);
-            li.draggable = true;
+            if (!sortLocked) li.draggable = true;
           }
 
           var cb = document.createElement("input");
@@ -536,7 +773,7 @@ joerhoney.com        ▟███▄▄
             li.appendChild(actions);
           }
 
-          if (!isDone) {
+          if (!isDone && !sortLocked) {
             li.addEventListener("dragstart", function (e) {
               dragSnapshot = clone(tasks);
               li.classList.add("dragging");
@@ -710,7 +947,7 @@ joerhoney.com        ▟███▄▄
         /* ---------- Task actions ---------- */
         function addTask(text, dueISO) {
           mutate(function () {
-            tasks.unshift({
+            var task = {
               id:
                 "id-" +
                 Date.now() +
@@ -721,7 +958,12 @@ joerhoney.com        ▟███▄▄
               dueDate: dueISO || null,
               createdAt: Date.now(),
               completedAt: null,
-            });
+            };
+            if (settings.addToBottom) {
+              tasks.push(task);
+            } else {
+              tasks.unshift(task);
+            }
           });
           toast("Task added");
         }
@@ -767,7 +1009,6 @@ joerhoney.com        ▟███▄▄
         dueToggleBtn.addEventListener("click", function () {
           dueRow.classList.toggle("open");
           if (dueRow.classList.contains("open")) dueInput.focus();
-          if (typeof syncTopbarHeight === "function") syncTopbarHeight();
         });
         dueClearBtn.addEventListener("click", function () {
           dueInput.value = "";
@@ -801,6 +1042,89 @@ joerhoney.com        ▟███▄▄
           dueToggleBtn.classList.remove("active");
           dueToggleLabel.textContent = "Due date";
           taskInput.focus();
+        });
+
+        /* ---------- Sort modal ---------- */
+        var sortOverlay = document.getElementById("sortOverlay");
+        var sortBtn = document.getElementById("sortBtn");
+        var sortIndicator = document.getElementById("sortIndicator");
+        var softSortGroup = document.getElementById("softSortGroup");
+        var hardSortGroup = document.getElementById("hardSortGroup");
+        var softSortPills = document.getElementById("softSortPills");
+        var hardSortPills = document.getElementById("hardSortPills");
+
+        function updateSortUI() {
+          var key = settings.softSortKey;
+          Array.prototype.forEach.call(
+            softSortPills.querySelectorAll(".pill"),
+            function (p) {
+              p.classList.toggle("active", p.dataset.key === key);
+            },
+          );
+          sortBtn.classList.toggle("active", !!key);
+          if (key) {
+            sortIndicator.hidden = false;
+            sortIndicator.textContent = "\u00b7 " + SORT_LABELS[key];
+          } else {
+            sortIndicator.hidden = true;
+          }
+        }
+        function updateSortAvailability() {
+          sortBtn.hidden = !(settings.showSoftSort || settings.showHardSort);
+          softSortGroup.hidden = !settings.showSoftSort;
+          hardSortGroup.hidden = !settings.showHardSort;
+          if (!settings.showSoftSort && settings.softSortKey) {
+            settings.softSortKey = "";
+            persistSettings();
+            render();
+          }
+          updateSortUI();
+        }
+        function pulseSortBtn() {
+          sortBtn.classList.remove("pulse");
+          sortIndicator.classList.remove("pulse");
+          void sortBtn.offsetWidth; // restart the animation if it's already mid-pulse
+          sortBtn.classList.add("pulse");
+          if (!sortIndicator.hidden) sortIndicator.classList.add("pulse");
+        }
+        sortBtn.addEventListener("animationend", function (e) {
+          if (e.animationName === "sortBtnPulse") sortBtn.classList.remove("pulse");
+        });
+        sortIndicator.addEventListener("animationend", function (e) {
+          if (e.animationName === "sortIndicatorPulse")
+            sortIndicator.classList.remove("pulse");
+        });
+
+        sortBtn.addEventListener("click", function () {
+          sortOverlay.classList.remove("hidden");
+        });
+        sortIndicator.addEventListener("click", function () {
+          settings.softSortKey = "";
+          persistSettings();
+          render();
+        });
+        softSortPills.addEventListener("click", function (e) {
+          var btn = e.target.closest(".pill");
+          if (!btn) return;
+          var key = btn.dataset.key;
+          settings.softSortKey =
+            key === "" ? "" : settings.softSortKey === key ? "" : key;
+          persistSettings();
+          render();
+        });
+        hardSortPills.addEventListener("click", function (e) {
+          var btn = e.target.closest(".pill");
+          if (!btn) return;
+          hardSort(btn.dataset.key);
+          sortOverlay.classList.add("hidden");
+        });
+        document
+          .getElementById("sortClose")
+          .addEventListener("click", function () {
+            sortOverlay.classList.add("hidden");
+          });
+        sortOverlay.addEventListener("click", function (e) {
+          if (e.target === sortOverlay) sortOverlay.classList.add("hidden");
         });
 
         /* ---------- Purge modal ---------- */
@@ -839,12 +1163,24 @@ joerhoney.com        ▟███▄▄
         var settingsOverlay = document.getElementById("settingsOverlay");
         var urgencyToggle = document.getElementById("urgencyToggle");
         var themeSelect = document.getElementById("themeSelect");
+        var softSortToggle = document.getElementById("softSortToggle");
+        var hardSortToggle = document.getElementById("hardSortToggle");
+        var addBottomToggle = document.getElementById("addBottomToggle");
+        var autoPurgeToggle = document.getElementById("autoPurgeToggle");
+        var autoPurgeDaysRow = document.getElementById("autoPurgeDaysRow");
+        var autoPurgeDaysInput = document.getElementById("autoPurgeDaysInput");
 
         document
           .getElementById("settingsBtn")
           .addEventListener("click", function () {
             urgencyToggle.checked = settings.urgencyEffects;
             themeSelect.value = settings.theme;
+            softSortToggle.checked = settings.showSoftSort;
+            hardSortToggle.checked = settings.showHardSort;
+            addBottomToggle.checked = settings.addToBottom;
+            autoPurgeToggle.checked = settings.autoPurgeEnabled;
+            autoPurgeDaysInput.value = settings.autoPurgeDays;
+            autoPurgeDaysRow.hidden = !settings.autoPurgeEnabled;
             settingsOverlay.classList.remove("hidden");
           });
         document
@@ -867,6 +1203,35 @@ joerhoney.com        ▟███▄▄
           persistSettings();
           applyTheme();
         });
+        softSortToggle.addEventListener("change", function () {
+          settings.showSoftSort = softSortToggle.checked;
+          persistSettings();
+          updateSortAvailability();
+        });
+        hardSortToggle.addEventListener("change", function () {
+          settings.showHardSort = hardSortToggle.checked;
+          persistSettings();
+          updateSortAvailability();
+        });
+        addBottomToggle.addEventListener("change", function () {
+          settings.addToBottom = addBottomToggle.checked;
+          persistSettings();
+        });
+        autoPurgeToggle.addEventListener("change", function () {
+          settings.autoPurgeEnabled = autoPurgeToggle.checked;
+          autoPurgeDaysRow.hidden = !settings.autoPurgeEnabled;
+          persistSettings();
+          if (settings.autoPurgeEnabled) runAutoPurge();
+        });
+        autoPurgeDaysInput.addEventListener("change", function () {
+          var v = parseInt(autoPurgeDaysInput.value, 10);
+          if (!v || v < 1) v = 1;
+          if (v > 365) v = 365;
+          autoPurgeDaysInput.value = v;
+          settings.autoPurgeDays = v;
+          persistSettings();
+          if (settings.autoPurgeEnabled) runAutoPurge();
+        });
 
         /* ---------- Keyboard shortcuts ---------- */
         document.addEventListener("keydown", function (e) {
@@ -884,6 +1249,8 @@ joerhoney.com        ▟███▄▄
               settingsOverlay.classList.add("hidden");
             if (!purgeOverlay.classList.contains("hidden"))
               purgeOverlay.classList.add("hidden");
+            if (!sortOverlay.classList.contains("hidden"))
+              sortOverlay.classList.add("hidden");
             if (editingDueId) {
               editingDueId = null;
               render();
@@ -908,22 +1275,6 @@ joerhoney.com        ▟███▄▄
         /* ---------- Live-refresh urgency / relative times ---------- */
         setInterval(refreshUrgency, 15000);
 
-        /* ---------- Fixed topbar height sync ---------- */
-        var topbarEl = document.getElementById("topbar");
-        function syncTopbarHeight() {
-          document.documentElement.style.setProperty(
-            "--topbar-h",
-            topbarEl.offsetHeight + "px",
-          );
-        }
-        if (window.ResizeObserver) {
-          new ResizeObserver(syncTopbarHeight).observe(topbarEl);
-        } else {
-          window.addEventListener("resize", syncTopbarHeight);
-          dueRow.addEventListener("transitionend", syncTopbarHeight);
-        }
-        syncTopbarHeight();
-
         /* ---------- Service worker (offline app shell, no-op on file://) ---------- */
         if (
           "serviceWorker" in navigator &&
@@ -938,6 +1289,9 @@ joerhoney.com        ▟███▄▄
         loadSettings();
         loadTasks();
         applyTheme();
+        updateSortAvailability();
+        runAutoPurge();
+        setInterval(runAutoPurge, 5 * 60 * 1000);
         render();
       })();
     </script>

@@ -1,6 +1,6 @@
 {
-  "name": "Tend — a quiet to-do list",
-  "short_name": "Tend",
+  "name": "Battle Plan — a to-do list",
+  "short_name": "Battle Plan",
   "description": "A quiet, local-first to-do list with due dates, drag-to-reorder, and undo/redo.",
   "start_url": "./index.html",
   "scope": "./",
