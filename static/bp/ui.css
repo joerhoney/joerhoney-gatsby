@@ -434,19 +434,41 @@ section.list-section {
   opacity: 0.35;
   cursor: default;
 }
+.done-sort-select {
+  cursor: pointer;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+  padding: 4px 6px;
+  color: var(--text-dim);
+  font-size: 16px;
+  font-family: var(--font-mono);
+}
 .purge-btn {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
   cursor: pointer;
   border: 1px solid var(--border);
   border-radius: 6px;
   background: none;
-  padding: 5px 10px;
+  width: 30px;
+  height: 30px;
   color: var(--text-dim);
-  font-size: 12px;
-  font-family: var(--font-ui);
 }
 .purge-btn:hover {
   border-color: var(--danger);
+  background: var(--danger-soft);
   color: var(--danger);
+}
+.purge-btn svg {
+  width: 15px;
+  height: 15px;
 }
 
 ul.task-list {
