@@ -434,16 +434,6 @@ section.list-section {
   opacity: 0.35;
   cursor: default;
 }
-.done-sort-select {
-  cursor: pointer;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  background: var(--bg);
-  padding: 4px 6px;
-  color: var(--text-dim);
-  font-size: 16px;
-  font-family: var(--font-mono);
-}
 .purge-btn {
   display: flex;
   flex-shrink: 0;

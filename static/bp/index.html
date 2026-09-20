@@ -160,17 +160,29 @@ joerhoney.com        ▟███▄▄
         <div class="section-head">
           <h2>Done</h2>
           <span class="count" id="doneCount"></span>
+          <button class="sort-indicator" id="doneSortIndicator" hidden></button>
           <span class="spacer"></span>
-          <select
-            class="done-sort-select"
-            id="doneSortSelect"
+          <button
+            class="sort-btn"
+            id="doneSortBtn"
             aria-label="Sort completed tasks"
+            title="Sort completed tasks"
           >
-            <option value="recent">Recently completed</option>
-            <option value="oldest">Oldest completed</option>
-            <option value="due">Due date</option>
-            <option value="alpha">A → Z</option>
-          </select>
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 6h11" />
+              <path d="M3 12h7" />
+              <path d="M3 18h4" />
+              <path d="M17 4v16" />
+              <path d="M13 16l4 4 4-4" />
+            </svg>
+          </button>
           <button
             class="purge-btn"
             id="purgeBtn"
@@ -338,6 +350,28 @@ joerhoney.com        ▟███▄▄
         </div>
         <div class="modal-close-row">
           <button id="sortClose">Done</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done-list sort modal -->
+    <div class="overlay hidden" id="doneSortOverlay">
+      <div class="modal sort-modal">
+        <h3>Sort completed tasks</h3>
+        <div class="sort-group">
+          <div class="pill-row" id="doneSortPills">
+            <button type="button" class="pill" data-key="recent">
+              Recently completed
+            </button>
+            <button type="button" class="pill" data-key="oldest">
+              Oldest completed
+            </button>
+            <button type="button" class="pill" data-key="due">Due date</button>
+            <button type="button" class="pill" data-key="alpha">A → Z</button>
+          </div>
+        </div>
+        <div class="modal-close-row">
+          <button id="doneSortClose">Done</button>
         </div>
       </div>
     </div>
@@ -541,6 +575,12 @@ joerhoney.com        ▟███▄▄
           newest: "Newest first",
           alpha: "A \u2192 Z",
         };
+        var DONE_SORT_LABELS = {
+          recent: "Recently completed",
+          oldest: "Oldest completed",
+          due: "Due date",
+          alpha: "A \u2192 Z",
+        };
         function sortComparator(key) {
           switch (key) {
             case "dueSoonest":
@@ -656,8 +696,6 @@ joerhoney.com        ▟███▄▄
             .slice()
             .sort(doneSortComparator(settings.doneSortKey));
 
-          document.getElementById("doneSortSelect").value = settings.doneSortKey;
-
           document.getElementById("activeCount").textContent = active.length
             ? active.length
             : "";
@@ -680,6 +718,7 @@ joerhoney.com        ▟███▄▄
           renderList(document.getElementById("doneList"), done, true, false);
           refreshUrgency();
           updateSortUI();
+          updateDoneSortUI();
         }
 
         function renderList(ul, list, isDone, sortLocked) {
@@ -1166,6 +1205,54 @@ joerhoney.com        ▟███▄▄
           if (e.target === sortOverlay) sortOverlay.classList.add("hidden");
         });
 
+        /* ---------- Done-list sort modal ---------- */
+        var doneSortOverlay = document.getElementById("doneSortOverlay");
+        var doneSortBtn = document.getElementById("doneSortBtn");
+        var doneSortIndicator = document.getElementById("doneSortIndicator");
+        var doneSortPills = document.getElementById("doneSortPills");
+
+        function updateDoneSortUI() {
+          var key = settings.doneSortKey;
+          Array.prototype.forEach.call(
+            doneSortPills.querySelectorAll(".pill"),
+            function (p) {
+              p.classList.toggle("active", p.dataset.key === key);
+            },
+          );
+          var isDefault = key === "recent";
+          doneSortBtn.classList.toggle("active", !isDefault);
+          if (!isDefault) {
+            doneSortIndicator.hidden = false;
+            doneSortIndicator.textContent = "\u00b7 " + DONE_SORT_LABELS[key];
+          } else {
+            doneSortIndicator.hidden = true;
+          }
+        }
+        doneSortBtn.addEventListener("click", function () {
+          doneSortOverlay.classList.remove("hidden");
+        });
+        doneSortIndicator.addEventListener("click", function () {
+          settings.doneSortKey = "recent";
+          persistSettings();
+          render();
+        });
+        doneSortPills.addEventListener("click", function (e) {
+          var btn = e.target.closest(".pill");
+          if (!btn) return;
+          settings.doneSortKey = btn.dataset.key;
+          persistSettings();
+          render();
+        });
+        document
+          .getElementById("doneSortClose")
+          .addEventListener("click", function () {
+            doneSortOverlay.classList.add("hidden");
+          });
+        doneSortOverlay.addEventListener("click", function (e) {
+          if (e.target === doneSortOverlay)
+            doneSortOverlay.classList.add("hidden");
+        });
+
         /* ---------- Purge modal ---------- */
         var purgeOverlay = document.getElementById("purgeOverlay");
         document
@@ -1197,14 +1284,6 @@ joerhoney.com        ▟███▄▄
         purgeOverlay.addEventListener("click", function (e) {
           if (e.target === purgeOverlay) purgeOverlay.classList.add("hidden");
         });
-
-        document
-          .getElementById("doneSortSelect")
-          .addEventListener("change", function (e) {
-            settings.doneSortKey = e.target.value;
-            persistSettings();
-            render();
-          });
 
         /* ---------- Settings modal ---------- */
         var settingsOverlay = document.getElementById("settingsOverlay");
@@ -1284,6 +1363,8 @@ joerhoney.com        ▟███▄▄
               purgeOverlay.classList.add("hidden");
             if (!sortOverlay.classList.contains("hidden"))
               sortOverlay.classList.add("hidden");
+            if (!doneSortOverlay.classList.contains("hidden"))
+              doneSortOverlay.classList.add("hidden");
             if (editingDueId) {
               editingDueId = null;
               render();
