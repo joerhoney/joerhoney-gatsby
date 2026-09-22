@@ -104,7 +104,10 @@ footer.hints {
 
 .wrap {
   margin: 0 auto;
-  padding: calc(var(--topbar-h, 150px) + 18px) 20px
+  padding: calc(
+      var(--topbar-h, calc(env(safe-area-inset-top, 0px) + 150px)) + 18px
+    )
+    20px
     calc(90px + env(safe-area-inset-bottom, 0px));
   max-width: 620px;
 }
@@ -576,6 +579,19 @@ ul.task-list {
   align-items: center;
   gap: 6px;
 }
+/* When editing an existing due date, give the date field its own full-width
+   row instead of squeezing into the same line as the task text. */
+.task-item.editing-due {
+  flex-wrap: wrap;
+  row-gap: 8px;
+}
+.task-item.editing-due .due-edit-row {
+  order: 10;
+  flex: 1 1 100%;
+}
+.task-item.editing-due .due-edit-row input[type="datetime-local"] {
+  flex: 1;
+}
 .task-item .due-edit-row input[type="datetime-local"] {
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -831,7 +847,9 @@ select.theme-select {
     padding: calc(env(safe-area-inset-top, 0px) + 14px) 14px 10px;
   }
   .wrap {
-    padding-top: calc(var(--topbar-h, 124px) + 12px);
+    padding-top: calc(
+      var(--topbar-h, calc(env(safe-area-inset-top, 0px) + 124px)) + 12px
+    );
     padding-right: 14px;
     padding-bottom: calc(76px + env(safe-area-inset-bottom, 0px));
     padding-left: 14px;

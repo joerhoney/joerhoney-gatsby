@@ -733,6 +733,7 @@ joerhoney.com        ▟███▄▄
           li.className = "task-item";
           li.dataset.id = t.id;
           if (isDone ? t.completedAt : t.dueDate) li.classList.add("has-due");
+          if (editingDueId === t.id) li.classList.add("editing-due");
 
           if (!isDone) {
             var grip = document.createElement("span");
@@ -749,7 +750,6 @@ joerhoney.com        ▟███▄▄
               grip.draggable = true;
             }
             li.appendChild(grip);
-            if (!sortLocked) li.draggable = true;
           }
 
           var cb = document.createElement("input");
@@ -865,7 +865,7 @@ joerhoney.com        ▟███▄▄
           }
 
           if (!isDone && !sortLocked) {
-            li.addEventListener("dragstart", function (e) {
+            grip.addEventListener("dragstart", function (e) {
               dragSnapshot = clone(tasks);
               li.classList.add("dragging");
               e.dataTransfer.effectAllowed = "move";
@@ -873,7 +873,7 @@ joerhoney.com        ▟███▄▄
                 e.dataTransfer.setData("text/plain", t.id);
               } catch (err) {}
             });
-            li.addEventListener("dragend", function () {
+            grip.addEventListener("dragend", function () {
               li.classList.remove("dragging");
               commitDragOrder();
             });
