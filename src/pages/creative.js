@@ -14,6 +14,7 @@ import "@css/reel.css";
 import "@css/gallery.css";
 // Impages
 import dragon from "@images/art/dragon-both-ends.webp";
+import hyperpressimg from "@images/screenshots/hyperpress-home-motion.webp";
 import r3riskimg from "@images/screenshots/r3risk-home.webp";
 import santiagochildrenscenterimg from "@images/screenshots/santiagochildrenscenter-home.webp";
 import kinggamagama from "@images/art/king-gama-gama.webp";
@@ -28,7 +29,14 @@ import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
 import team from "@images/heros/team.webp";
 
 const creativePage = (props) => {
-  const r3riskskills = ["JavaScript", "Tailwind", "HTML5", "CSS3", "Git"],
+  const hyperpressskills = [
+      "JavaScript",
+      "WebGPU",
+      "WordPress",
+      "HTML5",
+      "CSS3",
+    ],
+    r3riskskills = ["JavaScript", "Tailwind", "HTML5", "CSS3", "Git"],
     santiagochildrenscenterskills = ["JavaScript", "HTML5", "CSS3", "Git"];
   return (
     <>
@@ -61,6 +69,22 @@ const creativePage = (props) => {
               story button.
             </p>
           </article>
+          {/* <Showcase
+            desc="Landing page for a high performanceWordPress hosting service."
+            to="/work/hyperpresss/"
+            skills={hyperpressskills}
+            src={hyperpressimg}
+            title="HyperPress"
+          >
+            <p>
+              WordPress theme with an animated starfield background and fireball
+              effect for a unique and memorable flare. Animated effect optimized
+              with webGPU for high performance, infinite randomized generation,
+              and no looping. Hightech, responsive page layout in a clean and
+              repeatable design system, which the client and expand upon without
+              breaking the theme.
+            </p>
+          </Showcase> */}
           <Showcase
             desc="Landing page/website for concierge security and crisis response."
             to="/work/r3risk/"
