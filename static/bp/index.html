@@ -301,6 +301,16 @@ joerhoney.com        ▟███▄▄
             inputmode="numeric"
           />
         </div>
+        <div class="setting-row">
+          <div>
+            <label for="updateBtn">App updates</label>
+            <div class="desc">
+              Reload with the latest version. Your tasks and settings are
+              kept.
+            </div>
+          </div>
+          <button type="button" class="pill" id="updateBtn">Update now</button>
+        </div>
         <div class="modal-close-row">
           <button id="settingsClose">Done</button>
         </div>
@@ -1329,6 +1339,66 @@ joerhoney.com        ▟███▄▄
         doneSortOverlay.addEventListener("click", function (e) {
           if (e.target === doneSortOverlay)
             doneSortOverlay.classList.add("hidden");
+        });
+
+        /* ---------- Manual app update (for home-screen installs) ---------- */
+        var updateBtn = document.getElementById("updateBtn");
+        updateBtn.addEventListener("click", function () {
+          if (!/^https?:$/.test(location.protocol)) {
+            location.reload();
+            return;
+          }
+          updateBtn.disabled = true;
+          updateBtn.textContent = "Updating\u2026";
+          var base = location.href.split("#")[0];
+          var urls = [base, "ui.css", "manifest.json", "sw.js"].map(function (u) {
+            return new URL(u, location.href).href;
+          });
+          // 1) Pull fresh copies past the browser's HTTP cache. If this fails
+          //    we're offline, so leave the working cached copy alone.
+          Promise.all(
+            urls.map(function (u) {
+              return fetch(u, { cache: "reload" }).then(function (r) {
+                if (!r.ok) throw new Error(u + " " + r.status);
+              });
+            }),
+          )
+            .then(function () {
+              // 2) Drop the service worker's cached copies and the worker itself;
+              //    it re-registers and re-caches on the reload below.
+              var jobs = [];
+              if (window.caches) {
+                jobs.push(
+                  caches.keys().then(function (keys) {
+                    return Promise.all(
+                      keys.map(function (k) {
+                        return caches.delete(k);
+                      }),
+                    );
+                  }),
+                );
+              }
+              if (navigator.serviceWorker) {
+                jobs.push(
+                  navigator.serviceWorker.getRegistrations().then(function (regs) {
+                    return Promise.all(
+                      regs.map(function (r) {
+                        return r.unregister();
+                      }),
+                    );
+                  }),
+                );
+              }
+              return Promise.all(jobs);
+            })
+            .then(function () {
+              location.reload();
+            })
+            .catch(function () {
+              updateBtn.disabled = false;
+              updateBtn.textContent = "Update now";
+              toast("Couldn\u2019t reach the server \u2014 try again when online");
+            });
         });
 
         /* ---------- Purge modal ---------- */

@@ -1,6 +1,6 @@
 // Minimal app-shell cache so Battle Plan keeps working offline once it's been opened.
-var CACHE_NAME = 'battleplan-shell-v1';
-var ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png'];
+var CACHE_NAME = 'battleplan-shell-v2';
+var ASSETS = ['./', './index.html', './ui.css', './manifest.json', './icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', function (e) {
   e.waitUntil(
@@ -24,7 +24,7 @@ self.addEventListener('fetch', function (e) {
   if (e.request.method !== 'GET') return;
   e.respondWith(
     caches.match(e.request).then(function (cached) {
-      var network = fetch(e.request).then(function (response) {
+      var network = fetch(e.request, { cache: 'no-cache' }).then(function (response) {
         if (response && response.status === 200) {
           var clone = response.clone();
           caches.open(CACHE_NAME).then(function (cache) { cache.put(e.request, clone); });
