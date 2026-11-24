@@ -108,7 +108,7 @@ export default function startGradientField(canvas) {
     const uniforms = new Float32Array(16);
     const buffer = device.createBuffer({
       size: uniforms.byteLength,
-      usage: GPUBufferUsage.UNIFORM | GPUBufferUsage.COPY_DST,
+      usage: window.GPUBufferUsage.UNIFORM | window.GPUBufferUsage.COPY_DST,
     });
     const bindGroup = device.createBindGroup({
       layout: pipeline.getBindGroupLayout(0),
