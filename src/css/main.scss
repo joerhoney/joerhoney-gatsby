@@ -1,0 +1,53 @@
+// M A I N   S T Y L E S H E E T
+// The site's only global stylesheet entry, imported once in gatsby-browser.js.
+//
+// Folders:
+//   _tokens.scss   Sass variables, functions and mixins (no CSS output)
+//   base/          Variables, colours and bare-element defaults
+//   layout/        Section/column building blocks
+//   components/    One file per component (matches src/components & fragments)
+//   pages/         Styles used by a single page or template
+//   _utilities     Small single-purpose classes (last, so they win ties)
+//
+// The order below matters: it preserves the cascade the site was designed
+// with (several components load before the base styles, so the base styles
+// win ties against them). Add new component/page files near the end, before
+// utilities.
+
+// Components that the base styles may override
+@use "components/split";
+@use "components/footer";
+@use "components/nav";
+@use "components/buttons";
+@use "components/showcase";
+@use "components/compare-view";
+@use "components/scheme";
+
+// Base
+@use "base/colors";
+@use "base/root";
+@use "base/elements";
+@use "base/forms";
+
+// Layout
+@use "layout/sections";
+@use "components/with-arrow";
+@use "components/compare-table";
+@use "components/hero";
+@use "layout/tilted-row";
+
+// Components and pages
+@use "components/blog";
+@use "pages/developer";
+@use "components/hero-home";
+@use "components/icons";
+@use "components/profiles";
+@use "components/scroll-indicator";
+@use "components/reel";
+@use "components/gallery";
+@use "components/wizard";
+@use "pages/solutions";
+@use "pages/work-showcase";
+
+// Utilities last
+@use "utilities";

@@ -6,14 +6,6 @@ import Footer from "./Footer";
 import Nav from "./Nav";
 // import NavIndicator from "./NavIndicator";
 import Scheme from "./Scheme";
-// CSS
-import "@css/buttons.scss";
-import "@css/colors.scss";
-import "@css/global.scss";
-import "@css/hero.scss";
-import "@css/layouts.scss";
-import "@css/typography.scss";
-import "@css/units.css";
 
 const Page = ({ children, className, id, nav, navItems, scheme }) => {
   return (

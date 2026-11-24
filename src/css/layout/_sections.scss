@@ -1,0 +1,220 @@
+// S E C T I O N S
+// Page-building blocks: section/article wrappers, background layers,
+// column layouts and small content patterns.
+@use "../tokens" as *;
+
+// Section wrapper: a centred column
+.alignable {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Readable text column (also used as a class on non-<article> elements)
+article,
+.article {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0 u(8);
+  width: 100%;
+  max-width: calc(var(--max-text) + #{u(16)});
+}
+
+// ─── Background layers ──────────────────────────────────────────────────────
+// A section's background is painted on its ::before, so it can be skewed
+// (.layer-skew) or faded without affecting the content.
+//   <section class="alignable layer-skew layer-cta">
+.half1,
+.half2,
+.layer-cta,
+.layer-tint1,
+.layer-tint2,
+.layer-tint3 {
+  position: relative;
+}
+.half1,
+.half2,
+.layer-cta,
+.layer-tint1,
+.layer-tint2,
+.layer-tint3 {
+  &::before {
+    @include layer;
+  }
+}
+.layer-tint1::before {
+  opacity: 0.4;
+  background-color: var(--color1);
+}
+.layer-tint2::before {
+  opacity: 0.4;
+  background-color: var(--color2);
+}
+.layer-tint3::before {
+  opacity: 0.4;
+  background-image: linear-gradient(70deg, var(--color2), transparent);
+  background-color: var(--color3);
+}
+.cta,
+.layer-cta::before {
+  box-sizing: border-box;
+  background-image: var(--gradBgCTA);
+  background-repeat: no-repeat;
+  padding: u(4);
+  color: var(--color6);
+}
+:is(.cta, .layer-cta) :is(h2, h3, h4) {
+  color: currentColor;
+}
+.layer-page::before {
+  background-image: var(--gradBg);
+}
+.layer-skew::before {
+  @include layer;
+  transform: skewY($tilt);
+  transform-origin: center;
+}
+.layer-skew > * {
+  position: relative;
+}
+
+// Contrasting "halves" (also used by the home page Split)
+.half1::before {
+  background-image: var(--gradBgHalf1);
+  background-repeat: no-repeat;
+}
+.half2::before {
+  background-image: var(--gradBgHalf2);
+  background-repeat: no-repeat;
+}
+.half1 h2 {
+  color: var(--headingHalf1);
+}
+.half2 h2 {
+  color: var(--headingHalf2);
+}
+.half1 p {
+  color: var(--textHalf1);
+  font-weight: bold;
+  text-shadow: 0 0 2em var(--glowHalf1);
+}
+.half2 p {
+  color: var(--textHalf2);
+  font-weight: bold;
+  text-shadow: 0 0 2em var(--glowHalf2);
+}
+
+// ─── Columns ────────────────────────────────────────────────────────────────
+.columns-2 {
+  display: flex;
+  flex-direction: column;
+  gap: u(5);
+  @include up(xs) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: u(4);
+    > * {
+      flex-basis: calc(50% - #{u(4)});
+      text-align: left;
+    }
+  }
+}
+.columns-few {
+  display: grid;
+  gap: u(8);
+  margin: 0 auto;
+  width: calc(100% - #{u(16)});
+  h2,
+  h3 {
+    position: static;
+    translate: unset;
+    margin-bottom: 7%;
+    padding-top: 0;
+    text-align: left;
+  }
+  &.columns-few--tilt {
+    h2,
+    h3 {
+      transform: skewY($tilt);
+      font-style: oblique;
+      text-align: right;
+      + p::before {
+        display: block;
+        float: right;
+        clear: right;
+        shape-outside: polygon(0% 0%, 100% 0%, 100% 100%);
+        width: 120px;
+        height: 28px;
+        content: "";
+      }
+      @include up(sm) {
+        margin-bottom: 1em;
+      }
+    }
+  }
+  @include up(sm) {
+    grid-template-rows: auto;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-flow: columns;
+    &.columns-few--tilt {
+      transform: skewY($tilt);
+      .column {
+        transform: skewY(-$tilt);
+      }
+    }
+  }
+  @include up(lg) {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1200px;
+  }
+}
+
+// ─── Content patterns ───────────────────────────────────────────────────────
+// Padded call-out box (pair with .bg-tint1 etc.)
+.pull {
+  box-sizing: border-box;
+  border-radius: var(--radius);
+  padding: 0 u(4);
+}
+// Chip list (skills, tags)
+.items {
+  padding-left: 0;
+  list-style-type: none;
+  :is(li, span) {
+    display: inline-block;
+    margin: 4px 8px 4px 0;
+    border-radius: var(--radius);
+    background-color: var(--color1a);
+    padding: 2px 6px;
+    color: var(--color6);
+  }
+}
+.date {
+  color: var(--color3);
+}
+
+// Portrait that hangs off the bottom of a contact section
+.wrapper-joe {
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 960px;
+  height: 100%;
+  img {
+    position: absolute;
+    right: 0;
+    bottom: -16%;
+    width: 50vw;
+    min-width: 380px;
+    max-width: 480px;
+    height: auto;
+    @media (max-width: 960px) {
+      bottom: -12.4vw;
+    }
+  }
+}

@@ -81,7 +81,6 @@
     .column-width {
       margin-left: calc(0px - var(--gap));
       max-width: calc(100% + (var(--gap)* 2));
-      // transform: translateX(calc(0 - var(--gap)));
     }
     @media (max-width: $br-stack) {
       &.collapse-stack-top { padding-top: 0; }

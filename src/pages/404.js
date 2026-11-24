@@ -37,7 +37,7 @@ const NotFoundPage = () => {
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b bottomS compensateT"
+          className="alignable layer-skew layer-cta pb-sm mt-tilt"
           id="contact"
         >
           <article className="self-center">
@@ -62,7 +62,7 @@ const NotFoundPage = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center" />
         </section>
       </Page>
     </>

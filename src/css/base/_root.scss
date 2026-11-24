@@ -1,0 +1,30 @@
+// R O O T   V A R I A B L E S
+// Values that need to be readable at runtime (or change with the viewport).
+@use "../tokens" as *;
+
+:root {
+  // Base spacing unit. Use u(n) in Sass, calc(var(--unit) * n) in JSX.
+  --unit: 6px;
+  // Named spacing, used by the .pt-* / .pb-* utilities.
+  --space-xs: #{u(5)};
+  --space-sm: #{u(10)};
+  --space-md: #{u(20)};
+  --space-lg: #{u(40)};
+  --space-xl: 480px;
+  // Side gutter
+  --gap: 8vw;
+  // Extra room above/below a tilted section so its slant doesn't overlap
+  // the neighbouring content.
+  --tilt-space: 13vw;
+  --tilt-space-half: 7.5vw;
+  // Comfortable reading width
+  --max-text: 600px;
+  --radius: 4px;
+
+  @include up(md) {
+    --gap: 56px;
+  }
+  @include up(lg) {
+    --unit: 8px;
+  }
+}

@@ -1,0 +1,140 @@
+// U T I L I T I E S
+// Small single-purpose classes. Loaded last so they win ties.
+// Sizes are named (xs → xl), never numbered.
+@use "sass:map";
+@use "tokens" as *;
+
+// ─── Spacing ────────────────────────────────────────────────────────────────
+// .pt-sm = padding-top: var(--space-sm), .pb-lg = padding-bottom: …
+@each $size in (xs, sm, md, lg, xl) {
+  .pt-#{$size} {
+    padding-top: var(--space-#{$size});
+  }
+  .pb-#{$size} {
+    padding-bottom: var(--space-#{$size});
+  }
+}
+// Room for a neighbouring tilted section's slant
+.mt-tilt {
+  margin-top: var(--tilt-space);
+}
+.mb-tilt {
+  margin-bottom: var(--tilt-space);
+}
+.mt-tilt-half {
+  margin-top: var(--tilt-space-half);
+}
+.mb-tilt-half {
+  margin-bottom: var(--tilt-space-half);
+}
+// Pull out past the article padding
+.expand {
+  margin-right: u(-8);
+  margin-left: u(-8);
+}
+.wide {
+  max-width: 1000px;
+}
+
+// ─── Layout ─────────────────────────────────────────────────────────────────
+.relative {
+  position: relative;
+}
+.inline {
+  display: inline;
+}
+.trim {
+  overflow: hidden;
+}
+.z-10 {
+  z-index: 10;
+}
+.self-center {
+  align-self: center;
+}
+.self-left {
+  align-self: start;
+}
+.self-right {
+  align-self: end;
+}
+// Anchor targets clear the sticky nav when jumped to
+.jump-target {
+  scroll-margin-top: 56px;
+}
+
+// ─── Text ───────────────────────────────────────────────────────────────────
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
+.heading-sm {
+  font-size: 2em;
+}
+.font-heading {
+  font-family: $font-heading;
+}
+.font-handwritten {
+  font-family:
+    "Segoe Print", "Bradley Hand", "Bradley Hand ITC", "Noteworthy",
+    "Comic Sans", "Comic Sans MS", "Courier New", "Courier", monospace;
+}
+.tracking-tight {
+  letter-spacing: -0.08em;
+}
+
+// ─── Colour ─────────────────────────────────────────────────────────────────
+@for $i from 1 through 6 {
+  .text-color#{$i} {
+    color: var(--color#{$i});
+  }
+}
+@for $i from 1 through 3 {
+  .bg-tint#{$i} {
+    background-color: var(--tint#{$i});
+  }
+}
+// Multiply in light mode, screen in dark mode
+.translucent {
+  mix-blend-mode: var(--multiscreen);
+}
+.blend-overlay {
+  mix-blend-mode: overlay;
+}
+
+// ─── Interaction ────────────────────────────────────────────────────────────
+@media (hover: hover) {
+  .reveal,
+  .reveal-child-b b {
+    opacity: 0;
+  }
+  .reveal:hover,
+  .reveal-child-b:hover b {
+    opacity: 1;
+  }
+  .faint {
+    opacity: 0.5;
+    transition: opacity 0.5s ease;
+  }
+  .faint:hover {
+    opacity: 1;
+  }
+}
+.blinking {
+  animation: blinking 2s ease infinite;
+}
+@keyframes blinking {
+  0%,
+  40% {
+    opacity: 1;
+  }
+  50%,
+  90% {
+    opacity: 0;
+  }
+}

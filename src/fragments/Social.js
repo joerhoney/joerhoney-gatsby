@@ -1,9 +1,6 @@
 import React from "react";
 // Components
 import Icon from "@components/Icon";
-// CSS
-import "@css/icons.css";
-import "@css/profiles.css";
 
 const Social = (props) => {
   const { className, heading, invert } = props;

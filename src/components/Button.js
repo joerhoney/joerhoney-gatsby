@@ -4,8 +4,6 @@ import isExternal from "@utils/isExternal.js";
 import getDomainName from "@utils/getDomainName.js";
 // Coponents
 import Icon from "./Icon.js";
-// CSS
-import "@css/buttons.scss";
 
 const Button = (props) => {
   const { children, className, href, preview } = props;

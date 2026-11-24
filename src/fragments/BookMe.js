@@ -1,8 +1,6 @@
 import React from "react";
 // Coponents
 import Icon from "@components/Icon.js";
-// CSS
-import "@css/buttons.scss";
 
 const BookMe = ({ children, icon = true, className }) => {
   return (

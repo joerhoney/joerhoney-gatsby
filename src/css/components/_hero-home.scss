@@ -1,3 +1,5 @@
+@use "../tokens" as *;
+
 body:has(.heroClip) {
   overflow: hidden;
   .splitWrap {
@@ -23,7 +25,7 @@ body:has(.heroClip) {
   top: 2vh;
   left: 10px;
   float: left;
-  rotate: 14.125deg;
+  rotate: $tilt;
   z-index: 0;
   margin-right: -3vw;
   margin-bottom: -6vh;
@@ -101,16 +103,13 @@ body:has(.heroClip) {
   min-height: 100vh;
   @media (orientation: portrait) {
     & {
-      margin-bottom: var(--unit16);
+      margin-bottom: u(16);
       min-height: unset;
     }
   }
 }
 
 @supports (animation-timeline: scroll()) {
-  // body {
-  //   scroll-timeline-name: --parallax1;
-  // }
   .parallaxHome {
     animation-name: parallax-y1;
     animation-timeline: scroll(root);

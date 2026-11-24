@@ -22,7 +22,7 @@ const ThanksContact = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center" />
         </section>
       </Page>
     </>

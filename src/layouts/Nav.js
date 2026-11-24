@@ -1,8 +1,6 @@
 import React from "react";
 // Components
 import { Link } from "gatsby";
-// CSS
-import "@css/nav.scss";
 
 const Nav = (props) => {
   const items =

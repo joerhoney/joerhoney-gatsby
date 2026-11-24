@@ -23,10 +23,10 @@ const webMaintenancePage = () => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable compensateB u-jump-section" id="plans">
+        <section className="alignable mb-tilt jump-target" id="plans">
           <h1>Web Maintenance</h1>
           <article>
-            <table className="compare bottomS ">
+            <table className="compare-table pb-sm ">
               <tr>
                 <th scope="col">
                   <h2 className="unposition">Plans</h2>
@@ -165,9 +165,9 @@ const webMaintenancePage = () => {
                 ></td>
               </tr>
             </table>
-            <div className="topXS z10" style={{ display: "inline-block" }}>
-              <div className="pull tint2" style={{ display: "inline-block" }}>
-                <p className="topXS">To get started:</p>
+            <div className="pt-xs z-10" style={{ display: "inline-block" }}>
+              <div className="pull bg-tint2" style={{ display: "inline-block" }}>
+                <p className="pt-xs">To get started:</p>
                 <p>
                   <a href="#contact" className="button">
                     Contact Me
@@ -177,11 +177,11 @@ const webMaintenancePage = () => {
             </div>
           </article>
           <article>
-            <h3 className="bottomXS">Details</h3>
+            <h3 className="pb-xs">Details</h3>
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b bottomS u-jump-section"
+          className="alignable layer-skew layer-cta pb-sm jump-target"
           id="contact"
         >
           <article className="self-center">

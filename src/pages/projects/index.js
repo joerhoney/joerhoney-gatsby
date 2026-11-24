@@ -8,12 +8,6 @@ import Footer from "@layouts/Footer";
 import Nav from "@layouts/Nav";
 // import NavIndicator from "@layouts/NavIndicator";
 import Scheme from "@layouts/Scheme";
-// CSS
-import "@css/buttons.scss";
-import "@css/colors.scss";
-import "@css/global.scss";
-import "@css/units.css";
-import "@css/blog.css";
 
 const Projects = () => {
   const data = useStaticQuery(graphql`

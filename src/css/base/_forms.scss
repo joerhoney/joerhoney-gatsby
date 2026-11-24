@@ -1,0 +1,44 @@
+// F O R M S
+@use "../tokens" as *;
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: u(4);
+}
+form > * {
+  display: grid;
+}
+input,
+textarea {
+  transition:
+    box-shadow ease 0.2s,
+    text-shadow ease 0.2s;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  outline: none;
+  border: 2px solid currentColor;
+  border-radius: var(--radius);
+  background-color: transparent;
+  padding: u(2);
+  color: currentColor;
+}
+:is(input, textarea):focus {
+  // Inner glow made from four edge gradients (no shadows)
+  background-image:
+    linear-gradient(to bottom, var(--dark) 0, transparent 33%, transparent),
+    linear-gradient(to right, var(--dark) 0, transparent 33%, transparent),
+    linear-gradient(to left, var(--dark) 0, transparent 33%, transparent),
+    linear-gradient(to top, var(--dark) 0, transparent 33%, transparent);
+  background-color: var(--darkish);
+  color: var(--light);
+  text-shadow: 0 0 0.5em var(--lightish);
+}
+:is(input, textarea)::placeholder {
+  opacity: 0.5;
+  color: currentColor;
+}
+input:autofill,
+input:-webkit-autofill {
+  background-color: var(--darkish);
+}

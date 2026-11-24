@@ -25,10 +25,10 @@ const webPresencePage = () => {
           Design: "/solutions/web-design",
         }}
       >
-        <section className="alignable compensateB u-jump-section" id="packages">
+        <section className="alignable mb-tilt jump-target" id="packages">
           <h1>Web Presence</h1>
           <article>
-            <table className="compare bottomS ">
+            <table className="compare-table pb-sm ">
               <tr>
                 <th scope="col">
                   <h2 className="unposition">Packages</h2>
@@ -272,9 +272,9 @@ const webPresencePage = () => {
                 ></td>
               </tr>
             </table>
-            <div className="topXS z10" style={{ display: "inline-block" }}>
-              <div className="pull tint2" style={{ display: "inline-block" }}>
-                <p className="topXS">To get started:</p>
+            <div className="pt-xs z-10" style={{ display: "inline-block" }}>
+              <div className="pull bg-tint2" style={{ display: "inline-block" }}>
+                <p className="pt-xs">To get started:</p>
                 <p>
                   <a href="#contact" className="button">
                     Contact Me
@@ -284,8 +284,8 @@ const webPresencePage = () => {
             </div>
           </article>
           <article>
-            <h2 className="bottomXS">More Details</h2>
-            <h4 className="u-jump-section" id="hosting">
+            <h2 className="pb-xs">More Details</h2>
+            <h4 className="jump-target" id="hosting">
               Additional Hosting Costs
             </h4>
             <p>
@@ -300,7 +300,7 @@ const webPresencePage = () => {
               $60/year to $600/year (with SSL certificate included), depending
               on the computer resources necessary to run your website.
             </p>
-            <h4 className="u-jump-section" id="ssl">
+            <h4 className="jump-target" id="ssl">
               SSL Certificates
             </h4>
             <p>
@@ -308,7 +308,7 @@ const webPresencePage = () => {
               connection. This is included free with all packages (sort of).
               Actually,
             </p>
-            <h4 className="u-jump-section" id="pages-added">
+            <h4 className="jump-target" id="pages-added">
               Pages/Products Added for You
             </h4>
             <p>
@@ -319,7 +319,7 @@ const webPresencePage = () => {
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b bottomS u-jump-section"
+          className="alignable layer-skew layer-cta pb-sm jump-target"
           id="contact"
         >
           <article className="self-center">

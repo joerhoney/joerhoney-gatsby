@@ -1,3 +1,5 @@
+@use "../tokens" as *;
+
 .all-ears {
   height: auto;
   max-width: 550px;
@@ -6,7 +8,7 @@
   position: absolute;
   bottom: -20.15vw;
   right: 0;
-  @media (min-width: 1000px) {
+  @include up(lg) {
     width: 32vw;
   }
 }
@@ -44,14 +46,14 @@ section:has(.all-ears) {
 // Numbered steps: big outlined numerals hang to the left of each step.
 .freelance-steps {
   counter-reset: step;
-  margin: var(--unit10) 0 0;
+  margin: u(10) 0 0;
   padding: 0;
   list-style: none;
   li {
     position: relative;
     counter-increment: step;
-    margin-bottom: var(--unit6);
-    padding-left: var(--unit10);
+    margin-bottom: u(6);
+    padding-left: u(10);
     &::before {
       position: absolute;
       top: 0;
@@ -61,12 +63,12 @@ section:has(.all-ears) {
       font-weight: 700;
       font-size: 3rem;
       line-height: 1em;
-      font-family: Rubik, sans-serif;
+      font-family: $font-heading;
     }
   }
   h3 {
     padding-top: 0;
-    margin-bottom: var(--unit1);
+    margin-bottom: u(1);
   }
   p {
     margin-bottom: 0;
@@ -76,19 +78,19 @@ section:has(.all-ears) {
 // Recent work: screenshot cards, 1 → 3 columns.
 .freelance-work {
   display: grid;
-  gap: var(--unit8);
+  gap: u(8);
   box-sizing: border-box;
-  margin: var(--unit10) auto 0;
-  padding: 0 var(--unit8);
+  margin: u(10) auto 0;
+  padding: 0 u(8);
   width: 100%;
   max-width: 1200px;
   list-style: none;
-  @media (min-width: 700px) {
+  @include up(md) {
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
   img {
     display: block;
-    border-radius: var(--radius-all);
+    border-radius: var(--radius);
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 10;
@@ -96,10 +98,10 @@ section:has(.all-ears) {
     object-position: top center;
   }
   h3 {
-    padding-top: var(--unit2);
+    padding-top: u(2);
   }
   p {
-    margin: var(--unit1) 0 0;
+    margin: u(1) 0 0;
   }
   .freelance-work__link {
     color: inherit;

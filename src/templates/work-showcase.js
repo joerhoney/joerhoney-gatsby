@@ -11,8 +11,6 @@ import Page from "@layouts/Page";
 // Fragments
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
-// CSS
-import "@css/work-showcase.scss";
 
 /*
   Showcase work item. Frontmatter (all optional except title/type):
@@ -105,7 +103,7 @@ const WorkShowcase = (props) => {
             <Shot img={feat1img} alt={feat1alt} className="showcase-shot--lead" />
           </section>
         )}
-        <section className="alignable bottomM">
+        <section className="alignable pb-md">
           <article>
             {description && <p className="showcase-desc">{description}</p>}
             {(client || role || published) && (
@@ -151,7 +149,7 @@ const WorkShowcase = (props) => {
           </article>
         </section>
         {shots.length > 0 && (
-          <section className="alignable skew_b tint1_b bottomM showcase-gallery">
+          <section className="alignable layer-skew layer-tint1 pb-md showcase-gallery">
             {shots.map((shot, i) => (
               <Shot
                 key={shot.img}
@@ -162,7 +160,7 @@ const WorkShowcase = (props) => {
           </section>
         )}
         <section
-          className="alignable skew_b cta_b bottomS compensateTHalf u-jump-section"
+          className="alignable layer-skew layer-cta pb-sm mt-tilt-half jump-target"
           id="contact"
         >
           <article className="self-center">
@@ -189,7 +187,7 @@ const WorkShowcase = (props) => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center" />
         </section>
       </Page>
     </>

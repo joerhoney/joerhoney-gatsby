@@ -1,3 +1,5 @@
+@use "../tokens" as *;
+
 .splitWrap {
   overflow: hidden;
   margin: -26vw 0;
@@ -11,7 +13,7 @@
   grid-template-rows: 100vh;
   position: relative;
   scroll-margin-top: -11.5vw;
-  transform: rotate(14.125deg);
+  transform: rotate($tilt);
   width: 100vw;
 }
 .half {
@@ -44,10 +46,10 @@
   right: -60vh;
 }
 .half:nth-child(1) .cell .content {
-  padding-left: var(--unit12);
+  padding-left: u(12);
 }
 .half:nth-child(2) .cell .content {
-  padding-right: var(--unit12);
+  padding-right: u(12);
 }
 .half:nth-child(1) .cell {
   display: grid;

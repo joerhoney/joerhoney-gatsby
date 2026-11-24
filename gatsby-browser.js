@@ -1,4 +1,5 @@
 import "/src/css/prism.css";
+import "/src/css/main.scss";
 
 require("prismjs/plugins/command-line/prism-command-line.css");
 

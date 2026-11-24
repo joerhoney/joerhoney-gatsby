@@ -9,9 +9,6 @@ import Page from "@layouts/Page";
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
 import ScrollIndicator from "@fragments/ScrollIndicator";
-// CSS
-import "@css/reel.css";
-import "@css/gallery.css";
 // Impages
 import dragon from "@images/art/dragon-both-ends.webp";
 import hyperpressimg from "@images/screenshots/hyperpress-home-motion.webp";
@@ -51,7 +48,7 @@ const creativePage = (props) => {
         <h1>Creative</h1>
       </section>
       <Page>
-        <section className="alignable bottomM">
+        <section className="alignable pb-md">
           <article>
             <p>
               Let me show you some of the creative work I've done! The
@@ -60,7 +57,7 @@ const creativePage = (props) => {
             </p>
           </article>
         </section>
-        <section className="alignable skew_b tint1_b bottomM" id="work">
+        <section className="alignable layer-skew layer-tint1 pb-md" id="work">
           <article className="self-center">
             <h2>UI Design</h2>
             <p>
@@ -117,8 +114,8 @@ const creativePage = (props) => {
             </p>
           </Showcase>
         </section>
-        <section className="alignable skew_b tint3_b" id="animation">
-          <article className="bottomM">
+        <section className="alignable layer-skew layer-tint3" id="animation">
+          <article className="pb-md">
             <h2>Animation</h2>
             <p>
               I love bringing my illustrations to life. This was originally a
@@ -135,12 +132,12 @@ const creativePage = (props) => {
             </div>
             <img
               alt="Individual frames of the animated character"
-              className="overlay topXS"
+              className="blend-overlay pt-xs"
               src={skippingframes}
             />
           </article>
         </section>
-        <section className="compensateB">
+        <section className="mb-tilt">
           <div className="article">
             <h2 className="tilt">Character/&shy;Creature Creation</h2>
             <p>
@@ -150,7 +147,7 @@ const creativePage = (props) => {
               Here is some of the work I completed for various client projects.
             </p>
           </div>
-          <div className="gallery topS" id="illustration">
+          <div className="gallery pt-sm" id="illustration">
             <div
               className="layer"
               style={{
@@ -298,7 +295,7 @@ const creativePage = (props) => {
             </div>
           </div>
         </section>
-        <section className="alignable skew_b cta_b bottomS" id="contact">
+        <section className="alignable layer-skew layer-cta pb-sm" id="contact">
           <article className="self-center">
             <h2>Let's Talk Art!</h2>
             <p className="text">
@@ -306,15 +303,15 @@ const creativePage = (props) => {
               <Link to="/blog/journey-of-an-artist/">a page on that</Link>, but
               I'm interested in connecting. So please send me a message below.
             </p>
-            <div className="columns-2 bottomXS ">
-              <div className="pull tint1">
+            <div className="columns-2 pb-xs ">
+              <div className="pull bg-tint1">
                 <h4>Hire me! 😄</h4>
                 <p>
                   I am currently available for hire! Not for long though, so act
                   fast if you want me on your team! 🙌
                 </p>
               </div>
-              <div className="pull tint1">
+              <div className="pull bg-tint1">
                 <h4>Contract me! 👍</h4>
                 <p>
                   I am also open for service as a freelance web developer. Send
@@ -339,7 +336,7 @@ const creativePage = (props) => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center" />
         </section>
       </Page>
     </>

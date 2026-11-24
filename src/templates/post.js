@@ -47,14 +47,14 @@ const Post = (props) => {
           Contact: "#contact",
         }}
       >
-        <section className="alignable bottomS">
+        <section className="alignable pb-sm">
           <article>
             <p className="date">Published: {dateFormat(published)}</p>
             <div dangerouslySetInnerHTML={{ __html: html }} />
           </article>
         </section>
         <section
-          className="alignable skew_b cta_b bottomS compensateTHalf u-jump-section"
+          className="alignable layer-skew layer-cta pb-sm mt-tilt-half jump-target"
           id="contact"
         >
           <article className="self-center">
@@ -79,7 +79,7 @@ const Post = (props) => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center" />
         </section>
       </Page>
     </>

@@ -1,3 +1,5 @@
+@use "../tokens" as *;
+
 // Showcase work item (src/templates/work-showcase.js)
 
 $shot-max: 1200px;
@@ -16,12 +18,12 @@ $shot-max: 1200px;
   padding: 0 var(--gap);
   img {
     display: block;
-    border-radius: var(--radius-all);
+    border-radius: var(--radius);
     width: 100%;
     height: auto;
   }
   figcaption {
-    padding-top: var(--unit2);
+    padding-top: u(2);
     color: var(--color5);
     font-weight: bold;
     text-wrap: balance;
@@ -30,8 +32,8 @@ $shot-max: 1200px;
 
 // Lead screenshot sits right under the hero, overlapping it slightly
 .showcase-lead {
-  margin-top: var(--unit-12);
-  padding-bottom: var(--unit8);
+  margin-top: u(-12);
+  padding-bottom: u(8);
   .showcase-shot--lead {
     position: relative;
     z-index: 1;
@@ -39,7 +41,7 @@ $shot-max: 1200px;
 }
 
 .showcase-desc {
-  margin-bottom: var(--unit4);
+  margin-bottom: u(4);
   color: var(--color5);
   font-weight: bold;
   font-size: 1.25em;
@@ -50,11 +52,11 @@ $shot-max: 1200px;
 .showcase-facts {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--unit2) var(--unit6);
-  margin: 0 0 var(--unit4);
+  gap: u(2) u(6);
+  margin: 0 0 u(4);
   border-top: 1px solid var(--tint5);
   border-bottom: 1px solid var(--tint5);
-  padding: var(--unit2) 0;
+  padding: u(2) 0;
   dt {
     color: var(--color3);
     font-weight: bold;
@@ -69,8 +71,8 @@ $shot-max: 1200px;
 // Extra screenshots: stacked on phones, image + caption side by side above
 // 800px, alternating sides.
 .showcase-gallery {
-  gap: var(--unit12);
-  padding-top: var(--unit16);
+  gap: u(12);
+  padding-top: u(16);
   > .showcase-shot {
     position: relative;
   }
@@ -79,9 +81,9 @@ $shot-max: 1200px;
       display: grid;
       grid-template-columns: 3fr 1fr;
       align-items: end;
-      gap: var(--unit4);
+      gap: u(4);
       figcaption {
-        padding: 0 0 var(--unit2);
+        padding: 0 0 u(2);
       }
       &.showcase-shot--flip {
         grid-template-columns: 1fr 3fr;

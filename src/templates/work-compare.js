@@ -3,9 +3,6 @@ import React from "react";
 import { graphql } from "gatsby";
 import Button from "@components/Button";
 import Icon from "@components/Icon";
-// CSS
-import "@css/compare.scss";
-import "@css/units.css";
 
 export const query = graphql`
   query ($slug: String!) {
@@ -101,9 +98,9 @@ const WorkCompare = (props) => {
           }}
         />
       </a>
-      <section className="compare">
+      <section className="compare-view">
         <div
-          className="compare__controls multibutton"
+          className="compare-view__controls multibutton"
           style={{
             width: "max-content",
             margin: "auto",
@@ -115,32 +112,32 @@ const WorkCompare = (props) => {
           }}
         >
           <div
-            className="compare__before-button multibutton__button"
+            className="compare-view__before-button multibutton__button"
             title={feat1tip}
             tabIndex={1}
           >
             {feat1btn}
           </div>
           <div
-            className="compare__before-both multibutton__button"
+            className="compare-view__before-both multibutton__button"
             title={bothdesc}
             tabIndex={2}
           >
             {bothtext}
           </div>
           <div
-            className="compare__after-button multibutton__button"
+            className="compare-view__after-button multibutton__button"
             title={feat2tip}
             tabIndex={3}
           >
             {feat2btn}
           </div>
         </div>
-        <div className="compare__before" id="before">
+        <div className="compare-view__before" id="before">
           {/* See static folder for images */}
           <img alt={feat1alt} loading="lazy" src={`/work/${feat1img}`} />
         </div>
-        <div className="compare__after" id="after">
+        <div className="compare-view__after" id="after">
           <img alt={feat2alt} loading="lazy" src={`/work/${feat2img}`} />
         </div>
       </section>

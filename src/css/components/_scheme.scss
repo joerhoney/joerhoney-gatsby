@@ -1,10 +1,11 @@
+@use "../tokens" as *;
+
 .color-scheme {
   border: 0;
   box-sizing: content-box;
-  /* display: inline-block; */
   font-size: 1.5em;
   margin: 0 0 calc(-1.5em - 18px) auto;
-  padding: 18px var(--unit2) 0;
+  padding: 18px u(2) 0;
   position: sticky;
   right: 0;
   top: 0;
@@ -74,7 +75,6 @@
 }
 .dark-scheme-icon::before {
   border-radius: 50%;
-  /*   box-shadow: 3px 0 0 0 var(--color-6); */
   border-color: currentColor;
   border-style: solid;
   border-width: 0 0.33em 0 0;
@@ -83,7 +83,6 @@
   display: block;
   height: 1em;
   width: 1em;
-  /*   translate: -3px 0; */
 
   position: absolute;
   top: 0.25em;

@@ -28,7 +28,7 @@ const Home = () => {
           <article>
             <img
               alt="Portrait of Joe Rhoney."
-              className="self-right transluscent"
+              className="self-right translucent"
               height="290"
               loading="lazy"
               src={avatar}
@@ -85,7 +85,7 @@ const Home = () => {
       </HeroHome>
       <Scheme style={{ transform: "translate(-10vw, -60px)" }} />
       <Page indicator={false} nav={false} scheme={false}>
-        <Split className="compensateTHalf" id="question">
+        <Split className="mt-tilt-half" id="question">
           <Half
             alt="Illustration of the front end of a dragon."
             button="Creative"
@@ -114,7 +114,7 @@ const Home = () => {
             <p style={{ maxWidth: "16.5em" }}>
               Learn more about my technical work.{" "}
               <span
-                className="written-note with-arrow"
+                className="font-handwritten with-arrow"
                 style={{
                   fontSize: "1.4em",
                   fontWeight: "bold",
@@ -128,14 +128,14 @@ const Home = () => {
             </p>
           </Half>
         </Split>
-        <section className="alignable compensateTHalf" id="contact">
+        <section className="alignable mt-tilt-half" id="contact">
           <article className="self-center">
             <h2>Or Contact Me</h2>
             <p>
               Whether you need help with something online, you want to interview
               me, or you just want to connect, drop me an email! I'll get back
               to you within 24 hours and I won't spam you.&nbsp;
-              <b className="u-heading-font">:j</b>
+              <b className="font-heading">:j</b>
             </p>
             <Arrow
               className="self-right"
@@ -153,7 +153,7 @@ const Home = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center" />
         </section>
       </Page>
     </>

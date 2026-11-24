@@ -1,9 +1,11 @@
+@use "../tokens" as *;
+
 main:has(.nav) section:first-of-type {
   margin-top: 160px;
   @media (max-width: 999px) {
     margin-top: calc(352px + -20vw);
   }
-  @media (max-width: 700px) {
+  @include down(md) {
     margin-top: 212px;
   }
 }
@@ -12,7 +14,7 @@ main:has(.nav) section h1 {
   @media (max-width: 999px) {
     margin-top: calc(290px - 22vw);
   }
-  @media (max-width: 700px) {
+  @include down(md) {
     margin-top: 20vw;
   }
 }
@@ -55,7 +57,7 @@ main:has(.nav) section h1 {
   content: "";
 }
 .nav .group {
-  transform: rotate(14.125deg);
+  transform: rotate($tilt);
   transform-origin: top left;
   width: 170px;
   height: 90px;
@@ -82,7 +84,7 @@ main:has(.nav) section h1 {
   color: var(--color3);
   font-weight: 700;
   font-size: 20px;
-  font-family: "Rubik", sans-serif;
+  font-family: $font-heading;
   text-decoration: none;
   text-transform: lowercase;
 }
@@ -100,9 +102,9 @@ main:has(.nav) section h1 {
 .nav .toggle {
   display: none;
 }
-@media (max-width: 600px) {
+@include down(sm) {
   .nav .group {
-    transform: rotate(14.125deg);
+    transform: rotate($tilt);
   }
   .nav .toggle {
     display: block;
@@ -136,7 +138,7 @@ main:has(.nav) section h1 {
   transform: translateY(-50%);
   box-sizing: border-box;
   margin: 72px 0 -72px;
-  padding-top: var(--unit6);
+  padding-top: u(6);
   padding-left: 140px;
   width: 100%;
   max-width: 460px;
@@ -146,14 +148,11 @@ main:has(.nav) section h1 {
 .nav-indicator pre {
   font-size: 15px;
   line-height: 19.5px;
-  /* position: absolute;
-  top: 0; */
 }
 @media (max-width: 400px) {
   .nav-indicator pre {
     font-weight: bold;
     font-size: 3.75vw;
     line-height: 4.875vw;
-    /* text-transform: uppercase; */
   }
 }

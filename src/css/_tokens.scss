@@ -1,0 +1,58 @@
+// T O K E N S
+// Sass-only helpers: produces no CSS on its own. Every partial starts with
+//   @use "../tokens" as *;   (or "tokens" from this folder)
+//
+// Runtime values that need to change with the viewport (the spacing unit,
+// gaps, colours) are CSS custom properties, set in base/_root.scss.
+
+@use "sass:map";
+
+// The signature slant used across the site.
+$tilt: 14.125deg;
+
+// Spacing: everything is a multiple of --unit (6px, 8px on large screens).
+// u(4) → calc(var(--unit) * 4). Negative numbers work too: u(-8).
+@function u($n) {
+  @return calc(var(--unit) * #{$n});
+}
+
+// Breakpoints
+$breakpoints: (
+  xs: 480px,
+  sm: 600px,
+  md: 700px,
+  lg: 1000px,
+  xl: 1200px,
+);
+
+@function bp($name) {
+  @return map.get($breakpoints, $name);
+}
+
+// @include up(md) { … }   → min-width: 700px
+@mixin up($name) {
+  @media (min-width: bp($name)) {
+    @content;
+  }
+}
+
+// @include down(md) { … } → max-width: 700px (inclusive, matching the
+// original max-width queries)
+@mixin down($name) {
+  @media (max-width: bp($name)) {
+    @content;
+  }
+}
+
+// Absolutely positioned layer that covers its (positioned) parent. Used for
+// the ::before backgrounds that get skewed behind sections.
+@mixin layer {
+  display: block;
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+// Heading font
+$font-heading: Rubik, sans-serif;
+$font-body: Courier, monospace;

@@ -1,8 +1,6 @@
 import React from "react";
 // Utilities
 // import parallax from "@utils/parallax.js";
-// CSS
-import "@css/heroHome.scss";
 
 function parallax(element, speed) {
   const windowWidth = window.innerWidth;

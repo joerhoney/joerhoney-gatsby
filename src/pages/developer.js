@@ -9,8 +9,6 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";
-// CSS
-import "@css/developer.scss";
 // Fragments
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
@@ -148,7 +146,7 @@ const codePage = () => {
         <h1>Developer</h1>
       </section>
       <Page>
-        <section className="alignable bottomS">
+        <section className="alignable pb-sm">
           <article className="self-center">
             <p>
               These days, a web developer is usually expected to be well-rounded
@@ -161,13 +159,13 @@ const codePage = () => {
           </article>
         </section>
         <section
-          className="alignable skew_b compensateTHalf topS cta_b"
+          className="alignable layer-skew mt-tilt-half pt-sm layer-cta"
           style={{ position: "relative" }}
         >
           <div className="article">
             <h2 className="tilt">Roles</h2>
           </div>
-          <div className="columns-few bottomS columns-few--tilt">
+          <div className="columns-few pb-sm columns-few--tilt">
             <div className="column">
               <h3>Front-End Developer</h3>
               <p>
@@ -222,15 +220,15 @@ const codePage = () => {
           </div>
           <img
             alt="Portrait of Joe Rhoney."
-            className="portrait transluscent"
+            className="portrait translucent"
             height="290"
             loading="lazy"
             src={avatar}
             width="240"
           />
         </section>
-        <section className="alignable bottomM topS" id="skills">
-          <article className="self-center bottomXS">
+        <section className="alignable pb-md pt-sm" id="skills">
+          <article className="self-center pb-xs">
             <h2>Skills &amp; Tools</h2>
             <p>
               These are the technical skills I've picked up and tools I've
@@ -238,7 +236,7 @@ const codePage = () => {
               I know!
             </p>
           </article>
-          <div className="content-center self-center wide">
+          <div className="text-center self-center wide">
             <div className="reveal-child-b">
               <Languages />
               <Cms />
@@ -252,7 +250,7 @@ const codePage = () => {
             </div>
           </div>
         </section>
-        <section className="alignable skew_b tint1_b" id="work">
+        <section className="alignable layer-skew layer-tint1" id="work">
           <article className="self-center">
             <h2>Work Portfolio</h2>
             <p>
@@ -266,7 +264,7 @@ const codePage = () => {
             href="https://meta.com"
             skills={metaskills}
             src={metaimg}
-            styles={{ marginTop: "var(--unit4)" }}
+            styles={{ marginTop: "calc(var(--unit) * 4)" }}
             title="Meta"
           >
             <p>
@@ -497,9 +495,9 @@ const codePage = () => {
             </div>
           </Collection>
         </section>
-        <section className="alignable topS bottomM skew_b tint3_b">
+        <section className="alignable pt-sm pb-md layer-skew layer-tint3">
           <div className="columns-few columns-few--tilt">
-            <div className="column u-jump-section" id="plugins">
+            <div className="column jump-target" id="plugins">
               <h3>WordPress Plugins</h3>
               <p>
                 I have published 6 custom plugins in the WordPress directory
@@ -509,7 +507,7 @@ const codePage = () => {
                 AddFunc Plugins
               </Button>
             </div>
-            <div className="column u-jump-section">
+            <div className="column jump-target">
               <h3>Hire me! 😄</h3>
               <p>
                 I am currently available for hire! You can learn about and
@@ -519,7 +517,7 @@ const codePage = () => {
                 Me on LinkedIn
               </Button>
             </div>
-            <div className="column u-jump-section" id="story">
+            <div className="column jump-target" id="story">
               <h3>Journey of an&nbsp;Artist</h3>
               <p>
                 Want to know more about me personally? Well, I wrote a bit about
@@ -531,13 +529,13 @@ const codePage = () => {
             </div>
           </div>
         </section>
-        <section className="alignable skew_b cta_b bottomS" id="contact">
+        <section className="alignable layer-skew layer-cta pb-sm" id="contact">
           <article className="self-center">
             <h2>Contact me</h2>
             <p>
               Please don't hesitate to send me an email. I'll get back to you as
               soon as possible. I look forward to hearing from you!&nbsp;
-              <b className="u-heading-font">:j</b>
+              <b className="font-heading">:j</b>
             </p>
             <Arrow
               className="self-right"
@@ -555,7 +553,7 @@ const codePage = () => {
           </article>
         </section>
         <section className="alignable">
-          <Profiles className="article reveal-child-b self-center compensateBHalf" />
+          <Profiles className="article reveal-child-b self-center" />
         </section>
       </Page>
     </>

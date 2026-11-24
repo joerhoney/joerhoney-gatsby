@@ -1,9 +1,6 @@
 import React from "react";
 // Components
 import Icon from "@components/Icon";
-// CSS
-import "@css/icons.scss";
-import "@css/profiles.css";
 
 const Profiles = (props) => {
   const { className, heading } = props;
@@ -16,7 +13,7 @@ const Profiles = (props) => {
         <Icon
           href="https://stackoverflow.com/users/1383937/joe-rhoney"
           name="Stack Overflow"
-          className="tight-text"
+          className="tracking-tight"
         />
         <Icon href="https://codepen.io/joerhoney" name="CodePen" />
         {/* <Icon href="https://calendly.com/joerhoney" name="Calendly" /> */}

@@ -1,5 +1,6 @@
+@use "../tokens" as *;
+
 .wizard {
-  // transition: height 1s ease;
   input[type="radio"] {
     position: fixed;
     left: -100px;
@@ -8,7 +9,6 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    // transition: height 1s ease;
     li {
       margin: 0;
       padding: 0;
@@ -29,17 +29,17 @@
   .end {
     background-color: var(--color5);
     background-image: linear-gradient(90deg, var(--tint4), transparent);
-    border-radius: 0 var(--unit2) var(--unit2) var(--unit2);
+    border-radius: 0 u(2) u(2) u(2);
     color: var(--color1);
-    margin-right: var(--unit8);
+    margin-right: u(8);
     transform: translate(-100vw, -25vh);
   }
   .answer {
     background-color: var(--tint2);
     background-image: linear-gradient(90deg, var(--color1a), transparent);
-    border-radius: var(--unit2) var(--unit2) 0 var(--unit2);
+    border-radius: u(2) u(2) 0 u(2);
     cursor: pointer;
-    margin-left: var(--unit8);
+    margin-left: u(8);
     transform: translate(100vw, 25vh);
     &:hover {
       background-color: var(--tint3);
@@ -58,27 +58,27 @@
   .qa_bubble {
     box-sizing: border-box;
     overflow: hidden;
-    padding: 0 var(--unit3);
+    padding: 0 u(3);
     transition: inherit;
   }
   input[type="radio"]:checked + ul > li > .question,
   input[type="radio"]:checked + ul > li > .answer,
   input[type="radio"]:checked + .end {
     grid-template-rows: 1fr;
-    margin-bottom: var(--unit2);
+    margin-bottom: u(2);
     opacity: 1;
     transform: translate(0);
     & > .qa_bubble {
-      padding: var(--unit2) var(--unit3);
+      padding: u(2) u(3);
     }
   }
   .qa_restart {
     background-color: var(--color1a);
-    border-radius: var(--radius-all);
+    border-radius: var(--radius);
     color: var(--tint5);
     display: block;
-    padding: var(--unit1) var(--unit2);
-    margin: var(--unit4) auto;
+    padding: u(1) u(2);
+    margin: u(4) auto;
     width: max-content;
     transition: all 0.5s ease;
     &:hover {

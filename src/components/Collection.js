@@ -1,6 +1,4 @@
 import React from "react";
-// CSS
-import "@css/showcase.css";
 
 const Collection = (props) => {
   return (

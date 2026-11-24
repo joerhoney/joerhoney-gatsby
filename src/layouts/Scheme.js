@@ -1,6 +1,4 @@
 import React from "react";
-// CSS
-import "@css/scheme.scss";
 
 class Scheme extends React.Component {
   componentDidMount() {

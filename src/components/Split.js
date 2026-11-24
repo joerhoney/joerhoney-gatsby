@@ -3,8 +3,6 @@ import React from "react";
 import ConditionalWrap from "@utils/ConditionalWrap";
 // Components
 import { Link } from "gatsby";
-// CSS
-import "@css/split.css";
 
 const Split = (props) => {
   return (

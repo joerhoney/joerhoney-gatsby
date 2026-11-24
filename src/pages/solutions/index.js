@@ -9,8 +9,6 @@ import Page from "@layouts/Page";
 // Fragments
 import Arrow from "@fragments/Arrow";
 import Profiles from "@fragments/Profiles";
-// CSS
-import "@css/solutions.scss";
 // Images
 import allears from "@images/portrait-photo.webp";
 import storeFront from "@images/heros/store-front-transparent.gif";
@@ -90,12 +88,12 @@ const FreelancePage = ({ data }) => {
     <Page>
       {/* Hero */}
       <section className="heroLP trim tilted-row tilted-row--reversed freelance-hero">
-        <div className="bg-1 freelance-hero__main">
-          <h1 className="u-text-small">{hero.kicker}</h1>
+        <div className="layer-page freelance-hero__main">
+          <h1 className="heading-sm">{hero.kicker}</h1>
           <h2 className="tilt">{hero.heading}</h2>
           <img
             alt="Mouse clicks swarming into your store."
-            className="column-width transluscent freelance-hero__img"
+            className="column-width translucent freelance-hero__img"
             loading="lazy"
             src={storeFront}
           />
@@ -107,7 +105,7 @@ const FreelancePage = ({ data }) => {
 
       {/* Intro (Markdown body) */}
       {html && (
-        <section className="alignable topM bottomM">
+        <section className="alignable pt-md pb-md">
           <article
             className="text"
             dangerouslySetInnerHTML={{ __html: html }}
@@ -117,10 +115,10 @@ const FreelancePage = ({ data }) => {
 
       {/* Benefits band */}
       {has(benefits) && (
-        <section className="half2 skew_b text-color1 freelance-benefits">
+        <section className="half2 layer-skew text-color1 freelance-benefits">
           <div className="tilted-row freelance-wide">
             <div className="freelance-flush-bottom">
-              <h2 className="tilt content-left">{benefits.heading}</h2>
+              <h2 className="tilt text-left">{benefits.heading}</h2>
             </div>
             {benefits.stars && (
               <div className="freelance-flush-bottom">
@@ -141,11 +139,11 @@ const FreelancePage = ({ data }) => {
 
       {/* Services */}
       {has(services) && (
-        <section className="alignable topM u-jump-section" id="services">
+        <section className="alignable pt-md jump-target" id="services">
           <div className="article">
             <h2 className="tilt">{services.heading}</h2>
           </div>
-          <div className="columns-few columns-few--tilt bottomM">
+          <div className="columns-few columns-few--tilt pb-md">
             {services.items.map((item) => (
               <div className="column" key={item.title}>
                 <h3 className="tilt">{item.title}</h3>
@@ -159,7 +157,7 @@ const FreelancePage = ({ data }) => {
       {/* Process */}
       {has(process) && (
         <section
-          className="alignable skew_b tint1_b topS bottomM u-jump-section"
+          className="alignable layer-skew layer-tint1 pt-sm pb-md jump-target"
           id="process"
         >
           <article>
@@ -178,7 +176,7 @@ const FreelancePage = ({ data }) => {
 
       {/* Recent work */}
       {has(work) && (
-        <section className="alignable topS bottomM u-jump-section" id="work">
+        <section className="alignable pt-sm pb-md jump-target" id="work">
           <div className="article">
             <h2 className="tilt">{work.heading}</h2>
           </div>
@@ -204,14 +202,14 @@ const FreelancePage = ({ data }) => {
 
       {/* Contact */}
       <section
-        className="alignable skew_b cta_b bottomXL u-jump-section"
+        className="alignable layer-skew layer-cta pb-xl jump-target"
         id="contact"
       >
         <article className="self-center">
           <h2>{contact.heading}</h2>
           <p className="text">
             {contact.text}&nbsp;
-            <b className="u-heading-font">:j</b>
+            <b className="font-heading">:j</b>
           </p>
           <Arrow
             className="self-right"
@@ -230,7 +228,7 @@ const FreelancePage = ({ data }) => {
         <div className="wrapper-joe">
           <img
             alt="Portrait of Joe Rhoney."
-            className="self-right transluscent"
+            className="self-right translucent"
             height="290"
             loading="lazy"
             src={allears}
@@ -238,9 +236,9 @@ const FreelancePage = ({ data }) => {
           />
         </div>
       </section>
-      <section className="alignable compensateT tint3_b"></section>
+      <section className="alignable mt-tilt layer-tint3"></section>
       <section className="alignable">
-        <Profiles className="article reveal-child-b self-center compensateBHalf" />
+        <Profiles className="article reveal-child-b self-center" />
       </section>
     </Page>
   );

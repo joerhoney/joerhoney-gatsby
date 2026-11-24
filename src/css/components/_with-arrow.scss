@@ -1,0 +1,31 @@
+// W I T H   A R R O W
+// Hand-drawn arrow pointing at something (src/fragments/Arrow.js).
+*:has(> .with-arrow) {
+  position: relative;
+}
+.with-arrow {
+  position: absolute;
+  text-align: center;
+  text-wrap: balance;
+  .with-arrow__arrow {
+    position: absolute;
+    transform-origin: 50% 150%;
+    width: 24px;
+    height: 60px;
+    svg {
+      height: 100%;
+    }
+    b {
+      display: none;
+    }
+    &--flip {
+      scale: -1 1;
+    }
+    &--in {
+      scale: 1 -1;
+    }
+    &--in-flip {
+      scale: -1 -1;
+    }
+  }
+}

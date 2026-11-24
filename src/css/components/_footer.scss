@@ -1,10 +1,10 @@
+@use "../tokens" as *;
+
 footer {
   overflow: hidden;
   position: relative;
   transform-origin: bottom left;
   width: 100vw;
-  // position: relative;
-  // z-index: 1;
   .footer__inner {
     padding: 60px 20px 0;
     color: var(--color5);
@@ -17,7 +17,7 @@ footer {
       display: block;
       opacity: 0.66;
       transition: opacity ease 1s;
-      transform: skewY(14.125deg);
+      transform: skewY($tilt);
       transform-origin: top left;
 
       position: absolute;

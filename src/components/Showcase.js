@@ -5,8 +5,6 @@ import isExternal from "@utils/isExternal";
 // Components
 import Button from "./Button.js";
 import { Link } from "gatsby";
-// CSS
-import "@css/showcase.css";
 
 const Showcase = (props) => {
   const window = props.window

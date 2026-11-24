@@ -1,0 +1,202 @@
+// E L E M E N T S
+// Bare-element defaults: page, text, links, headings.
+@use "../tokens" as *;
+
+@view-transition {
+  navigation: auto;
+}
+
+:root {
+  width: 100vw;
+  overflow-x: hidden;
+  font-size: 16px;
+}
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: var(--color3) var(--scrolltrack);
+  scrollbar-width: thin;
+}
+body {
+  position: relative; // Needed for smooth scrolling, apparently.
+  z-index: -10;
+  margin: 0;
+  background: var(--color1);
+  padding: 0;
+  width: 100vw;
+  scrollbar-color: var(--color3) var(--color1);
+  scrollbar-width: 6px;
+  color: var(--color6);
+  font:
+    400 16px/1.3em #{$font-body};
+}
+body > div {
+  background-image: var(--gradBg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: var(--color1);
+}
+
+// Theme
+::selection {
+  background: var(--color3);
+  color: var(--light);
+  text-shadow: 0 0 10px var(--light);
+}
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-track-corner,
+::-webkit-resizer {
+  background-color: var(--scrolltrack);
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--color3);
+}
+
+// Text
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  margin-inline: unset;
+}
+ul {
+  margin-top: 0;
+}
+sup {
+  position: relative;
+  top: -0.3em;
+  vertical-align: baseline;
+  font-size: 66%;
+}
+p code {
+  background-color: var(--color2);
+  padding: 0.25em;
+  font-size: 0.9em;
+  white-space: pre-wrap;
+}
+
+// Links
+a {
+  text-decoration: none;
+}
+a:not([class]) {
+  color: var(--color5);
+  text-underline-offset: 0.25em;
+  &:is(:active, :focus, :hover) {
+    color: var(--color3);
+  }
+}
+// Little ↗ after external links in body copy
+.alignable p a[href*="http"]::after {
+  vertical-align: middle;
+  margin-left: 0.3em;
+  border: 0.14em solid currentColor;
+  border-radius: 0.3em;
+  padding-left: 0.18em;
+  content: "\2197";
+  font-weight: bold;
+  font-size: 0.75em;
+  font-family: monospace;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+}
+// Underlined links inside running text and tables
+// (kept as separate selectors: th/td links must stay lower-specificity than
+// a:not([class]))
+.text a,
+th a,
+td a {
+  transition: border-bottom ease 0.2s;
+  box-sizing: border-box;
+  border-bottom: 2px solid var(--color5);
+  color: currentColor;
+  text-decoration: none;
+}
+.text :is(a:focus, a:hover):not(.button),
+:is(th, td) :is(a:focus, a:hover) {
+  border-bottom: 4px solid var(--color6);
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  padding-top: 1em;
+  color: var(--color5);
+  font-weight: 700;
+  line-height: 1em;
+  font-family: $font-heading;
+  letter-spacing: -0.03em;
+  text-transform: lowercase;
+  text-wrap: balance;
+}
+h1 {
+  padding-top: 0;
+}
+h2 {
+  font-size: 3rem;
+}
+h3 {
+  font-size: 22px;
+}
+h4 {
+  margin-bottom: 1rem;
+  font-size: 20px;
+}
+
+// Tilted headings. An h2 followed by a paragraph tilts automatically; add
+// .tilt to tilt any h2/h3. The paragraph gets a float so its first lines
+// wrap around the slant.
+h2 + p::before,
+h3.tilt + p::before {
+  display: block;
+  float: right;
+  clear: right;
+  shape-outside: polygon(16% 0%, 100% 0%, 100% 74%, 90% 74%);
+  width: 250px;
+  height: 64px;
+  content: "";
+}
+h2.tilt,
+h2:has(+ p),
+h3.tilt {
+  transform: skew(0, $tilt);
+  transform-origin: top right;
+  font-style: oblique;
+  text-align: right;
+}
+h2:has(+ p) {
+  align-self: flex-end;
+  translate: 0 80px;
+  margin-left: auto;
+  padding-bottom: 0.5em;
+  max-width: 100%;
+}
+h3.tilt:has(+ p) {
+  align-self: flex-end;
+  translate: 0 80px;
+  margin-right: 0;
+  margin-left: auto;
+  padding-bottom: 1em;
+  max-width: 100%;
+  font-size: 2em;
+}
+main section h1 {
+  transform: skewY($tilt);
+  transform-origin: bottom right;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 0 u(8);
+  width: 100%;
+  max-width: calc(var(--max-text) + #{u(16)});
+  font-style: oblique;
+  font-size: 4em;
+  text-align: right;
+  @include down(md) {
+    font-size: 9.1vw;
+  }
+}

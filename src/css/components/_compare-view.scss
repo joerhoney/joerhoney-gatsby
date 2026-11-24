@@ -1,3 +1,8 @@
+@use "../tokens" as *;
+
+// C O M P A R E   V I E W
+// Full-screen before/after view (src/templates/work-compare.js).
+
 .details {
   padding-top: 100px;
   overflow: hidden;
@@ -7,7 +12,6 @@
   right: 0;
   z-index: 10;
   transform-origin: bottom left;
-  // width: 100vw;
   .details__inner {
     padding: 0 20px;
     color: var(--color5);
@@ -20,7 +24,7 @@
       display: block;
       opacity: 0.66;
       transition: all ease 0.3s;
-      transform: skewY(14.125deg) translateY(-50px);
+      transform: skewY($tilt) translateY(-50px);
       transform-origin: top left;
 
       position: absolute;
@@ -63,12 +67,12 @@
     }
   }
 }
-body :has(.compare) {
+body :has(.compare-view) {
   position: fixed;
   inset: 0;
   overflow: auto;
 }
-.compare {
+.compare-view {
   background-color: var(--color1);
   background-attachment: fixed;
   background-image: var(--gradBg);
@@ -77,40 +81,40 @@ body :has(.compare) {
   right: var(--gap);
   position: absolute;
   img {
-    border-radius: var(--radius-all);
+    border-radius: var(--radius);
     display: block;
     max-width: 100%;
     margin: auto;
   }
-  .compare__before {
+  .compare-view__before {
     padding: var(--gap) 0 calc(var(--gap) + 172px);
     position: absolute;
     left: 0;
     right: calc(50% + (var(--gap) / 2));
     transition: right 0.3s ease;
   }
-  .compare__after {
+  .compare-view__after {
     padding: var(--gap) 0 calc(var(--gap) + 172px);
     position: absolute;
     left: calc(50% + (var(--gap) / 2));
     right: 0;
     transition: left 0.3s ease;
   }
-  .compare__controls:has(
-      .compare__before-button:focus,
-      .compare__after-button:focus
+  .compare-view__controls:has(
+      .compare-view__before-button:focus,
+      .compare-view__after-button:focus
     ) {
-    ~ .compare__before {
+    ~ .compare-view__before {
       right: 0;
     }
-    ~ .compare__after {
+    ~ .compare-view__after {
       left: 0;
     }
   }
-  .compare__controls:has(.compare__before-button:focus) ~ .compare__before {
+  .compare-view__controls:has(.compare-view__before-button:focus) ~ .compare-view__before {
     z-index: 2;
   }
-  .compare__controls:has(.compare__after-button:focus) ~ .compare__after {
+  .compare-view__controls:has(.compare-view__after-button:focus) ~ .compare-view__after {
     z-index: 2;
   }
 }

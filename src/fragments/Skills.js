@@ -1,8 +1,6 @@
 import * as React from "react";
 // Components
 import Icon from "@components/Icon";
-// CSS
-import "@css/icons.scss";
 
 const Browsers = () => {
   return (
@@ -30,7 +28,7 @@ const Communities = () => {
   return (
     <div className="icons inline">
       <Icon name="CodePen" />
-      <Icon name="Stack Overflow" className="tight-text" />
+      <Icon name="Stack Overflow" className="tracking-tight" />
     </div>
   );
 };
@@ -79,7 +77,7 @@ const Services = () => {
     <div className="icons inline">
       <Icon name="GitHub" />
       <Icon name="AWS" />
-      <Icon name="Digital Ocean" className="tight-text" />
+      <Icon name="Digital Ocean" className="tracking-tight" />
       <Icon name="Figma" />
       <Icon name="Analytics" />
       <Icon name="Drive" />

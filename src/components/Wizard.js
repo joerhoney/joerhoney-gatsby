@@ -1,8 +1,6 @@
 import React from "react";
 // Components
 import { Link } from "gatsby";
-// CSS
-import "@css/wizard.scss";
 
 const Wizard = (props) => {
   // const { children, className, id } = props;

@@ -1,3 +1,5 @@
+@use "../tokens" as *;
+
 .gallery {
   display: flex;
   flex-wrap: nowrap;
@@ -23,7 +25,7 @@
 }
 .gallery > .exhibit p:first-of-type {
   margin-top: 140px;
-  padding: 0 var(--unit8);
+  padding: 0 u(8);
 }
 .gallery .layer {
   max-height: 100%;
