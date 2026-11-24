@@ -11,10 +11,12 @@ import Tags from "./Tags.js";
  * (children), skill chips and a button.
  *
  * href  External project link ("See project").
+ * body  The description (or pass it as children).
  * to    Internal project story, e.g. "/work/r3risk/" ("See project story").
  */
 const Showcase = ({
   alt,
+  body,
   children,
   className,
   desc,
@@ -41,7 +43,7 @@ const Showcase = ({
         width="180px"
       />
     )}
-    <div className="content">{children}</div>
+    <div className="content">{children ?? body}</div>
     {skills && <Tags items={skills} />}
     {href && (
       <Button href={href}>

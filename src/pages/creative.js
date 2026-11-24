@@ -2,15 +2,14 @@ import * as React from "react";
 // Components
 import { Link } from "gatsby";
 import Showcase from "@components/Showcase";
+// Content
+import portfolio from "../content/portfolio";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
 import ScrollIndicator from "@fragments/ScrollIndicator";
 // Impages
 import dragon from "@images/art/dragon-both-ends.webp";
-import hyperpressimg from "@images/screenshots/hyperpress-home-motion.webp";
-import r3riskimg from "@images/screenshots/r3risk-home.webp";
-import santiagochildrenscenterimg from "@images/screenshots/santiagochildrenscenter-home.webp";
 import kinggamagama from "@images/art/king-gama-gama.webp";
 import samuraistanding from "@images/art/samurai-standing.webp";
 import samuraionhorseback from "@images/art/samurai-on-horseback.webp";
@@ -25,16 +24,7 @@ import team from "@images/heros/team.webp";
 import ContactSection from "@sections/ContactSection";
 import Hero from "@sections/Hero";
 
-const creativePage = (props) => {
-  const hyperpressskills = [
-      "JavaScript",
-      "WebGPU",
-      "WordPress",
-      "HTML5",
-      "CSS3",
-    ],
-    r3riskskills = ["JavaScript", "Tailwind", "HTML5", "CSS3", "Git"],
-    santiagochildrenscenterskills = ["JavaScript", "HTML5", "CSS3", "Git"];
+const creativePage = () => {
   return (
     <Page
       hero={
@@ -63,53 +53,9 @@ const creativePage = (props) => {
             button.
           </p>
         </article>
-        <Showcase
-          desc="Landing page for a high-performance WordPress hosting service."
-          to="/work/hyperpress/"
-          skills={hyperpressskills}
-          src={hyperpressimg}
-          title="HyperPress"
-        >
-          <p>
-            WordPress theme with an animated starfield background and fireball
-            effect for a unique and memorable flare. Animated effect optimized
-            with webGPU for high performance, infinite randomized generation,
-            and no looping. Hightech, responsive page layout in a clean and
-            repeatable design system, which the client can expand upon without
-            breaking the theme.
-          </p>
-        </Showcase>
-        <Showcase
-          desc="Landing page/website for concierge security and crisis response."
-          to="/work/r3risk/"
-          skills={r3riskskills}
-          src={r3riskimg}
-          title="R3 Risk"
-        >
-          <p>
-            Static landing page built with minimum HTML, CSS, and JavaScript,
-            for highly efficient performance. The client needed a simple,
-            modern, and professional look, with a focus on the services they
-            provide. The page was designed to be responsive and mobile-friendly,
-            with a clean and easy-to-read layout. The client was very pleased
-            with the results.
-          </p>
-        </Showcase>
-        <Showcase
-          desc="Landing page for a preschool/childcare center."
-          to="/work/santiagochildrenscenter/"
-          skills={santiagochildrenscenterskills}
-          src={santiagochildrenscenterimg}
-          title="Santiago Children's Center"
-        >
-          <p>
-            Static landing page optimized for high performance and conversion.
-            Crucial elements included a clear call-to-action, social credibilty,
-            a focus on the benefits of the services, and a simple and friendly
-            design. The client expressed satisfaction and was excited to begin
-            her marketing campaign.
-          </p>
-        </Showcase>
+        <Showcase {...portfolio.hyperpress} />
+        <Showcase {...portfolio.r3risk} />
+        <Showcase {...portfolio.santiago} />
       </section>
       <section className="alignable layer-skew layer-tint3" id="animation">
         <article className="pb-md">
