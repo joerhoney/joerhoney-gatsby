@@ -10,7 +10,7 @@ import Nav from "@layouts/Nav";
 import Scheme from "@layouts/Scheme";
 // CSS
 import "@css/buttons.scss";
-import "@css/colors-default.css";
+import "@css/colors.scss";
 import "@css/global.scss";
 import "@css/units.css";
 import "@css/blog.css";
