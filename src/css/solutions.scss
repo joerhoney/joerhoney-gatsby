@@ -13,3 +13,98 @@
 section:has(.all-ears) {
   padding-bottom: calc(400px + -20vw);
 }
+
+// F R E E L A N C E  (src/pages/solutions/index.js)
+
+.freelance-hero {
+  position: relative;
+  margin-top: -10vw;
+  .freelance-hero__main {
+    padding-bottom: 0;
+  }
+  .freelance-hero__img {
+    margin-right: 0;
+    margin-left: auto;
+  }
+}
+.freelance-benefits {
+  position: relative;
+}
+.freelance-wide {
+  margin: 0 auto;
+  max-width: 1300px;
+}
+.tilted-row > .freelance-flush-bottom {
+  padding-bottom: 0;
+}
+.tilted-row > .freelance-flush-top {
+  padding-top: 0;
+}
+
+// Numbered steps: big outlined numerals hang to the left of each step.
+.freelance-steps {
+  counter-reset: step;
+  margin: var(--unit10) 0 0;
+  padding: 0;
+  list-style: none;
+  li {
+    position: relative;
+    counter-increment: step;
+    margin-bottom: var(--unit6);
+    padding-left: var(--unit10);
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: counter(step);
+      color: var(--color3);
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 1em;
+      font-family: Rubik, sans-serif;
+    }
+  }
+  h3 {
+    padding-top: 0;
+    margin-bottom: var(--unit1);
+  }
+  p {
+    margin-bottom: 0;
+  }
+}
+
+// Recent work: screenshot cards, 1 → 3 columns.
+.freelance-work {
+  display: grid;
+  gap: var(--unit8);
+  box-sizing: border-box;
+  margin: var(--unit10) auto 0;
+  padding: 0 var(--unit8);
+  width: 100%;
+  max-width: 1200px;
+  list-style: none;
+  @media (min-width: 700px) {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+  img {
+    display: block;
+    border-radius: var(--radius-all);
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    object-position: top center;
+  }
+  h3 {
+    padding-top: var(--unit2);
+  }
+  p {
+    margin: var(--unit1) 0 0;
+  }
+  .freelance-work__link {
+    color: inherit;
+    &:is(:hover, :focus) h3 {
+      color: var(--color3);
+    }
+  }
+}
