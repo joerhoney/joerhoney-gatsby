@@ -69,9 +69,9 @@ const creativePage = (props) => {
               story button.
             </p>
           </article>
-          {/* <Showcase
-            desc="Landing page for a high performanceWordPress hosting service."
-            to="/work/hyperpresss/"
+          <Showcase
+            desc="Landing page for a high-performance WordPress hosting service."
+            to="/work/hyperpress/"
             skills={hyperpressskills}
             src={hyperpressimg}
             title="HyperPress"
@@ -81,10 +81,10 @@ const creativePage = (props) => {
               effect for a unique and memorable flare. Animated effect optimized
               with webGPU for high performance, infinite randomized generation,
               and no looping. Hightech, responsive page layout in a clean and
-              repeatable design system, which the client and expand upon without
+              repeatable design system, which the client can expand upon without
               breaking the theme.
             </p>
-          </Showcase> */}
+          </Showcase>
           <Showcase
             desc="Landing page/website for concierge security and crisis response."
             to="/work/r3risk/"
