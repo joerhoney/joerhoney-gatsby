@@ -131,28 +131,3 @@ main:has(.nav) section h1 {
     color: var(--accent);
   }
 }
-.nav-indicator {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  transform: translateY(-50%);
-  box-sizing: border-box;
-  margin: 72px 0 -72px;
-  padding-top: u(6);
-  padding-left: 140px;
-  width: 100%;
-  max-width: 460px;
-  color: var(--color3);
-  white-space: pre-wrap;
-}
-.nav-indicator pre {
-  font-size: 15px;
-  line-height: 19.5px;
-}
-@media (max-width: 400px) {
-  .nav-indicator pre {
-    font-weight: bold;
-    font-size: 3.75vw;
-    line-height: 4.875vw;
-  }
-}

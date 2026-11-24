@@ -1,34 +1,10 @@
 import React from "react";
-// Utilities
-// import parallax from "@utils/parallax.js";
-
-function parallax(element, speed) {
-  const windowWidth = window.innerWidth;
-  
-  if (windowWidth < 580) {
-    return;
-  }
-  window.addEventListener("scroll", () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    const translateY = (scrollTop * speed) / 2;
-
-    element.style.transform = `translateY(${translateY}px)`;
-  });
-}
 
 const HeroHome = (props) => {
-  const parallaxElement = React.useRef(null);
-
-  React.useEffect(() => {
-    if (parallaxElement.current) {
-      parallax(parallaxElement.current, 0.75);
-    }
-  }, []);
-
   return (
     <div className="heroClip">
       <div className="heroWrapper">
-        <div ref={parallaxElement} className="heroHome">
+        <div className="heroHome parallaxHome">
           <div className="jBig">
 <pre aria-hidden="true" className="jBig-1" role='presentation'>
 {""}                                 brand solutions{"\n"}
@@ -102,15 +78,3 @@ const HeroHome = (props) => {
 };
 
 export default HeroHome;
-
-// const Parapper = ({ children }) => {
-//   const { ref } = useParallax({
-//     speed: -100,
-//     opacity: [29, 0, "easeOutQuint"],
-//   });
-//   return (
-//     <div ref={ref} className="hero"home">
-//       {children}
-//     </div>
-//   );
-// };

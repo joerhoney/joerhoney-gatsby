@@ -6,7 +6,6 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 // Layouts
 import Footer from "@layouts/Footer";
 import Nav from "@layouts/Nav";
-// import NavIndicator from "@layouts/NavIndicator";
 import Scheme from "@layouts/Scheme";
 
 const Projects = () => {
