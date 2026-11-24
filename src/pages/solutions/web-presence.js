@@ -8,6 +8,7 @@ import storeFront from "@images/heros/store-front-transparent.webp";
 import { Link } from "gatsby";
 // Sections
 import ContactSection from "@sections/ContactSection";
+import Seo from "@components/Seo";
 
 // Test Prices
 
@@ -327,11 +328,11 @@ const webPresencePage = () => {
 
 export default webPresencePage;
 
-export const Head = () => (
-  <>
-    <title>Web Presence | :joe rhoney</title>
-    <meta name="description" content="." />
-    <meta property="og:keywords" content="Web Presence" />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Web Presence"
+    description="Get found online: Google Maps, Yelp!, social profiles and basic SEO set up and kept current for your business."
+    keywords="Web Presence, Local SEO, Google Maps, Yelp"
+    pathname={location.pathname}
+  />
 );

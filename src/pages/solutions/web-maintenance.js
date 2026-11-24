@@ -6,6 +6,7 @@ import storeFront from "@images/heros/store-front-transparent.webp";
 import { Link } from "gatsby";
 // Sections
 import ContactSection from "@sections/ContactSection";
+import Seo from "@components/Seo";
 
 const webMaintenancePage = () => {
   return (
@@ -188,11 +189,11 @@ const webMaintenancePage = () => {
 
 export default webMaintenancePage;
 
-export const Head = () => (
-  <>
-    <title>Web Maintenance | :joe rhoney</title>
-    <meta name="description" content="." />
-    <meta property="og:keywords" content="Web Maintenance" />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Web Maintenance"
+    description="Web maintenance plans that keep your website, domain, hosting and SSL up to date so you can focus on your business."
+    keywords="Web Maintenance, Website Updates, Freelance Web Developer"
+    pathname={location.pathname}
+  />
 );

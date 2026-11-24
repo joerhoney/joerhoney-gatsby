@@ -19,6 +19,7 @@ import westchestergentledentistryimg from "@images/screenshots/westchestergentle
 // Sections
 import ContactSection from "@sections/ContactSection";
 import Hero from "@sections/Hero";
+import Seo from "@components/Seo";
 
 const dentistryskills = [
     "WordPress Plugins",
@@ -243,15 +244,11 @@ const codePage = () => {
 
 export default codePage;
 
-export const Head = () => (
-  <>
-    <title>Front-End Developer :joe rhoney</title>
-    <meta
-      name="description"
-      content="Practicing front-end development since 2006, with a strong 
-               background in graphic design and visual arts."
-    />
-    <meta property="og:keywords" content="Developer, Joe Rhoney" />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Front-End Developer"
+    description="Practicing front-end development since 2006, with a strong background in graphic design and visual arts."
+    keywords="Front-End Developer, Creative Developer, Joe Rhoney"
+    pathname={location.pathname}
+  />
 );

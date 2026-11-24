@@ -10,6 +10,7 @@ import allears from "@images/portrait-photo.webp";
 import storeFront from "@images/heros/store-front-transparent.gif";
 // Sections
 import ContactSection from "@sections/ContactSection";
+import Seo from "@components/Seo";
 
 // All of this page's words live in src/content/freelance.md.
 export const query = graphql`
@@ -229,17 +230,11 @@ const FreelancePage = ({ data }) => {
 
 export default FreelancePage;
 
-export const Head = ({ data }) => (
-  <>
-    <title>{data.markdownRemark.frontmatter.title} | :joe rhoney</title>
-    <meta
-      name="description"
-      content={data.markdownRemark.frontmatter.description}
-    />
-    <meta
-      property="og:keywords"
-      content="Freelance, Web Design, Web Development, WordPress, Joe Rhoney"
-    />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ data, location }) => (
+  <Seo
+    title={data.markdownRemark.frontmatter.title}
+    description={data.markdownRemark.frontmatter.description}
+    keywords="Freelance, Web Design, Web Development, WordPress, Joe Rhoney"
+    pathname={location.pathname}
+  />
 );

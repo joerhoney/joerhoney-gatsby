@@ -23,6 +23,7 @@ import team from "@images/heros/team.webp";
 // Sections
 import ContactSection from "@sections/ContactSection";
 import Hero from "@sections/Hero";
+import Seo from "@components/Seo";
 
 const creativePage = () => {
   return (
@@ -268,14 +269,11 @@ const creativePage = () => {
 
 export default creativePage;
 
-export const Head = () => (
-  <>
-    <title>Artist | :joe rhoney</title>
-    <meta
-      name="description"
-      content="Practicing visual arts since childhood and still enjoying it today."
-    />
-    <meta property="og:keywords" content="Artist, Joe Rhoney" />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Artist"
+    description="Practicing visual arts since childhood and still enjoying it today."
+    keywords="Artist, Illustrator, UI Design, Joe Rhoney"
+    pathname={location.pathname}
+  />
 );

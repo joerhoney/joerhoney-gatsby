@@ -3,6 +3,7 @@ import React from "react";
 import Page from "@layouts/Page";
 // Sections
 import Hero from "@sections/Hero";
+import Seo from "@components/Seo";
 
 const ThanksContact = () => {
   return (
@@ -22,8 +23,6 @@ const ThanksContact = () => {
 
 export default ThanksContact;
 
-export const Head = () => (
-  <>
-    <title>Thank you! | :joe rhoney</title>
-  </>
+export const Head = ({ location }) => (
+  <Seo title="Thank you!" pathname={location.pathname} />
 );

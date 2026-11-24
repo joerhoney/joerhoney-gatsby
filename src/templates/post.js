@@ -8,6 +8,7 @@ import Page from "@layouts/Page";
 // Sections
 import ContactSection from "@sections/ContactSection";
 import Hero from "@sections/Hero";
+import Seo from "@components/Seo";
 
 // const path = inclue("path");
 
@@ -65,19 +66,14 @@ const Post = (props) => {
 
 export default Post;
 
-export const Head = (props) => {
-  const { description, published, title, featimg, featalt } =
-    props.data.markdownRemark.frontmatter;
+export const Head = ({ data, location }) => {
+  const { description, title, featimg } = data.markdownRemark.frontmatter;
   return (
-    <>
-      <title>{title} | :joe rhoney</title>
-      <meta name="description" content={description} />
-      <meta property="og:image" content={`/blog/${featimg}`} />
-      <meta
-        property="og:keywords"
-        content="Joe Rhoney, Developer, Illustrator"
-      />
-      <meta property="og:type" content="website" />
-    </>
+    <Seo
+      title={title}
+      description={description}
+      image={featimg && `/blog/${featimg}`}
+      pathname={location.pathname}
+    />
   );
 };

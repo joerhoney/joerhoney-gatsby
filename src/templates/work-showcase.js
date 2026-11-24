@@ -11,6 +11,7 @@ import Page from "@layouts/Page";
 // Sections
 import ContactSection from "@sections/ContactSection";
 import Hero from "@sections/Hero";
+import Seo from "@components/Seo";
 
 /*
   Showcase work item. Frontmatter (all optional except title/type):
@@ -159,19 +160,16 @@ const WorkShowcase = (props) => {
 
 export default WorkShowcase;
 
-export const Head = (props) => {
+export const Head = ({ data, location }) => {
   const { description, title, ogimg, feat1img } =
-    props.data.markdownRemark.frontmatter;
+    data.markdownRemark.frontmatter;
   return (
-    <>
-      <title>{title} | Work by :joe rhoney</title>
-      <meta name="description" content={description} />
-      <meta property="og:image" content={workImage(ogimg || feat1img)} />
-      <meta
-        property="og:keywords"
-        content="Joe Rhoney, Designer, Developer, Engineer, Front-End, UX, UI"
-      />
-      <meta property="og:type" content="website" />
-    </>
+    <Seo
+      fullTitle={`${title} | Work by :joe rhoney`}
+      description={description}
+      image={workImage(ogimg || feat1img)}
+      keywords="Joe Rhoney, Designer, Developer, Engineer, Front-End, UX, UI"
+      pathname={location.pathname}
+    />
   );
 };

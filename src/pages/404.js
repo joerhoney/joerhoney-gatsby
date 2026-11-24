@@ -6,6 +6,7 @@ import Page from "@layouts/Page";
 // Sections
 import ContactSection from "@sections/ContactSection";
 import Hero from "@sections/Hero";
+import Seo from "@components/Seo";
 
 const NotFoundPage = () => {
   return (
@@ -46,13 +47,10 @@ const NotFoundPage = () => {
 
 export default NotFoundPage;
 
-export const Head = () => (
-  <>
-    <title>Page Not Found | :joe rhoney</title>
-    <meta
-      name="description"
-      content="Learn more about Joe Rhoney on the other pages of this website."
-    />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Page Not Found"
+    description="Learn more about Joe Rhoney on the other pages of this website."
+    pathname={location.pathname}
+  />
 );

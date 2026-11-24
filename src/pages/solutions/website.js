@@ -8,6 +8,7 @@ import storeFront from "@images/heros/store-front-transparent.webp";
 import { Link } from "gatsby";
 // Sections
 import ContactSection from "@sections/ContactSection";
+import Seo from "@components/Seo";
 
 // Test Prices
 const priceDrtChp = "price_1PEiCnJndiOOi7lkFhymi7e7";
@@ -329,14 +330,11 @@ const websitePage = () => {
 
 export default websitePage;
 
-export const Head = () => (
-  <>
-    <title>Website Services | :joe rhoney</title>
-    <meta
-      name="description"
-      content="Choose one of my versatile website packages to get start your online project."
-    />
-    <meta property="og:keywords" content="Website Services" />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Website Services"
+    description="Choose one of my versatile website packages to get your online project started."
+    keywords="Website Services, Website Packages, Freelance Web Developer"
+    pathname={location.pathname}
+  />
 );

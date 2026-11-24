@@ -7,6 +7,7 @@ import { Link, graphql, useStaticQuery } from "gatsby";
 import Footer from "@layouts/Footer";
 import Nav from "@layouts/Nav";
 import Scheme from "@layouts/Scheme";
+import Seo from "@components/Seo";
 
 const Projects = () => {
   const data = useStaticQuery(graphql`
@@ -74,3 +75,11 @@ const Projects = () => {
 };
 
 export default Projects;
+
+export const Head = ({ location }) => (
+  <Seo
+    title="Projects"
+    description="Experiments and side projects by Joe Rhoney: 3D, animation, CSS layouts and more."
+    pathname={location.pathname}
+  />
+);

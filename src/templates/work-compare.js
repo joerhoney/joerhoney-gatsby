@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Button from "@components/Button";
 import Tags from "@components/Tags";
 import Icon from "@components/Icon";
+import Seo from "@components/Seo";
 
 export const query = graphql`
   query ($slug: String!) {
@@ -141,18 +142,15 @@ const WorkCompare = (props) => {
 
 export default WorkCompare;
 
-export const Head = (props) => {
-  const { description, title, ogimg } = props.data.markdownRemark.frontmatter;
+export const Head = ({ data, location }) => {
+  const { description, title, ogimg } = data.markdownRemark.frontmatter;
   return (
-    <>
-      <title>{title} | Work by :joe rhoney</title>
-      <meta name="description" content={description} />
-      <meta property="og:image" content={`/work/${ogimg}`} />
-      <meta
-        property="og:keywords"
-        content="Joe Rhoney, Designer, Developer, Engineer, Front-End, UX, UI"
-      />
-      <meta property="og:type" content="website" />
-    </>
+    <Seo
+      fullTitle={`${title} | Work by :joe rhoney`}
+      description={description}
+      image={ogimg && `/work/${ogimg}`}
+      keywords="Joe Rhoney, Designer, Developer, Engineer, Front-End, UX, UI"
+      pathname={location.pathname}
+    />
   );
 };

@@ -17,6 +17,7 @@ import dragonSplit1 from "@images/dragon-split1.webp";
 import dragonSplit2 from "@images/dragon-split2.webp";
 // Sections
 import ContactSection from "@sections/ContactSection";
+import Seo from "@components/Seo";
 // import Query from "../examples/Query";
 
 const Home = () => {
@@ -142,15 +143,10 @@ const Home = () => {
 
 export default Home;
 
-export const Head = () => (
-  <>
-    <title>Developer/Illustrator | :joe rhoney</title>
-    <meta
-      name="description"
-      content="Practicing web development since 2006 and visual arts since
-               childhood. The perfect combination for a front-end developer."
-    />
-    <meta property="og:keywords" content="Joe Rhoney, Developer, Illustrator" />
-    <meta property="og:type" content="website" />
-  </>
+export const Head = ({ location }) => (
+  <Seo
+    title="Developer/Illustrator"
+    description="Practicing web development since 2006 and visual arts since childhood. The perfect combination for a front-end developer."
+    pathname={location.pathname}
+  />
 );
