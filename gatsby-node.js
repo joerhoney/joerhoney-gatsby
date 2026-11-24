@@ -33,11 +33,35 @@ module.exports.onCreateNode = ({ node, actions }) => {
     });
   }
 };
+// Optional /work frontmatter fields. Declared here so pages can query them even
+// when no markdown file uses them yet (everything else is still inferred).
+exports.createSchemaCustomization = ({ actions }) => {
+  actions.createTypes(`
+    type MarkdownRemark implements Node {
+      frontmatter: MarkdownRemarkFrontmatter
+    }
+    type MarkdownRemarkFrontmatter {
+      type: String
+      client: String
+      role: String
+      feat2img: String
+      feat2alt: String
+      gallery: [WorkGalleryImage]
+    }
+    type WorkGalleryImage {
+      img: String
+      alt: String
+      caption: String
+    }
+  `);
+};
+
 module.exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const Page = path.resolve("src/templates/page.js");
   const Post = path.resolve("src/templates/post.js");
-  const Work = path.resolve("src/templates/work.js");
+  const WorkCompare = path.resolve("src/templates/work-compare.js");
+  const WorkShowcase = path.resolve("src/templates/work-showcase.js");
   const results = await graphql(`
     query {
       allMarkdownRemark {
@@ -47,14 +71,15 @@ module.exports.createPages = async ({ graphql, actions }) => {
               slug
               parent
             }
+            frontmatter {
+              type
+            }
           }
         }
       }
     }
   `);
   results.data.allMarkdownRemark.edges.forEach((edge) => {
-    console.log("slug: " + edge.node.fields.slug);
-    console.log("parent: " + edge.node.fields.parent);
     if (edge.node.fields.parent === "pages") {
       createPage({
         component: Page,
@@ -75,7 +100,10 @@ module.exports.createPages = async ({ graphql, actions }) => {
     }
     if (edge.node.fields.parent === "work") {
       createPage({
-        component: Work,
+        component:
+          edge.node.frontmatter.type === "showcase"
+            ? WorkShowcase
+            : WorkCompare,
         path: `/work/${edge.node.fields.slug}`,
         context: {
           slug: edge.node.fields.slug,

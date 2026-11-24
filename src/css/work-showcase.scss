@@ -1,0 +1,95 @@
+// Showcase work item (src/templates/work-showcase.js)
+
+$shot-max: 1200px;
+
+// Project names are often one long word; keep it inside narrow screens.
+.showcase-hero h1 {
+  font-size: min(calc(6vh + 4vw), 14vw);
+}
+
+// A single screenshot (figure + optional caption)
+.showcase-shot {
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  max-width: $shot-max;
+  padding: 0 var(--gap);
+  img {
+    display: block;
+    border-radius: var(--radius-all);
+    width: 100%;
+    height: auto;
+  }
+  figcaption {
+    padding-top: var(--unit2);
+    color: var(--color5);
+    font-weight: bold;
+    text-wrap: balance;
+  }
+}
+
+// Lead screenshot sits right under the hero, overlapping it slightly
+.showcase-lead {
+  margin-top: var(--unit-12);
+  padding-bottom: var(--unit8);
+  .showcase-shot--lead {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.showcase-desc {
+  margin-bottom: var(--unit4);
+  color: var(--color5);
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: 1.3em;
+}
+
+// Client / Role / Launched
+.showcase-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--unit2) var(--unit6);
+  margin: 0 0 var(--unit4);
+  border-top: 1px solid var(--tint5);
+  border-bottom: 1px solid var(--tint5);
+  padding: var(--unit2) 0;
+  dt {
+    color: var(--color3);
+    font-weight: bold;
+    font-size: 0.8rem;
+    text-transform: lowercase;
+  }
+  dd {
+    margin: 0;
+  }
+}
+
+// Extra screenshots: stacked on phones, image + caption side by side above
+// 800px, alternating sides.
+.showcase-gallery {
+  gap: var(--unit12);
+  padding-top: var(--unit16);
+  > .showcase-shot {
+    position: relative;
+  }
+  @media (min-width: 800px) {
+    .showcase-shot:has(figcaption) {
+      display: grid;
+      grid-template-columns: 3fr 1fr;
+      align-items: end;
+      gap: var(--unit4);
+      figcaption {
+        padding: 0 0 var(--unit2);
+      }
+      &.showcase-shot--flip {
+        grid-template-columns: 1fr 3fr;
+        figcaption {
+          grid-row: 1;
+          text-align: right;
+        }
+      }
+    }
+  }
+}
