@@ -12,13 +12,13 @@ const Mailto = (props) => {
     ? "body=" +
       encodeURIComponent(
         message +
-          " Please _______ (email/call/text) me at _______ (number if applicable)."
+          " Please _______ (email/call/text) me at _______ (number if applicable).",
       )
     : null;
   const mailto = "mailto:" + email + concatQuery([sub, msg]);
   return (
     <a className={`mailto ${className ?? ""}`} href={mailto} target="_blank">
-      {icon && <Icon className="mailto" label="false" name="MailBold" />}
+      {icon && <Icon className="mailto" label={false} name="MailBold" />}
       {children || "Email me"}
     </a>
   );

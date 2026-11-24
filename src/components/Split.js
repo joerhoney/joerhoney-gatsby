@@ -1,18 +1,11 @@
 import React from "react";
-// Utilities
-import ConditionalWrap from "@utils/ConditionalWrap";
 // Components
 import { Link } from "gatsby";
 
 const Split = (props) => {
   return (
     <div className="splitWrap">
-      <div
-        className={`split ${
-          typeof props.className !== "undefined" ? props.className : ""
-        }`}
-        id={props.id}
-      >
+      <div className={`split ${props.className ?? ""}`} id={props.id}>
         {props.children}
       </div>
     </div>
@@ -23,12 +16,7 @@ const Half = (props) => {
   const alt = props.alt ?? "";
   // TODO: Use <GatsbyImage />
   return (
-    <div
-      className={`half ${
-        typeof props.className !== "undefined" ? props.className : ""
-      }`}
-      id={props.id}
-    >
+    <div className={`half ${props.className ?? ""}`} id={props.id}>
       {props.src && (
         <img
           alt={alt}
@@ -37,7 +25,7 @@ const Half = (props) => {
         />
       )}
       <div className="cell">
-        <div className={`title${props.lift && " lift"}`}>
+        <div className={props.lift ? "title lift" : "title"}>
           <h2>{props.heading}</h2>
         </div>
         <div className="content">

@@ -72,7 +72,7 @@ const Home = () => {
               >
                 <Icon
                   name="ArrowDown"
-                  label="false"
+                  label={false}
                   style={{
                     fontSize: "72px",
                   }}

@@ -1,33 +1,25 @@
 import React from "react";
+// Components
+import Tags from "./Tags.js";
 
-const Collection = (props) => {
-  return (
-    <div className="collection">
-      <div className="about">
-        <div className="heading">
-          <h3>{props.title}</h3>
-          {props.desc && <p className="desc">{props.desc}</p>}
-        </div>
-        {props.paragraphs && (
-          <>
-            {props.paragraphs.map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </>
-        )}
-        {props.skills && (
-          <ul className="skills items">
-            {props.skills.map((skill) => (
-              <li key={skill}>
-                <b>{skill}</b>
-              </li>
-            ))}
-          </ul>
-        )}
+/**
+ * Like Showcase, but for a group of related projects: the copy sits on one
+ * side and the project cards (children) on the other.
+ */
+const Collection = ({ children, desc, paragraphs, skills, title }) => (
+  <div className="collection">
+    <div className="about">
+      <div className="heading">
+        <h3>{title}</h3>
+        {desc && <p className="desc">{desc}</p>}
       </div>
-      <div className="cards">{props.children}</div>
+      {paragraphs?.map((paragraph, index) => (
+        <p key={index}>{paragraph}</p>
+      ))}
+      {skills && <Tags items={skills} />}
     </div>
-  );
-};
+    <div className="cards">{children}</div>
+  </div>
+);
 
 export default Collection;

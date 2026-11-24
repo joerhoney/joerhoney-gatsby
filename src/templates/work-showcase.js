@@ -5,6 +5,7 @@ import workImage from "@utils/workImage";
 // Components
 import { graphql, Link } from "gatsby";
 import Button from "@components/Button";
+import Tags from "@components/Tags";
 // Layouts
 import Page from "@layouts/Page";
 // Sections
@@ -82,10 +83,7 @@ const WorkShowcase = (props) => {
   } = props.data.markdownRemark.frontmatter;
   const buttontext =
     props.data.markdownRemark.frontmatter.buttontext || "See Project";
-  const skills = (props.data.markdownRemark.frontmatter.skills ?? "")
-    .split(",")
-    .map((skill) => skill.trim())
-    .filter(Boolean);
+  const { skills } = props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
   const shots = [
     ...(feat2img ? [{ img: feat2img, alt: feat2alt }] : []),
@@ -124,15 +122,7 @@ const WorkShowcase = (props) => {
             </dl>
           )}
           <div className="text" dangerouslySetInnerHTML={{ __html: html }} />
-          {skills.length > 0 && (
-            <ul className="skills items">
-              {skills.map((skill) => (
-                <li key={skill}>
-                  <b>{skill}</b>
-                </li>
-              ))}
-            </ul>
-          )}
+          <Tags items={skills} />
           {buttonlink && (
             <Button className="self-left" href={buttonlink}>
               {buttontext}

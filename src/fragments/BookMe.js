@@ -9,7 +9,7 @@ const BookMe = ({ children, icon = true, className }) => {
       href="https://calendly.com/joerhoney/30-min-call"
       target="_blank"
     >
-      {icon && <Icon label="false" name="CalendarBold" />}
+      {icon && <Icon label={false} name="CalendarBold" />}
       {children || "Book me"}
     </a>
   );

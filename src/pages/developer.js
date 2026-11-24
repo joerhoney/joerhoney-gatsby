@@ -9,17 +9,7 @@ import Showcase from "@components/Showcase";
 // Layouts
 import Page from "@layouts/Page";
 // Fragments
-import {
-  Browsers,
-  Cms,
-  Communities,
-  Compilers,
-  Languages,
-  Os,
-  Services,
-  Software,
-  OtherTech,
-} from "@fragments/Skills";
+import { AllSkills } from "@fragments/Skills";
 // Images
 import dragon from "@images/heros/dragon.webp";
 import avatar from "@images/portrait-photo.webp";
@@ -233,15 +223,7 @@ const codePage = () => {
         </article>
         <div className="text-center self-center wide">
           <div className="reveal-child-b">
-            <Languages />
-            <Cms />
-            <Compilers />
-            <OtherTech />
-            <Communities />
-            <Services />
-            <Browsers />
-            <Software />
-            <Os />
+            <AllSkills />
           </div>
         </div>
       </section>

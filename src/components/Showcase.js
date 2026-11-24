@@ -1,63 +1,59 @@
 import React from "react";
 // Utilities
 import getDomainName from "@utils/getDomainName";
-import isExternal from "@utils/isExternal";
 // Components
-import Button from "./Button.js";
 import { Link } from "gatsby";
+import Button from "./Button.js";
+import Tags from "./Tags.js";
 
-const Showcase = (props) => {
-  const window = props.window
-    ? props.window
-    : props.href
-    ? isExternal(props.href)
-      ? getDomainName(props.href)
-      : false
-    : false;
-  return (
-    // <div className="showcaseWrap">
-    <div className={`showcase ${props.className}`} style={props.styles}>
-      <div className="heading">
-        <h3>{props.title}</h3>
-        {props.desc && <p className="desc">{props.desc}</p>}
-      </div>
-      {props.src && (
-        <img
-          alt={
-            props.alt
-              ? props.alt
-              : props.href
-              ? `Screenshot of ${getDomainName(props.href)}.`
-              : `Screenshot of ${props.title}.`
-          }
-          src={props.src}
-          loading="lazy"
-          width="180px"
-        />
-      )}
-      <div className="content">{props.children}</div>
-      {props.skills && (
-        <ul className="skills items">
-          {props.skills.map((skill) => (
-            <li key={skill}>
-              <b>{skill}</b>
-            </li>
-          ))}
-        </ul>
-      )}
-      {props.href && (
-        <Button href={props.href} window={window}>
-          See project<span className="blinking">:</span>
-        </Button>
-      )}
-      {props.to && (
-        <Link className="button" to={props.to} window={window}>
-          See project story<span className="blinking">:</span>
-        </Link>
-      )}
+/**
+ * One portfolio entry: title, short description, screenshot, body copy
+ * (children), skill chips and a button.
+ *
+ * href  External project link ("See project").
+ * to    Internal project story, e.g. "/work/r3risk/" ("See project story").
+ */
+const Showcase = ({
+  alt,
+  children,
+  className,
+  desc,
+  href,
+  skills,
+  src,
+  styles,
+  title,
+  to,
+}) => (
+  <div
+    className={["showcase", className].filter(Boolean).join(" ")}
+    style={styles}
+  >
+    <div className="heading">
+      <h3>{title}</h3>
+      {desc && <p className="desc">{desc}</p>}
     </div>
-    // </div>
-  );
-};
+    {src && (
+      <img
+        alt={alt ?? `Screenshot of ${href ? getDomainName(href) : title}.`}
+        src={src}
+        loading="lazy"
+        width="180px"
+      />
+    )}
+    <div className="content">{children}</div>
+    {skills && <Tags items={skills} />}
+    {href && (
+      <Button href={href}>
+        See project<span className="blinking">:</span>
+      </Button>
+    )}
+    {to && (
+      <Link className="button" to={to}>
+        See project story<span className="blinking">:</span>
+      </Link>
+    )}
+  </div>
+);
 
 export default Showcase;

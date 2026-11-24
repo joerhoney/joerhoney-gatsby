@@ -1,6 +1,4 @@
 import React from "react";
-// Utilities
-// import parallax from "@utils/parallax.js";
 
 const HeroHome = (props) => {
   return (
@@ -80,15 +78,3 @@ const HeroHome = (props) => {
 };
 
 export default HeroHome;
-
-// const Parapper = ({ children }) => {
-//   const { ref } = useParallax({
-//     speed: -100,
-//     opacity: [29, 0, "easeOutQuint"],
-//   });
-//   return (
-//     <div ref={ref} className="hero"home">
-//       {children}
-//     </div>
-//   );
-// };

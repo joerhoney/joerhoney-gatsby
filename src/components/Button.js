@@ -2,24 +2,24 @@ import React from "react";
 // Utilities
 import isExternal from "@utils/isExternal.js";
 import getDomainName from "@utils/getDomainName.js";
-// Coponents
+// Components
 import Icon from "./Icon.js";
 
-const Button = (props) => {
-  const { children, className, href, preview } = props;
-  const rel = isExternal(href) ? "noreferrer" : "";
-  const target = isExternal(href) ? "_blank" : "";
+/**
+ * Link styled as a button. External links (containing "://") open in a new
+ * tab and get the external-link icon. preview shows the domain on hover.
+ */
+const Button = ({ children, className, href = "", preview }) => {
+  const external = isExternal(href);
   return (
     <a
       className={`button ${className ?? ""}`}
       href={href}
-      rel={rel}
-      target={target}
+      rel={external ? "noreferrer" : undefined}
+      target={external ? "_blank" : undefined}
     >
-      {isExternal(href) ? (
-        <Icon className="external" label="false" name="ExternalLinkBold" />
-      ) : (
-        ""
+      {external && (
+        <Icon className="external" label={false} name="ExternalLinkBold" />
       )}
       {children && <div className="text">{children}</div>}
       {preview && <div className="window">{getDomainName(href)}</div>}

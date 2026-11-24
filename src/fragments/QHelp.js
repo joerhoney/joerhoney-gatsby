@@ -83,7 +83,7 @@ function QHelp() {
         <p>Nice! Please contact me so we can discuss your creative project:</p>
         <Mailto />
         <p>Or you can learn more about my artistry and see some of my work:</p>
-        <Link className="button" href="/artist">
+        <Link className="button" to="/creative">
           My Art
         </Link>
       </End>

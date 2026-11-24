@@ -2,16 +2,18 @@ import React from "react";
 // Components
 import { Link } from "gatsby";
 
-const Nav = (props) => {
-  const items =
-    props.items === "none"
-      ? {}
-      : props.items || {
-          Creative: "/creative",
-          Developer: "/developer",
-          Freelance: "/solutions",
-          Contact: "#contact",
-        };
+const defaultItems = {
+  Creative: "/creative",
+  Developer: "/developer",
+  Freelance: "/solutions",
+  Contact: "#contact",
+};
+
+/**
+ * items: { Label: "/path" } to override the links, or "none" for logo only.
+ */
+const Nav = ({ items = defaultItems }) => {
+  const links = items === "none" ? {} : items;
   return (
     <nav className="nav">
       <div className="group">
@@ -19,40 +21,13 @@ const Nav = (props) => {
           :j
         </Link>
         <ul>
-          {Object.keys(items).map((item) => (
-            <li key={item}>
-              <Link className="nav-link" to={items[item]}>
-                {item}
+          {Object.entries(links).map(([label, to]) => (
+            <li key={label}>
+              <Link className="nav-link" to={to}>
+                {label}
               </Link>
             </li>
           ))}
-          {/* {items.map((item) => (
-            <li key={item}>
-              <Link className="nav-link" to={item}>
-                {item}
-              </Link>
-            </li>
-          ))} */}
-          {/* <li>
-            <Link className="nav-link" to="/">
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className="nav-link" to="/developer">
-              Developer
-            </Link>
-          </li>
-          <li>
-            <Link className="nav-link" to="/artist">
-              Artist
-            </Link>
-          </li>
-          <li>
-            <Link className="nav-link" to="#contact">
-              Contact
-            </Link>
-          </li> */}
         </ul>
       </div>
     </nav>
@@ -60,19 +35,3 @@ const Nav = (props) => {
 };
 
 export default Nav;
-
-// export const Head = () => {
-//   return (
-//     <noscript>
-//       <style>
-//         {`.nav {
-//   position: static;
-// }
-// .nav ul::before {
-//   content: none;
-// }
-// `}
-//       </style>
-//     </noscript>
-//   );
-// };

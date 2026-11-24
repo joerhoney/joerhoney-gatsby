@@ -2,6 +2,7 @@ import React from "react";
 // Components
 import { graphql } from "gatsby";
 import Button from "@components/Button";
+import Tags from "@components/Tags";
 import Icon from "@components/Icon";
 
 export const query = graphql`
@@ -54,7 +55,6 @@ const WorkCompare = (props) => {
   bothtext = bothtext || "Compare";
   feat2btn = feat2btn || "After";
   buttontext = buttontext || "See Project";
-  skills = skills.split(",");
   const { html } = props.data.markdownRemark;
   return (
     <>
@@ -66,13 +66,7 @@ const WorkCompare = (props) => {
               dangerouslySetInnerHTML={{ __html: html }}
               className="content"
             />
-            <ul className="skills items">
-              {skills.map((skill) => (
-                <li key={skill}>
-                  <b>{skill}</b>
-                </li>
-              ))}
-            </ul>
+            <Tags items={skills} />
             {buttonlink && <Button href={buttonlink}>{buttontext}</Button>}
           </div>
         </div>
@@ -92,7 +86,7 @@ const WorkCompare = (props) => {
       >
         <Icon
           name="ArrowBack"
-          label="false"
+          label={false}
           style={{
             fontSize: "72px",
           }}

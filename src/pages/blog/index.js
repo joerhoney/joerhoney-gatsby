@@ -43,7 +43,7 @@ const Blog = () => {
         items={{
           Blog: "/blog",
           Dev: "/developer",
-          Art: "/artist",
+          Art: "/creative",
           Contact: "#contact",
         }}
       />

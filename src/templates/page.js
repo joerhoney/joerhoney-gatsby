@@ -36,7 +36,7 @@ const Page = (props) => {
       navItems={{
         Blog: "/blog",
         Dev: "/developer",
-        Art: "/artist",
+        Art: "/creative",
         Contact: "#contact",
       }}
     >

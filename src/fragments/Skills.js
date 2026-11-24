@@ -2,126 +2,82 @@ import * as React from "react";
 // Components
 import Icon from "@components/Icon";
 
-const Browsers = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="Chrome" />
-      <Icon name="Firefox" />
-      <Icon name="Edge" />
-      <Icon name="Safari" />
-    </div>
-  );
-};
-const Cms = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="Contentful" />
-      <Icon name="Drupal" />
-      <Icon name="Gatsby" />
-      <Icon name="Joomla" />
-      <Icon name="Strapi" />
-      <Icon name="WordPress" />
-    </div>
-  );
-};
-const Communities = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="CodePen" />
-      <Icon name="Stack Overflow" className="tracking-tight" />
-    </div>
-  );
-};
-const Compilers = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="Apache" />
-      <Icon name="Babel" />
-      <Icon name="Git" />
-      <Icon name="Modernizr" />
-      <Icon name="Node.js" />
-      <Icon name="NPM" label="npm" />
-      {/* <Icon name="Bootstrap" /> */}
-      <Icon name="Sass" />
-      <Icon name="Tailwind" />
-    </div>
-  );
-};
-const Languages = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="CSS3" />
-      <Icon name="HTML5" />
-      <Icon name="JavaScript" />
-      <Icon name="jQuery" />
-      <Icon name="Markdown" />
-      {/* <Icon name="Mongodb" /> */}
-      <Icon name="Mysql" label="MySQL" />
-      <Icon name="Php" label="PHP" />
-      {/* <Icon name="Python" /> */}
-      <Icon name="React" />
-    </div>
-  );
-};
-const Os = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="Apple" />
-      <Icon name="Windows" />
-      <Icon name="Linux" />
-    </div>
-  );
-};
-const Services = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="GitHub" />
-      <Icon name="AWS" />
-      <Icon name="Digital Ocean" className="tracking-tight" />
-      <Icon name="Figma" />
-      <Icon name="Analytics" />
-      <Icon name="Drive" />
-      <Icon name="Atlassian" />
-      <Icon name="Jira" />
-      <Icon name="Stripe" />
-    </div>
-  );
-};
-const Software = () => {
-  return (
-    <div className="icons inline">
-      {/* <Icon name="AfterEffects" /> */}
-      <Icon name="VS Code" />
-      <Icon name="Atom" />
-      <Icon name="Brackets" />
-      <Icon name="FileZilla" />
-      <Icon name="Illustrator" />
-      <Icon name="Photoshop" />
-      <Icon name="Designer" />
-      <Icon name="Photo" />
-      <Icon name="Selenium" />
-    </div>
-  );
-};
-const OtherTech = () => {
-  return (
-    <div className="icons inline">
-      <Icon name="BEM" />
-      <Icon name="Responsive" />
-      <Icon name="W3C" />
-      <Icon name="Terminal" />
-    </div>
-  );
+/*
+  Skill icon groups for the Developer page. To add a skill, add its icon name
+  to a group (the name must exist in src/components/Icon.js). Use
+  { name, label } for a custom label, or { name, tight: true } for long names.
+*/
+const groups = {
+  Languages: [
+    "CSS3",
+    "HTML5",
+    "JavaScript",
+    "jQuery",
+    "Markdown",
+    { name: "Mysql", label: "MySQL" },
+    { name: "Php", label: "PHP" },
+    "React",
+  ],
+  Cms: ["Contentful", "Drupal", "Gatsby", "Joomla", "Strapi", "WordPress"],
+  Compilers: [
+    "Apache",
+    "Babel",
+    "Git",
+    "Modernizr",
+    "Node.js",
+    { name: "NPM", label: "npm" },
+    "Sass",
+    "Tailwind",
+  ],
+  OtherTech: ["BEM", "Responsive", "W3C", "Terminal"],
+  Communities: ["CodePen", { name: "Stack Overflow", tight: true }],
+  Services: [
+    "GitHub",
+    "AWS",
+    { name: "Digital Ocean", tight: true },
+    "Figma",
+    "Analytics",
+    "Drive",
+    "Atlassian",
+    "Jira",
+    "Stripe",
+  ],
+  Browsers: ["Chrome", "Firefox", "Edge", "Safari"],
+  Software: [
+    "VS Code",
+    "Atom",
+    "Brackets",
+    "FileZilla",
+    "Illustrator",
+    "Photoshop",
+    "Designer",
+    "Photo",
+    "Selenium",
+  ],
+  Os: ["Apple", "Windows", "Linux"],
 };
 
-export {
-  Browsers,
-  Cms,
-  Communities,
-  Compilers,
-  Languages,
-  Os,
-  Services,
-  Software,
-  OtherTech,
-};
+const IconGroup = ({ items }) => (
+  <div className="icons inline">
+    {items.map((item) => {
+      const { name, label, tight } =
+        typeof item === "string" ? { name: item } : item;
+      return (
+        <Icon
+          key={name}
+          name={name}
+          label={label}
+          className={tight ? "tracking-tight" : undefined}
+        />
+      );
+    })}
+  </div>
+);
+
+/** Every group, in display order. */
+const AllSkills = () =>
+  Object.entries(groups).map(([key, items]) => (
+    <IconGroup key={key} items={items} />
+  ));
+
+export { AllSkills, IconGroup, groups as skillGroups };

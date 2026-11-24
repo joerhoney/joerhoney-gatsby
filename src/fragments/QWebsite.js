@@ -166,7 +166,7 @@ function QWebsite() {
                             <Link className="answer" to="/solutions/web-design">
                               Design assistance
                             </Link>
-                            <Link className="answer" to="/artist">
+                            <Link className="answer" to="/creative">
                               Graphic arts / illustration
                             </Link>
                             <Link className="answer" to="#contact">
