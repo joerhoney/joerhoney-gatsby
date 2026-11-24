@@ -10,6 +10,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "@fragments": path.resolve(__dirname, "./src/fragments"),
         "@images": path.resolve(__dirname, "./src/images"),
         "@layouts": path.resolve(__dirname, "./src/layouts"),
+        "@sections": path.resolve(__dirname, "./src/sections"),
         "@utils": path.resolve(__dirname, "./src/utils"),
       },
     },

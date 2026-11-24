@@ -5,12 +5,11 @@ import workImage from "@utils/workImage";
 // Components
 import { graphql, Link } from "gatsby";
 import Button from "@components/Button";
-import Mailto from "@components/Mailto";
 // Layouts
 import Page from "@layouts/Page";
-// Fragments
-import Arrow from "@fragments/Arrow";
-import Profiles from "@fragments/Profiles";
+// Sections
+import ContactSection from "@sections/ContactSection";
+import Hero from "@sections/Hero";
 
 /*
   Showcase work item. Frontmatter (all optional except title/type):
@@ -93,104 +92,78 @@ const WorkShowcase = (props) => {
     ...(gallery ?? []),
   ];
   return (
-    <>
-      <section className="hero page showcase-hero">
-        <h1>{title}</h1>
+    <Page hero={<Hero title={title} className="showcase-hero" />}>
+      {feat1img && (
+        <section className="alignable showcase-lead">
+          <Shot img={feat1img} alt={feat1alt} className="showcase-shot--lead" />
+        </section>
+      )}
+      <section className="alignable pb-md">
+        <article>
+          {description && <p className="showcase-desc">{description}</p>}
+          {(client || role || published) && (
+            <dl className="showcase-facts">
+              {client && (
+                <div>
+                  <dt>Client</dt>
+                  <dd>{client}</dd>
+                </div>
+              )}
+              {role && (
+                <div>
+                  <dt>Role</dt>
+                  <dd>{role}</dd>
+                </div>
+              )}
+              {published && (
+                <div>
+                  <dt>Launched</dt>
+                  <dd>{dateFormat(published)}</dd>
+                </div>
+              )}
+            </dl>
+          )}
+          <div className="text" dangerouslySetInnerHTML={{ __html: html }} />
+          {skills.length > 0 && (
+            <ul className="skills items">
+              {skills.map((skill) => (
+                <li key={skill}>
+                  <b>{skill}</b>
+                </li>
+              ))}
+            </ul>
+          )}
+          {buttonlink && (
+            <Button className="self-left" href={buttonlink}>
+              {buttontext}
+            </Button>
+          )}
+        </article>
       </section>
-      <Page>
-        {feat1img && (
-          <section className="alignable showcase-lead">
-            <Shot img={feat1img} alt={feat1alt} className="showcase-shot--lead" />
-          </section>
-        )}
-        <section className="alignable pb-md">
-          <article>
-            {description && <p className="showcase-desc">{description}</p>}
-            {(client || role || published) && (
-              <dl className="showcase-facts">
-                {client && (
-                  <div>
-                    <dt>Client</dt>
-                    <dd>{client}</dd>
-                  </div>
-                )}
-                {role && (
-                  <div>
-                    <dt>Role</dt>
-                    <dd>{role}</dd>
-                  </div>
-                )}
-                {published && (
-                  <div>
-                    <dt>Launched</dt>
-                    <dd>{dateFormat(published)}</dd>
-                  </div>
-                )}
-              </dl>
-            )}
-            <div
-              className="text"
-              dangerouslySetInnerHTML={{ __html: html }}
+      {shots.length > 0 && (
+        <section className="alignable layer-skew layer-tint1 pb-md showcase-gallery">
+          {shots.map((shot, i) => (
+            <Shot
+              key={shot.img}
+              {...shot}
+              className={i % 2 ? "showcase-shot--flip" : ""}
             />
-            {skills.length > 0 && (
-              <ul className="skills items">
-                {skills.map((skill) => (
-                  <li key={skill}>
-                    <b>{skill}</b>
-                  </li>
-                ))}
-              </ul>
-            )}
-            {buttonlink && (
-              <Button className="self-left" href={buttonlink}>
-                {buttontext}
-              </Button>
-            )}
-          </article>
+          ))}
         </section>
-        {shots.length > 0 && (
-          <section className="alignable layer-skew layer-tint1 pb-md showcase-gallery">
-            {shots.map((shot, i) => (
-              <Shot
-                key={shot.img}
-                {...shot}
-                className={i % 2 ? "showcase-shot--flip" : ""}
-              />
-            ))}
-          </section>
-        )}
-        <section
-          className="alignable layer-skew layer-cta pb-sm mt-tilt-half jump-target"
-          id="contact"
-        >
-          <article className="self-center">
-            <h2>Like What You See?</h2>
-            <p className="text">
-              I can build something like this for you too. Tell me about your
-              project, or see more of my work on the&nbsp;
-              <Link to="/developer/">developer</Link> and&nbsp;
-              <Link to="/creative/">creative</Link> pages.
-            </p>
-            <Arrow
-              className="self-right"
-              style={{
-                bottom: "150%",
-                left: "-114px",
-                rotate: "280deg",
-              }}
-              inward
-            >
-              <Mailto className="button" subject={`Project like ${title}`}>
-                Email Me
-              </Mailto>
-            </Arrow>
-          </article>
-        </section>
-        <section className="alignable">
-          <Profiles className="article reveal-child-b self-center" />
-        </section>
-      </Page>
-    </>
+      )}
+      <ContactSection
+        heading="Like What You See?"
+        className="layer-skew layer-cta pb-sm mt-tilt-half"
+        subject={`Project like ${title}`}
+      >
+        <p className="text">
+          I can build something like this for you too. Tell me about your
+          project, or see more of my work on the&nbsp;
+          <Link to="/developer/">developer</Link> and&nbsp;
+          <Link to="/creative/">creative</Link> pages.
+        </p>
+      </ContactSection>
+    </Page>
   );
 };
 

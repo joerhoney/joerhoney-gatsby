@@ -3,15 +3,13 @@ import React from "react";
 import workImage from "@utils/workImage";
 // Components
 import { graphql, Link } from "gatsby";
-import Mailto from "@components/Mailto";
 // Layouts
 import Page from "@layouts/Page";
-// Fragments
-import Arrow from "@fragments/Arrow";
-import Profiles from "@fragments/Profiles";
 // Images
 import allears from "@images/portrait-photo.webp";
 import storeFront from "@images/heros/store-front-transparent.gif";
+// Sections
+import ContactSection from "@sections/ContactSection";
 
 // All of this page's words live in src/content/freelance.md.
 export const query = graphql`
@@ -201,45 +199,30 @@ const FreelancePage = ({ data }) => {
       )}
 
       {/* Contact */}
-      <section
-        className="alignable layer-skew layer-cta pb-xl jump-target"
-        id="contact"
+      <ContactSection
+        heading={contact.heading}
+        className="layer-skew layer-cta pb-xl"
+        subject={contact.subject}
+        button={contact.button}
+        aside={
+          <div className="wrapper-joe">
+            <img
+              alt="Portrait of Joe Rhoney."
+              className="self-right translucent"
+              height="290"
+              loading="lazy"
+              src={allears}
+              width="240"
+            />
+          </div>
+        }
       >
-        <article className="self-center">
-          <h2>{contact.heading}</h2>
-          <p className="text">
-            {contact.text}&nbsp;
-            <b className="font-heading">:j</b>
-          </p>
-          <Arrow
-            className="self-right"
-            style={{
-              bottom: "150%",
-              left: "-114px",
-              rotate: "280deg",
-            }}
-            inward
-          >
-            <Mailto className="button" subject={contact.subject}>
-              {contact.button}
-            </Mailto>
-          </Arrow>
-        </article>
-        <div className="wrapper-joe">
-          <img
-            alt="Portrait of Joe Rhoney."
-            className="self-right translucent"
-            height="290"
-            loading="lazy"
-            src={allears}
-            width="240"
-          />
-        </div>
-      </section>
+        <p className="text">
+          {contact.text}&nbsp;
+          <b className="font-heading">:j</b>
+        </p>
+      </ContactSection>
       <section className="alignable mt-tilt layer-tint3"></section>
-      <section className="alignable">
-        <Profiles className="article reveal-child-b self-center" />
-      </section>
     </Page>
   );
 };

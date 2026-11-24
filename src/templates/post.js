@@ -2,12 +2,12 @@ import React from "react";
 //Utilities
 import dateFormat from "@utils/dateFormat";
 // Components
-import Mailto from "@components/Mailto";
 import { graphql } from "gatsby";
-import Arrow from "@fragments/Arrow";
-import Profiles from "@fragments/Profiles";
 // Layouts
 import Page from "@layouts/Page";
+// Sections
+import ContactSection from "@sections/ContactSection";
+import Hero from "@sections/Hero";
 
 // const path = inclue("path");
 
@@ -31,58 +31,35 @@ const Post = (props) => {
     props.data.markdownRemark.frontmatter;
   const { html } = props.data.markdownRemark;
   return (
-    <>
-      <section className="hero post">
-        <div className="hero__bg">
-          {/* See static folder for images */}
-          <img alt={featalt} loading="lazy" src={`/blog/${featimg}`} />
-        </div>
-        <h1>{title}</h1>
+    <Page
+      hero={
+        <Hero
+          title={title}
+          img={`/blog/${featimg}`}
+          alt={featalt}
+          variant="post"
+        />
+      }
+      navItems={{
+        Blog: "/blog",
+        Dev: "/developer",
+        Art: "/artist",
+        Contact: "#contact",
+      }}
+    >
+      <section className="alignable pb-sm">
+        <article>
+          <p className="date">Published: {dateFormat(published)}</p>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </article>
       </section>
-      <Page
-        navItems={{
-          Blog: "/blog",
-          Dev: "/developer",
-          Art: "/artist",
-          Contact: "#contact",
-        }}
-      >
-        <section className="alignable pb-sm">
-          <article>
-            <p className="date">Published: {dateFormat(published)}</p>
-            <div dangerouslySetInnerHTML={{ __html: html }} />
-          </article>
-        </section>
-        <section
-          className="alignable layer-skew layer-cta pb-sm mt-tilt-half jump-target"
-          id="contact"
-        >
-          <article className="self-center">
-            <h2>Contact Me</h2>
-            <p>
-              Whether you need help building something or you just want to
-              connect... well I want to connect, so drop me an email!
-            </p>
-            <Arrow
-              className="self-right"
-              style={{
-                bottom: "150%",
-                left: "-114px",
-                rotate: "280deg",
-              }}
-              inward
-            >
-              <Mailto className="button" subject="General Inquiry">
-                Email Me
-              </Mailto>
-            </Arrow>
-          </article>
-        </section>
-        <section className="alignable">
-          <Profiles className="article reveal-child-b self-center" />
-        </section>
-      </Page>
-    </>
+      <ContactSection className="layer-skew layer-cta pb-sm mt-tilt-half">
+        <p>
+          Whether you need help building something or you just want to
+          connect... well I want to connect, so drop me an email!
+        </p>
+      </ContactSection>
+    </Page>
   );
 };
 

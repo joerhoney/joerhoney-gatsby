@@ -1,31 +1,22 @@
 import React from "react";
 // Layouts
 import Page from "@layouts/Page";
-// Fragments
-import Arrow from "@fragments/Arrow";
-import Profiles from "@fragments/Profiles";
+// Sections
+import Hero from "@sections/Hero";
 
 const ThanksContact = () => {
   return (
-    <>
-      <section className="hero page">
-        <h1>Thank You!</h1>
+    <Page hero={<Hero title="Thank You!" />}>
+      <section className="alignable">
+        <article className="self-center">
+          <h2>...for your purchase!</h2>
+          <p>
+            I'm excited to get started on your project. I will reach out to you
+            for details as soon as possible.
+          </p>
+        </article>
       </section>
-      <Page>
-        <section className="alignable">
-          <article className="self-center">
-            <h2>...for your purchase!</h2>
-            <p>
-              I'm excited to get started on your project. I will reach out to
-              you for details as soon as possible.
-            </p>
-          </article>
-        </section>
-        <section className="alignable">
-          <Profiles className="article reveal-child-b self-center" />
-        </section>
-      </Page>
-    </>
+    </Page>
   );
 };
 

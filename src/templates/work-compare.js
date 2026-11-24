@@ -141,24 +141,24 @@ const WorkCompare = (props) => {
           <img alt={feat2alt} loading="lazy" src={`/work/${feat2img}`} />
         </div>
       </section>
-  </>
-);
+    </>
+  );
 };
 
 export default WorkCompare;
 
 export const Head = (props) => {
-const { description, title, ogimg } = props.data.markdownRemark.frontmatter;
-return (
-  <>
-    <title>{title} | Work by :joe rhoney</title>
-    <meta name="description" content={description} />
-    <meta property="og:image" content={`/work/${ogimg}`} />
-    <meta
-      property="og:keywords"
-      content="Joe Rhoney, Designer, Developer, Engineer, Front-End, UX, UI"
-    />
-    <meta property="og:type" content="website" />
+  const { description, title, ogimg } = props.data.markdownRemark.frontmatter;
+  return (
+    <>
+      <title>{title} | Work by :joe rhoney</title>
+      <meta name="description" content={description} />
+      <meta property="og:image" content={`/work/${ogimg}`} />
+      <meta
+        property="og:keywords"
+        content="Joe Rhoney, Designer, Developer, Engineer, Front-End, UX, UI"
+      />
+      <meta property="og:type" content="website" />
     </>
   );
 };

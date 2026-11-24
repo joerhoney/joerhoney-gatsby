@@ -23,6 +23,10 @@
     }
     &--in {
       scale: 1 -1;
+      // Points back down at the button it sits beside (ContactSection).
+      bottom: 150%;
+      left: -114px;
+      rotate: 280deg;
     }
     &--in-flip {
       scale: -1 -1;

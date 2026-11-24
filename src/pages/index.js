@@ -3,7 +3,6 @@ import * as React from "react";
 import since from "@utils/since";
 // Components
 // import Button from "@components/Button";
-import Mailto from "@components/Mailto";
 import Icon from "@components/Icon";
 // import { Link } from "gatsby";
 import { Half, Split } from "@components/Split";
@@ -12,12 +11,12 @@ import Page from "@layouts/Page";
 import Scheme from "../layouts/Scheme";
 // Fragments
 import HeroHome from "@fragments/HeroHome2";
-import Arrow from "@fragments/Arrow";
-import Profiles from "@fragments/Profiles";
 // Images
 import avatar from "@images/portrait-photo.webp";
 import dragonSplit1 from "@images/dragon-split1.webp";
 import dragonSplit2 from "@images/dragon-split2.webp";
+// Sections
+import ContactSection from "@sections/ContactSection";
 // import Query from "../examples/Query";
 
 const Home = () => {
@@ -128,33 +127,14 @@ const Home = () => {
             </p>
           </Half>
         </Split>
-        <section className="alignable mt-tilt-half" id="contact">
-          <article className="self-center">
-            <h2>Or Contact Me</h2>
-            <p>
-              Whether you need help with something online, you want to interview
-              me, or you just want to connect, drop me an email! I'll get back
-              to you within 24 hours and I won't spam you.&nbsp;
-              <b className="font-heading">:j</b>
-            </p>
-            <Arrow
-              className="self-right"
-              style={{
-                bottom: "150%",
-                left: "-114px",
-                rotate: "280deg",
-              }}
-              inward
-            >
-              <Mailto className="button" subject="General Inquiry">
-                Email Me
-              </Mailto>
-            </Arrow>
-          </article>
-        </section>
-        <section className="alignable">
-          <Profiles className="article reveal-child-b self-center" />
-        </section>
+        <ContactSection heading="Or Contact Me" className="mt-tilt-half">
+          <p>
+            Whether you need help with something online, you want to interview
+            me, or you just want to connect, drop me an email! I'll get back to
+            you within 24 hours and I won't spam you.&nbsp;
+            <b className="font-heading">:j</b>
+          </p>
+        </ContactSection>
       </Page>
     </>
   );

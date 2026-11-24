@@ -1,41 +1,43 @@
 import React from "react";
-// Components
-// import { SEO } from "@components/seo";
 // Layouts
 import Footer from "./Footer";
 import Nav from "./Nav";
-// import NavIndicator from "./NavIndicator";
 import Scheme from "./Scheme";
+// Fragments
+import Profiles from "@fragments/Profiles";
 
-const Page = ({ children, className, id, nav, navItems, scheme }) => {
-  return (
-    <>
-      <main id={id} className={className}>
-        {scheme !== false && <Scheme />}
-        {nav !== false && <Nav items={navItems} />}
-        {/* {indicator !== false && <NavIndicator />} */}
-        {children}
-      </main>
-      <Footer />
-    </>
-  );
-};
+/**
+ * Site chrome around a page's sections.
+ *
+ * hero      Rendered before <main> (e.g. <Hero title="…" img={…} />).
+ * nav       false hides the nav; navItems overrides its links ("none" = logo only).
+ * scheme    false hides the light/dark picker.
+ * profiles  false hides the closing "Find me on:" block.
+ */
+const Page = ({
+  children,
+  className,
+  hero,
+  id,
+  nav,
+  navItems,
+  profiles = true,
+  scheme,
+}) => (
+  <>
+    {hero}
+    <main id={id} className={className}>
+      {scheme !== false && <Scheme />}
+      {nav !== false && <Nav items={navItems} />}
+      {children}
+      {profiles && (
+        <section className="alignable">
+          <Profiles className="article reveal-child-b self-center" />
+        </section>
+      )}
+    </main>
+    <Footer />
+  </>
+);
 
 export default Page;
-
-// export const Head = () => (
-//   <>
-//     <noscript>
-//       <style>
-//         {`.nav {
-//   position: static;
-// }
-// .nav ul::before {
-//   content: none;
-// }
-// `}
-//       </style>
-//     </noscript>
-//     <body className="colors-default" />
-//   </>
-// );
