@@ -1,0 +1,47 @@
+// T H E   S H U T T E R   (src/motion/shutter.js)
+// A parallelogram panel, edges cut at the site slant, wide enough to cover
+// the viewport at rest. JS slides it in and out (horizontal moves only).
+@use "../tokens" as *;
+
+$slant-run: 26vh; // tan(14.125deg) * 100vh, rounded up
+
+.shutter {
+  position: fixed;
+  top: 0;
+  left: -$slant-run;
+  transform: translateX(-100%);
+  z-index: 1000;
+  clip-path: polygon(
+    $slant-run 0,
+    100% 0,
+    calc(100% - #{$slant-run}) 100%,
+    0 100%
+  );
+  background: var(--gradBgHero);
+  width: calc(100vw + #{$slant-run * 2});
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+
+  &[data-door="creative"] {
+    background: var(--gradBgHalf1);
+  }
+  &[data-door="developer"] {
+    background: var(--gradBgCTA);
+  }
+  &[data-door="freelance"] {
+    background: var(--gradBgHalf2);
+  }
+
+  &__word {
+    position: absolute;
+    bottom: 42vh;
+    left: calc(#{$slant-run} + 12vw);
+    transform: translateY(110vh) skewY($tilt) rotate(90deg);
+    transform-origin: 0 100%;
+    color: var(--color5);
+    font: 700 min(12vw, 18vh) / 0.9 $font-heading;
+    text-transform: lowercase;
+    white-space: nowrap;
+  }
+}

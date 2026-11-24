@@ -1,0 +1,163 @@
+// G L Y P H   H E R O   (src/sections/GlyphHero.js)
+@use "../tokens" as *;
+@use "motion" as *;
+
+.glyph-hero {
+  // Field colours, read by the WebGPU shader (src/motion/gradientField.js).
+  --field-a: #feeaa8;
+  --field-b: #ffa082;
+  --field-c: #ff3f55;
+  --glyph-size: min(2.1vh, 1.9vw);
+
+  display: grid;
+  position: relative;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  overflow: hidden;
+  background: linear-gradient(70deg, var(--field-a), var(--field-b) 55%, var(--field-c));
+  padding: u(16) u(6) u(20);
+  min-height: 100vh;
+
+  &--creative {
+    --field-a: #fff2cc;
+    --field-b: #ffbca9;
+    --field-c: #ef5a64;
+  }
+  @include dark {
+    --field-a: #121f26;
+    --field-b: #5d2942;
+    --field-c: #ce2c3e;
+  }
+  &--creative {
+    @include dark {
+      --field-a: #121f26;
+      --field-b: #302a3f;
+      --field-c: #692938;
+    }
+  }
+
+  &__field {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+  &__art {
+    position: absolute;
+    top: 0;
+    right: 0;
+    mix-blend-mode: luminosity;
+    opacity: 0.35;
+    // Static soft edge so the art has no hard left border (not animated).
+    mask-image: linear-gradient(to right, transparent, #000 45%);
+    width: 62%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+  }
+  &__glyph {
+    position: relative;
+    margin: 0;
+    background: linear-gradient(var(--color6), var(--color5), var(--color4), var(--color3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font: 400 var(--glyph-size) / 1.1 $font-body;
+    letter-spacing: -0.08em;
+    span {
+      display: block;
+    }
+  }
+  &__title {
+    position: relative;
+    align-self: center;
+    transform: skewY($tilt);
+    transform-origin: 0 100%;
+    margin: 0;
+    color: var(--color5);
+    font: 700 min(13vw, 18vh) / 0.9 $font-heading;
+    text-transform: lowercase;
+    white-space: nowrap;
+  }
+  @media (max-width: 700px) {
+    grid-template-columns: 1fr;
+    &__art {
+      width: 100%;
+    }
+    &__title {
+      margin-top: 4vh;
+    }
+    --glyph-size: 2.3vw;
+  }
+}
+
+@include moving {
+  // Print the glyph one row at a time, each row sliding in from the left.
+  .glyph-hero__glyph span {
+    animation: glyph-print 700ms $expo-out both;
+    animation-delay: calc(var(--row) * 22ms);
+  }
+  // Then the title: rise hanging on end, then swing up on its bottom-left
+  // corner to rest at the slant. Starts after the last row has landed.
+  .glyph-hero__title {
+    animation: title-rise-swing 1000ms both;
+    animation-delay: calc(var(--rows) * 22ms + 450ms);
+  }
+  // Hold every entrance while the page-transition panel still covers it.
+  html[data-shutter="covering"] .glyph-hero * {
+    animation-play-state: paused;
+  }
+
+  @supports (view-timeline-name: --hero) {
+    // Parallax: as the hero scrolls away, the glyph and the art drift down
+    // at different speeds (vertical only), like the Home J.
+    .glyph-hero {
+      view-timeline-name: --glyph-hero;
+    }
+    .glyph-hero__glyph,
+    .glyph-hero__art {
+      animation-name: parallax-glyph;
+      animation-duration: 1ms; // any non-zero value; the timeline sets the pace
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --glyph-hero;
+      animation-range: exit 0% exit 100%;
+    }
+    .glyph-hero__art {
+      animation-name: parallax-art;
+    }
+  }
+}
+
+@keyframes glyph-print {
+  from {
+    translate: -110vw 0;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+@keyframes title-rise-swing {
+  0% {
+    transform: translateY(110vh) skewY($tilt) rotate(90deg);
+    animation-timing-function: $expo-out;
+  }
+  55% {
+    transform: translateY(0) skewY($tilt) rotate(90deg);
+    animation-timing-function: $expo-in-out;
+  }
+  100% {
+    transform: translateY(0) skewY($tilt) rotate(0deg);
+  }
+}
+@keyframes parallax-glyph {
+  to {
+    transform: translateY(30vh);
+  }
+}
+@keyframes parallax-art {
+  to {
+    transform: translateY(55vh);
+  }
+}

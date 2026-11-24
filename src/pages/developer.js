@@ -18,7 +18,9 @@ import dentistinsantaclaraimg from "@images/screenshots/dentistinsantaclara-home
 import westchestergentledentistryimg from "@images/screenshots/westchestergentledentistry-home.webp";
 // Sections
 import ContactSection from "@sections/ContactSection";
-import Hero from "@sections/Hero";
+import GlyphHero from "@sections/GlyphHero";
+// Content
+import { developerGlyph } from "../content/glyphs";
 import Seo from "@components/Seo";
 
 const dentistryskills = [
@@ -44,7 +46,13 @@ const codePage = () => {
   return (
     <Page
       hero={
-        <Hero title="Developer" img={dragon} alt="Illusutration of a Dragon" />
+        <GlyphHero
+          door="developer"
+          title="developer"
+          rows={developerGlyph}
+          img={dragon}
+          alt="Illusutration of a Dragon"
+        />
       }
     >
       <section className="alignable pb-sm">

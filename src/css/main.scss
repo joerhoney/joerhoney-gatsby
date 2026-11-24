@@ -48,5 +48,10 @@
 @use "pages/solutions";
 @use "pages/work-showcase";
 
+// Motion (proposal prototype)
+@use "motion/glyph-hero";
+@use "motion/shutter";
+@use "motion/scroll";
+
 // Utilities last
 @use "utilities";

@@ -1,0 +1,32 @@
+// M O T I O N   T O K E N S
+// Shared by every motion partial. The rules (see the proposal):
+// slide, never fade · one motion at a time · expo easing, no bounce ·
+// text pivots on its bottom-left corner · reduced motion = at rest.
+@use "../tokens" as *;
+
+$expo-in-out: cubic-bezier(0.87, 0, 0.13, 1);
+$expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+// Scroll-driven animations: always write the longhands (animation-name,
+// animation-duration, …). The CSS minifier reorders declarations, and an
+// `animation:` shorthand landing after `animation-timeline` resets it.
+//
+// Everything animated is wrapped in this, so users who ask for less motion
+// (and browsers without support) just see the page at rest.
+@mixin moving {
+  @media (prefers-reduced-motion: no-preference) {
+    @content;
+  }
+}
+
+// Dark-scheme overrides for a selector (mirrors base/_colors.scss).
+@mixin dark {
+  @media (prefers-color-scheme: dark) {
+    :root:not(:has(#light-scheme:checked)) & {
+      @content;
+    }
+  }
+  :root:has(#dark-scheme:checked) & {
+    @content;
+  }
+}

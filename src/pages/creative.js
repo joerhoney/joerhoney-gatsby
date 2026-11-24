@@ -13,15 +13,19 @@ import team from "@images/heros/team.webp";
 // Sections
 import ArtParallax from "@sections/ArtParallax";
 import ContactSection from "@sections/ContactSection";
-import Hero from "@sections/Hero";
+import GlyphHero from "@sections/GlyphHero";
+// Content
+import { creativeGlyph } from "../content/glyphs";
 import Seo from "@components/Seo";
 
 const creativePage = () => {
   return (
     <Page
       hero={
-        <Hero
-          title="Creative"
+        <GlyphHero
+          door="creative"
+          title="creative"
+          rows={creativeGlyph}
           img={team}
           alt="Illustration of a team of charicters"
         />
