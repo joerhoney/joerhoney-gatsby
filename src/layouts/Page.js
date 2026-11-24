@@ -8,7 +8,7 @@ import Nav from "./Nav";
 import Scheme from "./Scheme";
 // CSS
 import "@css/buttons.scss";
-import "@css/colors-default.css";
+import "@css/colors.scss";
 import "@css/global.scss";
 import "@css/hero.scss";
 import "@css/layouts.scss";
