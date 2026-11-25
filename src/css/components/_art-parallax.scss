@@ -24,25 +24,24 @@
 
 // All distances are in % of the scene's height.
 //
-// Where the front layer's pan starts and ends. Starting part-way in skips
-// the empty space before the dragon, so other pieces show from the start.
-$start: 170;
-$travel: 758;
-// How far the scene pans per unit scrolled while the stage holds still.
-$speed: 1.5;
+// How much scrolling the stage holds still for while the scene pans.
+$hold: 360;
 // How much scrolling each hand-off takes. The hand-off starts this far
 // before the stage reaches the top of the screen.
 $ramp: 60;
-
-// Scrolling while the stage holds (and how far the stage rides down).
-$hold: math.div($travel - $start, $speed);
-// Pan covered during one hand-off: speed ramps 0 → $speed over 2 * $ramp.
-$ramp-pan: $speed * $ramp;
+// (Where the pan ends, --pan-end, is set by the JS from the pieces.)
 
 // Keyframe offsets: each hand-off is 2 * $ramp long (half before the stop,
 // half after), out of $hold + 2 * $ramp of scrolling.
-$hold-start: math.div(2 * $ramp, $hold + 2 * $ramp) * 100%;
+$hold-start-fraction: math.div(2 * $ramp, $hold + 2 * $ramp);
+$hold-start: $hold-start-fraction * 100%;
 $hold-end: 100% - $hold-start;
+// Share of the pan covered during each hand-off, chosen so the pan's speed
+// at the end of a hand-off matches its steady speed.
+$ramp-share: math.div($hold-start-fraction, 2 * (1 - $hold-start-fraction));
+// The pan runs from -$ramp-share to 1 of the whole pan, scaled so it's 0
+// when the stage settles and --pan-end at the end.
+$pan-scale: math.div(1, 1 - $ramp-share);
 
 // Speed changes evenly across each ramp (quadratic easing), so it meets the
 // steady part at the same speed and the hand-off feels continuous.
@@ -95,9 +94,9 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 
     .art-parallax__piece {
       animation-name: art-parallax-pan;
-      // Anchored to 25% of the width, so the dragon's nose lands there on any
-      // screen; everything else is placed relative to it in cqh.
-      left: calc(25cqw + var(--v) * var(--x) * 1cqh);
+      // At pan p a piece is at --v * (--x - p) from the left edge; the
+      // keyframes below supply the "- p".
+      left: calc(var(--v) * var(--x) * 1cqh);
     }
 
     .art-parallax__stage,
@@ -136,17 +135,20 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 @keyframes art-parallax-pan {
   0% {
     animation-timing-function: $ease-in-quad;
-    translate: calc(var(--v) * #{-$start} * 1cqh) 0;
+    translate: calc(var(--v) * var(--pan-end) * #{$ramp-share * $pan-scale}) 0;
   }
   #{$hold-start} {
     animation-timing-function: linear;
-    translate: calc(var(--v) * #{-($start + $ramp-pan)} * 1cqh) 0;
+    translate: 0 0;
   }
   #{$hold-end} {
     animation-timing-function: $ease-out-quad;
-    translate: calc(var(--v) * #{-($travel - $ramp-pan)} * 1cqh) 0;
+    translate: calc(
+        var(--v) * var(--pan-end) * #{-(1 - 2 * $ramp-share) * $pan-scale}
+      )
+      0;
   }
   100% {
-    translate: calc(var(--v) * #{-$travel} * 1cqh) 0;
+    translate: calc(var(--v) * var(--pan-end) * -1) 0;
   }
 }
