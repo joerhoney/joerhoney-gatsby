@@ -23,23 +23,26 @@ import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
  * Each piece, listed back to front (the DOM order is also sorted by depth,
  * so the closest piece always paints on top):
  *   depth: 0 = front. Further back pans slower: speed = 100 / (100 + depth)
- *   x:     where it sits along the scene: how far the scene has panned when
- *          the piece's left edge reaches the left edge of the screen. The pan
- *          is 0 when the scene settles at the top, so x: 0 starts flush left.
+ *   x:     where its left edge is when the scene settles at the top,
+ *          measured from the middle of the screen (negative = left of it).
+ *          As the scene pans, each piece slides left at its own speed, the
+ *          way a camera sees it: near and far pieces line up around the
+ *          middle of the screen whatever its width. Changing x by 10 moves
+ *          the piece 10 to the right for the whole pan.
  *   y:     distance from the top
  *   h, w:  height and width (w is only used to work out where the pan ends)
  *   still: where it sits in the still panorama
  * All sizes are in % of the scene's height, so it scales with the screen.
  *
  * To move a piece, change its x (or still). To add one, add an entry; the
- * pan's end adjusts itself (see panEnd below).
+ * pan's start and end adjust themselves (see panStart and panEnd below).
  */
 const pieces = [
   {
     src: samuraimoon,
     alt: "The moon and clouds.",
     depth: 1900,
-    x: 915.4,
+    x: -41.9,
     still: 89.9,
     y: 0,
     h: 16.9,
@@ -48,8 +51,8 @@ const pieces = [
   {
     src: samuraitrees,
     alt: "Trees and crows.",
-    depth: 410,
-    x: 628.2,
+    depth: 560,
+    x: 19.9,
     still: 503.3,
     y: 0.3,
     h: 57.7,
@@ -58,8 +61,8 @@ const pieces = [
   {
     src: dragon,
     alt: "Illustration of a dragon passing through a tsunami.",
-    depth: 400,
-    x: 0,
+    depth: 550,
+    x: -87.7,
     still: -24,
     y: 0.2,
     h: 75,
@@ -69,7 +72,7 @@ const pieces = [
     src: samuraionhorseback,
     alt: "A samurai on horseback, charging.",
     depth: 200,
-    x: 394.2,
+    x: 43.7,
     still: 407.5,
     y: 19.3,
     h: 58.7,
@@ -78,8 +81,8 @@ const pieces = [
   {
     src: samuraidead1,
     alt: "A fallen samurai.",
-    depth: 190,
-    x: 521.9,
+    depth: 300,
+    x: 45.1,
     still: 546.4,
     y: 53.2,
     h: 15.3,
@@ -88,8 +91,8 @@ const pieces = [
   {
     src: samuraidead3,
     alt: "A wounded samurai kneeling.",
-    depth: 190,
-    x: 700.1,
+    depth: 300,
+    x: 106.5,
     still: 607.8,
     y: 36.8,
     h: 27.2,
@@ -99,7 +102,7 @@ const pieces = [
     src: samuraidead2,
     alt: "A fallen samurai, face down.",
     depth: 175,
-    x: 642.7,
+    x: 146,
     still: 590.8,
     y: 59,
     h: 19.1,
@@ -108,8 +111,8 @@ const pieces = [
   {
     src: samuraiwithhead,
     alt: "A samurai holding a severed head, standing over a fallen samurai.",
-    depth: 160,
-    x: 544.2,
+    depth: 75,
+    x: 214.6,
     still: 555.9,
     y: 18.5,
     h: 80.6,
@@ -119,7 +122,7 @@ const pieces = [
     src: samuraistanding,
     alt: "A samurai ready to fight.",
     depth: 150,
-    x: 232,
+    x: 5.1,
     still: 270.2,
     y: 0,
     h: 90,
@@ -129,7 +132,7 @@ const pieces = [
     src: kinggamagama,
     alt: "Hawaiian fisherman, holding a giant tuna.",
     depth: 25,
-    x: 67.1,
+    x: -34,
     still: 167.4,
     y: 6,
     h: 87,
@@ -139,7 +142,7 @@ const pieces = [
     src: warrioroftytoria,
     alt: "A warrior holding a book and a sword.",
     depth: 0,
-    x: 17.2,
+    x: -70.5,
     still: 130,
     y: 10.7,
     h: 94,
@@ -150,20 +153,36 @@ const pieces = [
 const speed = (depth) => 100 / (100 + depth);
 const round = (n) => Math.round(n * 1000) / 1000;
 
-// The pan ends when the right edge of the last character (depth <= 200; the
-// sky and trees don't count) reaches endAt % of the screen's width. That
-// depends on the screen's shape, so it's a CSS max() over the characters.
+// The pan starts at 0, or further back on narrow screens: far enough that
+// every piece's left edge starts at least startAt % in from the left. (A
+// narrow screen only shows the middle of the scene, so without this the
+// dragon would start off-screen on phones.)
+const startAt = 5;
+const panStart = `min(${pieces
+  .map(
+    ({ depth, x }) => `(${50 - startAt}cqw + ${x}cqh) / ${round(speed(depth))}`,
+  )
+  .join(", ")}, 0cqh)`;
+
+// The pan ends when the right edge of the last character (depth under 500;
+// the dragon, trees and sky don't count) reaches endAt % of the screen's
+// width. That depends on the screen's shape, so it's a CSS max() over the
+// characters.
 const endAt = 85;
 const panEnd = `max(${pieces
-  .filter(({ depth }) => depth <= 200)
+  .filter(({ depth }) => depth < 500)
   .map(
     ({ depth, x, w }) =>
-      `${x}cqh + (${w}cqh - ${endAt}cqw) / ${round(speed(depth))}`,
+      `(${round(x + w)}cqh - ${endAt - 50}cqw) / ${round(speed(depth))}`,
   )
   .join(", ")}, 100cqh)`;
 
 const ArtParallax = ({ id }) => (
-  <div className="art-parallax" id={id} style={{ "--pan-end": panEnd }}>
+  <div
+    className="art-parallax"
+    id={id}
+    style={{ "--pan-start": panStart, "--pan-end": panEnd }}
+  >
     <div className="art-parallax__stage">
       {[...pieces]
         .sort((a, b) => b.depth - a.depth)

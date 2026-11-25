@@ -29,7 +29,8 @@ $hold: 360;
 // How much scrolling each hand-off takes. The hand-off starts this far
 // before the stage reaches the top of the screen.
 $ramp: 60;
-// (Where the pan ends, --pan-end, is set by the JS from the pieces.)
+// (Where the pan starts and ends, --pan-start and --pan-end, is set by the
+// JS from the pieces.)
 
 // Keyframe offsets: each hand-off is 2 * $ramp long (half before the stop,
 // half after), out of $hold + 2 * $ramp of scrolling.
@@ -39,9 +40,20 @@ $hold-end: 100% - $hold-start;
 // Share of the pan covered during each hand-off, chosen so the pan's speed
 // at the end of a hand-off matches its steady speed.
 $ramp-share: math.div($hold-start-fraction, 2 * (1 - $hold-start-fraction));
-// The pan runs from -$ramp-share to 1 of the whole pan, scaled so it's 0
-// when the stage settles and --pan-end at the end.
+// Where the pan is at each keyframe, as a share of the way from
+// --pan-start (when the stage settles) to --pan-end. The first hand-off
+// begins a little before --pan-start.
 $pan-scale: math.div(1, 1 - $ramp-share);
+$at-first: -$ramp-share * $pan-scale;
+$at-hold-end: (1 - 2 * $ramp-share) * $pan-scale;
+
+// Translate for a piece at keyframe share $k: -(--v) * pan.
+@function pan-to($k) {
+  @return calc(
+    var(--v) * -1 *
+      (var(--pan-start) + (var(--pan-end) - var(--pan-start)) * #{$k})
+  );
+}
 
 // Speed changes evenly across each ramp (quadratic easing), so it meets the
 // steady part at the same speed and the hand-off feels continuous.
@@ -94,9 +106,9 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 
     .art-parallax__piece {
       animation-name: art-parallax-pan;
-      // At pan p a piece is at --v * (--x - p) from the left edge; the
-      // keyframes below supply the "- p".
-      left: calc(var(--v) * var(--x) * 1cqh);
+      // At pan p a piece is at --x - --v * p from the middle of the screen;
+      // the keyframes below supply the "- --v * p".
+      left: calc(50cqw + var(--x) * 1cqh);
     }
 
     .art-parallax__stage,
@@ -135,20 +147,17 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 @keyframes art-parallax-pan {
   0% {
     animation-timing-function: $ease-in-quad;
-    translate: calc(var(--v) * var(--pan-end) * #{$ramp-share * $pan-scale}) 0;
+    translate: pan-to($at-first) 0;
   }
   #{$hold-start} {
     animation-timing-function: linear;
-    translate: 0 0;
+    translate: pan-to(0) 0;
   }
   #{$hold-end} {
     animation-timing-function: $ease-out-quad;
-    translate: calc(
-        var(--v) * var(--pan-end) * #{-(1 - 2 * $ramp-share) * $pan-scale}
-      )
-      0;
+    translate: pan-to($at-hold-end) 0;
   }
   100% {
-    translate: calc(var(--v) * var(--pan-end) * -1) 0;
+    translate: pan-to(1) 0;
   }
 }
