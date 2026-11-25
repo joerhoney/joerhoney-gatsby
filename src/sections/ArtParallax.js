@@ -150,49 +150,62 @@ const pieces = [
   },
 ];
 
-const speed = (depth) => 100 / (100 + depth);
-const round = (n) => Math.round(n * 1000) / 1000;
+export const speed = (depth) => 100 / (100 + depth);
+export const round = (n) => Math.round(n * 1000) / 1000;
 
 // The pan starts at 0, or further back on narrow screens: far enough that
 // every piece's left edge starts at least startAt % in from the left. (A
 // narrow screen only shows the middle of the scene, so without this the
 // dragon would start off-screen on phones.)
-const startAt = 5;
-const panStart = `min(${pieces
-  .map(
-    ({ depth, x }) => `(${50 - startAt}cqw + ${x}cqh) / ${round(speed(depth))}`,
-  )
-  .join(", ")}, 0cqh)`;
+export const startAt = 5;
+export const panStartFor = (list, at = startAt) =>
+  `min(${list
+    .map(({ depth, x }) => `(${50 - at}cqw + ${x}cqh) / ${round(speed(depth))}`)
+    .join(", ")}, 0cqh)`;
 
 // The pan ends when the right edge of the last character (depth under 500;
 // the dragon, trees and sky don't count) reaches endAt % of the screen's
 // width. That depends on the screen's shape, so it's a CSS max() over the
 // characters.
-const endAt = 85;
-const panEnd = `max(${pieces
-  .filter(({ depth }) => depth < 500)
-  .map(
-    ({ depth, x, w }) =>
-      `(${round(x + w)}cqh - ${endAt - 50}cqw) / ${round(speed(depth))}`,
-  )
-  .join(", ")}, 100cqh)`;
+export const endAt = 85;
+export const panEndFor = (list, at = endAt) =>
+  `max(${list
+    .filter(({ depth }) => depth < 500)
+    .map(
+      ({ depth, x, w }) =>
+        `(${round(x + w)}cqh - ${at - 50}cqw) / ${round(speed(depth))}`,
+    )
+    .join(", ")}, 100cqh)`;
+
+// Dev only: click a piece in the browser to tune it (src/sections/
+// ArtParallaxTuner.js). The require sits in a branch that production builds
+// drop, so the tuner never ships.
+const Tuner =
+  process.env.NODE_ENV === "development"
+    ? require("./ArtParallaxTuner").default
+    : null;
 
 const ArtParallax = ({ id }) => (
   <div
     className="art-parallax"
     id={id}
-    style={{ "--pan-start": panStart, "--pan-end": panEnd }}
+    style={{
+      "--pan-start": panStartFor(pieces),
+      "--pan-end": panEndFor(pieces),
+    }}
   >
     <div className="art-parallax__stage">
-      {[...pieces]
+      {pieces
+        .map((piece, index) => ({ ...piece, index }))
         .sort((a, b) => b.depth - a.depth)
-        .map(({ src, alt, depth, x, still, y, h }) => (
+        .map(({ src, alt, depth, x, still, y, h, index }) => (
           <img
             key={src}
             className="art-parallax__piece"
             src={src}
             alt={alt}
             draggable="false"
+            data-piece={index}
             style={{
               "--v": round(speed(depth)),
               "--x": x,
@@ -203,6 +216,17 @@ const ArtParallax = ({ id }) => (
           />
         ))}
     </div>
+    {Tuner && (
+      <Tuner
+        pieces={pieces}
+        startAt={startAt}
+        endAt={endAt}
+        panStartFor={panStartFor}
+        panEndFor={panEndFor}
+        speed={speed}
+        round={round}
+      />
+    )}
   </div>
 );
 
