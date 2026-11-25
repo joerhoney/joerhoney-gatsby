@@ -3,7 +3,7 @@
 // A R T   P A R A L L A X  (src/sections/ArtParallax.js)
 //
 // Default: a still panorama you scroll sideways (no parallax), each piece at
-// its place on the track (--x).
+// its place in it (--still).
 //
 // With scroll-driven animations and no reduced-motion preference, scrolling
 // down hands off to a sideways pan and back:
@@ -69,17 +69,13 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 
 .art-parallax__piece {
   height: calc(var(--h) * 1cqh);
-  left: calc((var(--x) + 30) * 1cqh);
+  left: calc((var(--still) + 30) * 1cqh);
   max-width: none;
   pointer-events: none;
   position: absolute;
   top: calc(var(--y) * 1cqh);
   user-select: none;
   width: auto;
-}
-
-.art-parallax__progress {
-  display: none;
 }
 
 @supports (animation-timeline: view()) {
@@ -99,12 +95,13 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 
     .art-parallax__piece {
       animation-name: art-parallax-pan;
-      left: calc((1 + var(--v)) * 50cqw + var(--v) * var(--x) * 1cqh);
+      // Anchored to 25% of the width, so the dragon's nose lands there on any
+      // screen; everything else is placed relative to it in cqh.
+      left: calc(25cqw + var(--v) * var(--x) * 1cqh);
     }
 
     .art-parallax__stage,
-    .art-parallax__piece,
-    .art-parallax__progress {
+    .art-parallax__piece {
       animation-duration: 1ms;
       animation-fill-mode: both;
       // From $ramp before the stage's top meets the screen's top, to $ramp
@@ -112,20 +109,6 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
       animation-range-end: contain calc(100% + var(--ramp));
       animation-range-start: contain calc(var(--ramp) * -1);
       animation-timeline: --art-parallax;
-    }
-
-    // A thin line along the bottom that grows as the scene pans.
-    .art-parallax__progress {
-      animation-name: art-parallax-progress;
-      background: linear-gradient(90deg, var(--color3), var(--color5));
-      bottom: 0;
-      display: block;
-      height: 2px;
-      left: 0;
-      position: absolute;
-      transform-origin: left;
-      width: 100%;
-      z-index: 1001;
     }
   }
 }
@@ -165,23 +148,5 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
   }
   100% {
     translate: calc(var(--v) * #{-$travel} * 1cqh) 0;
-  }
-}
-
-@keyframes art-parallax-progress {
-  0% {
-    animation-timing-function: $ease-in-quad;
-    scale: 0 1;
-  }
-  #{$hold-start} {
-    animation-timing-function: linear;
-    scale: math.div($ramp-pan, $travel - $start) 1;
-  }
-  #{$hold-end} {
-    animation-timing-function: $ease-out-quad;
-    scale: math.div($travel - $start - $ramp-pan, $travel - $start) 1;
-  }
-  100% {
-    scale: 1 1;
   }
 }

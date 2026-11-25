@@ -19,7 +19,10 @@ import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
  *   speed = 100 / (100 + depth)
  *
  * All sizes are in units of the scene's height, so it scales with the screen.
- *   x: where the piece sits on the scene's track, before parallax
+ *   x: where the piece sits on the scene's track: at pan p it's at
+ *      25% of the screen width + speed * (x - p). The dragon's nose sits at
+ *      25% when the scene settles at the top.
+ *   still: where it sits in the still panorama (no parallax)
  *   y: distance from the top
  *   h: height (width follows the image)
  *
@@ -32,7 +35,8 @@ const pieces = [
     src: warrioroftytoria,
     alt: "A warrior holding a book and a sword.",
     depth: 0,
-    x: 130,
+    x: 274.6,
+    still: 130,
     y: 10.7,
     h: 94,
   },
@@ -40,7 +44,8 @@ const pieces = [
     src: kinggamagama,
     alt: "Hawaiian fisherman, holding a giant tuna.",
     depth: 25,
-    x: 167.4,
+    x: 323.8,
+    still: 167.4,
     y: 6,
     h: 87,
   },
@@ -48,7 +53,8 @@ const pieces = [
     src: samuraistanding,
     alt: "A samurai ready to fight.",
     depth: 150,
-    x: 270.2,
+    x: 485.5,
+    still: 270.2,
     y: 0,
     h: 90,
   },
@@ -56,7 +62,8 @@ const pieces = [
     src: samuraikiller,
     alt: "A samurai amongst other dead samurai.",
     depth: 175,
-    x: 546.4,
+    x: 773.5,
+    still: 546.4,
     y: 18.6,
     h: 80.5,
   },
@@ -64,31 +71,35 @@ const pieces = [
     src: samuraionhorseback,
     alt: "A samurai on horseback, charging.",
     depth: 200,
-    x: 407.5,
+    x: 646.4,
+    still: 407.5,
     y: 19.3,
     h: 58.7,
   },
   {
     src: samuraitrees,
     alt: "Trees and crows.",
-    depth: 250,
-    x: 478.3,
+    depth: 390,
+    x: 746.6,
+    still: 478.3,
     y: 0.3,
     h: 57.7,
   },
   {
     src: dragon,
     alt: "Illustration of a dragon passing through a tsunami.",
-    depth: 275,
-    x: -24,
+    depth: 400,
+    x: 247,
+    still: -24,
     y: 0.2,
     h: 75,
   },
   {
     src: samuraimoon,
     alt: "The moon and clouds.",
-    depth: 1000,
-    x: 69.9,
+    depth: 1900,
+    x: 723.4,
+    still: 69.9,
     y: 0,
     h: 16.9,
   },
@@ -99,7 +110,7 @@ const round = (n) => Math.round(n * 1000) / 1000;
 const ArtParallax = ({ id }) => (
   <div className="art-parallax" id={id}>
     <div className="art-parallax__stage">
-      {pieces.map(({ src, alt, depth, x, y, h }) => {
+      {pieces.map(({ src, alt, depth, x, still, y, h }) => {
         const v = 100 / (100 + depth);
         return (
           <img
@@ -111,14 +122,14 @@ const ArtParallax = ({ id }) => (
             style={{
               "--v": round(v),
               "--x": x,
+              "--still": still,
               "--y": y,
               "--h": h,
-              zIndex: 1000 - depth,
+              zIndex: 2000 - depth,
             }}
           />
         );
       })}
-      <div className="art-parallax__progress" aria-hidden="true" />
     </div>
   </div>
 );

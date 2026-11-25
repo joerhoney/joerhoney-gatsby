@@ -73,7 +73,7 @@ const creativePage = () => {
         </article>
       </section>
       <section className="mb-tilt">
-        <div className="article">
+        <div className="article pb-sm">
           <h2 className="tilt">Character/&shy;Creature Creation</h2>
           <p>
             I spent many hours of my teenage years coming up with wild character
