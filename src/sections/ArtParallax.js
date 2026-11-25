@@ -33,7 +33,7 @@ const pieces = [
     alt: "A warrior holding a book and a sword.",
     depth: 0,
     x: 130,
-    y: 18.2,
+    y: 10.7,
     h: 94,
   },
   {
@@ -41,7 +41,7 @@ const pieces = [
     alt: "Hawaiian fisherman, holding a giant tuna.",
     depth: 25,
     x: 167.4,
-    y: 13.5,
+    y: 6,
     h: 87,
   },
   {
@@ -49,7 +49,7 @@ const pieces = [
     alt: "A samurai ready to fight.",
     depth: 150,
     x: 270.2,
-    y: 1,
+    y: 0,
     h: 90,
   },
   {
@@ -57,7 +57,7 @@ const pieces = [
     alt: "A samurai amongst other dead samurai.",
     depth: 175,
     x: 546.4,
-    y: 26.1,
+    y: 18.6,
     h: 80.5,
   },
   {
@@ -65,7 +65,7 @@ const pieces = [
     alt: "A samurai on horseback, charging.",
     depth: 200,
     x: 407.5,
-    y: 26.8,
+    y: 19.3,
     h: 58.7,
   },
   {
@@ -73,7 +73,7 @@ const pieces = [
     alt: "Trees and crows.",
     depth: 250,
     x: 478.3,
-    y: 7.8,
+    y: 0.3,
     h: 57.7,
   },
   {
@@ -81,7 +81,7 @@ const pieces = [
     alt: "Illustration of a dragon passing through a tsunami.",
     depth: 275,
     x: -24,
-    y: 7.7,
+    y: 0.2,
     h: 75,
   },
   {
@@ -89,7 +89,7 @@ const pieces = [
     alt: "The moon and clouds.",
     depth: 1000,
     x: 69.9,
-    y: 7.1,
+    y: 0,
     h: 16.9,
   },
 ];

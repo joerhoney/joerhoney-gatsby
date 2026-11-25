@@ -11,9 +11,9 @@
 //   scroll ─┬─ stage slows to a stop ──┬─ stage holds ─┬─ stage speeds up ─┬─
 //           └─ pan speeds up ──────────┴─ pan steady ──┴─ pan slows down ──┘
 //
-// During each hand-off the stage's vertical speed and the pan's speed always
-// add up to the scroll speed, so nothing jumps. Each piece pans at --v times
-// the front layer's speed.
+// Speeds change evenly through each hand-off and meet the steady part at the
+// same speed, so nothing jumps. Each piece pans at --v times the front
+// layer's speed.
 //
 // The stage is a size container, so 1cqh = 1% of the scene's height and
 // 1cqw = 1% of its width. Positions from the JS are in cqh.
@@ -22,16 +22,26 @@
 // minifier moves an `animation:` shorthand after `animation-timeline`, which
 // resets the timeline and makes the animation run on the clock instead.
 
-// How far the front layer pans, in % of the scene's height (it also takes
-// this much scrolling).
+// All distances are in % of the scene's height.
+//
+// Where the front layer's pan starts and ends. Starting part-way in skips
+// the empty space before the dragon, so other pieces show from the start.
+$start: 170;
 $travel: 758;
-// How much scrolling each hand-off takes, in % of the scene's height. The
-// hand-off starts this far before the stage reaches the top of the screen.
+// How far the scene pans per unit scrolled while the stage holds still.
+$speed: 1.5;
+// How much scrolling each hand-off takes. The hand-off starts this far
+// before the stage reaches the top of the screen.
 $ramp: 60;
 
-// Keyframe offsets: the ramps are twice $ramp long (half before the stop,
-// half after), out of $travel + 2 * $ramp of scrolling.
-$hold-start: math.div(2 * $ramp, $travel + 2 * $ramp) * 100%;
+// Scrolling while the stage holds (and how far the stage rides down).
+$hold: math.div($travel - $start, $speed);
+// Pan covered during one hand-off: speed ramps 0 → $speed over 2 * $ramp.
+$ramp-pan: $speed * $ramp;
+
+// Keyframe offsets: each hand-off is 2 * $ramp long (half before the stop,
+// half after), out of $hold + 2 * $ramp of scrolling.
+$hold-start: math.div(2 * $ramp, $hold + 2 * $ramp) * 100%;
 $hold-end: 100% - $hold-start;
 
 // Speed changes evenly across each ramp (quadratic easing), so it meets the
@@ -77,7 +87,7 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
     .art-parallax {
       --ramp: calc(var(--stage-h) * #{math.div($ramp, 100)});
       // Tall enough for the stage to ride down through the whole pan.
-      height: calc(var(--stage-h) * #{1 + math.div($travel, 100)});
+      height: calc(var(--stage-h) * #{1 + math.div($hold, 100)});
       view-timeline-axis: block;
       view-timeline-name: --art-parallax;
     }
@@ -133,25 +143,25 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
   }
   #{$hold-end} {
     animation-timing-function: $ease-out-quad;
-    translate: 0 calc(var(--stage-h) * #{math.div($travel, 100)} - var(--ramp));
+    translate: 0 calc(var(--stage-h) * #{math.div($hold, 100)} - var(--ramp));
   }
   100% {
-    translate: 0 calc(var(--stage-h) * #{math.div($travel, 100)});
+    translate: 0 calc(var(--stage-h) * #{math.div($hold, 100)});
   }
 }
 
 @keyframes art-parallax-pan {
   0% {
     animation-timing-function: $ease-in-quad;
-    translate: 0 0;
+    translate: calc(var(--v) * #{-$start} * 1cqh) 0;
   }
   #{$hold-start} {
     animation-timing-function: linear;
-    translate: calc(var(--v) * #{-$ramp} * 1cqh) 0;
+    translate: calc(var(--v) * #{-($start + $ramp-pan)} * 1cqh) 0;
   }
   #{$hold-end} {
     animation-timing-function: $ease-out-quad;
-    translate: calc(var(--v) * #{-($travel - $ramp)} * 1cqh) 0;
+    translate: calc(var(--v) * #{-($travel - $ramp-pan)} * 1cqh) 0;
   }
   100% {
     translate: calc(var(--v) * #{-$travel} * 1cqh) 0;
@@ -165,11 +175,11 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
   }
   #{$hold-start} {
     animation-timing-function: linear;
-    scale: math.div($ramp, $travel) 1;
+    scale: math.div($ramp-pan, $travel - $start) 1;
   }
   #{$hold-end} {
     animation-timing-function: $ease-out-quad;
-    scale: math.div($travel - $ramp, $travel) 1;
+    scale: math.div($travel - $start - $ramp-pan, $travel - $start) 1;
   }
   100% {
     scale: 1 1;
