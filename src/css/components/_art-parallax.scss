@@ -1,9 +1,19 @@
+@use "sass:math";
+
 // A R T   P A R A L L A X  (src/sections/ArtParallax.js)
 //
 // Default: a still panorama you scroll sideways (no parallax), each piece at
 // its place on the track (--x).
-// With scroll-driven animations and no reduced-motion preference: scrolling
-// down pins the stage and pans each piece sideways at its own speed (--v).
+//
+// With scroll-driven animations and no reduced-motion preference, scrolling
+// down hands off to a sideways pan and back:
+//
+//   scroll ─┬─ stage slows to a stop ──┬─ stage holds ─┬─ stage speeds up ─┬─
+//           └─ pan speeds up ──────────┴─ pan steady ──┴─ pan slows down ──┘
+//
+// During each hand-off the stage's vertical speed and the pan's speed always
+// add up to the scroll speed, so nothing jumps. Each piece pans at --v times
+// the front layer's speed.
 //
 // The stage is a size container, so 1cqh = 1% of the scene's height and
 // 1cqw = 1% of its width. Positions from the JS are in cqh.
@@ -11,6 +21,23 @@
 // Scroll-driven animations are written with longhands on purpose: the CSS
 // minifier moves an `animation:` shorthand after `animation-timeline`, which
 // resets the timeline and makes the animation run on the clock instead.
+
+// How far the front layer pans, in % of the scene's height (it also takes
+// this much scrolling).
+$travel: 758;
+// How much scrolling each hand-off takes, in % of the scene's height. The
+// hand-off starts this far before the stage reaches the top of the screen.
+$ramp: 60;
+
+// Keyframe offsets: the ramps are twice $ramp long (half before the stop,
+// half after), out of $travel + 2 * $ramp of scrolling.
+$hold-start: math.div(2 * $ramp, $travel + 2 * $ramp) * 100%;
+$hold-end: 100% - $hold-start;
+
+// Speed changes evenly across each ramp (quadratic easing), so it meets the
+// steady part at the same speed and the hand-off feels continuous.
+$ease-in-quad: cubic-bezier(0.333, 0, 0.667, 0.333);
+$ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 
 .art-parallax {
   --stage-h: 100vh;
@@ -32,7 +59,7 @@
 
 .art-parallax__piece {
   height: calc(var(--h) * 1cqh);
-  left: calc(50cqw + var(--x) * 1cqh);
+  left: calc((var(--x) + 30) * 1cqh);
   max-width: none;
   pointer-events: none;
   position: absolute;
@@ -41,17 +68,6 @@
   width: auto;
 }
 
-.art-parallax__hint {
-  display: flex;
-  justify-content: center;
-  left: 0;
-  position: absolute;
-  top: 20cqh;
-  width: 50cqw;
-  z-index: 1001;
-}
-
-.art-parallax__hint-pinned,
 .art-parallax__progress {
   display: none;
 }
@@ -59,47 +75,33 @@
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
     .art-parallax {
-      // Tall enough to scroll the front layer the full --travel, 1:1.
-      height: calc(var(--stage-h) * (1 + var(--travel) / 100));
+      --ramp: calc(var(--stage-h) * #{math.div($ramp, 100)});
+      // Tall enough for the stage to ride down through the whole pan.
+      height: calc(var(--stage-h) * #{1 + math.div($travel, 100)});
       view-timeline-axis: block;
       view-timeline-name: --art-parallax;
     }
 
     .art-parallax__stage {
+      animation-name: art-parallax-stage;
       overflow: clip;
-      position: sticky;
-      top: 0;
     }
 
     .art-parallax__piece {
+      animation-name: art-parallax-pan;
       left: calc((1 + var(--v)) * 50cqw + var(--v) * var(--x) * 1cqh);
     }
 
-    .art-parallax__hint {
-      --v: 1;
-    }
-
+    .art-parallax__stage,
     .art-parallax__piece,
-    .art-parallax__hint,
     .art-parallax__progress {
       animation-duration: 1ms;
       animation-fill-mode: both;
-      animation-range: contain 0% contain 100%;
+      // From $ramp before the stage's top meets the screen's top, to $ramp
+      // after its bottom meets the screen's bottom.
+      animation-range-end: contain calc(100% + var(--ramp));
+      animation-range-start: contain calc(var(--ramp) * -1);
       animation-timeline: --art-parallax;
-      animation-timing-function: linear;
-    }
-
-    .art-parallax__piece,
-    .art-parallax__hint {
-      animation-name: art-parallax-pan;
-    }
-
-    .art-parallax__hint-strip {
-      display: none;
-    }
-
-    .art-parallax__hint-pinned {
-      display: inline;
     }
 
     // A thin line along the bottom that grows as the scene pans.
@@ -118,20 +120,58 @@
   }
 }
 
-@keyframes art-parallax-pan {
-  from {
+// The stage rides down the section, which cancels the page scroll: as it
+// speeds up to scroll speed the stage slows to a stop on screen.
+@keyframes art-parallax-stage {
+  0% {
+    animation-timing-function: $ease-in-quad;
     translate: 0 0;
   }
-  to {
-    translate: calc(var(--v) * var(--travel) * -1cqh) 0;
+  #{$hold-start} {
+    animation-timing-function: linear;
+    translate: 0 var(--ramp);
+  }
+  #{$hold-end} {
+    animation-timing-function: $ease-out-quad;
+    translate: 0 calc(var(--stage-h) * #{math.div($travel, 100)} - var(--ramp));
+  }
+  100% {
+    translate: 0 calc(var(--stage-h) * #{math.div($travel, 100)});
+  }
+}
+
+@keyframes art-parallax-pan {
+  0% {
+    animation-timing-function: $ease-in-quad;
+    translate: 0 0;
+  }
+  #{$hold-start} {
+    animation-timing-function: linear;
+    translate: calc(var(--v) * #{-$ramp} * 1cqh) 0;
+  }
+  #{$hold-end} {
+    animation-timing-function: $ease-out-quad;
+    translate: calc(var(--v) * #{-($travel - $ramp)} * 1cqh) 0;
+  }
+  100% {
+    translate: calc(var(--v) * #{-$travel} * 1cqh) 0;
   }
 }
 
 @keyframes art-parallax-progress {
-  from {
+  0% {
+    animation-timing-function: $ease-in-quad;
     scale: 0 1;
   }
-  to {
+  #{$hold-start} {
+    animation-timing-function: linear;
+    scale: math.div($ramp, $travel) 1;
+  }
+  #{$hold-end} {
+    animation-timing-function: $ease-out-quad;
+    scale: math.div($travel - $ramp, $travel) 1;
+  }
+  100% {
     scale: 1 1;
   }
 }

@@ -1,5 +1,4 @@
 import React from "react";
-import ScrollIndicator from "@fragments/ScrollIndicator";
 import dragon from "@images/art/dragon-both-ends.webp";
 import kinggamagama from "@images/art/king-gama-gama.webp";
 import samuraistanding from "@images/art/samurai-standing.webp";
@@ -12,7 +11,8 @@ import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
 /**
  * Side-scrolling parallax scene of the character/creature art.
  *
- * Scrolling down pins the scene and pans it sideways. Each piece slides at
+ * Scrolling down eases the scene to a stop and pans it sideways, then eases
+ * it back into scrolling down. Each piece slides at
  * its own speed, set by its depth (0 = front, the further back the slower),
  * the same way the old CSS-3D version (perspective: 100px) did:
  *
@@ -27,8 +27,6 @@ import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
  * src/css/components/_art-parallax.scss. Browsers without them, and visitors
  * who prefer reduced motion, get a still panorama they can scroll sideways.
  */
-const travel = 758; // how far the front layer pans, in scene-height units
-
 const pieces = [
   {
     src: warrioroftytoria,
@@ -99,17 +97,8 @@ const pieces = [
 const round = (n) => Math.round(n * 1000) / 1000;
 
 const ArtParallax = ({ id }) => (
-  <div className="art-parallax" id={id} style={{ "--travel": travel }}>
+  <div className="art-parallax" id={id}>
     <div className="art-parallax__stage">
-      <ScrollIndicator
-        className="art-parallax__hint"
-        label={
-          <>
-            <span className="art-parallax__hint-pinned">Scroll down </span>
-            <span className="art-parallax__hint-strip">Scroll right</span>
-          </>
-        }
-      />
       {pieces.map(({ src, alt, depth, x, y, h }) => {
         const v = 100 / (100 + depth);
         return (
