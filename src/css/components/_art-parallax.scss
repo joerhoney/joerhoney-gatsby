@@ -1,0 +1,137 @@
+// A R T   P A R A L L A X  (src/sections/ArtParallax.js)
+//
+// Default: a still panorama you scroll sideways (no parallax), each piece at
+// its place on the track (--x).
+// With scroll-driven animations and no reduced-motion preference: scrolling
+// down pins the stage and pans each piece sideways at its own speed (--v).
+//
+// The stage is a size container, so 1cqh = 1% of the scene's height and
+// 1cqw = 1% of its width. Positions from the JS are in cqh.
+//
+// Scroll-driven animations are written with longhands on purpose: the CSS
+// minifier moves an `animation:` shorthand after `animation-timeline`, which
+// resets the timeline and makes the animation run on the clock instead.
+
+.art-parallax {
+  --stage-h: 100vh;
+
+  @supports (height: 100svh) {
+    --stage-h: 100svh;
+  }
+}
+
+.art-parallax__stage {
+  container-type: size;
+  height: var(--stage-h);
+  overflow-x: auto;
+  overflow-y: hidden;
+  position: relative;
+  scrollbar-color: var(--color3) var(--scrolltrack);
+  scrollbar-width: thin;
+}
+
+.art-parallax__piece {
+  height: calc(var(--h) * 1cqh);
+  left: calc(50cqw + var(--x) * 1cqh);
+  max-width: none;
+  pointer-events: none;
+  position: absolute;
+  top: calc(var(--y) * 1cqh);
+  user-select: none;
+  width: auto;
+}
+
+.art-parallax__hint {
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 20cqh;
+  width: 50cqw;
+  z-index: 1001;
+}
+
+.art-parallax__hint-pinned,
+.art-parallax__progress {
+  display: none;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .art-parallax {
+      // Tall enough to scroll the front layer the full --travel, 1:1.
+      height: calc(var(--stage-h) * (1 + var(--travel) / 100));
+      view-timeline-axis: block;
+      view-timeline-name: --art-parallax;
+    }
+
+    .art-parallax__stage {
+      overflow: clip;
+      position: sticky;
+      top: 0;
+    }
+
+    .art-parallax__piece {
+      left: calc((1 + var(--v)) * 50cqw + var(--v) * var(--x) * 1cqh);
+    }
+
+    .art-parallax__hint {
+      --v: 1;
+    }
+
+    .art-parallax__piece,
+    .art-parallax__hint,
+    .art-parallax__progress {
+      animation-duration: 1ms;
+      animation-fill-mode: both;
+      animation-range: contain 0% contain 100%;
+      animation-timeline: --art-parallax;
+      animation-timing-function: linear;
+    }
+
+    .art-parallax__piece,
+    .art-parallax__hint {
+      animation-name: art-parallax-pan;
+    }
+
+    .art-parallax__hint-strip {
+      display: none;
+    }
+
+    .art-parallax__hint-pinned {
+      display: inline;
+    }
+
+    // A thin line along the bottom that grows as the scene pans.
+    .art-parallax__progress {
+      animation-name: art-parallax-progress;
+      background: linear-gradient(90deg, var(--color3), var(--color5));
+      bottom: 0;
+      display: block;
+      height: 2px;
+      left: 0;
+      position: absolute;
+      transform-origin: left;
+      width: 100%;
+      z-index: 1001;
+    }
+  }
+}
+
+@keyframes art-parallax-pan {
+  from {
+    translate: 0 0;
+  }
+  to {
+    translate: calc(var(--v) * var(--travel) * -1cqh) 0;
+  }
+}
+
+@keyframes art-parallax-progress {
+  from {
+    scale: 0 1;
+  }
+  to {
+    scale: 1 1;
+  }
+}

@@ -6,21 +6,12 @@ import Showcase from "@components/Showcase";
 import portfolio from "../content/portfolio";
 // Layouts
 import Page from "@layouts/Page";
-// Fragments
-import ScrollIndicator from "@fragments/ScrollIndicator";
 // Impages
-import dragon from "@images/art/dragon-both-ends.webp";
-import kinggamagama from "@images/art/king-gama-gama.webp";
-import samuraistanding from "@images/art/samurai-standing.webp";
-import samuraionhorseback from "@images/art/samurai-on-horseback.webp";
-import samuraikiller from "@images/art/samurai-killer.webp";
-import samuraitrees from "@images/art/samurai-trees.webp";
-import samuraimoon from "@images/art/samurai-moon.webp";
 import skippinggirl from "@images/art/skipping-girl-sprite.webp";
 import skippingframes from "@images/art/skipping-girl-flipbook.webp";
-import warrioroftytoria from "@images/art/warrior-of-tytoria.webp";
 import team from "@images/heros/team.webp";
 // Sections
+import ArtParallax from "@sections/ArtParallax";
 import ContactSection from "@sections/ContactSection";
 import Hero from "@sections/Hero";
 import Seo from "@components/Seo";
@@ -91,153 +82,7 @@ const creativePage = () => {
             the work I completed for various client projects.
           </p>
         </div>
-        <div className="gallery pt-sm" id="illustration">
-          <div
-            className="layer"
-            style={{
-              display: "flex",
-              flex: "0 0 100vw",
-              height: "100vh",
-              placeItems: "flex-start center",
-              zIndex: "20",
-            }}
-          >
-            <ScrollIndicator
-              style={{
-                display: "flex",
-                flex: "0 0 50vw",
-                justifyContent: "center",
-                paddingTop: "20vh",
-              }}
-            />
-          </div>
-          <div
-            className="layer l275"
-            style={{
-              marginLeft: "60vh",
-              marginRight: "-100vh",
-              width: "170vh",
-            }}
-          >
-            <img
-              alt="Illustration of a dragon passing through a tsunami."
-              src={dragon}
-              style={{
-                height: "75vh",
-                paddingBottom: "25vh",
-                paddingLeft: "40vh",
-              }}
-            />
-          </div>
-          <div
-            className="layer l0"
-            style={{
-              alignItems: "end",
-              display: "flex",
-              marginRight: "2vh",
-              width: "42vh",
-            }}
-          >
-            <img
-              src={warrioroftytoria}
-              alt="A warrior holding a book and a sword."
-              style={{ alignSelf: "bottom", height: "94vh" }}
-            />
-          </div>
-          <div
-            className="layer l25"
-            style={{
-              alignItems: "center",
-              display: "flex",
-              width: "58vh",
-            }}
-          >
-            <img
-              src={kinggamagama}
-              alt="Hawaiian fisherman, holding a giant tuna."
-              style={{
-                height: "87vh",
-                paddingBottom: "8vh",
-              }}
-            />
-          </div>
-          <div
-            className="layer l150"
-            style={{
-              paddingLeft: "80vh",
-              paddingRight: "90vh",
-              width: "49vh",
-            }}
-          >
-            <img
-              src={samuraistanding}
-              alt="A samurai ready to fight."
-              style={{ height: "90vh", paddingBottom: "35vh" }}
-            />
-          </div>
-          <div
-            className="layer l200"
-            style={{ alignItems: "center", display: "flex", width: "59vh" }}
-          >
-            <img
-              src={samuraionhorseback}
-              alt="A samurai on horseback, charging."
-              style={{ height: "88vh", paddingBottom: "6vh" }}
-            />
-          </div>
-          <div
-            className="layer l1000"
-            style={{
-              marginTop: "-410vh",
-              position: "relative",
-              width: "96vh",
-            }}
-          >
-            <img
-              src={samuraimoon}
-              alt="The moon and clouds."
-              style={{
-                width: "86vh",
-              }}
-            />
-          </div>
-          <div
-            className="layer l250"
-            style={{
-              marginRight: "-25vh",
-              marginTop: "-53vh",
-              position: "relative",
-              width: "86vh",
-            }}
-          >
-            <img
-              src={samuraitrees}
-              alt="Trees and crows."
-              style={{
-                width: "86vh",
-              }}
-            />
-          </div>
-          <div
-            className="layer l175"
-            style={{
-              height: "81vh",
-              marginRight: "50vh",
-              marginLeft: "-25vh",
-              paddingTop: "32vh",
-              position: "relative",
-              width: "86vh",
-            }}
-          >
-            <img
-              src={samuraikiller}
-              alt="A samurai amongst other dead samurai."
-              style={{
-                width: "86vh",
-              }}
-            />
-          </div>
-        </div>
+        <ArtParallax id="illustration" />
       </section>
       <ContactSection heading="Let's Talk Art!">
         <p className="text">
