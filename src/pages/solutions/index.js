@@ -10,6 +10,7 @@ import allears from "@images/portrait-photo.webp";
 import storeFront from "@images/heros/store-front-transparent.gif";
 // Sections
 import ContactSection from "@sections/ContactSection";
+import GlyphHero, { HeroWords } from "@sections/GlyphHero";
 import Seo from "@components/Seo";
 
 // All of this page's words live in src/content/freelance.md.
@@ -84,24 +85,18 @@ const FreelancePage = ({ data }) => {
   const { html, frontmatter } = data.markdownRemark;
   const { hero, benefits, services, process, work, contact } = frontmatter;
   return (
-    <Page>
-      {/* Hero */}
-      <section className="heroLP trim tilted-row tilted-row--reversed freelance-hero">
-        <div className="layer-page freelance-hero__main">
-          <h1 className="heading-sm">{hero.kicker}</h1>
-          <h2 className="tilt">{hero.heading}</h2>
-          <img
-            alt="Mouse clicks swarming into your store."
-            className="column-width translucent freelance-hero__img"
-            loading="lazy"
-            src={storeFront}
-          />
-        </div>
-        <div className="half1">
-          <h3>{hero.subheading}</h3>
-        </div>
-      </section>
-
+    <Page
+      hero={
+        <GlyphHero
+          door="freelance"
+          title={hero.kicker}
+          img={storeFront}
+          alt="Mouse clicks swarming into your store."
+        >
+          <HeroWords heading={hero.heading} sub={hero.subheading} />
+        </GlyphHero>
+      }
+    >
       {/* Intro (Markdown body) */}
       {html && (
         <section className="alignable pt-md pb-md">

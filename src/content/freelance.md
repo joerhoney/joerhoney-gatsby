@@ -14,7 +14,8 @@ description: Freelance web design and development. Websites, redesigns, WordPres
 
 hero:
   kicker: Freelance!
-  heading: Turn the web market into walk-in customers
+  # Wrap the key phrases in *asterisks*: they're set big, the rest small.
+  heading: "Turn the *web market* into *walk-in customers*"
   subheading: Get a website that stands out and attracts the right customers.
 
 benefits:

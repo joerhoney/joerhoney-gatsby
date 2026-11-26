@@ -85,6 +85,81 @@
       display: block;
     }
   }
+  // Words in the glyph's place (HeroWords): connecting words small in the
+  // text art's typewriter font, key phrases big in the heading font with
+  // the site's slant, all in the glyph's gradient.
+  &__text {
+    grid-area: 1 / 1;
+    position: relative;
+    align-self: center;
+    justify-self: end;
+    max-width: 100%;
+  }
+  &__heading {
+    // Not the site's "h2 followed by p" nudge down.
+    translate: none;
+    transform: skewY($tilt);
+    transform-origin: bottom right;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(
+      var(--color6),
+      var(--color5),
+      var(--color4),
+      var(--color3)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-align: right;
+  }
+  &__line {
+    display: block;
+  }
+  &__small {
+    // Solid, so the small words don't fade into the field where the
+    // gradient turns red.
+    margin-bottom: 0.3em;
+    color: var(--color5);
+    font: 400 min(2.6vw, 3.8vh) / 1.3 $font-body;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+  &__big {
+    margin-bottom: 0.08em;
+    font: oblique 700 min(7vw, 10vh) / 0.95 $font-heading;
+    text-wrap: balance;
+  }
+  &__sub {
+    margin: 4vh 0 0 auto;
+    max-width: 34ch;
+    color: var(--color5);
+    text-wrap: balance;
+    font: 400 min(1.6vw, 2.4vh) / 1.5 $font-body;
+    text-align: right;
+    // Not the site's "h2 + p" wrap around a slanted heading.
+    &::before {
+      content: none;
+    }
+  }
+  // Freelance: the storefront sits flush against the right edge, so the
+  // cursors look like they come in from off screen.
+  &--freelance &__art {
+    mix-blend-mode: multiply;
+    opacity: 0.75;
+    mask-image: none;
+    width: 48%;
+    object-fit: contain;
+    object-position: right 22%;
+  }
+  &--freelance {
+    @include dark {
+      .glyph-hero__art {
+        filter: invert(1);
+        mix-blend-mode: screen;
+      }
+    }
+  }
   &__title {
     // The site's heading treatment: skewed up to the slant, with the oblique
     // style leaning the letters back upright, so the lines stack on the
@@ -115,15 +190,41 @@
     &__title {
       grid-area: 1 / 1;
     }
+    &__text {
+      align-self: start;
+      justify-self: stretch;
+      margin-top: 34dvh;
+    }
+    &__small {
+      font-size: 4.2vw;
+    }
+    &__big {
+      font-size: 11vw;
+    }
+    &__sub {
+      margin-top: 4dvh;
+      max-width: none;
+      font-size: 3.6vw;
+    }
+    &--freelance &__art {
+      width: 100%;
+      height: 32%;
+      object-position: right top;
+    }
     --glyph-size: 2.3vw;
   }
 }
 
 @include moving {
   // Print the glyph one row at a time, each row sliding in from the left.
-  .glyph-hero__glyph span {
+  .glyph-hero__glyph span,
+  .glyph-hero__line {
     animation: glyph-print 700ms $expo-out both;
     animation-delay: calc(var(--row) * 22ms);
+  }
+  // Heading lines are fewer and bigger: print them one at a time.
+  .glyph-hero__line {
+    animation-delay: calc(var(--row) * 140ms);
   }
   // Hold every entrance while the page-transition panel still covers it.
   html[data-shutter="covering"] .glyph-hero * {
@@ -134,6 +235,7 @@
     // Parallax: from the first pixel of page scroll, the glyph and the art
     // drift down at different speeds (vertical only), like the Home J.
     .glyph-hero__glyph,
+    .glyph-hero__text,
     .glyph-hero__art {
       animation-name: parallax-glyph;
       animation-duration: 1ms; // any non-zero value; the timeline sets the pace
