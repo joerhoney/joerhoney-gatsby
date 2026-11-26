@@ -9,9 +9,14 @@
   --field-c: #ff3f55;
   --glyph-size: min(2.1vh, 1.9vw);
 
+  @supports (height: 100dvh) {
+    --glyph-size: min(2.1dvh, 1.9vw);
+  }
+
   display: grid;
   position: relative;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
   align-items: center;
   overflow: hidden;
   background: linear-gradient(
@@ -20,8 +25,15 @@
     var(--field-b) 55%,
     var(--field-c)
   );
-  padding: u(16) u(6) u(20);
-  min-height: 100vh;
+  // Exactly the viewport's height. dvh follows mobile browsers' address bar
+  // as it shows and hides; vh is the fallback.
+  box-sizing: border-box;
+  padding: u(6);
+  height: 100vh;
+
+  @supports (height: 100dvh) {
+    height: 100dvh;
+  }
 
   &--creative {
     --field-a: #fff2cc;
@@ -62,6 +74,7 @@
     object-position: left top;
   }
   &__glyph {
+    grid-area: 1 / 1;
     position: relative;
     margin: 0;
     background: linear-gradient(
@@ -82,10 +95,14 @@
   &__title {
     // The site's heading treatment: skewed up to the slant, with the oblique
     // style leaning the letters back upright, so the lines stack on the
-    // slant. A narrow box (min-content) puts each word on its own line.
+    // slant. A narrow box (min-content) puts each word on its own line, all
+    // lined up on the right. It spans the whole hero, so a long title can
+    // overlap the text art instead of running off the right edge.
+    grid-area: 1 / 1 / 2 / 3;
     position: relative;
     align-self: center;
     justify-self: end;
+    max-width: 100%;
     transform: skewY($tilt);
     transform-origin: bottom right;
     margin: 0;
@@ -100,8 +117,11 @@
     &__art {
       width: 100%;
     }
+    // The title sits over the bottom of the hero, so the text art stays
+    // centred.
     &__title {
-      margin-top: 4vh;
+      grid-area: 1 / 1;
+      align-self: end;
     }
     --glyph-size: 2.3vw;
   }
