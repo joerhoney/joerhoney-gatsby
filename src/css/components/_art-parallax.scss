@@ -29,8 +29,8 @@ $hold: 360;
 // How much scrolling each hand-off takes. The hand-off starts this far
 // before the stage reaches the top of the screen.
 $ramp: 60;
-// (Where the pan starts and ends, --pan-start and --pan-end, is set by the
-// JS from the pieces.)
+// (Where the pan ends, --pan-end, is set by the JS from the pieces. It
+// starts at 0, when the stage settles.)
 
 // Keyframe offsets: each hand-off is 2 * $ramp long (half before the stop,
 // half after), out of $hold + 2 * $ramp of scrolling.
@@ -40,19 +40,15 @@ $hold-end: 100% - $hold-start;
 // Share of the pan covered during each hand-off, chosen so the pan's speed
 // at the end of a hand-off matches its steady speed.
 $ramp-share: math.div($hold-start-fraction, 2 * (1 - $hold-start-fraction));
-// Where the pan is at each keyframe, as a share of the way from
-// --pan-start (when the stage settles) to --pan-end. The first hand-off
-// begins a little before --pan-start.
+// Where the pan is at each keyframe, as a share of --pan-end. It's 0 when
+// the stage settles; the first hand-off begins a little before that.
 $pan-scale: math.div(1, 1 - $ramp-share);
 $at-first: -$ramp-share * $pan-scale;
 $at-hold-end: (1 - 2 * $ramp-share) * $pan-scale;
 
 // Translate for a piece at keyframe share $k: -(--v) * pan.
 @function pan-to($k) {
-  @return calc(
-    var(--v) * -1 *
-      (var(--pan-start) + (var(--pan-end) - var(--pan-start)) * #{$k})
-  );
+  @return calc(var(--v) * var(--pan-end) * #{-$k});
 }
 
 // Speed changes evenly across each ramp (quadratic easing), so it meets the
@@ -106,9 +102,9 @@ $ease-out-quad: cubic-bezier(0.333, 0.667, 0.667, 1);
 
     .art-parallax__piece {
       animation-name: art-parallax-pan;
-      // At pan p a piece is at --x - --v * p from the middle of the screen;
+      // At pan p a piece is at --x - --v * p from the left of the screen;
       // the keyframes below supply the "- --v * p".
-      left: calc(50cqw + var(--x) * 1cqh);
+      left: calc(var(--x) * 1cqh);
     }
 
     .art-parallax__stage,

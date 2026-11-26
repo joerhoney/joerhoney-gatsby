@@ -17,7 +17,7 @@ const pieceFields = [
     step: 1,
     note: (v) => `speed ${(100 / (100 + v)).toFixed(3)}`,
   },
-  { key: "x", step: 0.5, note: () => "from middle at settle" },
+  { key: "x", step: 0.5, note: () => "from left at settle" },
   { key: "y", step: 0.1, note: () => "from top" },
   { key: "h", step: 0.1, note: () => "height" },
   { key: "still", step: 0.5, note: () => "reduced-motion panorama" },
@@ -25,7 +25,6 @@ const pieceFields = [
 const sceneFields = [
   { key: "hold", step: 1, note: () => "scroll while panning" },
   { key: "ramp", step: 0.5, note: () => "scroll per hand-off" },
-  { key: "startAt", step: 0.1, note: () => "% min left start" },
   { key: "endAt", step: 0.1, note: () => "% last right edge" },
 ];
 
@@ -97,8 +96,7 @@ const sceneCss = ({ hold, ramp }) => {
   const s = 1 / (1 - d);
   const easeIn = "cubic-bezier(0.333, 0, 0.667, 0.333)";
   const easeOut = "cubic-bezier(0.333, 0.667, 0.667, 1)";
-  const pan = (k) =>
-    `calc(var(--v) * -1 * (var(--pan-start) + (var(--pan-end) - var(--pan-start)) * ${k}))`;
+  const pan = (k) => `calc(var(--v) * var(--pan-end) * ${-k})`;
   return `
 @supports (animation-timeline: view()) {
   @media (prefers-reduced-motion: no-preference) {
@@ -181,15 +179,7 @@ const Field = ({ label, value, step, note, onChange }) => {
   );
 };
 
-const ArtParallaxTuner = ({
-  pieces,
-  startAt,
-  endAt,
-  panStartFor,
-  panEndFor,
-  speed,
-  round,
-}) => {
+const ArtParallaxTuner = ({ pieces, endAt, panEndFor, speed, round }) => {
   const anchor = useRef(null);
   const [els, setEls] = useState(null); // { root, stage, imgs }
   const [values, setValues] = useState(() =>
@@ -211,7 +201,7 @@ const ArtParallaxTuner = ({
       img.style.cursor = "pointer";
     });
     setEls({ root, stage, imgs });
-    const s = { ...readScene(root, stage), startAt, endAt };
+    const s = { ...readScene(root, stage), endAt };
     setScene(s);
     setInitialScene(s);
 
@@ -230,7 +220,7 @@ const ArtParallaxTuner = ({
       stage.removeEventListener("click", pick);
       window.removeEventListener("keydown", key);
     };
-  }, [startAt, endAt]);
+  }, [endAt]);
 
   // Width from the image's real shape, so the pan's end follows h.
   const widthOf = useCallback(
@@ -257,19 +247,8 @@ const ArtParallaxTuner = ({
       img.style.outline = i === selected ? "1px dashed var(--color3)" : "";
     });
     const list = values.map((v, i) => ({ ...v, w: widthOf(i, v.h) }));
-    els.root.style.setProperty("--pan-start", panStartFor(list, scene.startAt));
     els.root.style.setProperty("--pan-end", panEndFor(list, scene.endAt));
-  }, [
-    els,
-    values,
-    scene,
-    selected,
-    widthOf,
-    panStartFor,
-    panEndFor,
-    speed,
-    round,
-  ]);
+  }, [els, values, scene, selected, widthOf, panEndFor, speed, round]);
 
   // Scroll length / hand-off: only override the compiled CSS once changed.
   useEffect(() => {
