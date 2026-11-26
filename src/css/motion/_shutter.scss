@@ -37,10 +37,11 @@ $slant-run: 26vh; // tan(14.125deg) * 100vh, rounded up
     position: absolute;
     bottom: 42vh;
     left: calc(#{$slant-run} + 12vw);
-    transform: translateY(110vh) skewY($tilt) rotate(90deg);
+    // Heading treatment: skewed to the slant, oblique to stand back upright.
+    transform: translateY(110vh) skewY($tilt);
     transform-origin: 0 100%;
     color: var(--color5);
-    font: 700 min(12vw, 18vh) / 0.9 $font-heading;
+    font: oblique 700 min(12vw, 18vh) / 0.9 $font-heading;
     text-transform: lowercase;
     white-space: nowrap;
   }

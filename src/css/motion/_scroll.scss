@@ -6,35 +6,13 @@
 @use "../tokens" as *;
 @use "motion" as *;
 
-// Paragraphs slide in from off-screen, so keep that off the scrollbar.
+// Screenshots slide in from off-screen, so keep that off the scrollbar.
 main {
   overflow-x: clip;
 }
 
 @include moving {
   @supports (animation-timeline: view()) {
-    // Headings: rise hanging on end, then swing up on the bottom-left corner
-    // to rest at the slant. These headings rest at skew(0, $tilt) with their
-    // origin top right, so the rotation is wrapped in translate(-100%, 100%)
-    // ... translate(100%, -100%) to pivot on the bottom-left corner instead.
-    main > section :is(h2.tilt, h2:has(+ p), h3.tilt) {
-      animation-name: heading-rise-swing;
-      animation-duration: 1ms; // any non-zero value; the timeline sets the pace
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: view();
-      animation-range: entry 0% cover 38%;
-    }
-    // Body copy slides in from the left after its heading has settled.
-    main > section :is(article, .article, .column) > :is(p, ul, ol),
-    main > section .showcase .content {
-      animation-name: copy-slide;
-      animation-duration: 1ms; // any non-zero value; the timeline sets the pace
-      animation-timing-function: linear;
-      animation-fill-mode: both;
-      animation-timeline: view();
-      animation-range: entry 30% cover 30%;
-    }
     // Showcase: screenshot from its side first, then the chips one by one.
     main > section .showcase > img {
       animation-name: shot-slide;
@@ -55,31 +33,6 @@ main {
   }
 }
 
-@keyframes heading-rise-swing {
-  0% {
-    transform: translateY(45vh) skewY($tilt) translate(-100%, 100%)
-      rotate(90deg) translate(100%, -100%);
-    animation-timing-function: $expo-out;
-  }
-  50% {
-    transform: translateY(0) skewY($tilt) translate(-100%, 100%)
-      rotate(90deg) translate(100%, -100%);
-    animation-timing-function: $expo-in-out;
-  }
-  100% {
-    transform: translateY(0) skewY($tilt) translate(-100%, 100%)
-      rotate(0deg) translate(100%, -100%);
-  }
-}
-@keyframes copy-slide {
-  from {
-    transform: translateX(-100vw);
-    animation-timing-function: $expo-out;
-  }
-  to {
-    transform: translateX(0);
-  }
-}
 @keyframes shot-slide {
   from {
     transform: translateX(-60vw);

@@ -3,9 +3,8 @@
 
   1. A panel in the destination door's gradient slides in from the left
      (its edges cut at the site slant).
-  2. The destination's name slides up into it, standing on end.
-  3. The name swings up on its bottom-left corner to rest at the slant;
-     the route changes underneath.
+  2. The destination's name slides up into it, already at the slant;
+  3. the route changes underneath.
   4. The panel (name and all) slides off to the right.
   The new page's own entrance (e.g. GlyphHero printing) waits for step 4.
 
@@ -52,7 +51,7 @@ const build = () => {
   document.body.append(panel);
 };
 
-const hanging = (y) => `translateY(${y}) skewY(${TILT}) rotate(90deg)`;
+const at = (y) => `translateY(${y}) skewY(${TILT})`;
 
 async function run(url) {
   running = true;
@@ -70,29 +69,15 @@ async function run(url) {
       easing: EXPO_IN_OUT,
     },
   );
-  // 2. Name rises, hanging on end.
-  await play(
-    word,
-    [{ transform: hanging("110vh") }, { transform: hanging("0") }],
-    {
-      duration: 320,
-      easing: EXPO_OUT,
-    },
-  );
-  // 3. Swings up on its bottom-left corner while the route changes.
+  // 2. Name slides up.
+  await play(word, [{ transform: at("110vh") }, { transform: at("0") }], {
+    duration: 320,
+    easing: EXPO_OUT,
+  });
+  // 3. The route changes underneath.
   const routed = new Promise((resolve) => (arrived = resolve));
   navigate(url.pathname + url.search + url.hash);
-  await Promise.all([
-    play(
-      word,
-      [
-        { transform: `translateY(0) skewY(${TILT}) rotate(90deg)` },
-        { transform: `translateY(0) skewY(${TILT}) rotate(0deg)` },
-      ],
-      { duration: 280, easing: EXPO_IN_OUT },
-    ),
-    Promise.race([routed, new Promise((r) => setTimeout(r, 4000))]),
-  ]);
+  await Promise.race([routed, new Promise((r) => setTimeout(r, 4000))]);
   // 4. Panel slides off to the right; the new page starts its entrance.
   document.documentElement.dataset.shutter = "leaving";
   await play(

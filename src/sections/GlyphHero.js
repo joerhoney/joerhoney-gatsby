@@ -7,9 +7,9 @@ import startGradientField from "../motion/gradientField";
  * the door's illustration behind it, its name across it, and a WebGPU
  * gradient field behind everything (CSS gradient when WebGPU is missing).
  *
- * Sequence on arrival: the glyph prints row by row (each row slides in from
- * the left), then the title rises hanging on end, then swings up on its
- * bottom-left corner to rest at the site slant.
+ * On arrival the glyph prints row by row (each row slides in from the
+ * left). The title uses the site's heading slant. As the page scrolls, the
+ * glyph and the illustration drift down at different speeds.
  *
  *   <Page hero={<GlyphHero door="developer" title="developer" rows={developerGlyph} img={dragon} />}>
  */

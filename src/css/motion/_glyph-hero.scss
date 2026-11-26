@@ -14,7 +14,12 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   overflow: hidden;
-  background: linear-gradient(70deg, var(--field-a), var(--field-b) 55%, var(--field-c));
+  background: linear-gradient(
+    70deg,
+    var(--field-a),
+    var(--field-b) 55%,
+    var(--field-c)
+  );
   padding: u(16) u(6) u(20);
   min-height: 100vh;
 
@@ -59,7 +64,12 @@
   &__glyph {
     position: relative;
     margin: 0;
-    background: linear-gradient(var(--color6), var(--color5), var(--color4), var(--color3));
+    background: linear-gradient(
+      var(--color6),
+      var(--color5),
+      var(--color4),
+      var(--color3)
+    );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -70,15 +80,20 @@
     }
   }
   &__title {
+    // The site's heading treatment: skewed up to the slant, with the oblique
+    // style leaning the letters back upright, so the lines stack on the
+    // slant. A narrow box (min-content) puts each word on its own line.
     position: relative;
     align-self: center;
+    justify-self: end;
     transform: skewY($tilt);
-    transform-origin: 0 100%;
+    transform-origin: bottom right;
     margin: 0;
+    width: min-content;
     color: var(--color5);
-    font: 700 min(13vw, 18vh) / 0.9 $font-heading;
+    font: oblique 700 min(13vw, 18vh) / 0.9 $font-heading;
+    text-align: right;
     text-transform: lowercase;
-    white-space: nowrap;
   }
   @media (max-width: 700px) {
     grid-template-columns: 1fr;
@@ -98,31 +113,22 @@
     animation: glyph-print 700ms $expo-out both;
     animation-delay: calc(var(--row) * 22ms);
   }
-  // Then the title: rise hanging on end, then swing up on its bottom-left
-  // corner to rest at the slant. Starts after the last row has landed.
-  .glyph-hero__title {
-    animation: title-rise-swing 1000ms both;
-    animation-delay: calc(var(--rows) * 22ms + 450ms);
-  }
   // Hold every entrance while the page-transition panel still covers it.
   html[data-shutter="covering"] .glyph-hero * {
     animation-play-state: paused;
   }
 
-  @supports (view-timeline-name: --hero) {
-    // Parallax: as the hero scrolls away, the glyph and the art drift down
-    // at different speeds (vertical only), like the Home J.
-    .glyph-hero {
-      view-timeline-name: --glyph-hero;
-    }
+  @supports (animation-timeline: scroll()) {
+    // Parallax: from the first pixel of page scroll, the glyph and the art
+    // drift down at different speeds (vertical only), like the Home J.
     .glyph-hero__glyph,
     .glyph-hero__art {
       animation-name: parallax-glyph;
       animation-duration: 1ms; // any non-zero value; the timeline sets the pace
       animation-timing-function: linear;
       animation-fill-mode: both;
-      animation-timeline: --glyph-hero;
-      animation-range: exit 0% exit 100%;
+      animation-timeline: scroll(root);
+      animation-range: 0 100vh;
     }
     .glyph-hero__art {
       animation-name: parallax-art;
@@ -136,19 +142,6 @@
   }
   to {
     translate: 0 0;
-  }
-}
-@keyframes title-rise-swing {
-  0% {
-    transform: translateY(110vh) skewY($tilt) rotate(90deg);
-    animation-timing-function: $expo-out;
-  }
-  55% {
-    transform: translateY(0) skewY($tilt) rotate(90deg);
-    animation-timing-function: $expo-in-out;
-  }
-  100% {
-    transform: translateY(0) skewY($tilt) rotate(0deg);
   }
 }
 @keyframes parallax-glyph {
