@@ -37,22 +37,10 @@
     height: 100dvh;
   }
 
-  &--creative {
-    --field-a: #fff2cc;
-    --field-b: #ffbca9;
-    --field-c: #ef5a64;
-  }
   @include dark {
     --field-a: #121f26;
     --field-b: #5d2942;
     --field-c: #ce2c3e;
-  }
-  &--creative {
-    @include dark {
-      --field-a: #121f26;
-      --field-b: #302a3f;
-      --field-c: #692938;
-    }
   }
 
   &__field {
