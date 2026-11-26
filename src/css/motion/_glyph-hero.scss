@@ -15,7 +15,9 @@
 
   display: grid;
   position: relative;
-  grid-template-columns: 1fr 1fr;
+  // minmax(0, …): the text art can't wrap, so let it run under the title
+  // rather than widen its column and push the title off the right edge.
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-template-rows: 1fr;
   align-items: center;
   overflow: hidden;
@@ -76,6 +78,9 @@
   &__glyph {
     grid-area: 1 / 1;
     position: relative;
+    // As wide as its text (it may run past its column): the gradient is
+    // clipped to the text, and only paints inside this box.
+    width: max-content;
     margin: 0;
     background: linear-gradient(
       var(--color6),
@@ -98,9 +103,11 @@
     // slant. A narrow box (min-content) puts each word on its own line, all
     // lined up on the right. It spans the whole hero, so a long title can
     // overlap the text art instead of running off the right edge.
+    // Sits over the bottom of the hero (as on phones), so the text art
+    // stays centred.
     grid-area: 1 / 1 / 2 / 3;
     position: relative;
-    align-self: center;
+    align-self: end;
     justify-self: end;
     max-width: 100%;
     transform: skewY($tilt);
@@ -113,15 +120,12 @@
     text-transform: lowercase;
   }
   @media (max-width: 700px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     &__art {
       width: 100%;
     }
-    // The title sits over the bottom of the hero, so the text art stays
-    // centred.
     &__title {
       grid-area: 1 / 1;
-      align-self: end;
     }
     --glyph-size: 2.3vw;
   }

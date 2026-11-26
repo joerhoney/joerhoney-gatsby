@@ -60,7 +60,7 @@ fn fs(@builtin(position) pos: vec4f) -> @location(0) vec4f {
   let dir = vec2f(0.9397, -0.3420);
   var q = vec2f(uv.x * aspect, uv.y) * 1.8;
   let warp = vec2f(
-    fbm(q + vec2f(0.0, u.time * 0.034 + u.scroll * 0.6)),
+    fbm(q + vec2f(0.0, u.time * 0.1 + u.scroll * 0.6)),
     fbm(q + vec2f(5.2, 1.3) - vec2f(u.time * 0.024, 0.0))
   );
   let swirl = fbm(q + warp * 1.6);
