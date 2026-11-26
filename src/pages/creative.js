@@ -9,7 +9,7 @@ import Page from "@layouts/Page";
 // Impages
 import skippinggirl from "@images/art/skipping-girl-sprite.webp";
 import skippingframes from "@images/art/skipping-girl-flipbook.webp";
-import team from "@images/heros/team.webp";
+import team from "@images/heros/team-2.webp";
 // Sections
 import ArtParallax from "@sections/ArtParallax";
 import ContactSection from "@sections/ContactSection";
