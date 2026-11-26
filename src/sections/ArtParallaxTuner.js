@@ -20,7 +20,7 @@ const pieceFields = [
   { key: "x", step: 0.5, note: () => "from left at settle" },
   { key: "y", step: 0.1, note: () => "from top" },
   { key: "h", step: 0.1, note: () => "height" },
-  { key: "still", step: 0.5, note: () => "reduced-motion panorama" },
+  { key: "still", step: 0.5, note: () => "still view position" },
 ];
 const sceneFields = [
   { key: "hold", step: 1, note: () => "scroll while panning" },
@@ -120,6 +120,17 @@ const sceneCss = ({ hold, ramp }) => {
 }`;
 };
 
+// "Still view": what visitors who prefer reduced motion (or browsers without
+// scroll-driven animations) get, the still panorama placed by --still.
+const stillCss = `
+.art-parallax[data-tuner-still] { height: auto; }
+.art-parallax[data-tuner-still] .art-parallax__stage {
+  animation-name: none; overflow-x: auto; overflow-y: hidden; translate: none;
+}
+.art-parallax[data-tuner-still] .art-parallax__piece {
+  animation-name: none; left: calc((var(--still) + 30) * 1cqh); translate: none;
+}`;
+
 const Grip = () => (
   <svg width="10" height="14" viewBox="0 0 10 14" aria-hidden="true">
     <path d="M2 2v10M5 2v10M8 2v10" stroke="currentColor" strokeWidth="1.2" />
@@ -189,6 +200,7 @@ const ArtParallaxTuner = ({ pieces, endAt, panEndFor, speed, round }) => {
   const [initialScene, setInitialScene] = useState(null);
   const [selected, setSelected] = useState(null);
   const [copied, setCopied] = useState(false);
+  const [still, setStill] = useState(false);
 
   // Find the scene, make the pieces clickable, read the current settings.
   useEffect(() => {
@@ -265,10 +277,25 @@ const ArtParallaxTuner = ({ pieces, endAt, panEndFor, speed, round }) => {
     tag.textContent = sceneCss(scene);
   }, [scene, initialScene]);
 
+  // Still view on/off.
+  useEffect(() => {
+    if (!els) return;
+    let tag = document.getElementById("art-parallax-tuner-still");
+    if (!tag) {
+      tag = document.createElement("style");
+      tag.id = "art-parallax-tuner-still";
+      tag.textContent = stillCss;
+      document.head.appendChild(tag);
+    }
+    els.root.toggleAttribute("data-tuner-still", still);
+    if (still) els.root.scrollIntoView({ block: "start", behavior: "instant" });
+  }, [els, still]);
+
   // Clean up when the page unmounts.
   useEffect(
     () => () => {
       document.getElementById("art-parallax-tuner")?.remove();
+      document.getElementById("art-parallax-tuner-still")?.remove();
     },
     [],
   );
@@ -353,6 +380,14 @@ const ArtParallaxTuner = ({ pieces, endAt, panEndFor, speed, round }) => {
           ))}
 
           <div style={styles.section}>Scene</div>
+          <button
+            type="button"
+            aria-pressed={still}
+            style={{ ...styles.button, display: "block", margin: "6px 0" }}
+            onClick={() => setStill((v) => !v)}
+          >
+            {still ? "Still view: on (reduced motion)" : "Still view: off"}
+          </button>
           {sceneFields.map(({ key, step, note }) => (
             <Field
               key={key}
