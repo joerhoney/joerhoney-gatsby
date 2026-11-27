@@ -13,7 +13,7 @@ title: Freelance
 description: Freelance web design and development. Websites, redesigns, WordPress, maintenance and web presence for small businesses.
 
 hero:
-  kicker: Freelance!
+  kicker: Web Designer
   # Wrap the key phrases in *asterisks*: they're set big, the rest small.
   heading: "Turn the *web market* into *walk-in customers*"
   subheading: Get a website that stands out and attracts the right customers.

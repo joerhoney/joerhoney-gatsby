@@ -15,23 +15,23 @@
 
   display: grid;
   position: relative;
+  grid-template-rows: 1fr;
   // minmax(0, …): the text art can't wrap, so let it run under the title
   // rather than widen its column and push the title off the right edge.
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  grid-template-rows: 1fr;
   align-items: center;
-  overflow: hidden;
+  // Exactly the viewport's height. dvh follows mobile browsers' address bar
+  // as it shows and hides; vh is the fallback.
+  box-sizing: border-box;
   background: linear-gradient(
     70deg,
     var(--field-a),
     var(--field-b) 55%,
     var(--field-c)
   );
-  // Exactly the viewport's height. dvh follows mobile browsers' address bar
-  // as it shows and hides; vh is the fallback.
-  box-sizing: border-box;
   padding: u(6);
   height: 100vh;
+  overflow: hidden;
 
   @supports (height: 100dvh) {
     height: 100dvh;
@@ -54,8 +54,8 @@
     position: absolute;
     top: 0;
     right: 0;
-    mix-blend-mode: luminosity;
     opacity: 0.35;
+    mix-blend-mode: luminosity;
     // Static soft edge so the art has no hard left border (not animated).
     mask-image: linear-gradient(to right, transparent, #000 45%);
     width: 62%;
@@ -64,11 +64,8 @@
     object-position: left top;
   }
   &__glyph {
-    grid-area: 1 / 1;
     position: relative;
-    // As wide as its text (it may run past its column): the gradient is
-    // clipped to the text, and only paints inside this box.
-    width: max-content;
+    grid-area: 1 / 1;
     margin: 0;
     background: linear-gradient(
       var(--color6),
@@ -76,6 +73,9 @@
       var(--color4),
       var(--color3)
     );
+    // As wide as its text (it may run past its column): the gradient is
+    // clipped to the text, and only paints inside this box.
+    width: max-content;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -89,25 +89,25 @@
   // text art's typewriter font, key phrases big in the heading font with
   // the site's slant, all in the glyph's gradient.
   &__text {
-    grid-area: 1 / 1;
     position: relative;
+    grid-area: 1 / 1;
     align-self: center;
     justify-self: end;
     max-width: 100%;
   }
   &__heading {
-    // Not the site's "h2 followed by p" nudge down.
-    translate: none;
     transform: skewY($tilt);
     transform-origin: bottom right;
+    // Not the site's "h2 followed by p" nudge down.
+    translate: none;
     margin: 0;
-    padding: 0;
     background: linear-gradient(
       var(--color6),
       var(--color5),
       var(--color4),
       var(--color3)
     );
+    padding: 0;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -121,7 +121,7 @@
     // gradient turns red.
     margin-bottom: 0.3em;
     color: var(--color5);
-    font: 400 min(2.6vw, 3.8vh) / 1.3 $font-body;
+    font: oblique 400 min(2.6vw, 3.8vh) / 1.3 $font-body;
     letter-spacing: 0;
     text-transform: none;
   }
@@ -134,33 +134,38 @@
     margin: 4vh 0 0 auto;
     max-width: 34ch;
     color: var(--color5);
-    text-wrap: balance;
     font: 400 min(1.6vw, 2.4vh) / 1.5 $font-body;
     text-align: right;
+    text-wrap: balance;
     // Not the site's "h2 + p" wrap around a slanted heading.
     &::before {
       content: none;
     }
   }
   // Freelance: the storefront sits flush against the right edge, so the
-  // cursors look like they come in from off screen.
+  // cursors look like they come in from off screen. Landscape: the title
+  // at the top, the store low (80% down), the words beside it.
   &--freelance &__art {
-    mix-blend-mode: multiply;
     opacity: 0.75;
+    mix-blend-mode: multiply;
     mask-image: none;
     width: 48%;
     object-fit: contain;
-    object-position: right 22%;
+    object-position: right 80%;
+  }
+  &--freelance &__title {
+    align-self: start;
   }
   &--freelance {
     @include dark {
       .glyph-hero__art {
-        filter: invert(1);
         mix-blend-mode: screen;
+        filter: invert(1);
       }
     }
   }
   &__title {
+    position: relative;
     // The site's heading treatment: skewed up to the slant, with the oblique
     // style leaning the letters back upright, so the lines stack on the
     // slant. A narrow box (min-content) puts each word on its own line, all
@@ -169,14 +174,13 @@
     // Sits over the bottom of the hero (as on phones), so the text art
     // stays centred.
     grid-area: 1 / 1 / 2 / 3;
-    position: relative;
     align-self: end;
     justify-self: end;
-    max-width: 100%;
     transform: skewY($tilt);
     transform-origin: bottom right;
     margin: 0;
     width: min-content;
+    max-width: 100%;
     color: var(--color5);
     font: oblique 700 min(13vw, 18vh) / 0.9 $font-heading;
     text-align: right;
@@ -184,6 +188,7 @@
   }
   @media (max-width: 700px) {
     grid-template-columns: minmax(0, 1fr);
+    --glyph-size: 2.3vw;
     &__art {
       width: 100%;
     }
@@ -206,12 +211,36 @@
       max-width: none;
       font-size: 3.6vw;
     }
-    &--freelance &__art {
-      width: 100%;
-      height: 32%;
-      object-position: right top;
+  }
+  // Freelance, portrait: stacked. The title at the top, the words (heading
+  // and sub line together) under it, and the store at the bottom, still
+  // flush right, taking whatever height is left.
+  @media (orientation: portrait) {
+    &--freelance {
+      grid-template-rows: auto auto minmax(0, 1fr);
+      grid-template-columns: minmax(0, 1fr);
+      align-items: start;
     }
-    --glyph-size: 2.3vw;
+    &--freelance &__title {
+      grid-area: 1 / 1;
+    }
+    &--freelance &__text {
+      grid-area: 2 / 1;
+      align-self: start;
+      justify-self: stretch;
+      margin-top: 6dvh;
+    }
+    &--freelance &__art {
+      position: relative;
+      grid-area: 3 / 1;
+      align-self: stretch;
+      justify-self: end;
+      margin-top: 4dvh;
+      margin-right: calc(-1 * #{u(6)});
+      width: calc(100% + #{u(6)});
+      height: 100%;
+      object-position: right bottom;
+    }
   }
 }
 
@@ -237,10 +266,10 @@
     .glyph-hero__glyph,
     .glyph-hero__text,
     .glyph-hero__art {
-      animation-name: parallax-glyph;
       animation-duration: 1ms; // any non-zero value; the timeline sets the pace
       animation-timing-function: linear;
       animation-fill-mode: both;
+      animation-name: parallax-glyph;
       animation-timeline: scroll(root);
       animation-range: 0 100vh;
     }
