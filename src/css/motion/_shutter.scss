@@ -33,6 +33,20 @@ $slant-run: 26vh; // tan(14.125deg) * 100vh, rounded up
     background: var(--gradBgHalf2);
   }
 
+  // The door's text art, faint, centred behind the name. Upright (no
+  // skew), like the heroes' text art.
+  &__glyph {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: 0;
+    translate: -50% -50%;
+    opacity: 0.16;
+    color: var(--color5);
+    font: 400 min(2.6vh, 2.3vw) / 1.1 $font-body;
+    letter-spacing: -0.08em;
+    white-space: pre;
+  }
   &__word {
     position: absolute;
     bottom: 42vh;

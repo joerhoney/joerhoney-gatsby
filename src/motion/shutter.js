@@ -2,10 +2,13 @@
   "The shutter" page transition.
 
   1. A panel in the destination door's gradient slides in from the left
-     (its edges cut at the site slant).
-  2. The destination's name slides up into it, already at the slant;
-  3. the route changes underneath.
-  4. The panel (name and all) slides off to the right.
+     (its edges cut at the site slant), carrying the door's text art,
+     faint, behind where the name will be.
+  2. The destination's name crosses the panel in one move, from the bottom
+     left to the top right along the panel's slanted edge, slowing in the
+     middle so it can be read. The text art drifts the same way, a shorter
+     distance (parallax). The route changes underneath meanwhile.
+  3. The panel (text art and all) slides off to the right.
   The new page's own entrance (e.g. GlyphHero printing) waits for step 4.
 
   Only plain left-clicks on same-site links to another page are taken over.
@@ -13,10 +16,16 @@
   instant navigation. A click during a transition skips to the end.
 */
 import { navigate } from "gatsby";
+import { creativeGlyph, developerGlyph } from "../content/glyphs";
 
 const EXPO_IN_OUT = "cubic-bezier(0.87, 0, 0.13, 1)";
-const EXPO_OUT = "cubic-bezier(0.16, 1, 0.3, 1)";
 const TILT = "14.125deg";
+// Moving "up" along the panel's slanted edge: for every 1 up, 0.2516 right
+// (tan 14.125deg).
+const RUN = 0.2516;
+
+// Text art behind the name (doors without one show the name alone).
+const art = { creative: creativeGlyph, developer: developerGlyph };
 
 const doors = [
   ["/creative", "creative", "creative"],
@@ -32,7 +41,7 @@ const doorFor = (pathname) => {
   return hit ? { word: hit[1], door: hit[2] } : { word: ":j", door: "home" };
 };
 
-let panel, word, running, arrived;
+let panel, word, glyph, running, arrived;
 const current = [];
 
 const play = (el, keyframes, options) => {
@@ -45,19 +54,26 @@ const build = () => {
   panel = document.createElement("div");
   panel.className = "shutter";
   panel.setAttribute("aria-hidden", "true");
+  glyph = document.createElement("pre");
+  glyph.className = "shutter__glyph";
   word = document.createElement("span");
   word.className = "shutter__word";
-  panel.append(word);
+  panel.append(glyph, word);
   document.body.append(panel);
 };
 
-const at = (y) => `translateY(${y}) skewY(${TILT})`;
+// y in vh: positive is down. x follows the slant.
+const along = (y) => `translate(${-y * RUN}vh, ${y}vh)`;
+const at = (y) => `${along(y)} skewY(${TILT})`;
 
 async function run(url) {
   running = true;
   const { word: label, door } = doorFor(url.pathname);
   panel.dataset.door = door;
   word.textContent = label;
+  glyph.textContent = (art[door] || []).join("\n");
+  word.style.transform = at(110);
+  glyph.style.transform = along(30);
   document.documentElement.dataset.shutter = "covering";
 
   // 1. Panel slides in from the left.
@@ -69,16 +85,17 @@ async function run(url) {
       easing: EXPO_IN_OUT,
     },
   );
-  // 2. Name slides up.
-  await play(word, [{ transform: at("110vh") }, { transform: at("0") }], {
-    duration: 320,
-    easing: EXPO_OUT,
-  });
-  // 3. The route changes underneath.
+  // 2. Name and text art cross the panel along its slant; the route
+  // changes underneath.
   const routed = new Promise((resolve) => (arrived = resolve));
   navigate(url.pathname + url.search + url.hash);
-  await Promise.race([routed, new Promise((r) => setTimeout(r, 4000))]);
-  // 4. Panel slides off to the right; the new page starts its entrance.
+  const cross = { duration: 1000, easing: EXPO_IN_OUT };
+  await Promise.all([
+    play(word, [{ transform: at(110) }, { transform: at(-130) }], cross),
+    play(glyph, [{ transform: along(30) }, { transform: along(-30) }], cross),
+    Promise.race([routed, new Promise((r) => setTimeout(r, 4000))]),
+  ]);
+  // 3. Panel slides off to the right; the new page starts its entrance.
   document.documentElement.dataset.shutter = "leaving";
   await play(
     panel,
