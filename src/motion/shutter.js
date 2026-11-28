@@ -2,13 +2,12 @@
   "The shutter" page transition.
 
   1. A panel in the destination door's gradient slides in from the left
-     (its edges cut at the site slant), carrying the door's text art,
-     faint, behind where the name will be.
+     (its edges cut at the site slant).
   2. The destination's name crosses the panel in one move, from the bottom
      left to the top right along the panel's slanted edge, slowing in the
-     middle so it can be read. The text art drifts the same way, a shorter
-     distance (parallax). The route changes underneath meanwhile.
-  3. The panel (text art and all) slides off to the right.
+     middle so it can be read. The door's text art, faint, behind it, fades
+     in and out as it drifts the same way, a shorter distance (parallax). The route changes underneath meanwhile.
+  3. The panel slides off to the right.
   The new page's own entrance (e.g. GlyphHero printing) waits for step 4.
 
   Only plain left-clicks on same-site links to another page are taken over.
@@ -96,6 +95,18 @@ async function run(url) {
   await Promise.all([
     play(word, [{ transform: at(110) }, { transform: at(-130) }], cross),
     play(glyph, [{ transform: along(30) }, { transform: along(-30) }], cross),
+    // The text art fades in and back out as it drifts, so it never sits
+    // still on the panel while the panel slides.
+    play(
+      glyph,
+      [
+        { opacity: 0 },
+        { opacity: 0.16, offset: 0.3 },
+        { opacity: 0.16, offset: 0.7 },
+        { opacity: 0 },
+      ],
+      { duration: cross.duration },
+    ),
     Promise.race([routed, new Promise((r) => setTimeout(r, 4000))]),
   ]);
   // 3. Panel slides off to the right; the new page starts its entrance.
