@@ -19,6 +19,9 @@ import { navigate } from "gatsby";
 import { creativeGlyph, developerGlyph } from "../content/glyphs";
 
 const EXPO_IN_OUT = "cubic-bezier(0.87, 0, 0.13, 1)";
+// Fast, slow, fast: the name and text art rush in, drift slowly through
+// the middle (where the name is read), then rush out.
+const DRIFT = "cubic-bezier(0.05, 0.85, 0.95, 0.15)";
 const TILT = "14.125deg";
 // Moving "up" along the panel's slanted edge: for every 1 up, 0.2516 right
 // (tan 14.125deg).
@@ -89,7 +92,7 @@ async function run(url) {
   // changes underneath.
   const routed = new Promise((resolve) => (arrived = resolve));
   navigate(url.pathname + url.search + url.hash);
-  const cross = { duration: 1000, easing: EXPO_IN_OUT };
+  const cross = { duration: 1000, easing: DRIFT };
   await Promise.all([
     play(word, [{ transform: at(110) }, { transform: at(-130) }], cross),
     play(glyph, [{ transform: along(30) }, { transform: along(-30) }], cross),
