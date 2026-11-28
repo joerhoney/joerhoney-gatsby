@@ -10,7 +10,7 @@ import allears from "@images/portrait-photo.webp";
 import storeFront from "@images/heros/store-front-transparent.gif";
 // Sections
 import ContactSection from "@sections/ContactSection";
-import GlyphHero, { HeroWords } from "@sections/GlyphHero";
+import GlyphHero from "@sections/GlyphHero";
 import Seo from "@components/Seo";
 
 // All of this page's words live in src/content/freelance.md.
@@ -22,9 +22,12 @@ export const query = graphql`
         title
         description
         hero {
-          kicker
-          heading
-          subheading
+          h1
+          hook
+          h2
+          promises
+          button
+          link
         }
         benefits {
           heading
@@ -87,13 +90,44 @@ const FreelancePage = ({ data }) => {
   return (
     <Page
       hero={
-        <GlyphHero
-          door="freelance"
-          title={hero.kicker}
-          img={storeFront}
-          alt="Mouse clicks swarming into your store."
-        >
-          <HeroWords heading={hero.heading} sub={hero.subheading} />
+        <GlyphHero door="freelance">
+          <div className="hire-hero">
+            <div className="hire-hero__words">
+              <h1 className="hire-hero__h1" style={{ "--row": 0 }}>
+                {hero.h1}
+              </h1>
+              <p className="hire-hero__hook" style={{ "--row": 1 }}>
+                {hero.hook}
+              </p>
+              <h2 className="hire-hero__h2" style={{ "--row": 2 }}>
+                {hero.h2}
+              </h2>
+              {hero.promises?.length > 0 && (
+                <ul className="hire-hero__promises" style={{ "--row": 3 }}>
+                  {hero.promises.map((promise) => (
+                    <li key={promise}>{promise}</li>
+                  ))}
+                </ul>
+              )}
+              <p className="hire-hero__actions" style={{ "--row": 4 }}>
+                <a className="button" href="#contact">
+                  {hero.button}
+                </a>
+                {has(work) && (
+                  <a className="hire-hero__more" href="#work">
+                    {hero.link}
+                  </a>
+                )}
+              </p>
+            </div>
+            <div className="hire-hero__stage">
+              <img
+                className="hire-hero__art"
+                src={storeFront}
+                alt="Mouse cursors streaming into a storefront."
+              />
+            </div>
+          </div>
         </GlyphHero>
       }
     >

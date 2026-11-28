@@ -13,9 +13,8 @@ import startGradientField from "../motion/gradientField";
  *
  *   <Page hero={<GlyphHero door="developer" title="developer" rows={developerGlyph} img={dragon} />}>
  *
- * Without rows, its children take the glyph's place (e.g. the freelance
- * page's heading, see HeroWords below). Give each line a --row style and the
- * glyph-hero__line class to have it print in, one line at a time.
+ * Without rows or a title, it's just the backdrop (field, colours, height):
+ * its children lay out the hero themselves (e.g. the freelance page).
  */
 const GlyphHero = ({ door, title, rows, img, alt = "", children }) => {
   const canvas = useRef(null);
@@ -33,57 +32,10 @@ const GlyphHero = ({ door, title, rows, img, alt = "", children }) => {
           ))}
         </pre>
       ) : (
-        <div className="glyph-hero__text">{children}</div>
+        children
       )}
-      <h1 className="glyph-hero__title">{title}</h1>
+      {title && <h1 className="glyph-hero__title">{title}</h1>}
     </section>
-  );
-};
-
-/**
- * A heading laid out in the glyph's place. Wrap the key phrases in
- * *asterisks*: they're set big, in the heading font; the words between them
- * are set small, in the text art's typewriter font. The sub line goes under.
- *
- *   <HeroWords heading="Turn the *web market* into *walk-in customers*" sub="…" />
- */
-export const HeroWords = ({ heading, sub }) => {
-  const parts = heading
-    .split(/(\*[^*]+\*)/)
-    .map((part) => part.trim())
-    .filter(Boolean);
-  return (
-    <>
-      <h2 className="glyph-hero__heading">
-        {parts.map((part, i) =>
-          part.startsWith("*") ? (
-            <span
-              key={i}
-              className="glyph-hero__line glyph-hero__big"
-              style={{ "--row": i }}
-            >
-              {part.slice(1, -1)}
-            </span>
-          ) : (
-            <span
-              key={i}
-              className="glyph-hero__line glyph-hero__small"
-              style={{ "--row": i }}
-            >
-              {part}
-            </span>
-          ),
-        )}
-      </h2>
-      {sub && (
-        <p
-          className="glyph-hero__line glyph-hero__sub"
-          style={{ "--row": parts.length + 1 }}
-        >
-          {sub}
-        </p>
-      )}
-    </>
   );
 };
 

@@ -13,10 +13,17 @@ title: Freelance
 description: Freelance web design and development. Websites, redesigns, WordPress, maintenance and web presence for small businesses.
 
 hero:
-  kicker: Web Designer
-  # Wrap the key phrases in *asterisks*: they're set big, the rest small.
-  heading: "Turn the *web market* into *walk-in customers*"
-  subheading: Get a website that stands out and attracts the right customers.
+  # h1 and h2 are the page's search headings: say what you do and who for.
+  # The hook is the big line people read first (not a heading).
+  h1: Freelance web designer & developer for small businesses
+  hook: Can you get a hold of your web guy?
+  h2: Custom websites, SEO and online marketing from one developer who actually answers.
+  promises:
+    - Replies within one business day
+    - Launch dates that hold
+    - Still here long after launch
+  button: Start your project
+  link: See recent work
 
 benefits:
   heading: Highly Recommended by Industry Professionals
