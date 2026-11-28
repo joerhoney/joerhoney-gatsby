@@ -43,37 +43,40 @@ section:has(.all-ears) {
   width: 100%;
   max-width: 1400px;
 
-  // Search heading, small: what this is and who it's for.
+  // Search heading, small: what this is and who it's for. On the slant
+  // like the hook, wrapped into short, even lines.
   .hire-hero__h1 {
-    transform: none;
-    margin: 0 0 u(3);
+    transform: skewY($tilt);
+    transform-origin: top left;
+    margin: 0 0 calc(#{u(3)} + 4ch);
     padding: 0;
     width: auto;
-    max-width: none;
+    max-width: 30ch;
     color: var(--color5);
-    font: 700 clamp(15px, 1.25vw, 19px) / 1.4 $font-body;
+    font: oblique 700 clamp(15px, 1.25vw, 19px) / 1.4 $font-body;
     letter-spacing: 0;
     text-align: left;
     text-transform: none;
+    text-wrap: balance;
   }
   // The line people read first. Not a heading: the site's heading slant,
   // in the text art's gradient. Skewed from its left edge, so its right end
-  // drops; the bottom margin makes room for that.
+  // drops; the h2 below tucks its slanted corner under that.
   &__hook {
     transform: skewY($tilt);
     transform-origin: top left;
-    margin: 0 0 2.4ch;
+    margin: 0 0 0.4ch;
     background: linear-gradient(
       var(--color6),
       var(--color5),
       var(--color4),
       var(--color3)
     );
-    max-width: 11ch;
+    max-width: 12ch;
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-    font: oblique 700 max(40px, min(6.4vw, 10vh)) / 0.95 $font-heading;
+    font: oblique 700 max(40px, min(6.4vw, 8.5vh)) / 0.95 $font-heading;
     letter-spacing: -0.03em;
     text-wrap: balance;
   }
@@ -81,14 +84,25 @@ section:has(.all-ears) {
   .hire-hero__h2 {
     transform: none;
     translate: none;
-    margin: 0 0 u(4);
+    margin: 0.4em 0 u(4);
     padding: 0;
-    max-width: 26em;
+    max-width: 20em;
     color: var(--color5);
     font: 700 clamp(19px, 1.9vw, 30px) / 1.25 $font-heading;
     letter-spacing: -0.01em;
     text-align: left;
     text-transform: none;
+    // Its top right corner is cut at the slant (like a paragraph under a
+    // tilted heading), so it fits under the hook's dropping right end.
+    // The cut runs the full width at the site slant, so each line starts
+    // just under the hook's dropping bottom edge.
+    &::before {
+      float: right;
+      shape-outside: polygon(0 0, 100% 0, 100% 100%);
+      aspect-ratio: 1 / 0.2516; // tan(14.125deg)
+      width: 100%;
+      content: "";
+    }
   }
   &__promises {
     margin: 0 0 u(5);

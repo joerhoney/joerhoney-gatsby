@@ -19,9 +19,9 @@ hero:
   hook: Can you get a hold of your web guy?
   h2: Custom websites, SEO and online marketing from one developer who actually answers.
   promises:
-    - Replies within one business day
-    - Launch dates that hold
-    - Still here long after launch
+    - Always know where your project stands
+    - Ask anything, get a straight answer
+    - A site that brings in customers, not just compliments
   button: Start your project
   link: See recent work
 
